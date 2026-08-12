@@ -1,0 +1,18 @@
+---
+description: Reglas base siempre activas para trabajar en Neros
+alwaysApply: true
+---
+
+# Reglas Base Neros
+
+- Responder en espanol con tono tecnico, claro y conciso.
+- Seguir `AGENTS.md` como guia operativa principal.
+- Seguir `CONVENTIONS.md` para capas, UI, nombres y base de datos.
+- Arquitectura objetivo: Blazor Web App + API + Application + Domain + Contracts + Shared.
+- El monolito anterior es referencia funcional, no arquitectura objetivo.
+- No usar `Neros.Next`, Aurosoft ni Equaltech como nombres objetivo.
+- No introducir Bootstrap, jQuery, DataTables ni Select2.
+- No acceder a datos desde Blazor.
+- No guardar secretos en archivos versionados.
+- No revertir cambios ajenos ni usar comandos destructivos de git sin autorizacion explicita.
+- Si el usuario prohibe ejecucion local, no ejecutar builds, tests, npm, dotnet, graphify ni servidores.

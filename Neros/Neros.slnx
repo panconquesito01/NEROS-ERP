@@ -1,0 +1,20 @@
+﻿<Solution>
+  <Folder Name="/database/" />
+  <Folder Name="/deploy/" />
+  <Folder Name="/docs/" />
+  <Folder Name="/src/" />
+  <Folder Name="/src/Core/">
+    <Project Path="Neros.Application/Neros.Application.csproj" />
+    <Project Path="Neros.Contracts/Neros.Contracts.csproj" />
+    <Project Path="Neros.Domain/Neros.Domain.csproj" />
+    <Project Path="Neros.Shared/Neros.Shared.csproj" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/" />
+  <Folder Name="/src/Modules/" />
+  <Folder Name="/src/Presentation/">
+    <Project Path="Neros.Api/Neros.Api.csproj" />
+    <Project Path="Neros.Blazor/Neros.Blazor.csproj" />
+  </Folder>
+  <Folder Name="/src/Workers/" />
+  <Folder Name="/tests/" />
+</Solution>

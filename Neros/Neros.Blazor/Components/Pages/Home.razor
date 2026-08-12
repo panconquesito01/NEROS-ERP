@@ -1,0 +1,185 @@
+@page "/home"
+
+<PageTitle>Centro operativo | Neros</PageTitle>
+
+<div class="dashboard-page">
+    <header class="page-heading">
+        <div>
+            <p class="page-kicker"><span aria-hidden="true"></span> Miércoles, 12 de agosto</p>
+            <h1>El negocio, de un vistazo.</h1>
+            <p>Prioridades, movimientos e indicadores para comenzar el día con contexto.</p>
+        </div>
+        <button class="primary-action" type="button">
+            <iconify-icon icon="lucide:plus" aria-hidden="true"></iconify-icon>
+            Nueva operación
+        </button>
+    </header>
+
+    <section class="metric-strip" aria-label="Indicadores principales">
+        @foreach (var metric in Metrics)
+        {
+            <article class="metric-item @metric.Tone">
+                <span class="metric-icon"><iconify-icon icon="@metric.Icon" aria-hidden="true"></iconify-icon></span>
+                <div>
+                    <p>@metric.Label</p>
+                    <strong>@metric.Value</strong>
+                    <small>@metric.Detail</small>
+                </div>
+            </article>
+        }
+    </section>
+
+    <div class="dashboard-grid">
+        <section class="performance-panel">
+            <header class="panel-header">
+                <div>
+                    <p class="section-kicker">Rendimiento comercial</p>
+                    <h2>Ventas y recaudo</h2>
+                </div>
+                <div class="period-switch" aria-label="Periodo seleccionado">
+                    <button type="button">7 días</button>
+                    <button class="active" type="button">30 días</button>
+                    <button type="button">Trimestre</button>
+                </div>
+            </header>
+
+            <div class="chart-summary">
+                <div><span>Facturacion acumulada</span><strong>$284,6M</strong></div>
+                <span class="positive-chip"><iconify-icon icon="lucide:trending-up" aria-hidden="true"></iconify-icon> 8,2%</span>
+            </div>
+
+            <div class="bar-chart" aria-label="Ventas de los últimos siete periodos">
+                @foreach (var point in SalesTrend)
+                {
+                    <div class="bar-column">
+                        <div class="bar-track"><span style="@($"--bar: {point.Height}%")"></span></div>
+                        <small>@point.Label</small>
+                    </div>
+                }
+            </div>
+
+            <footer class="chart-footer">
+                <span><i class="actual"></i>Real $284,6M</span>
+                <span><i class="target"></i>Meta $310M</span>
+                <p>92% de la meta mensual</p>
+            </footer>
+        </section>
+
+        <aside class="attention-panel">
+            <header class="panel-header light">
+                <div>
+                    <p class="section-kicker">Requiere atención</p>
+                    <h2>Prioridades de hoy</h2>
+                </div>
+                <span class="priority-count">4</span>
+            </header>
+
+            <div class="attention-list">
+                @foreach (var item in Priorities)
+                {
+                    <article>
+                        <span class="attention-status @item.Tone"><iconify-icon icon="@item.Icon" aria-hidden="true"></iconify-icon></span>
+                        <div><strong>@item.Title</strong><p>@item.Description</p></div>
+                        <button type="button" aria-label="Abrir @item.Title"><iconify-icon icon="lucide:arrow-up-right" aria-hidden="true"></iconify-icon></button>
+                    </article>
+                }
+            </div>
+
+            <button class="all-priorities" type="button">Ver todas las prioridades <iconify-icon icon="lucide:arrow-right" aria-hidden="true"></iconify-icon></button>
+        </aside>
+    </div>
+
+    <div class="lower-grid">
+        <section class="work-panel">
+            <header class="panel-header">
+                <div>
+                    <p class="section-kicker">Flujo operativo</p>
+                    <h2>Actividad reciente</h2>
+                </div>
+                <button class="quiet-action" type="button"><iconify-icon icon="lucide:list-filter" aria-hidden="true"></iconify-icon>Filtrar</button>
+            </header>
+
+            <div class="work-table" role="table" aria-label="Actividad reciente">
+                <div class="table-head" role="row">
+                    <span>Movimiento</span><span>Area</span><span>Estado</span><span>Actualizacion</span>
+                </div>
+                @foreach (var task in Tasks)
+                {
+                    <article class="table-row" role="row">
+                        <div class="task-main"><span class="task-icon"><iconify-icon icon="@task.Icon" aria-hidden="true"></iconify-icon></span><p><strong>@task.Title</strong><small>@task.Description</small></p></div>
+                        <span class="area-label">@task.Area</span>
+                        <span class="status-label @task.Tone"><i aria-hidden="true"></i>@task.Status</span>
+                        <time>@task.Updated</time>
+                    </article>
+                }
+            </div>
+        </section>
+
+        <section class="modules-panel">
+            <header class="panel-header">
+                <div>
+                    <p class="section-kicker">Acceso directo</p>
+                    <h2>Módulos</h2>
+                </div>
+                <button class="icon-action" type="button" aria-label="Configurar modulos"><iconify-icon icon="lucide:settings-2" aria-hidden="true"></iconify-icon></button>
+            </header>
+
+            <div class="module-list">
+                @foreach (var module in Modules)
+                {
+                    <button class="module-row" type="button">
+                        <span class="module-icon @module.Tone"><iconify-icon icon="@module.Icon" aria-hidden="true"></iconify-icon></span>
+                        <span><strong>@module.Name</strong><small>@module.Description</small></span>
+                        <iconify-icon icon="lucide:chevron-right" aria-hidden="true"></iconify-icon>
+                    </button>
+                }
+            </div>
+        </section>
+    </div>
+</div>
+
+@code {
+    private static readonly DashboardMetric[] Metrics =
+    [
+        new("Ventas del día", "$18,45M", "+12,4% frente a ayer", "lucide:circle-dollar-sign", "teal"),
+        new("Facturas abiertas", "42", "8 vencen hoy", "lucide:receipt-text", "amber"),
+        new("Stock crítico", "17", "4 requieren acción", "lucide:triangle-alert", "rose"),
+        new("Clientes activos", "1.284", "+24 este mes", "lucide:users-round", "blue")
+    ];
+
+    private static readonly ChartPoint[] SalesTrend =
+    [
+        new("06", 42), new("07", 58), new("08", 51), new("09", 76),
+        new("10", 65), new("11", 84), new("12", 92)
+    ];
+
+    private static readonly PriorityItem[] Priorities =
+    [
+        new("Margen por aprobar", "3 descuentos superan la política comercial.", "lucide:badge-percent", "amber"),
+        new("Inventario bajo", "17 referencias con cobertura menor a 7 días.", "lucide:package-search", "rose"),
+        new("Pagos sin aplicar", "6 transferencias esperan conciliación.", "lucide:landmark", "blue"),
+        new("Cierre de caja", "La sede Norte reporta 92% conciliado.", "lucide:calculator", "teal")
+    ];
+
+    private static readonly WorkTask[] Tasks =
+    [
+        new("Factura FV-2841 registrada", "Comercializadora Andina", "Ventas", "Completado", "Hace 2 min", "lucide:file-check-2", "done"),
+        new("Pedido PE-1098 preparado", "Salida desde bodega principal", "Inventario", "En proceso", "Hace 8 min", "lucide:package-check", "progress"),
+        new("Pago por conciliar", "Transferencia bancaria #8492", "Tesorería", "Pendiente", "Hace 14 min", "lucide:landmark", "pending"),
+        new("Nota crédito NC-142", "Validación del responsable", "Ventas", "Revisión", "Hace 26 min", "lucide:file-clock", "review")
+    ];
+
+    private static readonly QuickModule[] Modules =
+    [
+        new("Ventas", "Pedidos y facturación", "lucide:receipt-text", "teal"),
+        new("Inventario", "Existencias y movimientos", "lucide:boxes", "blue"),
+        new("Finanzas", "Cartera y tesoreria", "lucide:wallet-cards", "amber"),
+        new("Reportes", "Indicadores y cierres", "lucide:chart-spline", "violet")
+    ];
+
+    private sealed record DashboardMetric(string Label, string Value, string Detail, string Icon, string Tone);
+    private sealed record ChartPoint(string Label, int Height);
+    private sealed record PriorityItem(string Title, string Description, string Icon, string Tone);
+    private sealed record WorkTask(string Title, string Description, string Area, string Status, string Updated, string Icon, string Tone);
+    private sealed record QuickModule(string Name, string Description, string Icon, string Tone);
+}

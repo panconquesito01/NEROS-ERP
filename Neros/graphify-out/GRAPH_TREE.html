@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Neros — graphify tree viewer</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      margin: 20px 0 0 24px;
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #1e3a56;
+    }
+    .controls {
+      margin: 20px 0 15px 24px;
+    }
+    button {
+      margin-right: 10px;
+      padding: 8px 18px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s ease-in-out;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    button:active {
+      background: #004085;
+    }
+    #tree-container {
+      width: calc(100vw - 48px); /* Adjust for body margin/padding */
+      height: 85vh;
+      overflow: auto;
+      border-radius: 8px;
+      background: #fff;
+      margin-left: 24px;
+      margin-right: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border: 1px solid #ddd;
+    }
+    svg {
+      background: #fff;
+      border-radius: 8px;
+      display: block; /* Important for D3 */
+    }
+    .node circle {
+      stroke-width: 2.5px;
+    }
+    .node text { /* Base style for the <text> container */
+      font: 13px 'Segoe UI', sans-serif;
+      paint-order: stroke fill; /* Ensures text is readable over lines */
+      stroke: #fff; /* White halo */
+      stroke-width: 3px; /* Halo thickness */
+      stroke-linejoin: round;
+      stroke-opacity: 0.85; /* Halo opacity */
+    }
+    .link {
+      fill: none;
+      stroke-opacity: 0.7;
+      stroke-width: 2px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Neros — Knowledge Graph</h1>
+  <div class="controls">
+    <button onclick="expandAll()">Expand All</button>
+    <button onclick="collapseAll()">Collapse All</button>
+    <button onclick="resetView()">Reset View</button>
+  </div>
+  <div id="tree-container">
+    <svg id="tree-svg" width="6000" height="8000"></svg>
+  </div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script>
+    const initialJsonData = {"name":"Neros","total_count":480,"children":[{"name":".claude","total_count":17,"children":[{"name":"README.md","total_count":1,"children":[{"name":"README.md","total_count":1,"children":[]}]},{"name":"settings.json","total_count":16,"children":[{"name":"$schema","total_count":1,"children":[]},{"name":"_comment","total_count":1,"children":[]},{"name":"_comment_hooks","total_count":1,"children":[]},{"name":"agentsPath","total_count":1,"children":[]},{"name":"buildCommand","total_count":1,"children":[]},{"name":"Connected Services/**","total_count":1,"children":[]},{"name":"defaultLanguage","total_count":1,"children":[]},{"name":"enabledPlugins","total_count":1,"children":[]},{"name":"feature-dev@claude-plugins-official","total_count":1,"children":[]},{"name":"forbidden","total_count":1,"children":[]},{"name":"frontend-design@claude-plugins-official","total_count":1,"children":[]},{"name":"hooks","total_count":1,"children":[]},{"name":"Migrations/**ModelSnapshot.cs","total_count":1,"children":[]},{"name":"PreToolUse","total_count":1,"children":[]},{"name":"skillsPath","total_count":1,"children":[]},{"name":"Startup.cs","total_count":1,"children":[]}]}]},{"name":".cursor","total_count":16,"children":[{"name":"agents","total_count":10,"children":[{"name":"backend.md","total_count":2,"children":[{"name":"Backend Agent","total_count":1,"children":[]},{"name":"backend.md","total_count":1,"children":[]}]},{"name":"dev.md","total_count":2,"children":[{"name":"Dev Agent","total_count":1,"children":[]},{"name":"dev.md","total_count":1,"children":[]}]},{"name":"frontend.md","total_count":2,"children":[{"name":"Frontend Agent","total_count":1,"children":[]},{"name":"frontend.md","total_count":1,"children":[]}]},{"name":"planner.md","total_count":2,"children":[{"name":"Planner Agent","total_count":1,"children":[]},{"name":"planner.md","total_count":1,"children":[]}]},{"name":"qa.md","total_count":2,"children":[{"name":"QA Agent","total_count":1,"children":[]},{"name":"qa.md","total_count":1,"children":[]}]}]},{"name":"AGENTS.md","total_count":1,"children":[{"name":"AGENTS.md","total_count":1,"children":[]}]},{"name":"mcp.json","total_count":5,"children":[{"name":"@azure-devops/mcp","total_count":1,"children":[]},{"name":"ADO_MCP_AUTH_TOKEN","total_count":1,"children":[]},{"name":"AzureDevOps","total_count":1,"children":[]},{"name":"npx","total_count":1,"children":[]},{"name":"postman","total_count":1,"children":[]}]}]},{"name":".github","total_count":131,"children":[{"name":"chatmodes","total_count":10,"children":[{"name":"architect.chatmode.md","total_count":2,"children":[{"name":"Architect Mode \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"architect.chatmode.md","total_count":1,"children":[]}]},{"name":"code-review.chatmode.md","total_count":2,"children":[{"name":"Code Review Mode \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"code-review.chatmode.md","total_count":1,"children":[]}]},{"name":"debug.chatmode.md","total_count":2,"children":[{"name":"Debug Mode \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"debug.chatmode.md","total_count":1,"children":[]}]},{"name":"planner-fast.chatmode.md","total_count":2,"children":[{"name":"Planner Fast \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"planner-fast.chatmode.md","total_count":1,"children":[]}]},{"name":"refactor.chatmode.md","total_count":2,"children":[{"name":"Refactor Mode \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"refactor.chatmode.md","total_count":1,"children":[]}]}]},{"name":"copilot-instructions.md","total_count":4,"children":[{"name":"copilot-instructions.md","total_count":1,"children":[]},{"name":"Proyecto","total_count":1,"children":[]},{"name":"Reglas","total_count":1,"children":[]},{"name":"Validacion","total_count":1,"children":[]}]},{"name":"instructions","total_count":73,"children":[{"name":"agent-skills.instructions.md","total_count":8,"children":[{"name":"agent-skills.instructions.md","total_count":1,"children":[]},{"name":"Authoring Agent Skills \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"Body Structure","total_count":1,"children":[]},{"name":"Folder Layout","total_count":1,"children":[]},{"name":"Naming Discovery","total_count":1,"children":[]},{"name":"Neros Conventions","total_count":1,"children":[]},{"name":"SKILL.md Front Matter (required)","total_count":1,"children":[]},{"name":"Validation Checklist","total_count":1,"children":[]}]},{"name":"agents.instructions.md","total_count":10,"children":[{"name":"agents.instructions.md","total_count":1,"children":[]},{"name":"Authoring Agents \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"File Locations","total_count":1,"children":[]},{"name":"Front Matter","total_count":1,"children":[]},{"name":"Multi-Agent Flow Contract","total_count":1,"children":[]},{"name":"Neros Defaults","total_count":1,"children":[]},{"name":"Required Sections","total_count":1,"children":[]},{"name":"Skills","total_count":1,"children":[]},{"name":"Tooling Restrictions","total_count":1,"children":[]},{"name":"Validation Checklist Before Saving","total_count":1,"children":[]}]},{"name":"csharp-async.instructions.md","total_count":10,"children":[{"name":"Async Streams","total_count":1,"children":[]},{"name":"Banned in this codebase","total_count":1,"children":[]},{"name":"C# Async \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"Cancellation","total_count":1,"children":[]},{"name":"ConfigureAwait","total_count":1,"children":[]},{"name":"csharp-async.instructions.md","total_count":1,"children":[]},{"name":"Exceptions","total_count":1,"children":[]},{"name":"Names","total_count":1,"children":[]},{"name":"Parallelism","total_count":1,"children":[]},{"name":"Return Types","total_count":1,"children":[]}]},{"name":"csharp.instructions.md","total_count":2,"children":[{"name":"C# \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"csharp.instructions.md","total_count":1,"children":[]}]},{"name":"ef-core.instructions.md","total_count":2,"children":[{"name":"EF Core \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"ef-core.instructions.md","total_count":1,"children":[]}]},{"name":"fastreport.instructions.md","total_count":7,"children":[{"name":"Alternatives","total_count":1,"children":[]},{"name":"Background generation","total_count":1,"children":[]},{"name":"Errors","total_count":1,"children":[]},{"name":"FastReport \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"fastreport.instructions.md","total_count":1,"children":[]},{"name":"Pattern","total_count":1,"children":[]},{"name":"Performance","total_count":1,"children":[]}]},{"name":"github-actions.instructions.md","total_count":8,"children":[{"name":"Agentic Workflow Front Matter","total_count":1,"children":[]},{"name":"Caching","total_count":1,"children":[]},{"name":"Don't","total_count":1,"children":[]},{"name":"GitHub Actions \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"github-actions.instructions.md","total_count":1,"children":[]},{"name":"Runner","total_count":1,"children":[]},{"name":"Standard YAML Workflows (if added)","total_count":1,"children":[]},{"name":"Where Things Go","total_count":1,"children":[]}]},{"name":"instructions.instructions.md","total_count":10,"children":[{"name":"Authoring Instructions Files \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"Body Structure","total_count":1,"children":[]},{"name":"File Naming","total_count":1,"children":[]},{"name":"Front Matter (required)","total_count":1,"children":[]},{"name":"instructions.instructions.md","total_count":1,"children":[]},{"name":"Linking","total_count":1,"children":[]},{"name":"Tone","total_count":1,"children":[]},{"name":"What These Files Are Not","total_count":1,"children":[]},{"name":"When to Create a New File","total_count":1,"children":[]},{"name":"When to Update","total_count":1,"children":[]}]},{"name":"javascript-frontend.instructions.md","total_count":2,"children":[{"name":"JavaScript \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"javascript-frontend.instructions.md","total_count":1,"children":[]}]},{"name":"markdown.instructions.md","total_count":2,"children":[{"name":"Markdown \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"markdown.instructions.md","total_count":1,"children":[]}]},{"name":"razor.instructions.md","total_count":2,"children":[{"name":"Blazor \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"razor.instructions.md","total_count":1,"children":[]}]},{"name":"security-owasp.instructions.md","total_count":2,"children":[{"name":"Security \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"security-owasp.instructions.md","total_count":1,"children":[]}]},{"name":"signalr.instructions.md","total_count":8,"children":[{"name":"Client (JS)","total_count":1,"children":[]},{"name":"Groups","total_count":1,"children":[]},{"name":"Performance","total_count":1,"children":[]},{"name":"Registration","total_count":1,"children":[]},{"name":"Security","total_count":1,"children":[]},{"name":"Server","total_count":1,"children":[]},{"name":"SignalR \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"signalr.instructions.md","total_count":1,"children":[]}]}]},{"name":"prompts","total_count":29,"children":[{"name":"create-api-endpoint.prompt.md","total_count":3,"children":[{"name":"Crear Endpoint API \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"create-api-endpoint.prompt.md","total_count":1,"children":[]},{"name":"Reglas","total_count":1,"children":[]}]},{"name":"create-blazor-feature.prompt.md","total_count":3,"children":[{"name":"Crear Feature Blazor \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"create-blazor-feature.prompt.md","total_count":1,"children":[]},{"name":"Reglas","total_count":1,"children":[]}]},{"name":"create-domain-use-case.prompt.md","total_count":3,"children":[{"name":"Crear Caso De Uso \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"create-domain-use-case.prompt.md","total_count":1,"children":[]},{"name":"Reglas","total_count":1,"children":[]}]},{"name":"create-sql-script.prompt.md","total_count":3,"children":[{"name":"Crear Script SQL \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"create-sql-script.prompt.md","total_count":1,"children":[]},{"name":"Reglas","total_count":1,"children":[]}]},{"name":"develop-reempaque-produccion.prompt.md","total_count":17,"children":[{"name":"1. Preflight obligatorio","total_count":1,"children":[]},{"name":"2. Objetivo funcional","total_count":1,"children":[]},{"name":"3. Reglas de negocio obligatorias","total_count":1,"children":[]},{"name":"4. Arquitectura esperada","total_count":1,"children":[]},{"name":"5. Integraciones obligatorias","total_count":1,"children":[]},{"name":"6. Pruebas requeridas","total_count":1,"children":[]},{"name":"7. Validaci\u00c3\u00b3n final obligatoria","total_count":1,"children":[]},{"name":"8. Entrega","total_count":1,"children":[]},{"name":"Adaptacion obligatoria para Neros","total_count":1,"children":[]},{"name":"Desarrollar Reempaque y Saldos Pendientes \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"develop-reempaque-produccion.prompt.md","total_count":1,"children":[]},{"name":"JavaScript y assets","total_count":1,"children":[]},{"name":"MVC y vistas","total_count":1,"children":[]},{"name":"Persistencia","total_count":1,"children":[]},{"name":"Programa y navegaci\u00c3\u00b3n","total_count":1,"children":[]},{"name":"Seguridad","total_count":1,"children":[]},{"name":"Servicios","total_count":1,"children":[]}]}]},{"name":"workflows","total_count":15,"children":[{"name":"daily-status.md","total_count":5,"children":[{"name":"Constraints","total_count":1,"children":[]},{"name":"Daily Repo Status Report","total_count":1,"children":[]},{"name":"daily-status.md","total_count":1,"children":[]},{"name":"Inputs to fetch (read-only)","total_count":1,"children":[]},{"name":"Output","total_count":1,"children":[]}]},{"name":"README.md","total_count":4,"children":[{"name":"File format","total_count":1,"children":[]},{"name":"Files","total_count":1,"children":[]},{"name":"Notes","total_count":1,"children":[]},{"name":"README.md","total_count":1,"children":[]}]},{"name":"stale-triage.md","total_count":6,"children":[{"name":"Per-stale-item action","total_count":1,"children":[]},{"name":"Report","total_count":1,"children":[]},{"name":"Scope","total_count":1,"children":[]},{"name":"Skip","total_count":1,"children":[]},{"name":"Stale Issues & PRs Triage","total_count":1,"children":[]},{"name":"stale-triage.md","total_count":1,"children":[]}]}]}]},{"name":".vscode","total_count":23,"children":[{"name":"agents","total_count":22,"children":[{"name":"backend.md","total_count":5,"children":[{"name":"Backend Agent","total_count":1,"children":[]},{"name":"backend.md","total_count":1,"children":[]},{"name":"Proposito","total_count":1,"children":[]},{"name":"Reglas","total_count":1,"children":[]},{"name":"Validacion","total_count":1,"children":[]}]},{"name":"dev.md","total_count":4,"children":[{"name":"Dev Agent","total_count":1,"children":[]},{"name":"dev.md","total_count":1,"children":[]},{"name":"Reglas","total_count":1,"children":[]},{"name":"Validacion","total_count":1,"children":[]}]},{"name":"frontend.md","total_count":5,"children":[{"name":"Frontend Agent","total_count":1,"children":[]},{"name":"frontend.md","total_count":1,"children":[]},{"name":"Proposito","total_count":1,"children":[]},{"name":"Reglas","total_count":1,"children":[]},{"name":"Validacion","total_count":1,"children":[]}]},{"name":"planner.md","total_count":4,"children":[{"name":"Planner Agent","total_count":1,"children":[]},{"name":"planner.md","total_count":1,"children":[]},{"name":"Salida","total_count":1,"children":[]},{"name":"Workflow","total_count":1,"children":[]}]},{"name":"qa.md","total_count":4,"children":[{"name":"Checklist","total_count":1,"children":[]},{"name":"Comandos","total_count":1,"children":[]},{"name":"QA Agent","total_count":1,"children":[]},{"name":"qa.md","total_count":1,"children":[]}]}]},{"name":"AGENTS.md","total_count":1,"children":[{"name":"AGENTS.md","total_count":1,"children":[]}]}]},{"name":"AGENTS.md","total_count":7,"children":[{"name":"AGENTS.md","total_count":1,"children":[]},{"name":"Comandos","total_count":1,"children":[]},{"name":"Estructura","total_count":1,"children":[]},{"name":"Graphify","total_count":1,"children":[]},{"name":"Proyecto","total_count":1,"children":[]},{"name":"Reglas duras","total_count":1,"children":[]},{"name":"Validacion minima","total_count":1,"children":[]}]},{"name":"CLAUDE.md","total_count":5,"children":[{"name":"Arquitectura","total_count":1,"children":[]},{"name":"CLAUDE.md","total_count":1,"children":[]},{"name":"Comandos","total_count":1,"children":[]},{"name":"Contexto","total_count":1,"children":[]},{"name":"Reglas","total_count":1,"children":[]}]},{"name":"CONVENTIONS.md","total_count":5,"children":[{"name":"Base de datos","total_count":1,"children":[]},{"name":"Capas","total_count":1,"children":[]},{"name":"Codigo","total_count":1,"children":[]},{"name":"CONVENTIONS.md","total_count":1,"children":[]},{"name":"Frontend","total_count":1,"children":[]}]},{"name":"GEMINI.md","total_count":1,"children":[{"name":"GEMINI.md","total_count":1,"children":[]}]},{"name":"Neros.Api","total_count":25,"children":[{"name":"Controllers","total_count":3,"children":[{"name":"WeatherForecastController.cs","total_count":3,"children":[{"name":".Get()","total_count":1,"children":[]},{"name":"Neros.Api.Controllers","total_count":1,"children":[]},{"name":"WeatherForecastController","total_count":1,"children":[]}]}]},{"name":"Neros.Api.csproj","total_count":4,"children":[{"name":"Microsoft.AspNetCore.OpenApi (10.0.10)","total_count":1,"children":[]},{"name":"Microsoft.NET.Sdk.Web","total_count":1,"children":[]},{"name":"Neros.Api","total_count":1,"children":[]},{"name":"net10.0","total_count":1,"children":[]}]},{"name":"Properties","total_count":15,"children":[{"name":"launchSettings.json","total_count":15,"children":[{"name":"$schema","total_count":1,"children":[]},{"name":"applicationUrl","total_count":1,"children":[]},{"name":"applicationUrl","total_count":1,"children":[]},{"name":"ASPNETCORE_ENVIRONMENT","total_count":1,"children":[]},{"name":"commandName","total_count":1,"children":[]},{"name":"commandName","total_count":1,"children":[]},{"name":"dotnetRunMessages","total_count":1,"children":[]},{"name":"dotnetRunMessages","total_count":1,"children":[]},{"name":"environmentVariables","total_count":1,"children":[]},{"name":"environmentVariables","total_count":1,"children":[]},{"name":"http","total_count":1,"children":[]},{"name":"https","total_count":1,"children":[]},{"name":"launchBrowser","total_count":1,"children":[]},{"name":"launchBrowser","total_count":1,"children":[]},{"name":"profiles","total_count":1,"children":[]}]}]},{"name":"WeatherForecast.cs","total_count":2,"children":[{"name":"Neros.Api","total_count":1,"children":[]},{"name":"WeatherForecast","total_count":1,"children":[]}]},{"name":"Program.cs","total_count":1,"children":[]}]},{"name":"Neros.Application","total_count":5,"children":[{"name":"Class1.cs","total_count":2,"children":[{"name":"Class1","total_count":1,"children":[]},{"name":"Neros.Application","total_count":1,"children":[]}]},{"name":"Neros.Application.csproj","total_count":3,"children":[{"name":"Microsoft.NET.Sdk","total_count":1,"children":[]},{"name":"Neros.Application","total_count":1,"children":[]},{"name":"net10.0","total_count":1,"children":[]}]}]},{"name":"Neros.Blazor","total_count":57,"children":[{"name":"Components","total_count":38,"children":[{"name":"_Imports.razor","total_count":10,"children":[{"name":"Microsoft.AspNetCore.Components.Forms","total_count":1,"children":[]},{"name":"Microsoft.AspNetCore.Components.Routing","total_count":1,"children":[]},{"name":"Microsoft.AspNetCore.Components.Web","total_count":1,"children":[]},{"name":"Microsoft.AspNetCore.Components.Web.Virtualization","total_count":1,"children":[]},{"name":"Microsoft.JSInterop","total_count":1,"children":[]},{"name":"Neros.Blazor","total_count":1,"children":[]},{"name":"Neros.Blazor.Components","total_count":1,"children":[]},{"name":"Neros.Blazor.Components.Layout","total_count":1,"children":[]},{"name":"static","total_count":1,"children":[]},{"name":"System.Net.Http.Json","total_count":1,"children":[]}]},{"name":"App.razor","total_count":5,"children":[{"name":"HeadOutlet","total_count":1,"children":[]},{"name":"ImportMap","total_count":1,"children":[]},{"name":"ReconnectModal","total_count":1,"children":[]},{"name":"ResourcePreloader","total_count":1,"children":[]},{"name":"Routes","total_count":1,"children":[]}]},{"name":"Layout","total_count":10,"children":[{"name":"MainLayout.razor","total_count":1,"children":[{"name":"NavMenu","total_count":1,"children":[]}]},{"name":"NavMenu.razor","total_count":1,"children":[{"name":"NavLink","total_count":1,"children":[]}]},{"name":"ReconnectModal.razor.js","total_count":7,"children":[{"name":"handleReconnectStateChanged()","total_count":1,"children":[]},{"name":"reconnectModal","total_count":1,"children":[]},{"name":"resume()","total_count":1,"children":[]},{"name":"resumeButton","total_count":1,"children":[]},{"name":"retry()","total_count":1,"children":[]},{"name":"retryButton","total_count":1,"children":[]},{"name":"retryWhenDocumentBecomesVisible()","total_count":1,"children":[]}]},{"name":"ReconnectModal.razor","total_count":1,"children":[]}]},{"name":"Pages","total_count":9,"children":[{"name":"Counter.razor","total_count":2,"children":[{"name":"IncrementCount","total_count":1,"children":[]},{"name":"PageTitle","total_count":1,"children":[]}]},{"name":"Error.razor","total_count":3,"children":[{"name":"OnInitialized","total_count":1,"children":[]},{"name":"PageTitle","total_count":1,"children":[]},{"name":"System.Diagnostics","total_count":1,"children":[]}]},{"name":"Home.razor","total_count":1,"children":[{"name":"PageTitle","total_count":1,"children":[]}]},{"name":"Weather.razor","total_count":2,"children":[{"name":"OnInitializedAsync","total_count":1,"children":[]},{"name":"PageTitle","total_count":1,"children":[]}]},{"name":"NotFound.razor","total_count":1,"children":[]}]},{"name":"Routes.razor","total_count":4,"children":[{"name":"FocusOnNavigate","total_count":1,"children":[]},{"name":"Found","total_count":1,"children":[]},{"name":"Router","total_count":1,"children":[]},{"name":"RouteView","total_count":1,"children":[]}]}]},{"name":"Neros.Blazor.csproj","total_count":3,"children":[{"name":"Microsoft.NET.Sdk.Web","total_count":1,"children":[]},{"name":"Neros.Blazor","total_count":1,"children":[]},{"name":"net10.0","total_count":1,"children":[]}]},{"name":"Properties","total_count":15,"children":[{"name":"launchSettings.json","total_count":15,"children":[{"name":"$schema","total_count":1,"children":[]},{"name":"applicationUrl","total_count":1,"children":[]},{"name":"applicationUrl","total_count":1,"children":[]},{"name":"ASPNETCORE_ENVIRONMENT","total_count":1,"children":[]},{"name":"commandName","total_count":1,"children":[]},{"name":"commandName","total_count":1,"children":[]},{"name":"dotnetRunMessages","total_count":1,"children":[]},{"name":"dotnetRunMessages","total_count":1,"children":[]},{"name":"environmentVariables","total_count":1,"children":[]},{"name":"environmentVariables","total_count":1,"children":[]},{"name":"http","total_count":1,"children":[]},{"name":"https","total_count":1,"children":[]},{"name":"launchBrowser","total_count":1,"children":[]},{"name":"launchBrowser","total_count":1,"children":[]},{"name":"profiles","total_count":1,"children":[]}]}]},{"name":"Program.cs","total_count":1,"children":[]}]},{"name":"Neros.Contracts","total_count":5,"children":[{"name":"Class1.cs","total_count":2,"children":[{"name":"Class1","total_count":1,"children":[]},{"name":"Neros.Contracts","total_count":1,"children":[]}]},{"name":"Neros.Contracts.csproj","total_count":3,"children":[{"name":"Microsoft.NET.Sdk","total_count":1,"children":[]},{"name":"Neros.Contracts","total_count":1,"children":[]},{"name":"net10.0","total_count":1,"children":[]}]}]},{"name":"Neros.Domain","total_count":5,"children":[{"name":"Class1.cs","total_count":2,"children":[{"name":"Class1","total_count":1,"children":[]},{"name":"Neros.Domain","total_count":1,"children":[]}]},{"name":"Neros.Domain.csproj","total_count":3,"children":[{"name":"Microsoft.NET.Sdk","total_count":1,"children":[]},{"name":"Neros.Domain","total_count":1,"children":[]},{"name":"net10.0","total_count":1,"children":[]}]}]},{"name":"Neros.Shared","total_count":5,"children":[{"name":"Class1.cs","total_count":2,"children":[{"name":"Class1","total_count":1,"children":[]},{"name":"Neros.Shared","total_count":1,"children":[]}]},{"name":"Neros.Shared.csproj","total_count":3,"children":[{"name":"Microsoft.NET.Sdk","total_count":1,"children":[]},{"name":"Neros.Shared","total_count":1,"children":[]},{"name":"net10.0","total_count":1,"children":[]}]}]},{"name":"package.json","total_count":9,"children":[{"name":"css:build","total_count":1,"children":[]},{"name":"css:watch","total_count":1,"children":[]},{"name":"devDependencies","total_count":1,"children":[]},{"name":"name","total_count":1,"children":[]},{"name":"private","total_count":1,"children":[]},{"name":"scripts","total_count":1,"children":[]},{"name":"tailwindcss","total_count":1,"children":[]},{"name":"tailwindcss","total_count":1,"children":[]},{"name":"version","total_count":1,"children":[]}]},{"name":"skills","total_count":162,"children":[{"name":"acquire-codebase-knowledge","total_count":12,"children":[{"name":"SKILL.md","total_count":12,"children":[{"name":"Acquire Codebase Knowledge \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"Anti-Patterns","total_count":1,"children":[]},{"name":"Gotchas Specific to Neros","total_count":1,"children":[]},{"name":"Neros Context (pre-loaded)","total_count":1,"children":[]},{"name":"Output Contract","total_count":1,"children":[]},{"name":"Phase 1 \u00e2\u20ac\u201d Inventory & Scan","total_count":1,"children":[]},{"name":"Phase 2 \u00e2\u20ac\u201d Investigate","total_count":1,"children":[]},{"name":"Phase 3 \u00e2\u20ac\u201d Populate","total_count":1,"children":[]},{"name":"Phase 4 \u00e2\u20ac\u201d Validate","total_count":1,"children":[]},{"name":"SKILL.md","total_count":1,"children":[]},{"name":"Validation Pass Criteria","total_count":1,"children":[]},{"name":"Workflow","total_count":1,"children":[]}]}]},{"name":"architecture-blueprint-generator","total_count":20,"children":[{"name":"SKILL.md","total_count":20,"children":[{"name":"1. Architecture Overview","total_count":1,"children":[]},{"name":"2. Diagrams (Mermaid)","total_count":1,"children":[]},{"name":"2.1 System Context (C4 Level 1)","total_count":1,"children":[]},{"name":"2.2 Container Diagram (C4 Level 2)","total_count":1,"children":[]},{"name":"2.3 Component Diagram per major Area","total_count":1,"children":[]},{"name":"2.4 Sequence Diagrams","total_count":1,"children":[]},{"name":"2.5 Data Flow","total_count":1,"children":[]},{"name":"2.6 Deployment Diagram","total_count":1,"children":[]},{"name":"3. Architectural Layers & Dependencies","total_count":1,"children":[]},{"name":"4. Cross-Cutting Concerns","total_count":1,"children":[]},{"name":"5. Technology-Specific Patterns","total_count":1,"children":[]},{"name":"6. Extension Points","total_count":1,"children":[]},{"name":"7. Risks / Architectural Concerns","total_count":1,"children":[]},{"name":"Architecture Blueprint Generator \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"Constraints","total_count":1,"children":[]},{"name":"Neros Output Override","total_count":1,"children":[]},{"name":"SKILL.md","total_count":1,"children":[]},{"name":"What the Output Must Contain","total_count":1,"children":[]},{"name":"When to Use","total_count":1,"children":[]},{"name":"Workflow","total_count":1,"children":[]}]}]},{"name":"aspnet-mvc-razor","total_count":19,"children":[{"name":"SKILL.md","total_count":19,"children":[{"name":"Action Patterns","total_count":1,"children":[]},{"name":"After Editing","total_count":1,"children":[]},{"name":"AJAX JSON action","total_count":1,"children":[]},{"name":"Antiforgery in views","total_count":1,"children":[]},{"name":"Areas","total_count":1,"children":[]},{"name":"ASP.NET Core MVC + Razor \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"Authentication","total_count":1,"children":[]},{"name":"Default Route","total_count":1,"children":[]},{"name":"DI in `Program.cs`","total_count":1,"children":[]},{"name":"Error Handling","total_count":1,"children":[]},{"name":"File upload","total_count":1,"children":[]},{"name":"Filters","total_count":1,"children":[]},{"name":"Full-page form","total_count":1,"children":[]},{"name":"Localization","total_count":1,"children":[]},{"name":"Razor Views","total_count":1,"children":[]},{"name":"Sections","total_count":1,"children":[]},{"name":"SignalR Hubs","total_count":1,"children":[]},{"name":"SKILL.md","total_count":1,"children":[]},{"name":"What NOT to Touch","total_count":1,"children":[]}]}]},{"name":"create-implementation-plan","total_count":9,"children":[{"name":"SKILL.md","total_count":9,"children":[{"name":"Create Implementation Plan \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"Mandatory Front Matter","total_count":1,"children":[]},{"name":"Mandatory Template","total_count":1,"children":[]},{"name":"Neros-Specific Plan Rules","total_count":1,"children":[]},{"name":"Output","total_count":1,"children":[]},{"name":"Output Location & Naming","total_count":1,"children":[]},{"name":"Primary Directive","total_count":1,"children":[]},{"name":"SKILL.md","total_count":1,"children":[]},{"name":"Validation Before Saving","total_count":1,"children":[]}]}]},{"name":"csharp-async","total_count":11,"children":[{"name":"SKILL.md","total_count":11,"children":[{"name":"Async Streams","total_count":1,"children":[]},{"name":"Banned in Neros","total_count":1,"children":[]},{"name":"C# Async \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"Cancellation","total_count":1,"children":[]},{"name":"Common Pitfalls","total_count":1,"children":[]},{"name":"ConfigureAwait","total_count":1,"children":[]},{"name":"Exceptions","total_count":1,"children":[]},{"name":"Naming","total_count":1,"children":[]},{"name":"Parallelism","total_count":1,"children":[]},{"name":"Return Types","total_count":1,"children":[]},{"name":"SKILL.md","total_count":1,"children":[]}]}]},{"name":"diagnose","total_count":13,"children":[{"name":"SKILL.md","total_count":13,"children":[{"name":"Diagnose \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"Iterate on the loop itself","total_count":1,"children":[]},{"name":"Neros-specific levers","total_count":1,"children":[]},{"name":"Non-deterministic bugs","total_count":1,"children":[]},{"name":"Phase 1 \u00e2\u20ac\u201d Build a feedback loop","total_count":1,"children":[]},{"name":"Phase 2 \u00e2\u20ac\u201d Reproduce","total_count":1,"children":[]},{"name":"Phase 3 \u00e2\u20ac\u201d Hypothesise","total_count":1,"children":[]},{"name":"Phase 4 \u00e2\u20ac\u201d Instrument","total_count":1,"children":[]},{"name":"Phase 5 \u00e2\u20ac\u201d Fix + regression test","total_count":1,"children":[]},{"name":"Phase 6 \u00e2\u20ac\u201d Cleanup + post-mortem","total_count":1,"children":[]},{"name":"SKILL.md","total_count":1,"children":[]},{"name":"Ways to construct one (try in roughly this order)","total_count":1,"children":[]},{"name":"When you genuinely cannot build a loop","total_count":1,"children":[]}]}]},{"name":"dotnet-best-practices","total_count":16,"children":[{"name":"SKILL.md","total_count":16,"children":[{"name":".NET Best Practices \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"After Editing","total_count":1,"children":[]},{"name":"Async / Await","total_count":1,"children":[]},{"name":"Configuration","total_count":1,"children":[]},{"name":"Dependency Injection","total_count":1,"children":[]},{"name":"Don't","total_count":1,"children":[]},{"name":"EF Core","total_count":1,"children":[]},{"name":"Error Handling","total_count":1,"children":[]},{"name":"Language Features","total_count":1,"children":[]},{"name":"Logging","total_count":1,"children":[]},{"name":"Performance","total_count":1,"children":[]},{"name":"Project Context","total_count":1,"children":[]},{"name":"Security","total_count":1,"children":[]},{"name":"SKILL.md","total_count":1,"children":[]},{"name":"SOLID Reality Check","total_count":1,"children":[]},{"name":"Testing (when `tests/Neros.Tests/` is created)","total_count":1,"children":[]}]}]},{"name":"ef-core","total_count":14,"children":[{"name":"SKILL.md","total_count":14,"children":[{"name":"Bulk","total_count":1,"children":[]},{"name":"Common Mistakes","total_count":1,"children":[]},{"name":"Connection","total_count":1,"children":[]},{"name":"Context","total_count":1,"children":[]},{"name":"DbContext","total_count":1,"children":[]},{"name":"EF Core \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"Entity Design","total_count":1,"children":[]},{"name":"Migrations","total_count":1,"children":[]},{"name":"Querying","total_count":1,"children":[]},{"name":"Raw SQL","total_count":1,"children":[]},{"name":"SKILL.md","total_count":1,"children":[]},{"name":"Testing","total_count":1,"children":[]},{"name":"Tracking","total_count":1,"children":[]},{"name":"Transactions","total_count":1,"children":[]}]}]},{"name":"refactor","total_count":19,"children":[{"name":"SKILL.md","total_count":19,"children":[{"name":"1. God controller action with embedded SQL / business logic","total_count":1,"children":[]},{"name":"10. Duplicate DI registration in `Program.cs`","total_count":1,"children":[]},{"name":"2. Duplicated `try/catch + Json(new { ok = false, error })`","total_count":1,"children":[]},{"name":"3. Long method (>200 LOC repository method)","total_count":1,"children":[]},{"name":"4. Feature envy (controller manipulates entity internals)","total_count":1,"children":[]},{"name":"5. `new HttpClient()` in a service","total_count":1,"children":[]},{"name":"6. Hand-rolled SQL with string concatenation","total_count":1,"children":[]},{"name":"7. Repeated permission-check code in actions","total_count":1,"children":[]},{"name":"8. `EQContext` shared across `Task.WhenAll`","total_count":1,"children":[]},{"name":"9. Razor view with massive `<script>` block","total_count":1,"children":[]},{"name":"Common Neros Code Smells & Fixes","total_count":1,"children":[]},{"name":"Golden Rules","total_count":1,"children":[]},{"name":"Neros Guardrails","total_count":1,"children":[]},{"name":"Output","total_count":1,"children":[]},{"name":"Refactor \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"SKILL.md","total_count":1,"children":[]},{"name":"When NOT to Use","total_count":1,"children":[]},{"name":"When to Use","total_count":1,"children":[]},{"name":"Workflow","total_count":1,"children":[]}]}]},{"name":"reviewing-code","total_count":15,"children":[{"name":"SKILL.md","total_count":15,"children":[{"name":"Async","total_count":1,"children":[]},{"name":"Build & Test","total_count":1,"children":[]},{"name":"Constraints","total_count":1,"children":[]},{"name":"Correctness","total_count":1,"children":[]},{"name":"Inputs","total_count":1,"children":[]},{"name":"Logging","total_count":1,"children":[]},{"name":"Neros Conventions ([`.github/instructions/`](../../.github/instructions/))","total_count":1,"children":[]},{"name":"Output Format","total_count":1,"children":[]},{"name":"Performance","total_count":1,"children":[]},{"name":"Review Checklist","total_count":1,"children":[]},{"name":"Reviewing Code \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"Security ([`security-owasp.instructions.md`](../../.github/instructions/security-owasp.instructions.md))","total_count":1,"children":[]},{"name":"Severity","total_count":1,"children":[]},{"name":"SKILL.md","total_count":1,"children":[]},{"name":"When to Use","total_count":1,"children":[]}]}]},{"name":"security-review","total_count":14,"children":[{"name":"SKILL.md","total_count":14,"children":[{"name":"Constraints","total_count":1,"children":[]},{"name":"Security Review \u00e2\u20ac\u201d Neros","total_count":1,"children":[]},{"name":"Severity","total_count":1,"children":[]},{"name":"SKILL.md","total_count":1,"children":[]},{"name":"Step 1 \u00e2\u20ac\u201d Scope","total_count":1,"children":[]},{"name":"Step 2 \u00e2\u20ac\u201d Dependency audit (fast wins)","total_count":1,"children":[]},{"name":"Step 3 \u00e2\u20ac\u201d Secrets & exposure","total_count":1,"children":[]},{"name":"Step 4 \u00e2\u20ac\u201d Vulnerability deep scan","total_count":1,"children":[]},{"name":"Step 5 \u00e2\u20ac\u201d Cross-file data flow","total_count":1,"children":[]},{"name":"Step 6 \u00e2\u20ac\u201d Self-verification","total_count":1,"children":[]},{"name":"Step 7 \u00e2\u20ac\u201d Report","total_count":1,"children":[]},{"name":"Step 8 \u00e2\u20ac\u201d Propose patches","total_count":1,"children":[]},{"name":"When to Use","total_count":1,"children":[]},{"name":"Workflow","total_count":1,"children":[]}]}]}]},{"name":"Neros.slnx","total_count":1,"children":[]},{"name":"tailwind.config.js","total_count":1,"children":[]}]};
+
+    function transformData(jsonData) {
+        // Helper function to recursively build the children structure
+        function processNode(node, parentL1StageName) {
+            let displayName = node.name;
+            // Append total_count if it exists and is not already in the name
+            if (node.total_count !== undefined) {
+                if (!/\(Total Count: \d+\)$/.test(displayName)) {
+                    displayName += ` (Total Count: ${node.total_count})`;
+                }
+            }
+
+            const newNode = { name: displayName };
+
+            if (parentL1StageName === "Root") {
+                 newNode.originalStageName = node.name;
+            } else {
+                newNode.originalStageName = parentL1StageName;
+            }
+
+            if (node.children && node.children.length > 0) {
+                const stageNameToPass = (parentL1StageName === "Root") ? node.name : parentL1StageName;
+                newNode.children = node.children.map(child => processNode(child, stageNameToPass));
+            }
+
+            return newNode;
+        }
+
+        let rootDisplayName = jsonData.name;
+        if (jsonData.total_count !== undefined && !/\(Total Count: \d+\)$/.test(rootDisplayName)) {
+            rootDisplayName += ` (Total Count: ${jsonData.total_count})`;
+        }
+
+        return {
+            name: rootDisplayName,
+            originalStageName: "Root",
+            children: (jsonData.children || []).map(child => processNode(child, "Root"))
+        };
+    }
+
+    const treeData = transformData(initialJsonData);
+
+    // Auto-populated phaseColors: every depth-1 child of the root gets
+    // a stable colour from a bigger palette so all top-level dirs are
+    // distinguishable.
+    const PALETTE = [
+      ["#3498DB","#2980B9","#AED6F1"], ["#2ECC71","#27AE60","#A9DFBF"],
+      ["#E74C3C","#C0392B","#F5B7B1"], ["#9B59B6","#8E44AD","#D7BDE2"],
+      ["#F39C12","#D68910","#FAD7A0"], ["#1ABC9C","#117864","#A2D9CE"],
+      ["#34495E","#1B2631","#ABB2B9"], ["#E67E22","#BA4A00","#F5CBA7"],
+      ["#16A085","#0E6655","#A2D9CE"], ["#D35400","#A04000","#EDBB99"],
+      ["#7F8C8D","#566573","#D5DBDB"], ["#C0392B","#7B241C","#F5B7B1"],
+      ["#2E86C1","#1B4F72","#A9CCE3"], ["#28B463","#196F3D","#A9DFBF"],
+      ["#AF7AC5","#6C3483","#D2B4DE"],
+    ];
+    const phaseColors = { "Root": { fill: "#4A4A4A", stroke: "#333333", collapsedFill: "#6C757D" },
+                          "Default": { fill: "#BDC3C7", stroke: "#95A5A6", collapsedFill: "#ECF0F1" } };
+    (initialJsonData.children || []).forEach((c, i) => {
+      const pal = PALETTE[i % PALETTE.length];
+      phaseColors[c.name] = { fill: pal[0], stroke: pal[1], collapsedFill: pal[2] };
+    });
+
+    const levelSpecificPalettes = {
+      0: { fill: "#4A4A4A", stroke: "#333333", collapsedFill: "#6C757D" },
+      2: { fill: "#6ab04c", stroke: "#508a38", collapsedFill: "#a3d391" },
+      3: { fill: "#f0932b", stroke: "#d0730f", collapsedFill: "#f6c07e" },
+      4: { fill: "#be2edd", stroke: "#a01cb3", collapsedFill: "#e08bf2" },
+      5: { fill: "#00a8ff", stroke: "#007ac1", collapsedFill: "#74d2ff" },
+      6: { fill: "#e55039", stroke: "#c23620", collapsedFill: "#f09a8d" },
+      default: { fill: "#747d8c", stroke: "#57606f", collapsedFill: "#a4b0be" }
+    };
+
+    const svgElement = d3.select("#tree-svg");
+    const initialSvgWidth = +svgElement.attr("width");
+    const initialSvgHeight = +svgElement.attr("height");
+    const margin = { top: 40, right: 120, bottom: 80, left: 450 };
+    let width = initialSvgWidth - margin.left - margin.right;
+    let height = initialSvgHeight - margin.top - margin.bottom;
+    const duration = 500;
+    let nodeCounter = 0;
+    const g = svgElement.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+    const treemap = d3.tree().nodeSize([40, 0]);
+    let rootNode = d3.hierarchy(treeData, d => d.children);
+    rootNode.x0 = 0;
+    rootNode.y0 = 0;
+
+    if (rootNode.children) {
+      rootNode.children.forEach(d_child => {
+        if (d_child.children) { collapseBranch(d_child); }
+      });
+    }
+    updateTree(rootNode);
+
+    function collapseBranch(d) { if (d.children) { d._children = d.children; d._children.forEach(collapseBranch); d.children = null; } }
+    function expandBranch(d) { if (d._children) { d.children = d._children; d._children = null; } if (d.children) { d.children.forEach(expandBranch); } }
+    window.expandAll = () => { expandBranch(rootNode); updateTree(rootNode); };
+    window.collapseAll = () => { if (rootNode.children) { rootNode.children.forEach(collapseBranch); } updateTree(rootNode); };
+    window.resetView = () => { if (rootNode.children) { rootNode.children.forEach(d_child => { if (d_child.children || d_child._children) { collapseBranch(d_child); } }); } if (rootNode._children && !rootNode.children) { rootNode.children = rootNode._children; rootNode._children = null; } updateTree(rootNode); };
+
+    function updateTree(source) {
+      const treeLayoutData = treemap(rootNode);
+      let nodes = treeLayoutData.descendants();
+      let links = treeLayoutData.descendants().slice(1);
+
+      let minX = 0;
+      let maxX = 0;
+      if (nodes.length > 0) {
+        minX = d3.min(nodes, d => d.x);
+        maxX = d3.max(nodes, d => d.x);
+      }
+
+      let neededHeight = Math.max(initialSvgHeight, maxX - minX + margin.top + margin.bottom + 100);
+      svgElement.transition().duration(duration / 2).attr("height", neededHeight);
+      g.transition().duration(duration / 2).attr("transform", `translate(${margin.left},${margin.top - minX + 40})`);
+
+      nodes.forEach(d => { d.y = d.depth * 400; }); // Adjust horizontal separation if needed
+
+      const node = g.selectAll('g.node').data(nodes, d => d.id || (d.id = ++nodeCounter));
+      const nodeEnter = node.enter().append('g')
+        .attr('class', d => "node" + (d.children || d._children ? " node--internal" : " node--leaf") + (d._children ? " _children" : ""))
+        .attr('transform', d => `translate(${source.y0},${source.x0})`)
+        .on('click', (event, d) => { if (d.children) { d._children = d.children; d.children = null; } else if (d._children) { d.children = d._children; d._children = null; } updateTree(d); })
+        .style('cursor', d => (d.children || d._children) ? 'pointer' : 'default');
+
+      nodeEnter.append('circle').attr('r', 1e-6);
+
+      nodeEnter.append('text')
+        .attr('dy', '.35em')
+        .attr('x', d => d.children || d._children ? -14 : 14)
+        .attr('text-anchor', d => d.children || d._children ? 'end' : 'start')
+        .style("fill-opacity", 1e-6)
+        .call(wrapText, 380);
+
+      const nodeUpdate = nodeEnter.merge(node);
+      nodeUpdate.transition().duration(duration)
+        .attr('transform', d => `translate(${d.y},${d.x})`)
+        .attr('class', d => "node" + (d.children ? " node--internal" : " node--leaf") + (d._children ? " node--internal _children" : ""));
+
+      nodeUpdate.select('circle').attr('r', 8.5)
+        .style('fill', d => {
+            let palette;
+            if (d.depth === 0) {
+                palette = levelSpecificPalettes[0];
+            } else if (d.depth === 1) {
+                palette = phaseColors[d.data.originalStageName] || phaseColors.Default;
+            } else {
+                palette = levelSpecificPalettes[d.depth] || levelSpecificPalettes.default;
+            }
+            if (d._children) return palette.collapsedFill;
+            if (d.children) return palette.fill;
+            return "#fff";
+        })
+        .style('stroke', d => {
+            let palette;
+            if (d.depth === 0) {
+                palette = levelSpecificPalettes[0];
+            } else if (d.depth === 1) {
+                palette = phaseColors[d.data.originalStageName] || phaseColors.Default;
+            } else {
+                palette = levelSpecificPalettes[d.depth] || levelSpecificPalettes.default;
+            }
+            return palette.stroke;
+        });
+      nodeUpdate.select('text').style("fill-opacity", 1).call(wrapText, 380);
+
+      const nodeExit = node.exit().transition().duration(duration).attr('transform', d => `translate(${source.y},${source.x})`).remove();
+      nodeExit.select('circle').attr('r', 1e-6);
+      nodeExit.select('text').style('fill-opacity', 1e-6);
+
+      const link = g.selectAll('path.link').data(links, d => d.id);
+      const linkEnter = link.enter().insert('path', "g").attr('class', 'link').attr('d', d => { const o = { x: source.x0, y: source.y0 }; return diagonal(o, o); });
+
+      linkEnter.merge(link).transition().duration(duration).attr('d', d => diagonal(d, d.parent))
+        .style('stroke', d => {
+            const sourceNode = d.parent;
+            if (!sourceNode) return phaseColors.Default.stroke;
+            const l1AncestorName = sourceNode.data.originalStageName;
+            const colorPalette = phaseColors[l1AncestorName] || phaseColors.Default;
+            return colorPalette.stroke;
+        });
+      link.exit().transition().duration(duration).attr('d', d => { const o = { x: source.x, y: source.y }; return diagonal(o, o); }).remove();
+      nodes.forEach(d => { d.x0 = d.x; d.y0 = d.y; });
+    }
+
+    function diagonal(s, d) { return `M ${s.y} ${s.x} C ${(s.y + d.y) / 2} ${s.x}, ${(s.y + d.y) / 2} ${d.x}, ${d.y} ${d.x}`; }
+
+    function wrapText(textElements, maxWidth) {
+        const textPartColors = {
+            name: '#343a40',
+            count: '#0056b3'
+        };
+        const countRegex = /(\s\(Total Count: \d+\))$/;
+
+        textElements.each(function () {
+            const textD3 = d3.select(this);
+            const originalNodeText = textD3.datum().data.name;
+            const x = parseFloat(textD3.attr("x") || 0);
+            const initialDy = textD3.attr("dy");
+            const textAnchor = textD3.attr("text-anchor");
+            const lineHeight = 1.1;
+
+            textD3.text(null);
+
+            let namePart = originalNodeText;
+            let countPartText = "";
+
+            const countMatch = originalNodeText.match(countRegex);
+            if (countMatch && originalNodeText.endsWith(countMatch[0])) {
+                namePart = originalNodeText.substring(0, originalNodeText.length - countMatch[0].length).trim();
+                countPartText = countMatch[0].trim();
+            }
+
+            const tokens = [];
+            namePart.split(/\s+/).filter(Boolean).forEach(word => {
+                tokens.push({ text: word, type: 'name' });
+            });
+            if (countPartText) {
+                tokens.push({ text: countPartText, type: 'count' });
+            }
+
+            if (tokens.length === 0 && originalNodeText) {
+                tokens.push({ text: originalNodeText, type: 'name' });
+            }
+
+            let currentTspan = textD3.append("tspan").attr("x", x).attr("dy", initialDy);
+            if (textAnchor === "end") currentTspan.attr("text-anchor", "end");
+
+            let lineTokens = [];
+
+            for (let i = 0; i < tokens.length; i++) {
+                const tokenObj = tokens[i];
+
+                lineTokens.push(tokenObj);
+                currentTspan.text(lineTokens.map(t => t.text).join(" "));
+
+                if (currentTspan.node().getComputedTextLength() > maxWidth && lineTokens.length > 1) {
+                    lineTokens.pop();
+
+                    currentTspan.text(null);
+                    lineTokens.forEach((prevToken, idx) => {
+                        currentTspan.append("tspan")
+                            .text((idx > 0 ? " " : "") + prevToken.text)
+                            .style("fill", textPartColors[prevToken.type] || textPartColors.name)
+                            .style("font-weight", prevToken.type === 'count' ? "bold" : "normal");
+                    });
+
+                    lineTokens = [tokenObj];
+                    currentTspan = textD3.append("tspan").attr("x", x).attr("dy", lineHeight + "em");
+                    if (textAnchor === "end") currentTspan.attr("text-anchor", "end");
+                }
+            }
+
+            currentTspan.text(null);
+            lineTokens.forEach((token, idx) => {
+                currentTspan.append("tspan")
+                    .text((idx > 0 ? " " : "") + token.text)
+                    .style("fill", textPartColors[token.type] || textPartColors.name)
+                    .style("font-weight", token.type === 'count' ? "bold" : "normal");
+            });
+
+            if (textD3.selectAll("tspan > tspan").empty() && textD3.select("tspan").text().length === 0 && originalNodeText) {
+                let t = textD3.select("tspan");
+                let displayText = originalNodeText;
+                t.text(displayText).style("fill", textPartColors.name);
+                if (t.node() && t.node().getComputedTextLength() > maxWidth && displayText.length > 20) {
+                    let estimatedChars = Math.floor(maxWidth / (t.node().getComputedTextLength()/displayText.length) );
+                    displayText = displayText.substring(0, Math.max(0, estimatedChars - 3)) + "...";
+                    t.text(displayText);
+                }
+            }
+        });
+    }
+  </script>
+</body>
+</html>

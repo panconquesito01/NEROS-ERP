@@ -1,0 +1,51 @@
+﻿{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "css:build",
+            "command": "npm",
+            "type": "process",
+            "args": [
+                "run",
+                "css:build"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Neros.slnx",
+                "-v",
+                "minimal"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
+            "label": "publish",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/Neros.Blazor/Neros.Blazor.csproj",
+                "--configuration",
+                "Release",
+                "--output",
+                "${workspaceFolder}/published/Neros.Blazor"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

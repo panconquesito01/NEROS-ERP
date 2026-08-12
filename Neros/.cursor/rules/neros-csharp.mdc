@@ -1,0 +1,32 @@
+---
+description: C# y .NET 10 conventions para Neros
+globs:
+  - "**/*.cs"
+alwaysApply: false
+---
+
+# C# - Neros
+
+Fuente autoritativa: `.github/instructions/csharp.instructions.md` y `.github/instructions/csharp-async.instructions.md`.
+
+## Reglas
+
+- Nullable habilitado; no apagarlo.
+- Domain puro: sin EF Core, ASP.NET, Blazor, HTTP, filesystem ni UI.
+- Application define casos de uso, puertos, validaciones y transaccion.
+- API delgada: valida, autoriza, delega y mapea.
+- Contracts define DTOs entre UI/API.
+- SQL parametrizado siempre.
+- Logging con `ILogger<T>` sin secretos ni payloads sensibles.
+
+## Async
+
+- No `.Result`, `.Wait()` ni `.GetAwaiter().GetResult()`.
+- Propagar `CancellationToken` en operaciones I/O y use cases largos.
+- No compartir DbContext/transacciones/mutabilidad entre awaits paralelos.
+
+## Validacion
+
+```powershell
+dotnet build .\Neros.slnx -v minimal
+```

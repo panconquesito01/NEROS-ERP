@@ -1,0 +1,44 @@
+@page "/"
+@page "/login"
+@layout AuthLayout
+@rendermode InteractiveServer
+@using Neros.Blazor.Components.Features.Auth
+@inject NavigationManager Navigation
+
+<PageTitle>Acceso | Neros ERP</PageTitle>
+
+<section class="login-experience">
+    <LoginAmbient />
+
+    <div class="login-frame">
+        <LoginHeader />
+
+        <main class="login-layout">
+            <LoginProductStage Modules="Modules" />
+            <LoginAccessPanel Model="loginModel" OnLogin="HandleLogin" />
+        </main>
+
+        <footer class="login-footer">
+            <span>Neros ERP</span>
+            <span class="footer-separator" aria-hidden="true"></span>
+            <span>Operacion empresarial conectada</span>
+        </footer>
+    </div>
+</section>
+
+@code {
+    private readonly LoginFormModel loginModel = new();
+
+    private static readonly LoginModule[] Modules =
+    [
+        new("Ventas", "Facturacion y POS", "lucide:receipt", "#55e6d0", "rgba(85, 230, 208, .12)"),
+        new("Inventario", "Kardex y bodegas", "lucide:package", "#8fb8ff", "rgba(143, 184, 255, .12)"),
+        new("Finanzas", "Cartera y tesoreria", "lucide:chart-no-axes-combined", "#ffc66d", "rgba(255, 198, 109, .12)"),
+        new("Nomina", "Equipo y novedades", "lucide:users", "#d7a5ff", "rgba(215, 165, 255, .12)")
+    ];
+
+    private void HandleLogin()
+    {
+        Navigation.NavigateTo("/home");
+    }
+}

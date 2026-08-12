@@ -1,0 +1,42 @@
+﻿{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true
+  },
+  "_comment": "Claude Code project settings for Neros. Skills, agents and rules live in editor-agnostic locations referenced from CLAUDE.md and .claude/README.md.",
+  "skillsPath": "../skills",
+  "agentsPath": "../.vscode/agents",
+  "defaultLanguage": "es",
+  "buildCommand": "dotnet build .\\Neros.slnx -v minimal",
+  "forbidden": [
+    "Startup.cs",
+    "Connected Services/**",
+    "Migrations/**ModelSnapshot.cs"
+  ],
+  "_comment_hooks": "graphify es opcional y se instala por desarrollador. Los hooks lo resuelven desde el PATH o desde ~/.local/bin y no hacen nada si no esta instalado, asi el repo funciona igual para todo el equipo. Instalacion y uso: ver .claude/README.md.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "bash",
+            "command": "GF=\"$(command -v graphify || echo \"$HOME/.local/bin/graphify.EXE\")\"; if [ -x \"$GF\" ]; then \"$GF\" hook-guard search; fi"
+          }
+        ]
+      },
+      {
+        "matcher": "Read|Glob",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "bash",
+            "command": "GF=\"$(command -v graphify || echo \"$HOME/.local/bin/graphify.EXE\")\"; if [ -x \"$GF\" ]; then \"$GF\" hook-guard read; fi"
+          }
+        ]
+      }
+    ]
+  }
+}

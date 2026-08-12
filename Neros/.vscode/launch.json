@@ -1,0 +1,39 @@
+﻿{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Neros (HTTPS)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/Neros.Blazor/bin/Debug/net10.0/Neros.Blazor.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Neros.Blazor",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "https://localhost:7098;http://localhost:5098"
+            }
+        },
+        {
+            "name": "Neros (HTTP)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/Neros.Blazor/bin/Debug/net10.0/Neros.Blazor.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Neros.Blazor",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:5098"
+            }
+        },
+        {
+            "name": "Neros (Adjuntar proceso)",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickProcess}"
+        }
+    ]
+}

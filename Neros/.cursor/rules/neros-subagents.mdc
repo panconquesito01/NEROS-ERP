@@ -1,0 +1,37 @@
+---
+description: Mapa de subagentes Neros y flujo planner/dev/qa
+alwaysApply: true
+---
+
+# Neros Subagents
+
+Este repo tiene especialistas en `.cursor/agents/` y `.vscode/agents/`.
+
+## Flujo recomendado
+
+```text
+/planner -> /dev -> /qa -> human review
+```
+
+## Especialistas
+
+| Subagent | Scope | File |
+|----------|-------|------|
+| `/backend` | API, Application, Domain, Contracts, seguridad, Identity, SignalR, persistencia futura. | `.cursor/agents/backend.md` |
+| `/frontend` | Blazor, Tailwind, componentes, UX, accesibilidad, servicios cliente. | `.cursor/agents/frontend.md` |
+
+## Delegacion
+
+- Server-only: backend.
+- UI-only: frontend.
+- Full-stack: backend define contratos/API; frontend consume; dev integra.
+- Arquitectura o feature grande: planner primero.
+- Revision final: qa.
+
+## Skills
+
+Usar skills locales segun la tarea:
+
+- `acquire-codebase-knowledge`, `architecture-blueprint-generator`, `create-implementation-plan`.
+- `diagnose`, `refactor`, `reviewing-code`, `security-review`.
+- `dotnet-best-practices`, `ef-core`, `csharp-async`, `aspnet-mvc-razor`.

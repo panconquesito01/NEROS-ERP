@@ -1,0 +1,92 @@
+<section class="access-panel" aria-labelledby="login-title">
+    <div class="access-inner">
+        <div class="access-copy">
+            <p class="eyebrow"><span aria-hidden="true"></span> Portal de acceso</p>
+            <h1 id="login-title">Vuelve al centro de tu operación.</h1>
+            <p>Ingresa con tus credenciales corporativas para continuar donde lo dejaste.</p>
+        </div>
+
+        <EditForm Model="Model" OnValidSubmit="SubmitAsync" class="access-form">
+            <DataAnnotationsValidator />
+            <ValidationSummary class="validation-summary" />
+
+            <div class="field-group">
+                <label for="email">Correo corporativo</label>
+                <div class="field-control input-control">
+                    <iconify-icon class="field-icon" icon="lucide:mail" aria-hidden="true"></iconify-icon>
+                    <InputText id="email" class="field-input" @bind-Value="Model.Email" autocomplete="username" autofocus placeholder="nombre@empresa.com" />
+                </div>
+                <ValidationMessage For="() => Model.Email" class="field-error" />
+            </div>
+
+            <div class="field-group">
+                <div class="field-row">
+                    <label for="password">Contraseña</label>
+                    <button class="ghost-action" type="button" @onclick="ToggleRecoveryHint" aria-expanded="@showRecoveryHint">Recuperar acceso</button>
+                </div>
+                <div class="field-control input-control password-control">
+                    <iconify-icon class="field-icon" icon="lucide:lock-keyhole" aria-hidden="true"></iconify-icon>
+                    <InputText id="password" type="@PasswordInputType" class="field-input" @bind-Value="Model.Password" autocomplete="current-password" placeholder="Introduce tu contraseña" />
+                    <button class="visibility-action" type="button" @onclick="TogglePassword" aria-label="Mostrar u ocultar contrasena">
+                        <iconify-icon icon="@PasswordVisibilityIcon" aria-hidden="true"></iconify-icon>
+                        <span>@(showPassword ? "Ocultar" : "Ver")</span>
+                    </button>
+                </div>
+                @if (showRecoveryHint)
+                {
+                    <div class="recovery-note">
+                        Solicita la recuperación de acceso al administrador de tu empresa.
+                    </div>
+                }
+                <ValidationMessage For="() => Model.Password" class="field-error" />
+            </div>
+
+            <div class="form-options">
+                <label class="remember-check">
+                    <InputCheckbox @bind-Value="Model.RememberMe" />
+                    <span>Mantener sesión</span>
+                </label>
+                <span class="secure-label"><iconify-icon icon="lucide:shield-check" aria-hidden="true"></iconify-icon> Canal protegido</span>
+            </div>
+
+            <button class="submit-button" type="submit">
+                <span>Entrar a Neros</span>
+                <iconify-icon icon="lucide:arrow-up-right" aria-hidden="true"></iconify-icon>
+            </button>
+        </EditForm>
+
+        <div class="trust-line" aria-label="Caracteristicas de seguridad">
+            @foreach (var badge in TrustBadges)
+            {
+                <span><iconify-icon icon="@badge.IconName" aria-hidden="true"></iconify-icon>@badge.Title</span>
+            }
+        </div>
+    </div>
+
+    <p class="support-note">¿Necesitas ayuda? <button type="button">Contacta a soporte</button></p>
+</section>
+
+@code {
+    private bool showPassword;
+    private bool showRecoveryHint;
+
+    private string PasswordInputType => showPassword ? "text" : "password";
+    private string PasswordVisibilityIcon => showPassword ? "lucide:eye-off" : "lucide:eye";
+
+    [Parameter, EditorRequired]
+    public LoginFormModel Model { get; set; } = default!;
+
+    [Parameter]
+    public EventCallback OnLogin { get; set; }
+
+    private static readonly LoginTrustBadge[] TrustBadges =
+    [
+        new("Cifrado TLS", "Conexion segura", "lucide:lock"),
+        new("Permisos por rol", "Acceso controlado", "lucide:user-round-check"),
+        new("Trazabilidad", "Actividad auditable", "lucide:scan-search")
+    ];
+
+    private Task SubmitAsync() => OnLogin.InvokeAsync();
+    private void TogglePassword() => showPassword = !showPassword;
+    private void ToggleRecoveryHint() => showRecoveryHint = !showRecoveryHint;
+}

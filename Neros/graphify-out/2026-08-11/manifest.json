@@ -1,0 +1,482 @@
+{
+  ".claude/settings.json": {
+    "mtime": 1786510033.487073,
+    "ast_hash": "da5d373b5264afbf54f7be44d531c671",
+    "semantic_hash": ""
+  },
+  ".codex/hooks.json": {
+    "mtime": 1785431954.0779345,
+    "ast_hash": "6de6fef4d9b9f12d02bfb6cf6a9d50eb",
+    "semantic_hash": "6de6fef4d9b9f12d02bfb6cf6a9d50eb"
+  },
+  ".cursor/mcp.json": {
+    "mtime": 1779802918.4513001,
+    "ast_hash": "fc3144d359e83c797d56beb6fe50b4c0",
+    "semantic_hash": "fc3144d359e83c797d56beb6fe50b4c0"
+  },
+  ".vscode/launch.json": {
+    "mtime": 1786510033.6961648,
+    "ast_hash": "f4a13b1333904e903a8de1c5986cc17e",
+    "semantic_hash": ""
+  },
+  ".vscode/mcp.json": {
+    "mtime": 1779820612.1830828,
+    "ast_hash": "38c7fe3ac9b9e77264d1acf6b8d715e0",
+    "semantic_hash": "38c7fe3ac9b9e77264d1acf6b8d715e0"
+  },
+  ".vscode/tasks.json": {
+    "mtime": 1786510033.7011647,
+    "ast_hash": "73f4d3dfe4ab8399df93d59044a1a84e",
+    "semantic_hash": ""
+  },
+  ".claude/README.md": {
+    "mtime": 1786510177.7493596,
+    "ast_hash": "23bf2b0ab73e046db5f40a8e195b9318",
+    "semantic_hash": ""
+  },
+  ".cursor/AGENTS.md": {
+    "mtime": 1786510177.7553601,
+    "ast_hash": "d34aecb42b9e710588209d25f7dc9a0c",
+    "semantic_hash": ""
+  },
+  ".cursor/agents/backend.md": {
+    "mtime": 1786510177.7613657,
+    "ast_hash": "24dcd31aef194891b31e8041ffad7688",
+    "semantic_hash": ""
+  },
+  ".cursor/agents/dev.md": {
+    "mtime": 1786510177.76736,
+    "ast_hash": "d9a3e850ecb79bcc361faad656b039f0",
+    "semantic_hash": ""
+  },
+  ".cursor/agents/frontend.md": {
+    "mtime": 1786510177.7733607,
+    "ast_hash": "572aa736fe2bd26eb5ce47e5c10775ef",
+    "semantic_hash": ""
+  },
+  ".cursor/agents/planner.md": {
+    "mtime": 1786510177.7793713,
+    "ast_hash": "1fc9a7652b8f0bab30d4d5843e411711",
+    "semantic_hash": ""
+  },
+  ".cursor/agents/qa.md": {
+    "mtime": 1786510177.7833714,
+    "ast_hash": "e1b05598d3a4a591a1b9628d9313e983",
+    "semantic_hash": ""
+  },
+  ".github/chatmodes/architect.chatmode.md": {
+    "mtime": 1786510177.791881,
+    "ast_hash": "4e2906ddb7f7284729d2fc8872a5530c",
+    "semantic_hash": ""
+  },
+  ".github/chatmodes/code-review.chatmode.md": {
+    "mtime": 1786510177.7948928,
+    "ast_hash": "9ecca87d6ca278d8f0c2160646b73439",
+    "semantic_hash": ""
+  },
+  ".github/chatmodes/debug.chatmode.md": {
+    "mtime": 1786510177.797891,
+    "ast_hash": "2e675f5f92c414bf76d6c7c6da3b93df",
+    "semantic_hash": ""
+  },
+  ".github/chatmodes/planner-fast.chatmode.md": {
+    "mtime": 1786510177.8018913,
+    "ast_hash": "278ba5ec7e4a13776d9dd11e7f913327",
+    "semantic_hash": ""
+  },
+  ".github/chatmodes/refactor.chatmode.md": {
+    "mtime": 1786510177.809891,
+    "ast_hash": "2d155dbd83a8cd6eb196724c6fc945f9",
+    "semantic_hash": ""
+  },
+  ".github/copilot-instructions.md": {
+    "mtime": 1786510177.7883694,
+    "ast_hash": "9a749a90946a46bacf61c6de1daad728",
+    "semantic_hash": ""
+  },
+  ".github/instructions/agent-skills.instructions.md": {
+    "mtime": 1786510033.545071,
+    "ast_hash": "6d9035fb3447c6a1497dcd08ec4400bd",
+    "semantic_hash": ""
+  },
+  ".github/instructions/agents.instructions.md": {
+    "mtime": 1786510033.5410736,
+    "ast_hash": "e82676749e5d83cdf1a402140d087bb7",
+    "semantic_hash": ""
+  },
+  ".github/instructions/csharp-async.instructions.md": {
+    "mtime": 1786510033.5550716,
+    "ast_hash": "e2cd3b4e32ff86a513b1fd70c5ffa163",
+    "semantic_hash": ""
+  },
+  ".github/instructions/csharp.instructions.md": {
+    "mtime": 1786510177.8178911,
+    "ast_hash": "a2f224c314aab126401d4d891c9886b2",
+    "semantic_hash": ""
+  },
+  ".github/instructions/ef-core.instructions.md": {
+    "mtime": 1786510177.8228905,
+    "ast_hash": "1cc28bf4526617088681214073f63328",
+    "semantic_hash": ""
+  },
+  ".github/instructions/fastreport.instructions.md": {
+    "mtime": 1786510033.5640786,
+    "ast_hash": "aea3397130af8d22ad1e3ce5dec357d0",
+    "semantic_hash": ""
+  },
+  ".github/instructions/github-actions.instructions.md": {
+    "mtime": 1786510033.5680802,
+    "ast_hash": "98b02b9a6dc8892ab9b01ee2bbfe4d16",
+    "semantic_hash": ""
+  },
+  ".github/instructions/instructions.instructions.md": {
+    "mtime": 1786510033.57108,
+    "ast_hash": "dc0ab423cea64c28931e8be265b4ac12",
+    "semantic_hash": ""
+  },
+  ".github/instructions/javascript-frontend.instructions.md": {
+    "mtime": 1786510177.829889,
+    "ast_hash": "44fb4f5599f88d70f41a7ebfc5c5255b",
+    "semantic_hash": ""
+  },
+  ".github/instructions/markdown.instructions.md": {
+    "mtime": 1786510177.8328905,
+    "ast_hash": "0f1bf112da4d65d672b6981a68206a53",
+    "semantic_hash": ""
+  },
+  ".github/instructions/razor.instructions.md": {
+    "mtime": 1786510177.8398933,
+    "ast_hash": "ab6a1665b7bcc30f0693748c2a97d985",
+    "semantic_hash": ""
+  },
+  ".github/instructions/security-owasp.instructions.md": {
+    "mtime": 1786510177.843896,
+    "ast_hash": "0320f6f15fd47e32b65ef0892d56d41b",
+    "semantic_hash": ""
+  },
+  ".github/instructions/signalr.instructions.md": {
+    "mtime": 1786510033.6065981,
+    "ast_hash": "106aed6e78bac64c08d800913f115920",
+    "semantic_hash": ""
+  },
+  ".github/prompts/develop-reempaque-produccion.prompt.md": {
+    "mtime": 1786510177.8668907,
+    "ast_hash": "59bd81a17a70d519ee9d60a140f04fb8",
+    "semantic_hash": ""
+  },
+  ".github/workflows/README.md": {
+    "mtime": 1786510033.6555977,
+    "ast_hash": "ad8c052f82419974bf366d32b76cabf3",
+    "semantic_hash": ""
+  },
+  ".github/workflows/daily-status.md": {
+    "mtime": 1786510033.6285975,
+    "ast_hash": "44313aab506087003f6d51a849991f83",
+    "semantic_hash": ""
+  },
+  ".github/workflows/stale-triage.md": {
+    "mtime": 1786510033.660645,
+    "ast_hash": "beb9f2976dc780494fe59d9c5ae8c9e7",
+    "semantic_hash": ""
+  },
+  ".vscode/AGENTS.md": {
+    "mtime": 1786510177.8748915,
+    "ast_hash": "4398d53c10f73558da905701930a9e19",
+    "semantic_hash": ""
+  },
+  ".vscode/agents/backend.md": {
+    "mtime": 1786510177.8914163,
+    "ast_hash": "40265be01479035f52a1f60ed213de83",
+    "semantic_hash": ""
+  },
+  ".vscode/agents/dev.md": {
+    "mtime": 1786510177.8944285,
+    "ast_hash": "706e785cc9d2946bfc85525d272dc29e",
+    "semantic_hash": ""
+  },
+  ".vscode/agents/frontend.md": {
+    "mtime": 1786510177.8974278,
+    "ast_hash": "91dd26d3c69e922e1ebfcdbd056586a0",
+    "semantic_hash": ""
+  },
+  ".vscode/agents/planner.md": {
+    "mtime": 1786510177.9024253,
+    "ast_hash": "8bcead5bee7215e088ba4c05f9499c48",
+    "semantic_hash": ""
+  },
+  ".vscode/agents/qa.md": {
+    "mtime": 1786510177.9064288,
+    "ast_hash": "de631dee2cee980fbe968aaaf754d52a",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1786510197.999635,
+    "ast_hash": "03158711c8c0e1cd4d03f5d6394e7900",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1786510177.7323627,
+    "ast_hash": "946254595c675acd7a9d6661c471d1f5",
+    "semantic_hash": ""
+  },
+  "CONVENTIONS.md": {
+    "mtime": 1786510177.734362,
+    "ast_hash": "ce154aa7e83031d3c6c9666eece74096",
+    "semantic_hash": ""
+  },
+  "GEMINI.md": {
+    "mtime": 1786510177.7373607,
+    "ast_hash": "938e528c17e95d1c50964262104c2335",
+    "semantic_hash": ""
+  },
+  "skills/acquire-codebase-knowledge/SKILL.md": {
+    "mtime": 1786510178.0189426,
+    "ast_hash": "b1b7d7f4a1582ef2ad12b98fc704cfe4",
+    "semantic_hash": ""
+  },
+  "skills/architecture-blueprint-generator/SKILL.md": {
+    "mtime": 1786510178.0219486,
+    "ast_hash": "7b5280332245a56d554295acf4dd3ae4",
+    "semantic_hash": ""
+  },
+  "skills/aspnet-mvc-razor/SKILL.md": {
+    "mtime": 1786510178.0269518,
+    "ast_hash": "7fb2001d50f77513184588ee263ad5c9",
+    "semantic_hash": ""
+  },
+  "skills/create-implementation-plan/SKILL.md": {
+    "mtime": 1786510178.0299447,
+    "ast_hash": "6a0c7516d6c77998f8e45204637666ee",
+    "semantic_hash": ""
+  },
+  "skills/csharp-async/SKILL.md": {
+    "mtime": 1786510178.0329444,
+    "ast_hash": "74c04f7c0753b9aa70fce083d33b326f",
+    "semantic_hash": ""
+  },
+  "skills/diagnose/SKILL.md": {
+    "mtime": 1786510178.0359454,
+    "ast_hash": "f020c55b4b8064f5c6d7be9cee2e7795",
+    "semantic_hash": ""
+  },
+  "skills/dotnet-best-practices/SKILL.md": {
+    "mtime": 1786510178.0399444,
+    "ast_hash": "b6a11bd5f7665c505cfa94d57e765998",
+    "semantic_hash": ""
+  },
+  "skills/ef-core/SKILL.md": {
+    "mtime": 1786510178.0429459,
+    "ast_hash": "2af4462b7d55d5d50b441acd7149ec92",
+    "semantic_hash": ""
+  },
+  "skills/refactor/SKILL.md": {
+    "mtime": 1786510178.0469458,
+    "ast_hash": "def406525b2425cecb62ad4d4cbe8f56",
+    "semantic_hash": ""
+  },
+  "skills/reviewing-code/SKILL.md": {
+    "mtime": 1786510178.0499458,
+    "ast_hash": "e6683fb9670754c158f21d995eac8509",
+    "semantic_hash": ""
+  },
+  "skills/security-review/SKILL.md": {
+    "mtime": 1786510178.0599587,
+    "ast_hash": "46c779ab387bf07bb5ccbbd5bcc46d32",
+    "semantic_hash": ""
+  },
+  "package.json": {
+    "mtime": 1786510177.7453597,
+    "ast_hash": "13c1da4a6c317c54568c96d835b53660",
+    "semantic_hash": ""
+  },
+  "tailwind.config.js": {
+    "mtime": 1786510033.9877515,
+    "ast_hash": "ff834e28e18548d945ecaf68c48c02c6",
+    "semantic_hash": ""
+  },
+  ".github/prompts/create-api-endpoint.prompt.md": {
+    "mtime": 1786510177.8488915,
+    "ast_hash": "ff19dcd5d4fde8f6908658c6c770f190",
+    "semantic_hash": ""
+  },
+  ".github/prompts/create-blazor-feature.prompt.md": {
+    "mtime": 1786510177.8518906,
+    "ast_hash": "594c27288d3e6dabcaaf5c6ff3b884ec",
+    "semantic_hash": ""
+  },
+  ".github/prompts/create-domain-use-case.prompt.md": {
+    "mtime": 1786510177.855892,
+    "ast_hash": "bd7f7bdebce6532a6f00ee449b030822",
+    "semantic_hash": ""
+  },
+  ".github/prompts/create-sql-script.prompt.md": {
+    "mtime": 1786510177.8598907,
+    "ast_hash": "6356e49a185543de82776eabbb3a285d",
+    "semantic_hash": ""
+  },
+  "Neros.Api/Controllers/WeatherForecastController.cs": {
+    "mtime": 1786510033.7571647,
+    "ast_hash": "f4d8256b499e7644d288bff2294a4d44",
+    "semantic_hash": ""
+  },
+  "Neros.Api/Neros.Api.csproj": {
+    "mtime": 1786510033.760166,
+    "ast_hash": "2ecbfe68a8abe0717a70f7d324be51f5",
+    "semantic_hash": ""
+  },
+  "Neros.Api/Program.cs": {
+    "mtime": 1786507317.5926812,
+    "ast_hash": "354c227093827c088aeda3ffb465e79c",
+    "semantic_hash": ""
+  },
+  "Neros.Api/Properties/launchSettings.json": {
+    "mtime": 1786507316.9675963,
+    "ast_hash": "ad966964885b3a2b90bee75fef6a812c",
+    "semantic_hash": ""
+  },
+  "Neros.Api/WeatherForecast.cs": {
+    "mtime": 1786510033.765174,
+    "ast_hash": "11479c7e2288f7f352911e4191ce7923",
+    "semantic_hash": ""
+  },
+  "Neros.Api/appsettings.Development.json": {
+    "mtime": 1786507316.9706318,
+    "ast_hash": "804b473502a4c415cf75db61c56c32aa",
+    "semantic_hash": ""
+  },
+  "Neros.Api/appsettings.json": {
+    "mtime": 1786507316.9825966,
+    "ast_hash": "f7e65dde4e5533740a0d57ac9355c0e8",
+    "semantic_hash": ""
+  },
+  "Neros.Application/Class1.cs": {
+    "mtime": 1786510033.7701776,
+    "ast_hash": "3107d2895df7b4a7c82021219262da67",
+    "semantic_hash": ""
+  },
+  "Neros.Application/Neros.Application.csproj": {
+    "mtime": 1786510033.7741742,
+    "ast_hash": "0789a850ecce240a09a0adf4b7202018",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/App.razor": {
+    "mtime": 1786510033.784697,
+    "ast_hash": "8ac1d9dc86a6697b09faa4b1a15d71ce",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Layout/MainLayout.razor": {
+    "mtime": 1786510033.788693,
+    "ast_hash": "8798445ff8772f1596de724e54e8f304",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Layout/NavMenu.razor": {
+    "mtime": 1786510177.931428,
+    "ast_hash": "b127a5d33a6a5ecf4aecd819765e9649",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Layout/ReconnectModal.razor": {
+    "mtime": 1786507287.2040422,
+    "ast_hash": "2f2378bed0d87a86800610190fd1da17",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Layout/ReconnectModal.razor.js": {
+    "mtime": 1786507287.207044,
+    "ast_hash": "bdc7a0873231c569cd31aa85311186a3",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Pages/Counter.razor": {
+    "mtime": 1786508847.9982214,
+    "ast_hash": "e6ee184864dfca49bd187e288e7461bb",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Pages/Error.razor": {
+    "mtime": 1786507286.7878716,
+    "ast_hash": "895aa385b310af50d09fd583be83b251",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Pages/Home.razor": {
+    "mtime": 1786508847.9211617,
+    "ast_hash": "2f5e8a5cde22b2d4d82154b7b0ed5197",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Pages/NotFound.razor": {
+    "mtime": 1786507286.7908714,
+    "ast_hash": "b43132764687de5710f24e46d3d3f7ff",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Pages/Weather.razor": {
+    "mtime": 1786508847.9982214,
+    "ast_hash": "d17c2cc3403b4f8af37bb74024c4ec75",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Routes.razor": {
+    "mtime": 1786507286.8578858,
+    "ast_hash": "e7369bc27ad40e65009faaaa1e965d93",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/_Imports.razor": {
+    "mtime": 1786510033.7806957,
+    "ast_hash": "d03ae5c6d1c8754f7855c2ae7ebf6b87",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Neros.Blazor.csproj": {
+    "mtime": 1786510033.8196945,
+    "ast_hash": "a9ed2534d6049791d98a4c7ae2f1566c",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Program.cs": {
+    "mtime": 1786510033.8246949,
+    "ast_hash": "0ef3467525c87ea8a1fb23476e2c6ae3",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Properties/launchSettings.json": {
+    "mtime": 1786507286.7968738,
+    "ast_hash": "486861960808c4f010aee2fa8c7c9c5c",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/appsettings.Development.json": {
+    "mtime": 1786507286.816872,
+    "ast_hash": "804b473502a4c415cf75db61c56c32aa",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/appsettings.json": {
+    "mtime": 1786507286.8228805,
+    "ast_hash": "f7e65dde4e5533740a0d57ac9355c0e8",
+    "semantic_hash": ""
+  },
+  "Neros.Contracts/Class1.cs": {
+    "mtime": 1786510033.909225,
+    "ast_hash": "24cbc76cbc5abc0e9a6e0925a3f2dc11",
+    "semantic_hash": ""
+  },
+  "Neros.Contracts/Neros.Contracts.csproj": {
+    "mtime": 1786510033.912228,
+    "ast_hash": "013b26734fa98eee8ea0359a1503f151",
+    "semantic_hash": ""
+  },
+  "Neros.Domain/Class1.cs": {
+    "mtime": 1786510033.9142246,
+    "ast_hash": "1f0e1bb22e19d2fc7331a459690dd6e7",
+    "semantic_hash": ""
+  },
+  "Neros.Domain/Neros.Domain.csproj": {
+    "mtime": 1786510033.9172268,
+    "ast_hash": "013b26734fa98eee8ea0359a1503f151",
+    "semantic_hash": ""
+  },
+  "Neros.Shared/Class1.cs": {
+    "mtime": 1786510033.9232259,
+    "ast_hash": "dea6fd5b358e5849df355d390b9fd63a",
+    "semantic_hash": ""
+  },
+  "Neros.Shared/Neros.Shared.csproj": {
+    "mtime": 1786507039.260288,
+    "ast_hash": "46b0780bd56312ea2d1bab391f179e89",
+    "semantic_hash": ""
+  },
+  "Neros.slnx": {
+    "mtime": 1786510033.920226,
+    "ast_hash": "d07954065df0bafb4a345313c57c0dfe",
+    "semantic_hash": ""
+  }
+}

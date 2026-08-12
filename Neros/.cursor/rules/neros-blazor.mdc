@@ -1,0 +1,29 @@
+---
+description: Blazor y Tailwind conventions para Neros
+globs:
+  - "**/*.razor"
+  - "**/*.css"
+  - "**/*.js"
+alwaysApply: false
+---
+
+# Blazor - Neros
+
+Fuente autoritativa: `.github/instructions/razor.instructions.md` y `.github/instructions/javascript-frontend.instructions.md`.
+
+## Reglas
+
+- UI nueva en Blazor Web App, no MVC Razor Areas.
+- Tailwind CSS como sistema visual.
+- No Bootstrap, jQuery, DataTables ni Select2.
+- Componentes centrados en estado de UI e interaccion.
+- No DbContext ni repositorios en componentes.
+- Usar DTOs de `Neros.Contracts` y servicios cliente/API.
+- Formularios con validacion visible, loading/error/empty states.
+
+## Validacion
+
+```powershell
+npm run css:build
+dotnet build .\Neros.slnx -v minimal
+```

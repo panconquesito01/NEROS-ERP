@@ -1,0 +1,17 @@
+﻿.vs/
+bin/
+obj/
+graphify-out/
+.git/
+*.suo
+*.user
+*.cache
+*.vsidx
+*.dll
+*.pdb
+*.exe
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif

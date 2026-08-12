@@ -1,0 +1,25 @@
+{
+  "mcpServers": {
+    "AzureDevOps": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@azure-devops/mcp",
+        "fivepaqco",
+        "--authentication",
+        "envvar"
+      ],
+      "env": {
+        "ADO_MCP_AUTH_TOKEN": "${env:AZURE_DEVOPS_PAT}"
+      }
+    },
+    "postman": {
+      "type": "http",
+      "url": "https://mcp.postman.com/minimal",
+      "headers": {
+        "Authorization": "Bearer ${env:POSTMAN_MCP_KEY}"
+      }
+    }
+  }
+}

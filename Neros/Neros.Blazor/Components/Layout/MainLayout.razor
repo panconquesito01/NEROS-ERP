@@ -1,0 +1,42 @@
+@inherits LayoutComponentBase
+
+<div class="app-shell">
+    <aside class="app-sidebar">
+        <NavMenu />
+    </aside>
+
+    <main class="app-main">
+        <header class="app-topbar">
+            <div class="topbar-context">
+                <span class="context-mark" aria-hidden="true"></span>
+                <div>
+                    <p>Centro operativo</p>
+                    <strong>Visión general</strong>
+                </div>
+            </div>
+
+            <div class="topbar-actions">
+                <span class="business-day"><iconify-icon icon="lucide:calendar-days" aria-hidden="true"></iconify-icon>12 de agosto, 2026</span>
+                <button class="topbar-icon" type="button" aria-label="Ver notificaciones">
+                    <iconify-icon icon="lucide:bell" aria-hidden="true"></iconify-icon>
+                    <span aria-hidden="true"></span>
+                </button>
+                <a class="session-user" href="login" aria-label="Cerrar sesión de David Rivera">
+                    <span>DR</span>
+                    <span class="user-copy"><strong>David Rivera</strong><small>Administrador</small></span>
+                    <iconify-icon icon="lucide:log-out" aria-hidden="true"></iconify-icon>
+                </a>
+            </div>
+        </header>
+
+        <article class="app-content">
+            @Body
+        </article>
+    </main>
+</div>
+
+<div id="blazor-error-ui" data-nosnippet>
+    Ocurrió un error inesperado.
+    <a href="." class="reload">Recargar</a>
+    <button class="dismiss" type="button" aria-label="Cerrar">×</button>
+</div>

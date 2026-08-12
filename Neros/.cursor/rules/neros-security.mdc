@@ -1,0 +1,21 @@
+---
+description: Reglas de seguridad OWASP para Neros
+alwaysApply: true
+---
+
+# Security - Neros
+
+Fuente autoritativa: `.github/instructions/security-owasp.instructions.md` y `skills/security-review/SKILL.md`.
+
+## Checks siempre activos
+
+- No secretos en chat, commits, docs, logs o scripts temporales.
+- Autorizacion server-side para endpoints y hubs que exponen datos protegidos.
+- Scope por tenant/empresa/sucursal/recurso cuando aplique.
+- SQL parametrizado; no concatenar input.
+- XSS: no renderizar contenido no confiable como HTML sin sanitizar.
+- Archivos/reportes: validar permisos, tipo, tamano, path y almacenamiento.
+- Logging sin passwords, JWTs, refresh tokens, connection strings ni payloads completos.
+- SignalR requiere auth y autorizacion por recurso en metodos sensibles.
+
+Invocar `security-review` para auth, datos, secretos, SQL, reportes, jobs, SignalR o dependencias nuevas.

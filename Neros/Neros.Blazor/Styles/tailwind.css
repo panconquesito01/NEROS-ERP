@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-[#eef2f4] font-sans text-[#142331] antialiased;
+  }
+
+  button,
+  input {
+    font: inherit;
+  }
+
+  a {
+    @apply text-neros-teal underline-offset-4;
+  }
+
+  ::selection {
+    @apply bg-neros-teal/20 text-neros-ink;
+  }
+
+  :where(a, button, input):focus-visible {
+    @apply outline-none ring-2 ring-neros-teal/40 ring-offset-2 ring-offset-white;
+  }
+}
+
+@layer components {
+  .app-shell {
+    @apply min-h-screen bg-[#eef2f4] lg:grid lg:grid-cols-[17rem_1fr];
+  }
+
+  .app-sidebar {
+    @apply relative z-40 bg-neros-ink text-white lg:min-h-screen;
+  }
+
+  .app-main {
+    @apply min-w-0;
+  }
+
+  .app-content {
+    @apply mx-auto w-full max-w-[1600px] px-4 py-5 sm:px-6 sm:py-7 xl:px-10;
+  }
+
+  .nav-link {
+    @apply flex h-11 items-center gap-3 rounded-lg px-3 text-[0.82rem] font-semibold text-slate-400 no-underline transition duration-200 hover:bg-white/[0.055] hover:text-white;
+  }
+
+  .nav-link.active {
+    @apply bg-white/[0.08] text-white shadow-[inset_3px_0_0_#55e6d0] hover:bg-white/[0.1] hover:text-white;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -1,0 +1,110 @@
+.login-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: clamp(1rem, 2vw, 1.5rem);
+    animation: enter-down 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.brand-lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #0b1723;
+    text-decoration: none;
+}
+
+.brand-symbol {
+    position: relative;
+    display: inline-flex;
+    width: 2.65rem;
+    height: 2.65rem;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 0.7rem;
+    background: #081522;
+    color: #fff;
+    font-family: "Space Grotesk", Sora, Manrope, sans-serif;
+    font-size: 1.12rem;
+    font-weight: 800;
+    box-shadow: 0 0.7rem 1.6rem rgba(7, 19, 32, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    transition: transform 180ms ease;
+}
+
+.brand-symbol::after {
+    content: "";
+    position: absolute;
+    right: -0.6rem;
+    bottom: -0.75rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    background: #39d9c3;
+}
+
+.brand-symbol span {
+    position: relative;
+    z-index: 1;
+}
+
+.brand-lockup:hover .brand-symbol {
+    transform: translateY(-2px);
+}
+
+.brand-name,
+.brand-tagline {
+    display: block;
+}
+
+.brand-name {
+    font-family: "Space Grotesk", Sora, Manrope, sans-serif;
+    font-size: 0.96rem;
+    font-weight: 750;
+    letter-spacing: 0.16em;
+    line-height: 1;
+}
+
+.brand-tagline {
+    margin-top: 0.3rem;
+    color: #647180;
+    font-size: 0.69rem;
+    font-weight: 650;
+    letter-spacing: 0.02em;
+}
+
+.header-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(7, 19, 32, 0.08);
+    border-radius: 0.65rem;
+    background: rgba(248, 250, 251, 0.72);
+    padding: 0.58rem 0.75rem;
+    color: #344354;
+    font-size: 0.76rem;
+    font-weight: 750;
+    box-shadow: 0 0.5rem 1.2rem rgba(15, 23, 42, 0.05);
+    backdrop-filter: blur(16px);
+}
+
+.header-status span {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: #0eaa86;
+    box-shadow: 0 0 0 0.3rem rgba(14, 170, 134, 0.11);
+}
+
+@keyframes enter-down {
+    from { opacity: 0; transform: translateY(-0.9rem); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 540px) {
+    .brand-tagline {
+        display: none;
+    }
+}

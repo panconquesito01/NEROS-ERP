@@ -1,0 +1,14 @@
+<article class="module-tile" style="--module-color: @Module.Color; --module-bg: @Module.Background;">
+    <span class="module-icon">
+        <iconify-icon icon="@Module.IconName" aria-hidden="true"></iconify-icon>
+    </span>
+    <span>
+        <strong>@Module.Name</strong>
+        <small>@Module.Description</small>
+    </span>
+</article>
+
+@code {
+    [Parameter, EditorRequired]
+    public LoginModule Module { get; set; } = default!;
+}

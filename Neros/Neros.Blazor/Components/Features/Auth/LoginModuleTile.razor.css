@@ -1,0 +1,57 @@
+.module-tile {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 0.65rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.11);
+    padding: 0.8rem 0.2rem 0;
+    animation: tile-rise 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.module-tile:hover {
+    transform: translateY(-2px);
+    border-color: var(--module-color);
+}
+
+.module-icon {
+    display: inline-flex;
+    width: 2rem;
+    height: 2rem;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    background: var(--module-bg);
+    color: var(--module-color);
+}
+
+.module-icon iconify-icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+.module-tile strong,
+.module-tile small {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.module-tile strong {
+    color: #e4eef2;
+    font-size: 0.68rem;
+    font-weight: 750;
+}
+
+.module-tile small {
+    margin-top: 0.12rem;
+    color: #66808f;
+    font-size: 0.57rem;
+}
+
+@keyframes tile-rise {
+    from { opacity: 0; transform: translateY(0.5rem); }
+    to { opacity: 1; transform: translateY(0); }
+}

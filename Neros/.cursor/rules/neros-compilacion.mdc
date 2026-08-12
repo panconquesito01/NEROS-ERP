@@ -1,0 +1,29 @@
+---
+description: Verificar compilacion tras cambios C#, Razor, Tailwind o estructura de proyecto
+globs: "**/*.cs,**/*.razor,**/*.csproj,**/*.css,tailwind.config.js,package.json"
+alwaysApply: false
+---
+
+# Verificacion De Compilacion
+
+Cuando el usuario permita ejecutar comandos locales, usar el chequeo mas estrecho disponible.
+
+## UI / Tailwind
+
+```powershell
+npm run css:build
+```
+
+## Solucion .NET
+
+```powershell
+dotnet build .\Neros.slnx -v minimal
+```
+
+## Sin ejecucion local
+
+Si el usuario prohibe ejecucion local:
+
+- No ejecutar comandos.
+- Usar diagnosticos del editor.
+- Dejar comandos pendientes en la entrega.

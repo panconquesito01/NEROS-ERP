@@ -1,0 +1,13 @@
+﻿{
+  "name": "neros",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "css:build": "tailwindcss -i ./Neros.Blazor/Styles/tailwind.css -o ./Neros.Blazor/wwwroot/app.css --minify",
+    "css:watch": "tailwindcss -i ./Neros.Blazor/Styles/tailwind.css -o ./Neros.Blazor/wwwroot/app.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}
+

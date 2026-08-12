@@ -1,0 +1,813 @@
+{
+  "communities": {
+    "0": [
+      "neros",
+      "neros_api_neros_api",
+      "neros_api_neros_api_csproj_framework_net10_0",
+      "neros_api_neros_api_csproj_sdk_microsoft_net_sdk_web",
+      "neros_application_neros_application",
+      "neros_application_neros_application_csproj_framework_net10_0",
+      "neros_application_neros_application_csproj_sdk_microsoft_net_sdk",
+      "neros_blazor_neros_blazor",
+      "neros_blazor_neros_blazor_csproj_framework_net10_0",
+      "neros_blazor_neros_blazor_csproj_sdk_microsoft_net_sdk_web",
+      "neros_contracts_neros_contracts",
+      "neros_contracts_neros_contracts_csproj_framework_net10_0",
+      "neros_contracts_neros_contracts_csproj_sdk_microsoft_net_sdk",
+      "neros_domain_neros_domain",
+      "neros_domain_neros_domain_csproj_framework_net10_0",
+      "neros_domain_neros_domain_csproj_sdk_microsoft_net_sdk",
+      "neros_shared_neros_shared",
+      "neros_shared_neros_shared_csproj_framework_net10_0",
+      "neros_shared_neros_shared_csproj_sdk_microsoft_net_sdk",
+      "nuget_microsoft_aspnetcore_openapi"
+    ],
+    "1": [
+      "claude_settings",
+      "claude_settings_agentspath",
+      "claude_settings_buildcommand",
+      "claude_settings_comment",
+      "claude_settings_comment_hooks",
+      "claude_settings_defaultlanguage",
+      "claude_settings_enabledplugins",
+      "claude_settings_enabledplugins_feature_dev_claude_plugins_official",
+      "claude_settings_enabledplugins_frontend_design_claude_plugins_official",
+      "claude_settings_forbidden",
+      "claude_settings_hooks",
+      "claude_settings_hooks_pretooluse",
+      "claude_settings_schema",
+      "claude_settings_skillspath",
+      "ref_connected_services",
+      "ref_migrations_modelsnapshot_cs",
+      "ref_startup_cs"
+    ],
+    "2": [
+      "neros_api_properties_launchsettings",
+      "neros_api_properties_launchsettings_environmentvariables_aspnetcore_environment",
+      "neros_api_properties_launchsettings_http_applicationurl",
+      "neros_api_properties_launchsettings_http_commandname",
+      "neros_api_properties_launchsettings_http_dotnetrunmessages",
+      "neros_api_properties_launchsettings_http_environmentvariables",
+      "neros_api_properties_launchsettings_http_launchbrowser",
+      "neros_api_properties_launchsettings_https_applicationurl",
+      "neros_api_properties_launchsettings_https_commandname",
+      "neros_api_properties_launchsettings_https_dotnetrunmessages",
+      "neros_api_properties_launchsettings_https_environmentvariables",
+      "neros_api_properties_launchsettings_https_launchbrowser",
+      "neros_api_properties_launchsettings_profiles",
+      "neros_api_properties_launchsettings_profiles_http",
+      "neros_api_properties_launchsettings_profiles_https",
+      "neros_api_properties_launchsettings_schema"
+    ],
+    "3": [
+      "neros_blazor_properties_launchsettings",
+      "neros_blazor_properties_launchsettings_environmentvariables_aspnetcore_environment",
+      "neros_blazor_properties_launchsettings_http_applicationurl",
+      "neros_blazor_properties_launchsettings_http_commandname",
+      "neros_blazor_properties_launchsettings_http_dotnetrunmessages",
+      "neros_blazor_properties_launchsettings_http_environmentvariables",
+      "neros_blazor_properties_launchsettings_http_launchbrowser",
+      "neros_blazor_properties_launchsettings_https_applicationurl",
+      "neros_blazor_properties_launchsettings_https_commandname",
+      "neros_blazor_properties_launchsettings_https_dotnetrunmessages",
+      "neros_blazor_properties_launchsettings_https_environmentvariables",
+      "neros_blazor_properties_launchsettings_https_launchbrowser",
+      "neros_blazor_properties_launchsettings_profiles",
+      "neros_blazor_properties_launchsettings_profiles_http",
+      "neros_blazor_properties_launchsettings_profiles_https",
+      "neros_blazor_properties_launchsettings_schema"
+    ],
+    "4": [
+      "microsoft_aspnetcore_components_forms",
+      "microsoft_aspnetcore_components_routing",
+      "microsoft_aspnetcore_components_web",
+      "microsoft_aspnetcore_components_web_virtualization",
+      "microsoft_jsinterop",
+      "neros_blazor",
+      "neros_blazor_components",
+      "neros_blazor_components_imports",
+      "neros_blazor_components_layout",
+      "neros_blazor_program",
+      "static",
+      "system_net_http_json"
+    ],
+    "5": [
+      "controllerbase",
+      "csharp_namespace:91d5ba9dc68d9773",
+      "httpget",
+      "ienumerable",
+      "neros_api_controllers_weatherforecastcontroller",
+      "neros_api_controllers_weatherforecastcontroller_neros_api_controllers_weatherforecastcontroller",
+      "neros_api_controllers_weatherforecastcontroller_neros_api_controllers_weatherforecastcontroller_get",
+      "string",
+      "weatherforecast"
+    ],
+    "6": [
+      "neros_blazor_components_layout_reconnectmodal_razor",
+      "neros_blazor_components_layout_reconnectmodal_razor_handlereconnectstatechanged",
+      "neros_blazor_components_layout_reconnectmodal_razor_reconnectmodal",
+      "neros_blazor_components_layout_reconnectmodal_razor_resume",
+      "neros_blazor_components_layout_reconnectmodal_razor_resumebutton",
+      "neros_blazor_components_layout_reconnectmodal_razor_retry",
+      "neros_blazor_components_layout_reconnectmodal_razor_retrybutton",
+      "neros_blazor_components_layout_reconnectmodal_razor_retrywhendocumentbecomesvisible"
+    ],
+    "7": [
+      "headoutlet",
+      "importmap",
+      "neros_blazor_components_app",
+      "reconnectmodal",
+      "resourcepreloader",
+      "routes"
+    ],
+    "8": [
+      "c_desarrollo_personal_erp_aurosoft_migracion_aurosoft_next_cursor_mcp_json",
+      "c_desarrollo_personal_erp_aurosoft_migracion_aurosoft_next_cursor_mcp_mcp_server_azuredevops",
+      "c_desarrollo_personal_erp_aurosoft_migracion_aurosoft_next_cursor_mcp_mcp_server_postman",
+      "env_var_ado_mcp_auth_token",
+      "mcp_command_npx",
+      "mcp_package_azure_devops_mcp"
+    ],
+    "9": [
+      "focusonnavigate",
+      "found",
+      "neros_blazor_components_routes",
+      "router",
+      "routeview"
+    ],
+    "10": [
+      "csharp_namespace:4ab61e6c8a98aa8f",
+      "dateonly",
+      "neros_api_weatherforecast",
+      "neros_api_weatherforecast_neros_api_weatherforecast"
+    ],
+    "11": [
+      "neros_blazor_components_pages_error",
+      "neros_blazor_components_pages_error_oninitialized",
+      "neros_blazor_components_pages_error_razor_pagetitle",
+      "system_diagnostics"
+    ],
+    "12": [
+      "csharp_namespace:58f32e742b677989",
+      "neros_domain_class1",
+      "neros_domain_class1_neros_domain_class1"
+    ],
+    "13": [
+      "csharp_namespace:5fdfcb55a7b783cb",
+      "neros_application_class1",
+      "neros_application_class1_neros_application_class1"
+    ],
+    "14": [
+      "csharp_namespace:791ee772924292ac",
+      "neros_contracts_class1",
+      "neros_contracts_class1_neros_contracts_class1"
+    ],
+    "15": [
+      "csharp_namespace:a3877dc62a468b35",
+      "neros_shared_class1",
+      "neros_shared_class1_neros_shared_class1"
+    ],
+    "16": [
+      "neros_blazor_components_pages_counter",
+      "neros_blazor_components_pages_counter_incrementcount",
+      "neros_blazor_components_pages_counter_razor_pagetitle"
+    ],
+    "17": [
+      "neros_blazor_components_pages_weather",
+      "neros_blazor_components_pages_weather_oninitializedasync",
+      "neros_blazor_components_pages_weather_razor_pagetitle"
+    ],
+    "18": [
+      "navmenu",
+      "neros_blazor_components_layout_mainlayout"
+    ],
+    "19": [
+      "navlink",
+      "neros_blazor_components_layout_navmenu"
+    ],
+    "20": [
+      "neros_blazor_components_pages_home",
+      "neros_blazor_components_pages_home_razor_pagetitle"
+    ],
+    "21": [
+      "github_instructions_csharp_async_instructions",
+      "github_instructions_csharp_async_instructions_async_streams",
+      "github_instructions_csharp_async_instructions_banned_in_this_codebase",
+      "github_instructions_csharp_async_instructions_c_async_â_neros",
+      "github_instructions_csharp_async_instructions_cancellation",
+      "github_instructions_csharp_async_instructions_configureawait",
+      "github_instructions_csharp_async_instructions_exceptions",
+      "github_instructions_csharp_async_instructions_names",
+      "github_instructions_csharp_async_instructions_parallelism",
+      "github_instructions_csharp_async_instructions_return_types"
+    ],
+    "22": [
+      "neros_api_program"
+    ],
+    "23": [
+      "neros_blazor_components_layout_reconnectmodal"
+    ],
+    "24": [
+      "neros_blazor_components_pages_notfound"
+    ],
+    "25": [
+      "conventions",
+      "conventions_base_de_datos",
+      "conventions_capas",
+      "conventions_codigo",
+      "conventions_frontend"
+    ],
+    "26": [
+      "package",
+      "package_devdependencies",
+      "package_devdependencies_tailwindcss",
+      "package_name",
+      "package_private",
+      "package_scripts",
+      "package_scripts_css_build",
+      "package_scripts_css_watch",
+      "package_version",
+      "tailwindcss"
+    ],
+    "27": [
+      "github_copilot_instructions",
+      "github_copilot_instructions_proyecto",
+      "github_copilot_instructions_reglas",
+      "github_copilot_instructions_validacion"
+    ],
+    "28": [
+      "github_instructions_ef_core_instructions",
+      "github_instructions_ef_core_instructions_ef_core_â_neros",
+      "github_instructions_instructions_instructions",
+      "github_instructions_instructions_instructions_authoring_instructions_files_â_neros",
+      "github_instructions_instructions_instructions_body_structure",
+      "github_instructions_instructions_instructions_file_naming",
+      "github_instructions_instructions_instructions_front_matter_required",
+      "github_instructions_instructions_instructions_linking",
+      "github_instructions_instructions_instructions_tone",
+      "github_instructions_instructions_instructions_what_these_files_are_not",
+      "github_instructions_instructions_instructions_when_to_create_a_new_file",
+      "github_instructions_instructions_instructions_when_to_update"
+    ],
+    "29": [
+      "vscode_agents_backend",
+      "vscode_agents_backend_backend_agent",
+      "vscode_agents_backend_proposito",
+      "vscode_agents_backend_reglas",
+      "vscode_agents_backend_validacion"
+    ],
+    "30": [
+      "vscode_agents_frontend",
+      "vscode_agents_frontend_frontend_agent",
+      "vscode_agents_frontend_proposito",
+      "vscode_agents_frontend_reglas",
+      "vscode_agents_frontend_validacion"
+    ],
+    "31": [
+      "vscode_agents_planner",
+      "vscode_agents_planner_planner_agent",
+      "vscode_agents_planner_salida",
+      "vscode_agents_planner_workflow"
+    ],
+    "32": [
+      "vscode_agents_qa",
+      "vscode_agents_qa_checklist",
+      "vscode_agents_qa_comandos",
+      "vscode_agents_qa_qa_agent"
+    ],
+    "33": [
+      "github_prompts_create_api_endpoint_prompt",
+      "github_prompts_create_api_endpoint_prompt_crear_endpoint_api_â_neros",
+      "github_prompts_create_api_endpoint_prompt_reglas"
+    ],
+    "34": [
+      "github_prompts_create_blazor_feature_prompt",
+      "github_prompts_create_blazor_feature_prompt_crear_feature_blazor_â_neros",
+      "github_prompts_create_blazor_feature_prompt_reglas"
+    ],
+    "35": [
+      "github_instructions_signalr_instructions",
+      "github_instructions_signalr_instructions_client_js",
+      "github_instructions_signalr_instructions_groups",
+      "github_instructions_signalr_instructions_performance",
+      "github_instructions_signalr_instructions_registration",
+      "github_instructions_signalr_instructions_security",
+      "github_instructions_signalr_instructions_server",
+      "github_instructions_signalr_instructions_signalr_â_neros",
+      "skills_architecture_blueprint_generator_skill",
+      "skills_architecture_blueprint_generator_skill_1_architecture_overview",
+      "skills_architecture_blueprint_generator_skill_2_1_system_context_c4_level_1",
+      "skills_architecture_blueprint_generator_skill_2_2_container_diagram_c4_level_2",
+      "skills_architecture_blueprint_generator_skill_2_3_component_diagram_per_major_area",
+      "skills_architecture_blueprint_generator_skill_2_4_sequence_diagrams",
+      "skills_architecture_blueprint_generator_skill_2_5_data_flow",
+      "skills_architecture_blueprint_generator_skill_2_6_deployment_diagram",
+      "skills_architecture_blueprint_generator_skill_2_diagrams_mermaid",
+      "skills_architecture_blueprint_generator_skill_3_architectural_layers_dependencies",
+      "skills_architecture_blueprint_generator_skill_4_cross_cutting_concerns",
+      "skills_architecture_blueprint_generator_skill_5_technology_specific_patterns",
+      "skills_architecture_blueprint_generator_skill_6_extension_points",
+      "skills_architecture_blueprint_generator_skill_7_risks_architectural_concerns",
+      "skills_architecture_blueprint_generator_skill_architecture_blueprint_generator_â_neros",
+      "skills_architecture_blueprint_generator_skill_constraints",
+      "skills_architecture_blueprint_generator_skill_neros_output_override",
+      "skills_architecture_blueprint_generator_skill_what_the_output_must_contain",
+      "skills_architecture_blueprint_generator_skill_when_to_use",
+      "skills_architecture_blueprint_generator_skill_workflow",
+      "skills_aspnet_mvc_razor_skill"
+    ],
+    "36": [
+      "skills_aspnet_mvc_razor_skill_action_patterns",
+      "skills_aspnet_mvc_razor_skill_after_editing",
+      "skills_aspnet_mvc_razor_skill_ajax_json_action",
+      "skills_aspnet_mvc_razor_skill_antiforgery_in_views",
+      "skills_aspnet_mvc_razor_skill_areas",
+      "skills_aspnet_mvc_razor_skill_asp_net_core_mvc_razor_â_neros",
+      "skills_aspnet_mvc_razor_skill_authentication",
+      "skills_aspnet_mvc_razor_skill_default_route",
+      "skills_aspnet_mvc_razor_skill_di_in_program_cs",
+      "skills_aspnet_mvc_razor_skill_error_handling",
+      "skills_aspnet_mvc_razor_skill_file_upload",
+      "skills_aspnet_mvc_razor_skill_filters",
+      "skills_aspnet_mvc_razor_skill_full_page_form",
+      "skills_aspnet_mvc_razor_skill_localization",
+      "skills_aspnet_mvc_razor_skill_razor_views",
+      "skills_aspnet_mvc_razor_skill_sections",
+      "skills_aspnet_mvc_razor_skill_signalr_hubs",
+      "skills_aspnet_mvc_razor_skill_what_not_to_touch"
+    ],
+    "37": [
+      "skills_refactor_skill_10_duplicate_di_registration_in_program_cs",
+      "skills_refactor_skill_1_god_controller_action_with_embedded_sql_business_logic",
+      "skills_refactor_skill_2_duplicated_try_catch_json_new_ok_false_error",
+      "skills_refactor_skill_3_long_method_200_loc_repository_method",
+      "skills_refactor_skill_4_feature_envy_controller_manipulates_entity_internals",
+      "skills_refactor_skill_5_new_httpclient_in_a_service",
+      "skills_refactor_skill_6_hand_rolled_sql_with_string_concatenation",
+      "skills_refactor_skill_7_repeated_permission_check_code_in_actions",
+      "skills_refactor_skill_8_eqcontext_shared_across_task_whenall",
+      "skills_refactor_skill_9_razor_view_with_massive_script_block",
+      "skills_refactor_skill_common_neros_code_smells_fixes",
+      "skills_refactor_skill_golden_rules",
+      "skills_refactor_skill_neros_guardrails",
+      "skills_refactor_skill_output",
+      "skills_refactor_skill_refactor_â_neros",
+      "skills_refactor_skill_when_not_to_use",
+      "skills_refactor_skill_when_to_use",
+      "skills_refactor_skill_workflow"
+    ],
+    "38": [
+      "github_prompts_create_domain_use_case_prompt",
+      "github_prompts_create_domain_use_case_prompt_crear_caso_de_uso_â_neros",
+      "github_prompts_create_domain_use_case_prompt_reglas"
+    ],
+    "39": [
+      "github_prompts_create_sql_script_prompt",
+      "github_prompts_create_sql_script_prompt_crear_script_sql_â_neros",
+      "github_prompts_create_sql_script_prompt_reglas"
+    ],
+    "40": [
+      "claude_readme"
+    ],
+    "41": [
+      "github_prompts_develop_reempaque_produccion_prompt",
+      "github_prompts_develop_reempaque_produccion_prompt_1_preflight_obligatorio",
+      "github_prompts_develop_reempaque_produccion_prompt_2_objetivo_funcional",
+      "github_prompts_develop_reempaque_produccion_prompt_3_reglas_de_negocio_obligatorias",
+      "github_prompts_develop_reempaque_produccion_prompt_4_arquitectura_esperada",
+      "github_prompts_develop_reempaque_produccion_prompt_5_integraciones_obligatorias",
+      "github_prompts_develop_reempaque_produccion_prompt_6_pruebas_requeridas",
+      "github_prompts_develop_reempaque_produccion_prompt_7_validaciã3n_final_obligatoria",
+      "github_prompts_develop_reempaque_produccion_prompt_8_entrega",
+      "github_prompts_develop_reempaque_produccion_prompt_adaptacion_obligatoria_para_neros",
+      "github_prompts_develop_reempaque_produccion_prompt_desarrollar_reempaque_y_saldos_pendientes_â_neros",
+      "github_prompts_develop_reempaque_produccion_prompt_javascript_y_assets",
+      "github_prompts_develop_reempaque_produccion_prompt_mvc_y_vistas",
+      "github_prompts_develop_reempaque_produccion_prompt_persistencia",
+      "github_prompts_develop_reempaque_produccion_prompt_programa_y_navegaciã3n",
+      "github_prompts_develop_reempaque_produccion_prompt_seguridad",
+      "github_prompts_develop_reempaque_produccion_prompt_servicios"
+    ],
+    "42": [
+      "github_workflows_daily_status",
+      "github_workflows_daily_status_constraints",
+      "github_workflows_daily_status_daily_repo_status_report",
+      "github_workflows_daily_status_inputs_to_fetch_read_only",
+      "github_workflows_daily_status_output",
+      "github_workflows_readme",
+      "github_workflows_readme_file_format",
+      "github_workflows_readme_files",
+      "github_workflows_readme_notes",
+      "github_workflows_stale_triage",
+      "github_workflows_stale_triage_per_stale_item_action",
+      "github_workflows_stale_triage_report",
+      "github_workflows_stale_triage_scope",
+      "github_workflows_stale_triage_skip",
+      "github_workflows_stale_triage_stale_issues_prs_triage"
+    ],
+    "43": [
+      "github_instructions_csharp_instructions",
+      "github_instructions_csharp_instructions_c_â_neros",
+      "skills_dotnet_best_practices_skill",
+      "skills_dotnet_best_practices_skill_after_editing",
+      "skills_dotnet_best_practices_skill_async_await",
+      "skills_dotnet_best_practices_skill_configuration",
+      "skills_dotnet_best_practices_skill_dependency_injection",
+      "skills_dotnet_best_practices_skill_don_t",
+      "skills_dotnet_best_practices_skill_ef_core",
+      "skills_dotnet_best_practices_skill_error_handling",
+      "skills_dotnet_best_practices_skill_language_features",
+      "skills_dotnet_best_practices_skill_logging",
+      "skills_dotnet_best_practices_skill_net_best_practices_â_neros",
+      "skills_dotnet_best_practices_skill_performance",
+      "skills_dotnet_best_practices_skill_project_context",
+      "skills_dotnet_best_practices_skill_security",
+      "skills_dotnet_best_practices_skill_solid_reality_check",
+      "skills_dotnet_best_practices_skill_testing_when_tests_neros_tests_is_created"
+    ],
+    "44": [
+      "skills_reviewing_code_skill_async",
+      "skills_reviewing_code_skill_build_test",
+      "skills_reviewing_code_skill_constraints",
+      "skills_reviewing_code_skill_correctness",
+      "skills_reviewing_code_skill_inputs",
+      "skills_reviewing_code_skill_logging",
+      "skills_reviewing_code_skill_neros_conventions_github_instructions_github_instructions",
+      "skills_reviewing_code_skill_output_format",
+      "skills_reviewing_code_skill_performance",
+      "skills_reviewing_code_skill_review_checklist",
+      "skills_reviewing_code_skill_reviewing_code_â_neros",
+      "skills_reviewing_code_skill_security_security_owasp_instructions_md_github_instructions_security_owasp_instructions_md",
+      "skills_reviewing_code_skill_severity",
+      "skills_reviewing_code_skill_when_to_use"
+    ],
+    "45": [
+      "cursor_agents"
+    ],
+    "46": [
+      "skills_ef_core_skill",
+      "skills_ef_core_skill_bulk",
+      "skills_ef_core_skill_common_mistakes",
+      "skills_ef_core_skill_connection",
+      "skills_ef_core_skill_context",
+      "skills_ef_core_skill_dbcontext",
+      "skills_ef_core_skill_ef_core_â_neros",
+      "skills_ef_core_skill_entity_design",
+      "skills_ef_core_skill_migrations",
+      "skills_ef_core_skill_querying",
+      "skills_ef_core_skill_raw_sql",
+      "skills_ef_core_skill_testing",
+      "skills_ef_core_skill_tracking",
+      "skills_ef_core_skill_transactions"
+    ],
+    "47": [
+      "github_instructions_security_owasp_instructions",
+      "github_instructions_security_owasp_instructions_security_â_neros",
+      "skills_refactor_skill",
+      "skills_reviewing_code_skill",
+      "skills_security_review_skill",
+      "skills_security_review_skill_constraints",
+      "skills_security_review_skill_security_review_â_neros",
+      "skills_security_review_skill_severity",
+      "skills_security_review_skill_step_1_â_scope",
+      "skills_security_review_skill_step_2_â_dependency_audit_fast_wins",
+      "skills_security_review_skill_step_3_â_secrets_exposure",
+      "skills_security_review_skill_step_4_â_vulnerability_deep_scan",
+      "skills_security_review_skill_step_5_â_cross_file_data_flow",
+      "skills_security_review_skill_step_6_â_self_verification",
+      "skills_security_review_skill_step_7_â_report",
+      "skills_security_review_skill_step_8_â_propose_patches",
+      "skills_security_review_skill_when_to_use",
+      "skills_security_review_skill_workflow"
+    ],
+    "48": [
+      "cursor_agents_backend",
+      "cursor_agents_backend_backend_agent"
+    ],
+    "49": [
+      "cursor_agents_frontend",
+      "cursor_agents_frontend_frontend_agent"
+    ],
+    "50": [
+      "github_instructions_javascript_frontend_instructions",
+      "github_instructions_javascript_frontend_instructions_javascript_â_neros"
+    ],
+    "51": [
+      "github_instructions_agents_instructions",
+      "github_instructions_agents_instructions_authoring_agents_â_neros",
+      "github_instructions_agents_instructions_file_locations",
+      "github_instructions_agents_instructions_front_matter",
+      "github_instructions_agents_instructions_multi_agent_flow_contract",
+      "github_instructions_agents_instructions_neros_defaults",
+      "github_instructions_agents_instructions_required_sections",
+      "github_instructions_agents_instructions_skills",
+      "github_instructions_agents_instructions_tooling_restrictions",
+      "github_instructions_agents_instructions_validation_checklist_before_saving",
+      "skills_diagnose_skill",
+      "skills_diagnose_skill_diagnose_â_neros",
+      "skills_diagnose_skill_iterate_on_the_loop_itself",
+      "skills_diagnose_skill_neros_specific_levers",
+      "skills_diagnose_skill_non_deterministic_bugs",
+      "skills_diagnose_skill_phase_1_â_build_a_feedback_loop",
+      "skills_diagnose_skill_phase_2_â_reproduce",
+      "skills_diagnose_skill_phase_3_â_hypothesise",
+      "skills_diagnose_skill_phase_4_â_instrument",
+      "skills_diagnose_skill_phase_5_â_fix_regression_test",
+      "skills_diagnose_skill_phase_6_â_cleanup_post_mortem",
+      "skills_diagnose_skill_ways_to_construct_one_try_in_roughly_this_order",
+      "skills_diagnose_skill_when_you_genuinely_cannot_build_a_loop"
+    ],
+    "52": [
+      "github_chatmodes_code_review_chatmode",
+      "github_chatmodes_code_review_chatmode_code_review_mode_â_neros"
+    ],
+    "53": [
+      "github_instructions_razor_instructions",
+      "github_instructions_razor_instructions_blazor_â_neros"
+    ],
+    "54": [
+      "cursor_agents_planner",
+      "cursor_agents_planner_planner_agent"
+    ],
+    "55": [
+      "agents",
+      "agents_comandos",
+      "agents_estructura",
+      "agents_graphify",
+      "agents_proyecto",
+      "agents_reglas_duras",
+      "agents_validacion_minima",
+      "claude",
+      "claude_arquitectura",
+      "claude_comandos",
+      "claude_contexto",
+      "claude_reglas",
+      "skills_acquire_codebase_knowledge_skill",
+      "skills_acquire_codebase_knowledge_skill_acquire_codebase_knowledge_â_neros",
+      "skills_acquire_codebase_knowledge_skill_anti_patterns",
+      "skills_acquire_codebase_knowledge_skill_gotchas_specific_to_neros",
+      "skills_acquire_codebase_knowledge_skill_neros_context_pre_loaded",
+      "skills_acquire_codebase_knowledge_skill_output_contract",
+      "skills_acquire_codebase_knowledge_skill_phase_1_â_inventory_scan",
+      "skills_acquire_codebase_knowledge_skill_phase_2_â_investigate",
+      "skills_acquire_codebase_knowledge_skill_phase_3_â_populate",
+      "skills_acquire_codebase_knowledge_skill_phase_4_â_validate",
+      "skills_acquire_codebase_knowledge_skill_validation_pass_criteria",
+      "skills_acquire_codebase_knowledge_skill_workflow"
+    ],
+    "56": [
+      "cursor_agents_qa",
+      "cursor_agents_qa_qa_agent"
+    ],
+    "57": [
+      "github_chatmodes_architect_chatmode",
+      "github_chatmodes_architect_chatmode_architect_mode_â_neros"
+    ],
+    "58": [
+      "skills_csharp_async_skill",
+      "skills_csharp_async_skill_async_streams",
+      "skills_csharp_async_skill_banned_in_neros",
+      "skills_csharp_async_skill_c_async_â_neros",
+      "skills_csharp_async_skill_cancellation",
+      "skills_csharp_async_skill_common_pitfalls",
+      "skills_csharp_async_skill_configureawait",
+      "skills_csharp_async_skill_exceptions",
+      "skills_csharp_async_skill_naming",
+      "skills_csharp_async_skill_parallelism",
+      "skills_csharp_async_skill_return_types"
+    ],
+    "59": [
+      "github_instructions_markdown_instructions",
+      "github_instructions_markdown_instructions_markdown_â_neros"
+    ],
+    "60": [
+      "vscode_agents"
+    ],
+    "61": [
+      "tailwind_config"
+    ],
+    "64": [
+      "github_instructions_github_actions_instructions",
+      "github_instructions_github_actions_instructions_agentic_workflow_front_matter",
+      "github_instructions_github_actions_instructions_caching",
+      "github_instructions_github_actions_instructions_don_t",
+      "github_instructions_github_actions_instructions_github_actions_â_neros",
+      "github_instructions_github_actions_instructions_runner",
+      "github_instructions_github_actions_instructions_standard_yaml_workflows_if_added",
+      "github_instructions_github_actions_instructions_where_things_go"
+    ],
+    "65": [
+      "skills_create_implementation_plan_skill",
+      "skills_create_implementation_plan_skill_create_implementation_plan_â_neros",
+      "skills_create_implementation_plan_skill_mandatory_front_matter",
+      "skills_create_implementation_plan_skill_mandatory_template",
+      "skills_create_implementation_plan_skill_neros_specific_plan_rules",
+      "skills_create_implementation_plan_skill_output",
+      "skills_create_implementation_plan_skill_output_location_naming",
+      "skills_create_implementation_plan_skill_primary_directive",
+      "skills_create_implementation_plan_skill_validation_before_saving"
+    ],
+    "69": [
+      "gemini"
+    ],
+    "70": [
+      "github_chatmodes_planner_fast_chatmode",
+      "github_chatmodes_planner_fast_chatmode_planner_fast_â_neros"
+    ],
+    "71": [
+      "cursor_agents_dev",
+      "cursor_agents_dev_dev_agent",
+      "github_instructions_agent_skills_instructions",
+      "github_instructions_agent_skills_instructions_authoring_agent_skills_â_neros",
+      "github_instructions_agent_skills_instructions_body_structure",
+      "github_instructions_agent_skills_instructions_folder_layout",
+      "github_instructions_agent_skills_instructions_naming_discovery",
+      "github_instructions_agent_skills_instructions_neros_conventions",
+      "github_instructions_agent_skills_instructions_skill_md_front_matter_required",
+      "github_instructions_agent_skills_instructions_validation_checklist",
+      "vscode_agents_dev",
+      "vscode_agents_dev_dev_agent",
+      "vscode_agents_dev_reglas",
+      "vscode_agents_dev_validacion"
+    ],
+    "72": [
+      "github_instructions_fastreport_instructions",
+      "github_instructions_fastreport_instructions_alternatives",
+      "github_instructions_fastreport_instructions_background_generation",
+      "github_instructions_fastreport_instructions_errors",
+      "github_instructions_fastreport_instructions_fastreport_â_neros",
+      "github_instructions_fastreport_instructions_pattern",
+      "github_instructions_fastreport_instructions_performance"
+    ],
+    "74": [
+      "github_chatmodes_debug_chatmode",
+      "github_chatmodes_debug_chatmode_debug_mode_â_neros"
+    ],
+    "75": [
+      "github_chatmodes_refactor_chatmode",
+      "github_chatmodes_refactor_chatmode_refactor_mode_â_neros"
+    ]
+  },
+  "cohesion": {
+    "0": 0.15263157894736842,
+    "1": 0.11764705882352941,
+    "2": 0.13333333333333333,
+    "3": 0.13333333333333333,
+    "4": 0.16666666666666666,
+    "5": 0.2222222222222222,
+    "6": 0.32142857142857145,
+    "7": 0.3333333333333333,
+    "8": 0.3333333333333333,
+    "9": 0.4,
+    "10": 0.5,
+    "11": 0.5,
+    "12": 0.6666666666666666,
+    "13": 0.6666666666666666,
+    "14": 0.6666666666666666,
+    "15": 0.6666666666666666,
+    "16": 0.6666666666666666,
+    "17": 0.6666666666666666,
+    "18": 1.0,
+    "19": 1.0,
+    "20": 1.0,
+    "21": 0.2,
+    "22": 1.0,
+    "23": 1.0,
+    "24": 1.0,
+    "25": 0.4,
+    "26": 0.2,
+    "27": 0.5,
+    "28": 0.16666666666666666,
+    "29": 0.4,
+    "30": 0.4,
+    "31": 0.5,
+    "32": 0.5,
+    "33": 0.6666666666666666,
+    "34": 0.6666666666666666,
+    "35": 0.06896551724137931,
+    "36": 0.1111111111111111,
+    "37": 0.1111111111111111,
+    "38": 0.6666666666666666,
+    "39": 0.6666666666666666,
+    "40": 1.0,
+    "41": 0.11764705882352941,
+    "42": 0.13333333333333333,
+    "43": 0.1111111111111111,
+    "44": 0.14285714285714285,
+    "45": 1.0,
+    "46": 0.14285714285714285,
+    "47": 0.1111111111111111,
+    "48": 1.0,
+    "49": 1.0,
+    "50": 1.0,
+    "51": 0.08695652173913043,
+    "52": 1.0,
+    "53": 1.0,
+    "54": 1.0,
+    "55": 0.08333333333333333,
+    "56": 1.0,
+    "57": 1.0,
+    "58": 0.18181818181818182,
+    "59": 1.0,
+    "60": 1.0,
+    "61": 1.0,
+    "64": 0.25,
+    "65": 0.2222222222222222,
+    "69": 1.0,
+    "70": 1.0,
+    "71": 0.14285714285714285,
+    "72": 0.2857142857142857,
+    "74": 1.0,
+    "75": 1.0
+  },
+  "gods": [
+    {
+      "id": "skills_dotnet_best_practices_skill_net_best_practices_â_neros",
+      "label": ".NET Best Practices â€” Neros",
+      "degree": 15
+    },
+    {
+      "id": "skills_aspnet_mvc_razor_skill_asp_net_core_mvc_razor_â_neros",
+      "label": "ASP.NET Core MVC + Razor â€” Neros",
+      "degree": 13
+    },
+    {
+      "id": "skills_ef_core_skill_ef_core_â_neros",
+      "label": "EF Core â€” Neros",
+      "degree": 13
+    },
+    {
+      "id": "skills_refactor_skill_common_neros_code_smells_fixes",
+      "label": "Common Neros Code Smells & Fixes",
+      "degree": 11
+    },
+    {
+      "id": "github_prompts_develop_reempaque_produccion_prompt_desarrollar_reempaque_y_saldos_pendientes_â_neros",
+      "label": "Desarrollar Reempaque y Saldos Pendientes â€” Neros",
+      "degree": 10
+    },
+    {
+      "id": "skills_csharp_async_skill_c_async_â_neros",
+      "label": "C# Async â€” Neros",
+      "degree": 10
+    },
+    {
+      "id": "github_instructions_agents_instructions_authoring_agents_â_neros",
+      "label": "Authoring Agents â€” Neros",
+      "degree": 9
+    },
+    {
+      "id": "github_instructions_csharp_async_instructions_c_async_â_neros",
+      "label": "C# Async â€” Neros",
+      "degree": 9
+    },
+    {
+      "id": "github_instructions_instructions_instructions_authoring_instructions_files_â_neros",
+      "label": "Authoring Instructions Files â€” Neros",
+      "degree": 9
+    },
+    {
+      "id": "skills_security_review_skill_workflow",
+      "label": "Workflow",
+      "degree": 9
+    }
+  ],
+  "surprises": [],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `ASP.NET Core MVC + Razor â€” Neros` connect `ASP.NET Core MVC + Razor â€” Neros` to `What the Output Must Contain`?",
+      "why": "High betweenness centrality (0.007) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `$schema`, `frontend-design@claude-plugins-official`, `feature-dev@claude-plugins-official` to the rest of the system?",
+      "why": "346 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `settings.json` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `http` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.13333333333333333 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `http` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.13333333333333333 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `What the Output Must Contain` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.06896551724137931 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `ASP.NET Core MVC + Razor â€” Neros` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.1111111111111111 - nodes in this community are weakly interconnected."
+    }
+  ]
+}
