@@ -1,43 +1,20 @@
-<div class="sidebar-brand">
-    <a href="home" aria-label="Ir al inicio de Neros">
-        <span class="sidebar-symbol" aria-hidden="true">N</span>
-        <span><strong>NEROS</strong><small>Business OS</small></span>
-    </a>
+@inject IHttpContextAccessor ContextAccessor
+
+<a class="n-brand n-sidebar-brand" href="/home" aria-label="Neros ERP, inicio"><span class="n-brand-mark"><span class="n-brand-emblem" aria-hidden="true"></span></span><span>neros<span class="n-brand-erp">ERP</span></span></a>
+<a class="n-company-switch" href="/empresas">
+    <Icono Nombre="building-2" />
+    <span><small>Empresa activa</small><strong>@(Usuario.FindFirstValue(EndpointsSesion.NombreEmpresaClaim) ?? "Seleccionar empresa")</strong></span>
+    <Icono Nombre="chevrons-up-down" />
+</a>
+<nav class="n-navigation" aria-label="Navegación principal">
+    <NavLink class="n-nav-link" href="home" Match="NavLinkMatch.All"><Icono Nombre="house" />Inicio</NavLink>
+    <NavLink class="n-nav-link" href="empresas"><Icono Nombre="building-2" />Mis empresas</NavLink>
+</nav>
+<div class="n-sidebar-user">
+    <span class="n-avatar"><Icono Nombre="user-round" /></span>
+    <span><strong>@Usuario.Identity?.Name</strong><small>@Usuario.FindFirstValue(ClaimTypes.Email)</small></span>
 </div>
 
-<input id="nav-toggle" type="checkbox" title="Menu de navegación" class="peer sr-only" />
-<label for="nav-toggle" class="nav-trigger">
-    <span class="sr-only">Abrir menu</span>
-    <iconify-icon icon="lucide:menu" aria-hidden="true"></iconify-icon>
-</label>
-
-<div class="sidebar-content peer-checked:flex">
-    <button class="company-switcher" type="button">
-        <span class="company-mark">NA</span>
-        <span><small>Empresa activa</small><strong>Neros Alfa S.A.S.</strong></span>
-        <iconify-icon icon="lucide:chevrons-up-down" aria-hidden="true"></iconify-icon>
-    </button>
-
-    <nav onclick="document.querySelector('#nav-toggle')?.click()" aria-label="Navegación principal">
-        <p class="nav-section">Workspace</p>
-        <NavLink class="nav-link" href="home" Match="NavLinkMatch.All">
-            <iconify-icon icon="lucide:layout-dashboard" aria-hidden="true"></iconify-icon>
-            Visión general
-        </NavLink>
-
-        <p class="nav-section">Operacion</p>
-        <span class="nav-link"><iconify-icon icon="lucide:users-round" aria-hidden="true"></iconify-icon>Clientes</span>
-        <span class="nav-link"><iconify-icon icon="lucide:receipt-text" aria-hidden="true"></iconify-icon>Ventas<span class="nav-count">12</span></span>
-        <span class="nav-link"><iconify-icon icon="lucide:boxes" aria-hidden="true"></iconify-icon>Inventario</span>
-        <span class="nav-link"><iconify-icon icon="lucide:wallet-cards" aria-hidden="true"></iconify-icon>Finanzas</span>
-
-        <p class="nav-section">Inteligencia</p>
-        <span class="nav-link"><iconify-icon icon="lucide:chart-no-axes-combined" aria-hidden="true"></iconify-icon>Analítica</span>
-        <span class="nav-link"><iconify-icon icon="lucide:file-chart-column" aria-hidden="true"></iconify-icon>Reportes</span>
-    </nav>
-
-    <div class="sidebar-footer">
-        <div class="system-health"><span aria-hidden="true"></span><p><strong>Servicios conectados</strong><small>Sin novedades</small></p><b>100%</b></div>
-        <a href="login"><iconify-icon icon="lucide:circle-help" aria-hidden="true"></iconify-icon>Centro de ayuda</a>
-    </div>
-</div>
+@code {
+    private ClaimsPrincipal Usuario => ContextAccessor.HttpContext?.User ?? new ClaimsPrincipal();
+}

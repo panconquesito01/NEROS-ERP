@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Neros completo",
+    "Projects": [
+      {
+        "Path": "Neros.Api\\Neros.Api.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Neros.Blazor\\Neros.Blazor.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

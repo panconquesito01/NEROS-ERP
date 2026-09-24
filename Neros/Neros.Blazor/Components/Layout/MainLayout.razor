@@ -1,42 +1,33 @@
 @inherits LayoutComponentBase
+@inject IHttpContextAccessor ContextAccessor
 
-<div class="app-shell">
-    <aside class="app-sidebar">
+<a class="n-skip" href="#contenido">Ir al contenido</a>
+<div class="n-shell">
+    <aside class="n-sidebar">
         <NavMenu />
     </aside>
-
-    <main class="app-main">
-        <header class="app-topbar">
-            <div class="topbar-context">
-                <span class="context-mark" aria-hidden="true"></span>
-                <div>
-                    <p>Centro operativo</p>
-                    <strong>Visión general</strong>
-                </div>
-            </div>
-
-            <div class="topbar-actions">
-                <span class="business-day"><iconify-icon icon="lucide:calendar-days" aria-hidden="true"></iconify-icon>12 de agosto, 2026</span>
-                <button class="topbar-icon" type="button" aria-label="Ver notificaciones">
-                    <iconify-icon icon="lucide:bell" aria-hidden="true"></iconify-icon>
-                    <span aria-hidden="true"></span>
-                </button>
-                <a class="session-user" href="login" aria-label="Cerrar sesión de David Rivera">
-                    <span>DR</span>
-                    <span class="user-copy"><strong>David Rivera</strong><small>Administrador</small></span>
-                    <iconify-icon icon="lucide:log-out" aria-hidden="true"></iconify-icon>
-                </a>
+    <div class="n-main">
+        <header class="n-topbar">
+            <span class="n-topbar-context"><Icono Nombre="panel-left" /><span>@(Usuario.FindFirstValue(EndpointsSesion.NombreEmpresaClaim) ?? "Espacio de trabajo")</span></span>
+            <div class="n-topbar-actions">
+                <SelectorTema />
+                <form method="post" action="/sesion/salir" data-busy-form data-enhance="false">
+                    <AntiforgeryToken />
+                    <button class="n-icon-button" type="submit" title="Cerrar sesión" aria-label="Cerrar sesión"><Icono Nombre="log-out" /></button>
+                </form>
             </div>
         </header>
-
-        <article class="app-content">
+        <main class="n-content" id="contenido">
             @Body
-        </article>
-    </main>
+        </main>
+        <footer class="n-workspace-footer"><span>Neros ERP</span><span>Tu espacio de trabajo</span></footer>
+    </div>
+</div>
+<div id="blazor-error-ui" data-nosnippet>
+    No se pudo actualizar la página.
+    <a href="." class="reload">Recargar</a>
 </div>
 
-<div id="blazor-error-ui" data-nosnippet>
-    Ocurrió un error inesperado.
-    <a href="." class="reload">Recargar</a>
-    <button class="dismiss" type="button" aria-label="Cerrar">×</button>
-</div>
+@code {
+    private ClaimsPrincipal Usuario => ContextAccessor.HttpContext?.User ?? new ClaimsPrincipal();
+}

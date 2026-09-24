@@ -1,6 +1,33 @@
-﻿{
+{
     "version": "0.2.0",
+    "compounds": [
+        {
+            "name": "Neros completo (HTTP)",
+            "configurations": ["Neros (HTTP)", "Neros API (HTTP)"],
+            "preLaunchTask": "build",
+            "stopAll": true
+        },
+        {
+            "name": "Neros completo (HTTPS)",
+            "configurations": ["Neros (HTTPS)", "Neros API (HTTP)"],
+            "preLaunchTask": "build",
+            "stopAll": true
+        }
+    ],
     "configurations": [
+        {
+            "name": "Neros API (HTTP)",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/Neros.Api/bin/Debug/net10.0/Neros.Api.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Neros.Api",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:5067"
+            }
+        },
         {
             "name": "Neros (HTTPS)",
             "type": "coreclr",

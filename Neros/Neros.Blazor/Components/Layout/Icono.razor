@@ -1,0 +1,5 @@
+<span class="n-icon" style="@($"--icon: url('/icons/{Nombre}.svg')")" aria-hidden="true"></span>
+
+@code {
+    [Parameter, EditorRequired] public string Nombre { get; set; } = string.Empty;
+}

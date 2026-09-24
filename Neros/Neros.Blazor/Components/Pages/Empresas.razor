@@ -1,0 +1,71 @@
+@page "/empresas"
+@attribute [Authorize]
+@inject ClienteNeros Cliente
+@inject IHttpContextAccessor ContextAccessor
+
+<PageTitle>Mis empresas | Neros ERP</PageTitle>
+
+<section class="n-page n-enter" aria-labelledby="empresas-titulo">
+    <header class="n-page-heading"><div><h1 id="empresas-titulo">Mis empresas</h1><p>Elige dónde vas a trabajar hoy.</p></div><span class="n-badge">@empresas.Count disponibles</span></header>
+    @if (error is not null)
+    {
+        <div class="n-notice n-error" role="alert"><Icono Nombre="circle-alert" /><p>@error</p><a href="/empresas">Reintentar</a></div>
+    }
+    @if (empresas.Count > 0)
+    {
+        <div class="n-company-toolbar"><label class="n-input-icon n-search"><Icono Nombre="search" /><span class="sr-only">Buscar empresa</span><input type="search" placeholder="Buscar por nombre o código" data-company-search autocomplete="off" /></label></div>
+        <div class="n-company-list">
+            @foreach (var empresa in empresas)
+            {
+                <form method="post" action="/sesion/empresa" data-company-row="@($"{empresa.Nombre} {empresa.Codigo} {empresa.Identificacion}")" data-busy-form data-enhance="false">
+                    <AntiforgeryToken />
+                    <input type="hidden" name="EmpresaId" value="@empresa.Id" />
+                    <button class="n-company-row" type="submit">
+                        <span class="n-company-monogram">@empresa.Codigo[..Math.Min(2, empresa.Codigo.Length)]</span>
+                        <span class="n-company-info"><strong>@empresa.Nombre</strong><small>@empresa.Codigo · @empresa.Identificacion</small></span>
+                        <span class="n-company-role">@empresa.Rol</span>
+                        @if (empresa.Id.ToString() == ContextAccessor.HttpContext?.User.FindFirstValue(EndpointsSesion.EmpresaClaim))
+                        {
+                            <span class="n-active-badge">Activa</span>
+                        }
+                        <Icono Nombre="arrow-right" />
+                    </button>
+                </form>
+            }
+        </div>
+        <p class="n-empty-search" data-company-empty hidden role="status">No hay empresas que coincidan con tu búsqueda.</p>
+    }
+    else if (error is null)
+    {
+        <div class="n-empty"><Icono Nombre="building-2" /><h2>Aún no tienes empresas asignadas</h2><p>Solicita al administrador la asignación de tu empresa para continuar.</p></div>
+    }
+</section>
+
+@code {
+    [SupplyParameterFromQuery(Name = "estado")] public string? Estado { get; set; }
+    private IReadOnlyList<EmpresaDisponible> empresas = [];
+    private string? error;
+
+    protected override async Task OnInitializedAsync()
+    {
+        error = Estado switch
+        {
+            "permiso" => "No tienes acceso a esa empresa o dejó de estar disponible.",
+            "servicio" => "No pudimos cambiar de empresa. Inténtalo nuevamente.",
+            _ => null
+        };
+        try
+        {
+            var context = ContextAccessor.HttpContext!;
+            empresas = await Cliente.EmpresasAsync(context.User.FindFirstValue(EndpointsSesion.TokenClaim)!, context.RequestAborted);
+        }
+        catch (HttpRequestException)
+        {
+            error = "No pudimos cargar tus empresas. Inténtalo nuevamente en unos minutos.";
+        }
+        catch (TaskCanceledException)
+        {
+            error = "La consulta tardó más de lo esperado. Vuelve a intentar.";
+        }
+    }
+}

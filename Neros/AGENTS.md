@@ -4,13 +4,15 @@ Guia operativa principal para agentes de IA que trabajen en `Neros`.
 
 ## Proyecto
 
-- Producto: nueva migracion de Neros a una arquitectura por capas, full .NET, con frontend Blazor.
+- Producto: Distributed Modular ERP Platform SaaS, full .NET, con frontend Blazor. Decision vigente: [ADR-0002](docs/adr/ADR-0002-distributed-modular-platform.md).
 - Stack objetivo: .NET 10, Blazor Web App, ASP.NET Core Web API, Clean Architecture, Tailwind CSS, SQL Server, Identity, SignalR, jobs y Graphify.
 - Solucion: `Neros.slnx`.
 - Idioma: codigo, UI y documentacion funcional en espanol, usando nombres de negocio claros.
 - El sistema anterior es referencia funcional de migracion, no arquitectura objetivo.
 
 ## Estructura
+
+El arbol siguiente describe la compatibilidad existente, no un nucleo empresarial compartido para servicios nuevos. Seguir [roadmap D-01..D-18](docs/NEROS_ERP_IMPLEMENTATION_ROADMAP.md) y [estado de ejecucion](docs/execution/NEROS_EXECUTION_STATUS.md); no crear proyectos vacios ni saltar gates.
 
 ```text
 Neros/
@@ -38,6 +40,8 @@ Todos deben converger en esta guia, `CONVENTIONS.md` y `skills/*/SKILL.md`.
 
 ## Direccion de dependencias
 
+En cada bounded context nuevo: Api -> Application -> Domain; Infrastructure implementa puertos locales, Contracts contiene DTOs/eventos del propietario. Base, DbContext, scripts y despliegue independientes. Prohibidos SQL/FK/DbContext entre servicios y referencias a Domain/Application/Persistence ajenos. Integrar por HTTP/eventos/proyecciones autorizadas. BuildingBlocks solo tecnicos. La direccion siguiente aplica a los hosts de compatibilidad hasta su extraccion.
+
 ```text
 Neros.Blazor -> Neros.Contracts / Neros.Shared
 Neros.Blazor -> Neros.Api via HTTP o servicios cliente tipados
@@ -48,6 +52,11 @@ Infraestructura/Persistence futura -> implementa puertos de Application
 ```
 
 ## Reglas duras
+
+- Tenant -> BusinessGroup -> Company -> Branch. Cada empresa pertenece a un unico tenant contractual; sin DefaultTenant ni CompanyId como TenantId. TenantId obligatorio en datos nuevos de negocio y eventos. Mapeo de migracion explicito; correspondencia no resuelta se rechaza.
+- AdministradorGlobal tiene acceso transversal por decision del usuario: privilegio de plataforma explicito, tenant seleccionado, autorizacion y auditoria server-side. No equivale a eliminar filtros tenant o confiar en un header/rol no validado. Permisos empresariales normales se resuelven por tenant.
+- Revocacion vigente y fail closed en operaciones sensibles cuando Identity/Organization no puedan confirmar autorizacion. No relajar SLA mediante caches sin decision explicita.
+- Shared/sharded/dedicated usan los mismos contratos/codigo, sin forks. Routing de tenant no cambia ownership funcional.
 
 - No usar el nombre `Neros.Next`; el proyecto se llama `Neros`.
 - No reintroducir Bootstrap, jQuery, DataTables ni Select2 en `Neros.Blazor`.

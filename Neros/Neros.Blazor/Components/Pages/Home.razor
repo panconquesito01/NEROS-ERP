@@ -1,185 +1,101 @@
 @page "/home"
+@attribute [Authorize]
+@inject ClienteNeros Cliente
+@inject IHttpContextAccessor ContextAccessor
+@inject NavigationManager Navigation
 
-<PageTitle>Centro operativo | Neros</PageTitle>
+<PageTitle>Inicio | Neros ERP</PageTitle>
 
-<div class="dashboard-page">
-    <header class="page-heading">
-        <div>
-            <p class="page-kicker"><span aria-hidden="true"></span> Miércoles, 12 de agosto</p>
-            <h1>El negocio, de un vistazo.</h1>
-            <p>Prioridades, movimientos e indicadores para comenzar el día con contexto.</p>
-        </div>
-        <button class="primary-action" type="button">
-            <iconify-icon icon="lucide:plus" aria-hidden="true"></iconify-icon>
-            Nueva operación
-        </button>
+<section class="n-page n-enter">
+    <header class="n-page-heading">
+        <div><h1>Hola, @ContextAccessor.HttpContext?.User.Identity?.Name.</h1><p>Todo listo para continuar.</p></div>
+        <time class="n-date" datetime="@DateTimeOffset.UtcNow.ToString("O")" data-local-date="long">@DateTime.UtcNow.ToString("dd/MM/yyyy")</time>
     </header>
-
-    <section class="metric-strip" aria-label="Indicadores principales">
-        @foreach (var metric in Metrics)
-        {
-            <article class="metric-item @metric.Tone">
-                <span class="metric-icon"><iconify-icon icon="@metric.Icon" aria-hidden="true"></iconify-icon></span>
-                <div>
-                    <p>@metric.Label</p>
-                    <strong>@metric.Value</strong>
-                    <small>@metric.Detail</small>
-                </div>
-            </article>
-        }
-    </section>
-
-    <div class="dashboard-grid">
-        <section class="performance-panel">
-            <header class="panel-header">
-                <div>
-                    <p class="section-kicker">Rendimiento comercial</p>
-                    <h2>Ventas y recaudo</h2>
-                </div>
-                <div class="period-switch" aria-label="Periodo seleccionado">
-                    <button type="button">7 días</button>
-                    <button class="active" type="button">30 días</button>
-                    <button type="button">Trimestre</button>
-                </div>
-            </header>
-
-            <div class="chart-summary">
-                <div><span>Facturacion acumulada</span><strong>$284,6M</strong></div>
-                <span class="positive-chip"><iconify-icon icon="lucide:trending-up" aria-hidden="true"></iconify-icon> 8,2%</span>
-            </div>
-
-            <div class="bar-chart" aria-label="Ventas de los últimos siete periodos">
-                @foreach (var point in SalesTrend)
-                {
-                    <div class="bar-column">
-                        <div class="bar-track"><span style="@($"--bar: {point.Height}%")"></span></div>
-                        <small>@point.Label</small>
-                    </div>
-                }
-            </div>
-
-            <footer class="chart-footer">
-                <span><i class="actual"></i>Real $284,6M</span>
-                <span><i class="target"></i>Meta $310M</span>
-                <p>92% de la meta mensual</p>
-            </footer>
+    @if (Estado == "salida")
+    {
+        <div class="n-notice n-error" role="alert"><Icono Nombre="circle-alert" /><p>No se pudo cerrar la sesión en el servidor. Vuelve a pulsar Cerrar sesión.</p></div>
+    }
+    @if (error is not null)
+    {
+        <div class="n-notice n-error" role="alert"><Icono Nombre="circle-alert" /><p>@error</p><a href="/home">Reintentar</a></div>
+    }
+    else if (inicio is not null)
+    {
+        <section class="n-company-context" aria-label="Empresa activa">
+            <span class="n-company-monogram">@inicio.Empresa.Codigo[..Math.Min(2, inicio.Empresa.Codigo.Length)]</span>
+            <div class="n-context-name"><span class="n-active-badge">Empresa activa</span><h2>@inicio.Empresa.Nombre</h2><p>@inicio.Empresa.Codigo · @inicio.Empresa.Identificacion</p></div>
+            <div class="n-context-role"><span>Tu rol</span><strong>@inicio.Empresa.Rol</strong></div>
+            <a class="n-button n-secondary" href="/empresas"><Icono Nombre="arrow-left-right" />Cambiar empresa</a>
         </section>
-
-        <aside class="attention-panel">
-            <header class="panel-header light">
-                <div>
-                    <p class="section-kicker">Requiere atención</p>
-                    <h2>Prioridades de hoy</h2>
-                </div>
-                <span class="priority-count">4</span>
-            </header>
-
-            <div class="attention-list">
-                @foreach (var item in Priorities)
-                {
-                    <article>
-                        <span class="attention-status @item.Tone"><iconify-icon icon="@item.Icon" aria-hidden="true"></iconify-icon></span>
-                        <div><strong>@item.Title</strong><p>@item.Description</p></div>
-                        <button type="button" aria-label="Abrir @item.Title"><iconify-icon icon="lucide:arrow-up-right" aria-hidden="true"></iconify-icon></button>
-                    </article>
-                }
-            </div>
-
-            <button class="all-priorities" type="button">Ver todas las prioridades <iconify-icon icon="lucide:arrow-right" aria-hidden="true"></iconify-icon></button>
-        </aside>
-    </div>
-
-    <div class="lower-grid">
-        <section class="work-panel">
-            <header class="panel-header">
-                <div>
-                    <p class="section-kicker">Flujo operativo</p>
-                    <h2>Actividad reciente</h2>
-                </div>
-                <button class="quiet-action" type="button"><iconify-icon icon="lucide:list-filter" aria-hidden="true"></iconify-icon>Filtrar</button>
-            </header>
-
-            <div class="work-table" role="table" aria-label="Actividad reciente">
-                <div class="table-head" role="row">
-                    <span>Movimiento</span><span>Area</span><span>Estado</span><span>Actualizacion</span>
-                </div>
-                @foreach (var task in Tasks)
-                {
-                    <article class="table-row" role="row">
-                        <div class="task-main"><span class="task-icon"><iconify-icon icon="@task.Icon" aria-hidden="true"></iconify-icon></span><p><strong>@task.Title</strong><small>@task.Description</small></p></div>
-                        <span class="area-label">@task.Area</span>
-                        <span class="status-label @task.Tone"><i aria-hidden="true"></i>@task.Status</span>
-                        <time>@task.Updated</time>
-                    </article>
-                }
+        <section class="n-shortcuts" aria-labelledby="accesos-titulo">
+            <h2 id="accesos-titulo">A un paso</h2>
+            <div class="n-shortcut-grid">
+                <a class="n-shortcut" href="/empresas"><span class="n-shortcut-icon"><Icono Nombre="building-2" /></span><span><strong>Mis empresas</strong><small>Empresas y roles asignados</small></span><Icono Nombre="arrow-up-right" /></a>
+                <a class="n-shortcut" href="#actividad"><span class="n-shortcut-icon n-coral"><Icono Nombre="history" /></span><span><strong>Mi actividad</strong><small>Accesos a esta empresa</small></span><Icono Nombre="arrow-down" /></a>
             </div>
         </section>
-
-        <section class="modules-panel">
-            <header class="panel-header">
-                <div>
-                    <p class="section-kicker">Acceso directo</p>
-                    <h2>Módulos</h2>
-                </div>
-                <button class="icon-action" type="button" aria-label="Configurar modulos"><iconify-icon icon="lucide:settings-2" aria-hidden="true"></iconify-icon></button>
+        <section class="n-activity" id="actividad" aria-labelledby="actividad-titulo">
+            <header class="n-section-heading">
+                <h2 id="actividad-titulo">Mi actividad reciente</h2>
+                <form method="get" action="/home#actividad" data-enhance="false">
+                    <input type="hidden" name="actualizar" value="@Guid.NewGuid().ToString("N")" />
+                    <button class="n-icon-button" type="submit" title="Actualizar actividad" aria-label="Actualizar actividad"><Icono Nombre="refresh-cw" /></button>
+                </form>
             </header>
-
-            <div class="module-list">
-                @foreach (var module in Modules)
-                {
-                    <button class="module-row" type="button">
-                        <span class="module-icon @module.Tone"><iconify-icon icon="@module.Icon" aria-hidden="true"></iconify-icon></span>
-                        <span><strong>@module.Name</strong><small>@module.Description</small></span>
-                        <iconify-icon icon="lucide:chevron-right" aria-hidden="true"></iconify-icon>
-                    </button>
-                }
-            </div>
+            @if (inicio.Actividad.Count == 0)
+            {
+                <div class="n-empty"><Icono Nombre="history" /><p>Aún no hay actividad registrada para ti en esta empresa.</p></div>
+            }
+            else
+            {
+                <div class="n-table-container"><table class="n-table"><caption class="sr-only">Últimos accesos de tu cuenta a la empresa activa</caption><thead><tr><th scope="col">Actividad</th><th scope="col">Fecha y hora</th></tr></thead><tbody>
+                    @foreach (var actividad in inicio.Actividad)
+                    {
+                        <tr><td><span class="n-table-action"><Icono Nombre="log-in" />@actividad.Accion</span></td><td><time datetime="@actividad.Fecha.ToString("O")" data-local-date="short">@actividad.Fecha.ToString("dd/MM/yyyy HH:mm 'UTC'")</time></td></tr>
+                    }
+                </tbody></table></div>
+            }
         </section>
-    </div>
-</div>
+        <details class="n-roadmap">
+            <summary><span><Icono Nombre="grid-2x2" />Módulos del ERP</span><span class="n-roadmap-label">En preparación <Icono Nombre="chevron-down" /></span></summary>
+            <ul class="n-module-list">
+                <li><Icono Nombre="receipt-text" /><strong>Ventas</strong><span>En preparación</span></li>
+                <li><Icono Nombre="package" /><strong>Inventario</strong><span>En preparación</span></li>
+                <li><Icono Nombre="wallet" /><strong>Finanzas</strong><span>En preparación</span></li>
+                <li><Icono Nombre="chart-no-axes-combined" /><strong>Consolidación gerencial</strong><span>En preparación</span></li>
+            </ul>
+        </details>
+    }
+</section>
 
 @code {
-    private static readonly DashboardMetric[] Metrics =
-    [
-        new("Ventas del día", "$18,45M", "+12,4% frente a ayer", "lucide:circle-dollar-sign", "teal"),
-        new("Facturas abiertas", "42", "8 vencen hoy", "lucide:receipt-text", "amber"),
-        new("Stock crítico", "17", "4 requieren acción", "lucide:triangle-alert", "rose"),
-        new("Clientes activos", "1.284", "+24 este mes", "lucide:users-round", "blue")
-    ];
+    [SupplyParameterFromQuery(Name = "estado")] public string? Estado { get; set; }
+    private InicioEmpresa? inicio;
+    private string? error;
 
-    private static readonly ChartPoint[] SalesTrend =
-    [
-        new("06", 42), new("07", 58), new("08", 51), new("09", 76),
-        new("10", 65), new("11", 84), new("12", 92)
-    ];
-
-    private static readonly PriorityItem[] Priorities =
-    [
-        new("Margen por aprobar", "3 descuentos superan la política comercial.", "lucide:badge-percent", "amber"),
-        new("Inventario bajo", "17 referencias con cobertura menor a 7 días.", "lucide:package-search", "rose"),
-        new("Pagos sin aplicar", "6 transferencias esperan conciliación.", "lucide:landmark", "blue"),
-        new("Cierre de caja", "La sede Norte reporta 92% conciliado.", "lucide:calculator", "teal")
-    ];
-
-    private static readonly WorkTask[] Tasks =
-    [
-        new("Factura FV-2841 registrada", "Comercializadora Andina", "Ventas", "Completado", "Hace 2 min", "lucide:file-check-2", "done"),
-        new("Pedido PE-1098 preparado", "Salida desde bodega principal", "Inventario", "En proceso", "Hace 8 min", "lucide:package-check", "progress"),
-        new("Pago por conciliar", "Transferencia bancaria #8492", "Tesorería", "Pendiente", "Hace 14 min", "lucide:landmark", "pending"),
-        new("Nota crédito NC-142", "Validación del responsable", "Ventas", "Revisión", "Hace 26 min", "lucide:file-clock", "review")
-    ];
-
-    private static readonly QuickModule[] Modules =
-    [
-        new("Ventas", "Pedidos y facturación", "lucide:receipt-text", "teal"),
-        new("Inventario", "Existencias y movimientos", "lucide:boxes", "blue"),
-        new("Finanzas", "Cartera y tesoreria", "lucide:wallet-cards", "amber"),
-        new("Reportes", "Indicadores y cierres", "lucide:chart-spline", "violet")
-    ];
-
-    private sealed record DashboardMetric(string Label, string Value, string Detail, string Icon, string Tone);
-    private sealed record ChartPoint(string Label, int Height);
-    private sealed record PriorityItem(string Title, string Description, string Icon, string Tone);
-    private sealed record WorkTask(string Title, string Description, string Area, string Status, string Updated, string Icon, string Tone);
-    private sealed record QuickModule(string Name, string Description, string Icon, string Tone);
+    protected override async Task OnInitializedAsync()
+    {
+        var context = ContextAccessor.HttpContext!;
+        if (!Guid.TryParse(context.User.FindFirstValue(EndpointsSesion.EmpresaClaim), out var empresaId))
+        {
+            Navigation.NavigateTo("/empresas", forceLoad: true);
+            return;
+        }
+        try
+        {
+            inicio = await Cliente.InicioAsync(context.User.FindFirstValue(EndpointsSesion.TokenClaim)!, empresaId, context.RequestAborted);
+            if (inicio is null)
+            {
+                Navigation.NavigateTo("/empresas?estado=permiso", forceLoad: true);
+            }
+        }
+        catch (HttpRequestException)
+        {
+            error = "No pudimos cargar tu espacio de trabajo. Inténtalo nuevamente en unos minutos.";
+        }
+        catch (TaskCanceledException)
+        {
+            error = "La consulta tardó más de lo esperado. Vuelve a intentar.";
+        }
+    }
 }

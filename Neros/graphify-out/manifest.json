@@ -1,7 +1,7 @@
 {
   ".claude/settings.json": {
-    "mtime": 1786510033.487073,
-    "ast_hash": "da5d373b5264afbf54f7be44d531c671",
+    "mtime": 1786511956.6292946,
+    "ast_hash": "2cdf95f38b20d4e21881d28755a818f4",
     "semantic_hash": ""
   },
   ".codex/hooks.json": {
@@ -15,8 +15,8 @@
     "semantic_hash": "fc3144d359e83c797d56beb6fe50b4c0"
   },
   ".vscode/launch.json": {
-    "mtime": 1786510033.6961648,
-    "ast_hash": "f4a13b1333904e903a8de1c5986cc17e",
+    "mtime": 1789280653.5951698,
+    "ast_hash": "4c9bfbea0aa8ea0175721c2095161ccb",
     "semantic_hash": ""
   },
   ".vscode/mcp.json": {
@@ -25,293 +25,293 @@
     "semantic_hash": "38c7fe3ac9b9e77264d1acf6b8d715e0"
   },
   ".vscode/tasks.json": {
-    "mtime": 1786510033.7011647,
-    "ast_hash": "73f4d3dfe4ab8399df93d59044a1a84e",
+    "mtime": 1786511956.6302931,
+    "ast_hash": "cd564e2cb67ed0c5b5f83ee5fa2a0557",
     "semantic_hash": ""
   },
   ".claude/README.md": {
-    "mtime": 1786510177.7493596,
-    "ast_hash": "23bf2b0ab73e046db5f40a8e195b9318",
+    "mtime": 1786511956.6312933,
+    "ast_hash": "479d1da43786138496500b08a856303a",
     "semantic_hash": ""
   },
   ".cursor/AGENTS.md": {
-    "mtime": 1786510177.7553601,
-    "ast_hash": "d34aecb42b9e710588209d25f7dc9a0c",
+    "mtime": 1786512285.9944012,
+    "ast_hash": "bd3f209350550e6382721e4a0b19b60f",
     "semantic_hash": ""
   },
   ".cursor/agents/backend.md": {
-    "mtime": 1786510177.7613657,
-    "ast_hash": "24dcd31aef194891b31e8041ffad7688",
+    "mtime": 1786512286.006402,
+    "ast_hash": "cd855c47b47ab9971adbad1c3145c31e",
     "semantic_hash": ""
   },
   ".cursor/agents/dev.md": {
-    "mtime": 1786510177.76736,
-    "ast_hash": "d9a3e850ecb79bcc361faad656b039f0",
+    "mtime": 1786512286.006402,
+    "ast_hash": "39c8d8e87f81dce7304a86094326d1ce",
     "semantic_hash": ""
   },
   ".cursor/agents/frontend.md": {
-    "mtime": 1786510177.7733607,
-    "ast_hash": "572aa736fe2bd26eb5ce47e5c10775ef",
+    "mtime": 1786512286.006402,
+    "ast_hash": "a4f36ead8b89eb4306b4f041322d3643",
     "semantic_hash": ""
   },
   ".cursor/agents/planner.md": {
-    "mtime": 1786510177.7793713,
-    "ast_hash": "1fc9a7652b8f0bab30d4d5843e411711",
+    "mtime": 1786512286.0054014,
+    "ast_hash": "589b23b4a5af5a2d5c40d33aef10914e",
     "semantic_hash": ""
   },
   ".cursor/agents/qa.md": {
-    "mtime": 1786510177.7833714,
-    "ast_hash": "e1b05598d3a4a591a1b9628d9313e983",
+    "mtime": 1786512286.006402,
+    "ast_hash": "f3df1d11882e8665450b2f36fb221742",
     "semantic_hash": ""
   },
   ".github/chatmodes/architect.chatmode.md": {
-    "mtime": 1786510177.791881,
-    "ast_hash": "4e2906ddb7f7284729d2fc8872a5530c",
+    "mtime": 1786511956.612293,
+    "ast_hash": "4e22e296bd6f0494e1fc3bc21485ccb0",
     "semantic_hash": ""
   },
   ".github/chatmodes/code-review.chatmode.md": {
-    "mtime": 1786510177.7948928,
-    "ast_hash": "9ecca87d6ca278d8f0c2160646b73439",
+    "mtime": 1786511956.6132958,
+    "ast_hash": "a827256fd5503affcdc44d3dd6a0b4df",
     "semantic_hash": ""
   },
   ".github/chatmodes/debug.chatmode.md": {
-    "mtime": 1786510177.797891,
-    "ast_hash": "2e675f5f92c414bf76d6c7c6da3b93df",
+    "mtime": 1786511956.6132958,
+    "ast_hash": "856ebd175865ececb97f4e4248ce46da",
     "semantic_hash": ""
   },
   ".github/chatmodes/planner-fast.chatmode.md": {
-    "mtime": 1786510177.8018913,
-    "ast_hash": "278ba5ec7e4a13776d9dd11e7f913327",
+    "mtime": 1786511956.6132958,
+    "ast_hash": "3dc9594aa9693317e2e87edb1d79a8f7",
     "semantic_hash": ""
   },
   ".github/chatmodes/refactor.chatmode.md": {
-    "mtime": 1786510177.809891,
-    "ast_hash": "2d155dbd83a8cd6eb196724c6fc945f9",
+    "mtime": 1786511956.6142929,
+    "ast_hash": "fcda77a6c2039d110014e5d0644af8fc",
     "semantic_hash": ""
   },
   ".github/copilot-instructions.md": {
-    "mtime": 1786510177.7883694,
-    "ast_hash": "9a749a90946a46bacf61c6de1daad728",
+    "mtime": 1789286197.2952635,
+    "ast_hash": "1daa853c23c2bfad511e3297a95a0f0c",
     "semantic_hash": ""
   },
   ".github/instructions/agent-skills.instructions.md": {
-    "mtime": 1786510033.545071,
-    "ast_hash": "6d9035fb3447c6a1497dcd08ec4400bd",
+    "mtime": 1786511956.6052928,
+    "ast_hash": "00446232c74db2623ec4fd6af95c94e2",
     "semantic_hash": ""
   },
   ".github/instructions/agents.instructions.md": {
-    "mtime": 1786510033.5410736,
-    "ast_hash": "e82676749e5d83cdf1a402140d087bb7",
+    "mtime": 1786512286.0054014,
+    "ast_hash": "9113924b79a3c7ba0b7be8d8492a699c",
     "semantic_hash": ""
   },
   ".github/instructions/csharp-async.instructions.md": {
-    "mtime": 1786510033.5550716,
-    "ast_hash": "e2cd3b4e32ff86a513b1fd70c5ffa163",
+    "mtime": 1786511956.6052928,
+    "ast_hash": "08b16cdb4e5e8092566fc49c6da85b1b",
     "semantic_hash": ""
   },
   ".github/instructions/csharp.instructions.md": {
-    "mtime": 1786510177.8178911,
-    "ast_hash": "a2f224c314aab126401d4d891c9886b2",
+    "mtime": 1786511956.6092954,
+    "ast_hash": "91abff78742a8b2a2d7d58ee279849b1",
     "semantic_hash": ""
   },
   ".github/instructions/ef-core.instructions.md": {
-    "mtime": 1786510177.8228905,
-    "ast_hash": "1cc28bf4526617088681214073f63328",
+    "mtime": 1786511956.6102917,
+    "ast_hash": "4e563336043c4829c26de3e4dd9a4d62",
     "semantic_hash": ""
   },
   ".github/instructions/fastreport.instructions.md": {
-    "mtime": 1786510033.5640786,
-    "ast_hash": "aea3397130af8d22ad1e3ce5dec357d0",
+    "mtime": 1786511956.6062922,
+    "ast_hash": "b4f87dfa130f7eb248c654c4d94415c6",
     "semantic_hash": ""
   },
   ".github/instructions/github-actions.instructions.md": {
-    "mtime": 1786510033.5680802,
-    "ast_hash": "98b02b9a6dc8892ab9b01ee2bbfe4d16",
+    "mtime": 1786511956.6072922,
+    "ast_hash": "be374037ff673a143a2f043f33edf27d",
     "semantic_hash": ""
   },
   ".github/instructions/instructions.instructions.md": {
-    "mtime": 1786510033.57108,
-    "ast_hash": "dc0ab423cea64c28931e8be265b4ac12",
+    "mtime": 1786511956.6082935,
+    "ast_hash": "52f6bcce6f192f4b61abee46d6f3d612",
     "semantic_hash": ""
   },
   ".github/instructions/javascript-frontend.instructions.md": {
-    "mtime": 1786510177.829889,
-    "ast_hash": "44fb4f5599f88d70f41a7ebfc5c5255b",
+    "mtime": 1786511956.6092954,
+    "ast_hash": "a6cd5d85442181abee4bcd723390650a",
     "semantic_hash": ""
   },
   ".github/instructions/markdown.instructions.md": {
-    "mtime": 1786510177.8328905,
-    "ast_hash": "0f1bf112da4d65d672b6981a68206a53",
+    "mtime": 1786511956.6102917,
+    "ast_hash": "06bead42f845f71ca33f12773b1bbdc0",
     "semantic_hash": ""
   },
   ".github/instructions/razor.instructions.md": {
-    "mtime": 1786510177.8398933,
-    "ast_hash": "ab6a1665b7bcc30f0693748c2a97d985",
+    "mtime": 1786511956.6102917,
+    "ast_hash": "b050c0effa70b80b4bfc4aed1fc865f3",
     "semantic_hash": ""
   },
   ".github/instructions/security-owasp.instructions.md": {
-    "mtime": 1786510177.843896,
-    "ast_hash": "0320f6f15fd47e32b65ef0892d56d41b",
+    "mtime": 1786511956.611293,
+    "ast_hash": "db1d310a0ce0c275f86c4207b0567329",
     "semantic_hash": ""
   },
   ".github/instructions/signalr.instructions.md": {
-    "mtime": 1786510033.6065981,
-    "ast_hash": "106aed6e78bac64c08d800913f115920",
+    "mtime": 1786511956.6062922,
+    "ast_hash": "ae09292f2bedf05933a1f66275cd14c5",
     "semantic_hash": ""
   },
   ".github/prompts/develop-reempaque-produccion.prompt.md": {
-    "mtime": 1786510177.8668907,
-    "ast_hash": "59bd81a17a70d519ee9d60a140f04fb8",
+    "mtime": 1786511956.618293,
+    "ast_hash": "17c3d642d9e0f4cb04abc8b6139e9958",
     "semantic_hash": ""
   },
   ".github/workflows/README.md": {
-    "mtime": 1786510033.6555977,
-    "ast_hash": "ad8c052f82419974bf366d32b76cabf3",
+    "mtime": 1786511956.6192946,
+    "ast_hash": "0936726a87b367964d192845c468077a",
     "semantic_hash": ""
   },
   ".github/workflows/daily-status.md": {
-    "mtime": 1786510033.6285975,
-    "ast_hash": "44313aab506087003f6d51a849991f83",
+    "mtime": 1786511956.6192946,
+    "ast_hash": "5809b84f728bf3ac3e3adb4b66259d75",
     "semantic_hash": ""
   },
   ".github/workflows/stale-triage.md": {
-    "mtime": 1786510033.660645,
-    "ast_hash": "beb9f2976dc780494fe59d9c5ae8c9e7",
+    "mtime": 1786511956.6202908,
+    "ast_hash": "46c97e0a7bbfe02ebfb12330d7869c34",
     "semantic_hash": ""
   },
   ".vscode/AGENTS.md": {
-    "mtime": 1786510177.8748915,
-    "ast_hash": "4398d53c10f73558da905701930a9e19",
+    "mtime": 1786512285.9934013,
+    "ast_hash": "5e291ce05d9fabc8eeee0af0b1e68459",
     "semantic_hash": ""
   },
   ".vscode/agents/backend.md": {
-    "mtime": 1786510177.8914163,
-    "ast_hash": "40265be01479035f52a1f60ed213de83",
+    "mtime": 1786512285.9964027,
+    "ast_hash": "5d62ccd5c5735bd61d7c88116b379f83",
     "semantic_hash": ""
   },
   ".vscode/agents/dev.md": {
-    "mtime": 1786510177.8944285,
-    "ast_hash": "706e785cc9d2946bfc85525d272dc29e",
+    "mtime": 1786512285.9964027,
+    "ast_hash": "f3e61b3d316626695d937d27071f4782",
     "semantic_hash": ""
   },
   ".vscode/agents/frontend.md": {
-    "mtime": 1786510177.8974278,
-    "ast_hash": "91dd26d3c69e922e1ebfcdbd056586a0",
+    "mtime": 1786512285.9974024,
+    "ast_hash": "79241601612ff54112f485e33fc715b3",
     "semantic_hash": ""
   },
   ".vscode/agents/planner.md": {
-    "mtime": 1786510177.9024253,
-    "ast_hash": "8bcead5bee7215e088ba4c05f9499c48",
+    "mtime": 1786512285.9974024,
+    "ast_hash": "9f70129b64336c4d12680642c644f84b",
     "semantic_hash": ""
   },
   ".vscode/agents/qa.md": {
-    "mtime": 1786510177.9064288,
-    "ast_hash": "de631dee2cee980fbe968aaaf754d52a",
+    "mtime": 1786512285.9984019,
+    "ast_hash": "5bd87016d84147a9b62ff387db1cb228",
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1786510197.999635,
-    "ast_hash": "03158711c8c0e1cd4d03f5d6394e7900",
+    "mtime": 1789286197.2210462,
+    "ast_hash": "17876555edb4cf5b4313bf59c55be4be",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1786510177.7323627,
-    "ast_hash": "946254595c675acd7a9d6661c471d1f5",
+    "mtime": 1786511956.5882936,
+    "ast_hash": "01dbd67d2be073d471412e37007c2321",
     "semantic_hash": ""
   },
   "CONVENTIONS.md": {
-    "mtime": 1786510177.734362,
-    "ast_hash": "ce154aa7e83031d3c6c9666eece74096",
+    "mtime": 1789286197.2952635,
+    "ast_hash": "b2d559512e2684cb3f069b8afca928b7",
     "semantic_hash": ""
   },
   "GEMINI.md": {
-    "mtime": 1786510177.7373607,
-    "ast_hash": "938e528c17e95d1c50964262104c2335",
+    "mtime": 1786511956.5882936,
+    "ast_hash": "df08b41e69a20f528f27b1e4560e08f8",
     "semantic_hash": ""
   },
   "skills/acquire-codebase-knowledge/SKILL.md": {
-    "mtime": 1786510178.0189426,
-    "ast_hash": "b1b7d7f4a1582ef2ad12b98fc704cfe4",
+    "mtime": 1786512286.0004027,
+    "ast_hash": "2217d7f574bf16ddca4d33dfd23363e7",
     "semantic_hash": ""
   },
   "skills/architecture-blueprint-generator/SKILL.md": {
-    "mtime": 1786510178.0219486,
-    "ast_hash": "7b5280332245a56d554295acf4dd3ae4",
+    "mtime": 1786512286.0004027,
+    "ast_hash": "c0cb24447a61a3705ad7097f3e080d7f",
     "semantic_hash": ""
   },
   "skills/aspnet-mvc-razor/SKILL.md": {
-    "mtime": 1786510178.0269518,
-    "ast_hash": "7fb2001d50f77513184588ee263ad5c9",
+    "mtime": 1786512286.0004027,
+    "ast_hash": "6e628a91f1e7d5ed11316719309ec1bb",
     "semantic_hash": ""
   },
   "skills/create-implementation-plan/SKILL.md": {
-    "mtime": 1786510178.0299447,
-    "ast_hash": "6a0c7516d6c77998f8e45204637666ee",
+    "mtime": 1786512286.0014014,
+    "ast_hash": "fecc259dfb89c66c1bc7db5e9fbae0f4",
     "semantic_hash": ""
   },
   "skills/csharp-async/SKILL.md": {
-    "mtime": 1786510178.0329444,
-    "ast_hash": "74c04f7c0753b9aa70fce083d33b326f",
+    "mtime": 1786512286.0014014,
+    "ast_hash": "3e11f593cdec93d10573c7fb5b0b9e1c",
     "semantic_hash": ""
   },
   "skills/diagnose/SKILL.md": {
-    "mtime": 1786510178.0359454,
-    "ast_hash": "f020c55b4b8064f5c6d7be9cee2e7795",
+    "mtime": 1786512286.0014014,
+    "ast_hash": "f876d2441037be350097a01bc47e8f4c",
     "semantic_hash": ""
   },
   "skills/dotnet-best-practices/SKILL.md": {
-    "mtime": 1786510178.0399444,
-    "ast_hash": "b6a11bd5f7665c505cfa94d57e765998",
+    "mtime": 1786512286.0014014,
+    "ast_hash": "909aee7f4cd16cb9183200b1f62a5b7b",
     "semantic_hash": ""
   },
   "skills/ef-core/SKILL.md": {
-    "mtime": 1786510178.0429459,
-    "ast_hash": "2af4462b7d55d5d50b441acd7149ec92",
+    "mtime": 1786512286.0024018,
+    "ast_hash": "7cff0959044602200fbb87f51f2fcfa2",
     "semantic_hash": ""
   },
   "skills/refactor/SKILL.md": {
-    "mtime": 1786510178.0469458,
-    "ast_hash": "def406525b2425cecb62ad4d4cbe8f56",
+    "mtime": 1786512286.0024018,
+    "ast_hash": "6267709f7e61898cc19876055aa5f7f0",
     "semantic_hash": ""
   },
   "skills/reviewing-code/SKILL.md": {
-    "mtime": 1786510178.0499458,
-    "ast_hash": "e6683fb9670754c158f21d995eac8509",
+    "mtime": 1786512286.0024018,
+    "ast_hash": "ddfd86a078eb2e5778ef470bbd3c5198",
     "semantic_hash": ""
   },
   "skills/security-review/SKILL.md": {
-    "mtime": 1786510178.0599587,
-    "ast_hash": "46c779ab387bf07bb5ccbbd5bcc46d32",
+    "mtime": 1786512286.0044022,
+    "ast_hash": "20dbc03ac5d8329c693d2ee77d799770",
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1786510177.7453597,
-    "ast_hash": "13c1da4a6c317c54568c96d835b53660",
+    "mtime": 1789273243.4372232,
+    "ast_hash": "a05e83d9f6056c16881b31dc0fb87bb3",
     "semantic_hash": ""
   },
   "tailwind.config.js": {
-    "mtime": 1786510033.9877515,
-    "ast_hash": "ff834e28e18548d945ecaf68c48c02c6",
+    "mtime": 1786514965.3265655,
+    "ast_hash": "119e73f6b657a2c61806ef960438c52f",
     "semantic_hash": ""
   },
   ".github/prompts/create-api-endpoint.prompt.md": {
-    "mtime": 1786510177.8488915,
-    "ast_hash": "ff19dcd5d4fde8f6908658c6c770f190",
+    "mtime": 1786511956.6162927,
+    "ast_hash": "639907aed5a337cfcd4f415b88b0b2b0",
     "semantic_hash": ""
   },
   ".github/prompts/create-blazor-feature.prompt.md": {
-    "mtime": 1786510177.8518906,
-    "ast_hash": "594c27288d3e6dabcaaf5c6ff3b884ec",
+    "mtime": 1786511956.6162927,
+    "ast_hash": "c5dac1ed9bb4afac4b97449b8e1deebe",
     "semantic_hash": ""
   },
   ".github/prompts/create-domain-use-case.prompt.md": {
-    "mtime": 1786510177.855892,
-    "ast_hash": "bd7f7bdebce6532a6f00ee449b030822",
+    "mtime": 1786511956.6162927,
+    "ast_hash": "13cbf37d21c514df61640984876cd427",
     "semantic_hash": ""
   },
   ".github/prompts/create-sql-script.prompt.md": {
-    "mtime": 1786510177.8598907,
-    "ast_hash": "6356e49a185543de82776eabbb3a285d",
+    "mtime": 1786511956.617292,
+    "ast_hash": "1d613c5a8722b80bd420b2bcea64dfdb",
     "semantic_hash": ""
   },
   "Neros.Api/Controllers/WeatherForecastController.cs": {
@@ -320,13 +320,13 @@
     "semantic_hash": ""
   },
   "Neros.Api/Neros.Api.csproj": {
-    "mtime": 1786510033.760166,
-    "ast_hash": "2ecbfe68a8abe0717a70f7d324be51f5",
+    "mtime": 1789284659.9756258,
+    "ast_hash": "30d64d8c5bffb91b1cc4d0821f86c7cf",
     "semantic_hash": ""
   },
   "Neros.Api/Program.cs": {
-    "mtime": 1786507317.5926812,
-    "ast_hash": "354c227093827c088aeda3ffb465e79c",
+    "mtime": 1789284844.2387757,
+    "ast_hash": "2b904a73b11cab04e218106ca8b4bb3f",
     "semantic_hash": ""
   },
   "Neros.Api/Properties/launchSettings.json": {
@@ -337,11 +337,6 @@
   "Neros.Api/WeatherForecast.cs": {
     "mtime": 1786510033.765174,
     "ast_hash": "11479c7e2288f7f352911e4191ce7923",
-    "semantic_hash": ""
-  },
-  "Neros.Api/appsettings.Development.json": {
-    "mtime": 1786507316.9706318,
-    "ast_hash": "804b473502a4c415cf75db61c56c32aa",
     "semantic_hash": ""
   },
   "Neros.Api/appsettings.json": {
@@ -360,18 +355,18 @@
     "semantic_hash": ""
   },
   "Neros.Blazor/Components/App.razor": {
-    "mtime": 1786510033.784697,
-    "ast_hash": "8ac1d9dc86a6697b09faa4b1a15d71ce",
+    "mtime": 1789281442.4248629,
+    "ast_hash": "ffafdc840e998b9ab4a2c9f0aa2c3e27",
     "semantic_hash": ""
   },
   "Neros.Blazor/Components/Layout/MainLayout.razor": {
-    "mtime": 1786510033.788693,
-    "ast_hash": "8798445ff8772f1596de724e54e8f304",
+    "mtime": 1789275802.5013437,
+    "ast_hash": "9b51e0c75803c222a064c2f84b036e44",
     "semantic_hash": ""
   },
   "Neros.Blazor/Components/Layout/NavMenu.razor": {
-    "mtime": 1786510177.931428,
-    "ast_hash": "b127a5d33a6a5ecf4aecd819765e9649",
+    "mtime": 1789277457.8040378,
+    "ast_hash": "f50c7a58ccc65c9633da9ef4c8b59363",
     "semantic_hash": ""
   },
   "Neros.Blazor/Components/Layout/ReconnectModal.razor": {
@@ -384,49 +379,39 @@
     "ast_hash": "bdc7a0873231c569cd31aa85311186a3",
     "semantic_hash": ""
   },
-  "Neros.Blazor/Components/Pages/Counter.razor": {
-    "mtime": 1786508847.9982214,
-    "ast_hash": "e6ee184864dfca49bd187e288e7461bb",
-    "semantic_hash": ""
-  },
   "Neros.Blazor/Components/Pages/Error.razor": {
     "mtime": 1786507286.7878716,
     "ast_hash": "895aa385b310af50d09fd583be83b251",
     "semantic_hash": ""
   },
   "Neros.Blazor/Components/Pages/Home.razor": {
-    "mtime": 1786508847.9211617,
-    "ast_hash": "2f5e8a5cde22b2d4d82154b7b0ed5197",
+    "mtime": 1789275802.5073652,
+    "ast_hash": "57107a3d350d7971ae8efe8fc13c0aad",
     "semantic_hash": ""
   },
   "Neros.Blazor/Components/Pages/NotFound.razor": {
-    "mtime": 1786507286.7908714,
-    "ast_hash": "b43132764687de5710f24e46d3d3f7ff",
-    "semantic_hash": ""
-  },
-  "Neros.Blazor/Components/Pages/Weather.razor": {
-    "mtime": 1786508847.9982214,
-    "ast_hash": "d17c2cc3403b4f8af37bb74024c4ec75",
+    "mtime": 1786511284.895781,
+    "ast_hash": "38da826d0bf7ff12ae940a15da3e7a41",
     "semantic_hash": ""
   },
   "Neros.Blazor/Components/Routes.razor": {
-    "mtime": 1786507286.8578858,
-    "ast_hash": "e7369bc27ad40e65009faaaa1e965d93",
+    "mtime": 1789275802.499826,
+    "ast_hash": "31d817cf392e8e2c82bfa4a224ffaf68",
     "semantic_hash": ""
   },
   "Neros.Blazor/Components/_Imports.razor": {
-    "mtime": 1786510033.7806957,
-    "ast_hash": "d03ae5c6d1c8754f7855c2ae7ebf6b87",
+    "mtime": 1789275802.5008354,
+    "ast_hash": "29fc9d59bfbdc1395238943d4b32eb7b",
     "semantic_hash": ""
   },
   "Neros.Blazor/Neros.Blazor.csproj": {
-    "mtime": 1786510033.8196945,
-    "ast_hash": "a9ed2534d6049791d98a4c7ae2f1566c",
+    "mtime": 1789284844.2397892,
+    "ast_hash": "64b35ce9a207eb34c219bfccae3f5b3e",
     "semantic_hash": ""
   },
   "Neros.Blazor/Program.cs": {
-    "mtime": 1786510033.8246949,
-    "ast_hash": "0ef3467525c87ea8a1fb23476e2c6ae3",
+    "mtime": 1789287061.9091108,
+    "ast_hash": "1b8c3adccfb0444e930e7239fe46e401",
     "semantic_hash": ""
   },
   "Neros.Blazor/Properties/launchSettings.json": {
@@ -434,14 +419,9 @@
     "ast_hash": "486861960808c4f010aee2fa8c7c9c5c",
     "semantic_hash": ""
   },
-  "Neros.Blazor/appsettings.Development.json": {
-    "mtime": 1786507286.816872,
-    "ast_hash": "804b473502a4c415cf75db61c56c32aa",
-    "semantic_hash": ""
-  },
   "Neros.Blazor/appsettings.json": {
-    "mtime": 1786507286.8228805,
-    "ast_hash": "f7e65dde4e5533740a0d57ac9355c0e8",
+    "mtime": 1789275802.4943166,
+    "ast_hash": "fdd8da1a4bf9619ffb1331b47a3bb84c",
     "semantic_hash": ""
   },
   "Neros.Contracts/Class1.cs": {
@@ -475,8 +455,623 @@
     "semantic_hash": ""
   },
   "Neros.slnx": {
-    "mtime": 1786510033.920226,
-    "ast_hash": "d07954065df0bafb4a345313c57c0dfe",
+    "mtime": 1789286997.2897122,
+    "ast_hash": "eb1597b4f6b18241c8657bf780c9f237",
+    "semantic_hash": ""
+  },
+  ".impeccable/design.json": {
+    "mtime": 1789275802.5354986,
+    "ast_hash": "03df7f907ba005fa709b76519fabe8b9",
+    "semantic_hash": ""
+  },
+  "Neros.Api/Controllers/AccesoController.cs": {
+    "mtime": 1789275802.489782,
+    "ast_hash": "6387f056ba467c5b701b6940479a322d",
+    "semantic_hash": ""
+  },
+  "Neros.Api/Controllers/EmpresasController.cs": {
+    "mtime": 1789275802.4912994,
+    "ast_hash": "61288ff0e51a5ac8b0c493a35c685665",
+    "semantic_hash": ""
+  },
+  "Neros.Api/Seguridad/AutenticacionSesion.cs": {
+    "mtime": 1789275802.490792,
+    "ast_hash": "5416a2d15016e1ae722340ef83ea2b6a",
+    "semantic_hash": ""
+  },
+  "Neros.Api/Seguridad/ComandosAdministracion.cs": {
+    "mtime": 1789279878.4244142,
+    "ast_hash": "b4832c84d06e3be26e13b6968f87adf2",
+    "semantic_hash": ""
+  },
+  "Neros.Application/Autenticacion/IServicioIdentidad.cs": {
+    "mtime": 1789275802.4822655,
+    "ast_hash": "cbde1f86ab4f381c2aaef9525d4351c2",
+    "semantic_hash": ""
+  },
+  "Neros.Application/Autenticacion/ServicioEmpresas.cs": {
+    "mtime": 1789275802.483275,
+    "ast_hash": "496850eb09fc17955c243c94f6105c2b",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Features/Auth/LoginAccessPanel.razor": {
+    "mtime": 1786515433.0878398,
+    "ast_hash": "8b574c84111edb255d1355534ff4a8e5",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Features/Auth/LoginAmbient.razor": {
+    "mtime": 1786514690.6748948,
+    "ast_hash": "13232a75397a06ec6f0a971dba1f5aed",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Features/Auth/LoginFormModel.cs": {
+    "mtime": 1786513625.3907826,
+    "ast_hash": "4a09e9efc13b21bfdf045416a4fd1de2",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Features/Auth/LoginHeader.razor": {
+    "mtime": 1786514683.1783834,
+    "ast_hash": "4841512fa1f5d4b96f133cce024d8635",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Features/Auth/LoginModule.cs": {
+    "mtime": 1786513625.3917804,
+    "ast_hash": "5c6927fb006476db5fbdf15691e58e57",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Features/Auth/LoginModuleTile.razor": {
+    "mtime": 1786513625.3987842,
+    "ast_hash": "0596a171b45eda0ddfa278b3036f2a50",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Features/Auth/LoginProductStage.razor": {
+    "mtime": 1786515434.975263,
+    "ast_hash": "e804972b7504334ac8447306a603c04a",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Features/Auth/LoginTrustBadge.cs": {
+    "mtime": 1786513625.3917804,
+    "ast_hash": "06f6e09a961ee31238e3c7925320b81e",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Layout/AuthLayout.razor": {
+    "mtime": 1789275802.4983172,
+    "ast_hash": "f88d75de483199a19e92a55f4a5bbd3c",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Layout/Icono.razor": {
+    "mtime": 1789275802.5043643,
+    "ast_hash": "8f92c620b248b4f2be2df61e6c990b3e",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Layout/SelectorTema.razor": {
+    "mtime": 1789275802.5053651,
+    "ast_hash": "58e0f96e0c078e516932070dc842354a",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Pages/Empresas.razor": {
+    "mtime": 1789275802.506364,
+    "ast_hash": "af9254c085120d0e0e5489f851118be0",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Components/Pages/Login.razor": {
+    "mtime": 1789281836.064021,
+    "ast_hash": "478b102c0acbe74b69af25b3288d4744",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Servicios/ClienteNeros.cs": {
+    "mtime": 1789275802.4943166,
+    "ast_hash": "9208902a3d24bdeca68938b46999633f",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/Servicios/EndpointsSesion.cs": {
+    "mtime": 1789281836.061021,
+    "ast_hash": "34fe18feb9194ae76b3c1afb79bf3b79",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/experience.js": {
+    "mtime": 1789281836.064021,
+    "ast_hash": "d17b0baba0b06ee091702a8e74ab35f6",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/theme-init.js": {
+    "mtime": 1789275802.5083642,
+    "ast_hash": "98347439a9b95d0a439b1bcf972e0bb2",
+    "semantic_hash": ""
+  },
+  "Neros.Contracts/Autenticacion/ContratosAcceso.cs": {
+    "mtime": 1789275802.4812553,
+    "ast_hash": "9b99f4b614cbb99f8097fe65f5b0f4ae",
+    "semantic_hash": ""
+  },
+  "Neros.Persistence/Neros.Persistence.csproj": {
+    "mtime": 1789275802.485274,
+    "ast_hash": "42dd1d9fa0cc6db284265f0dcb02438a",
+    "semantic_hash": ""
+  },
+  "Neros.Persistence/NerosDbContext.cs": {
+    "mtime": 1789275802.485274,
+    "ast_hash": "f9a2c9eae5db921877f9e149a0a9eafc",
+    "semantic_hash": ""
+  },
+  "Neros.Persistence/Seguridad/ModeloSeguridad.cs": {
+    "mtime": 1789275802.486274,
+    "ast_hash": "c0ac2e49994590f7653a21f3590f3fd8",
+    "semantic_hash": ""
+  },
+  "Neros.Persistence/Seguridad/RepositorioEmpresas.cs": {
+    "mtime": 1789279878.4224088,
+    "ast_hash": "acfd2f79c240cae72bf0dea11255dafd",
+    "semantic_hash": ""
+  },
+  "Neros.Persistence/Seguridad/ServicioIdentidad.cs": {
+    "mtime": 1789275802.4882739,
+    "ast_hash": "380fddce3abb7c5ac794e13089826fb9",
+    "semantic_hash": ""
+  },
+  "database/scripts/000_crear_base.sql": {
+    "mtime": 1789275802.5113933,
+    "ast_hash": "999aab5e645d682edd085ec7d209b55e",
+    "semantic_hash": ""
+  },
+  "database/scripts/001_identity_empresas.sql": {
+    "mtime": 1789275802.5124023,
+    "ast_hash": "388501bdab80d7f3f1b92a27351b1d96",
+    "semantic_hash": ""
+  },
+  "tests/Neros.Tests/AccesoMultiempresaTests.cs": {
+    "mtime": 1789281836.064021,
+    "ast_hash": "91ec401fc4c0b00ef64f4238aea8433a",
+    "semantic_hash": ""
+  },
+  "tests/Neros.Tests/EntornoPruebas.cs": {
+    "mtime": 1789287061.910104,
+    "ast_hash": "0dda99337d8cc667522cbe961f9c299a",
+    "semantic_hash": ""
+  },
+  "tests/Neros.Tests/Neros.Tests.csproj": {
+    "mtime": 1789286997.2897122,
+    "ast_hash": "c4d74fc36f95177b2d5821718bd40fa2",
+    "semantic_hash": ""
+  },
+  ".antigravity/AGENTS.md": {
+    "mtime": 1786512286.0114007,
+    "ast_hash": "1b139784b4e1fe6220870ec792c3ef2e",
+    "semantic_hash": ""
+  },
+  ".antigravity/README.md": {
+    "mtime": 1786512286.0114007,
+    "ast_hash": "016a0eb9fe6a8a2c7c748ba8fae1fee3",
+    "semantic_hash": ""
+  },
+  ".codex/AGENTS.md": {
+    "mtime": 1786512286.0094025,
+    "ast_hash": "7a6b709c35f16eacf161a57b7385e0ad",
+    "semantic_hash": ""
+  },
+  ".codex/README.md": {
+    "mtime": 1786512286.0094025,
+    "ast_hash": "f1abc0a125989c4e66beee74f096fe3f",
+    "semantic_hash": ""
+  },
+  ".impeccable/surfaces/acceso-inicio.md": {
+    "mtime": 1789275802.5204284,
+    "ast_hash": "231c50932f4524544c1e6afe833d3f64",
+    "semantic_hash": ""
+  },
+  "ANTIGRAVITY.md": {
+    "mtime": 1786512286.0094025,
+    "ast_hash": "bc34d0b14048762df924484a75ce309d",
+    "semantic_hash": ""
+  },
+  "CODEX.md": {
+    "mtime": 1786512286.008402,
+    "ast_hash": "78dc1ad9e8434ec0de09b03889f3393f",
+    "semantic_hash": ""
+  },
+  "DESIGN.md": {
+    "mtime": 1789281836.0670216,
+    "ast_hash": "3db3c755eddd8fb876fb1bf7ed5d03d1",
+    "semantic_hash": ""
+  },
+  "PRODUCT.md": {
+    "mtime": 1789275802.4651742,
+    "ast_hash": "5510673423508b7a3f2d192576d69d06",
+    "semantic_hash": ""
+  },
+  "database/README.md": {
+    "mtime": 1789275802.5113933,
+    "ast_hash": "7fc7e5f012bff6650f91b1e73b280f51",
+    "semantic_hash": ""
+  },
+  "docs/README.md": {
+    "mtime": 1789284596.254661,
+    "ast_hash": "754a95b006552bb3c60d2f6bf07b6f88",
+    "semantic_hash": ""
+  },
+  "docs/gerencial/base-multiempresa.md": {
+    "mtime": 1789275802.5204284,
+    "ast_hash": "7ff56c5b1df10100be0cf2b06066b932",
+    "semantic_hash": ""
+  },
+  "docs/tecnica/acceso-multiempresa.md": {
+    "mtime": 1789281836.0650206,
+    "ast_hash": "e17dac6c2d06a48b667e3c4f764459b7",
+    "semantic_hash": ""
+  },
+  "docs/tecnica/validacion.md": {
+    "mtime": 1789281836.0660233,
+    "ast_hash": "f1bf018f57581b58587f7f867369e48a",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/arrow-down.svg": {
+    "mtime": 1789273239.384041,
+    "ast_hash": "d63aaf2d623ebe9074d330ccd58eecee",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/arrow-left-right.svg": {
+    "mtime": 1789273239.390829,
+    "ast_hash": "bf16633372da4379e4a314f6dc1ab412",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/arrow-right.svg": {
+    "mtime": 1789273239.4038873,
+    "ast_hash": "07bdc0a61f7b1dc4c77a4a79ee4ed163",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/arrow-up-right.svg": {
+    "mtime": 1789273239.4550939,
+    "ast_hash": "adf0bf7f4ad97e62bfe4d5de1d53fc6c",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/building-2.svg": {
+    "mtime": 1789273239.758545,
+    "ast_hash": "c4cf5f22611eae1419bf2e5fd663ba97",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/chart-no-axes-combined.svg": {
+    "mtime": 1789273240.0159237,
+    "ast_hash": "e57b53f31517c318fbb038d3ea1a9b9b",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/chevron-down.svg": {
+    "mtime": 1789273240.0530636,
+    "ast_hash": "7364ee7241667ee0f9869f8482f419b8",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/chevrons-up-down.svg": {
+    "mtime": 1789273240.087366,
+    "ast_hash": "4b8ee5247395ebc741fa01a5014fe29f",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/circle-alert.svg": {
+    "mtime": 1789273240.095041,
+    "ast_hash": "0573ea36f457d946cac6a5323d957a94",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/eye.svg": {
+    "mtime": 1789273240.5719473,
+    "ast_hash": "a3cd9ef79b7dc605f30ab3418a4800bb",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/fingerprint.svg": {
+    "mtime": 1789273240.78766,
+    "ast_hash": "79ce1daea80e47019e17740d292a6f27",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/grid-2x2.svg": {
+    "mtime": 1789273241.0308743,
+    "ast_hash": "8d432db4df0248a3ed772dafcc74f2c9",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/history.svg": {
+    "mtime": 1789273241.130837,
+    "ast_hash": "4d9c34311bdc16a1e98f8241f4c30cf1",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/house.svg": {
+    "mtime": 1789273241.168532,
+    "ast_hash": "090ea54619ee69ac4d3bfc9c0f5ca87f",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/info.svg": {
+    "mtime": 1789273241.221068,
+    "ast_hash": "4dc8425b612fae2e58b7da75b04238a5",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/layers-2.svg": {
+    "mtime": 1789273241.3058658,
+    "ast_hash": "39685fe9e21192fd625b819e6fa7fa0e",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/lock-keyhole.svg": {
+    "mtime": 1789273241.4349732,
+    "ast_hash": "e6480c476373d9d2085f37d302a4bbeb",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/log-in.svg": {
+    "mtime": 1789273241.4384878,
+    "ast_hash": "763019b0c3b4c944751eb5bd4fa97a80",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/log-out.svg": {
+    "mtime": 1789273241.4399931,
+    "ast_hash": "a050cd51a676c20e1c8c7c962409ded4",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/mail.svg": {
+    "mtime": 1789273241.681041,
+    "ast_hash": "de67a7b99333b98de57ded40105b96c4",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/monitor.svg": {
+    "mtime": 1789273241.8538084,
+    "ast_hash": "03b2c33c72f700613673d4ed0973d525",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/moon.svg": {
+    "mtime": 1789273241.8558104,
+    "ast_hash": "92b267d99bb244309ef961459a26da84",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/package.svg": {
+    "mtime": 1789273241.9855745,
+    "ast_hash": "de1af4f19ed3919524207ae41c727a6c",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/panel-left.svg": {
+    "mtime": 1789273242.0184965,
+    "ast_hash": "d71b22c1412178c6458744fcb07fc8da",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/receipt-text.svg": {
+    "mtime": 1789273242.2630675,
+    "ast_hash": "7894cab32a5240ae0bcd0ef47df44cba",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/refresh-cw.svg": {
+    "mtime": 1789273242.2912953,
+    "ast_hash": "0308627dd26e16b49550ac5c9cc986f9",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/search.svg": {
+    "mtime": 1789273242.4496822,
+    "ast_hash": "9b26522bf5751d50d6ec6ea195dc49c5",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/sun.svg": {
+    "mtime": 1789273242.8711812,
+    "ast_hash": "07264bed9f0f17d91169da6b52c713ad",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/user-round.svg": {
+    "mtime": 1789273243.1718514,
+    "ast_hash": "e06b5f63a38df6d0ffea22e7e181becc",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/wallet.svg": {
+    "mtime": 1789273243.250013,
+    "ast_hash": "fc46148078e11260db84b37b204bcba8",
+    "semantic_hash": ""
+  },
+  "docs/gerencial/estrategia-comercial-producto.md": {
+    "mtime": 1789279878.4729323,
+    "ast_hash": "80ea8fd51d99d88043235b138c037c51",
+    "semantic_hash": ""
+  },
+  "docs/tecnica/configuracion-y-secretos.md": {
+    "mtime": 1789283166.8999374,
+    "ast_hash": "041136b2f02374d0e76bf9c4d7e17884",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/brand/neros-mark.svg": {
+    "mtime": 1789277457.83456,
+    "ast_hash": "46128bca6d440e0a73e823a9612efb65",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/eye-off.svg": {
+    "mtime": 1789273240.570946,
+    "ast_hash": "a1bd40668328847bfd79acf4d765d1dc",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/login-network.js": {
+    "mtime": 1789281442.4288628,
+    "ast_hash": "971f94ba08dd31dd26ff7c41960ab90d",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/pause.svg": {
+    "mtime": 1789273242.0708494,
+    "ast_hash": "92db2e38414080fa4b8dc4b31ac28406",
+    "semantic_hash": ""
+  },
+  "Neros.Blazor/wwwroot/icons/play.svg": {
+    "mtime": 1789273242.1661382,
+    "ast_hash": "03f1f5d6ccc4dc4cf694b5347076729c",
+    "semantic_hash": ""
+  },
+  "docs/NEROS_ERP_ARCHITECTURE_ASSESSMENT.md": {
+    "mtime": 1789284596.2581587,
+    "ast_hash": "4643fdecec4dde2d1898864c5a7fcc4e",
+    "semantic_hash": ""
+  },
+  "docs/NEROS_ERP_IMPLEMENTATION_ROADMAP.md": {
+    "mtime": 1789286197.2982626,
+    "ast_hash": "81425450f146097c927857f9a5ee7d59",
+    "semantic_hash": ""
+  },
+  "docs/NEROS_ERP_TARGET_ARCHITECTURE.md": {
+    "mtime": 1789286441.3114254,
+    "ast_hash": "c583ca63301446e3041eca6e93875cd1",
+    "semantic_hash": ""
+  },
+  "docs/adr/0001-monolito-modular.md": {
+    "mtime": 1789284596.2581587,
+    "ast_hash": "248771110fc7569ee1ac8eb337d0acca",
+    "semantic_hash": ""
+  },
+  "docs/adr/ADR-0002-distributed-modular-platform.md": {
+    "mtime": 1789284596.2581587,
+    "ast_hash": "1bdac5b8d731c4a84c859ae25cc3849a",
+    "semantic_hash": ""
+  },
+  "src/BuildingBlocks/Neros.Messaging.Abstractions/IntegrationEnvelope.cs": {
+    "mtime": 1789285080.8417873,
+    "ast_hash": "e230e1529466b53a4b2da737af2d0ac3",
+    "semantic_hash": ""
+  },
+  "src/BuildingBlocks/Neros.Messaging.Abstractions/MessagingPorts.cs": {
+    "mtime": 1789285080.9093206,
+    "ast_hash": "a40c783b9d548727f0fe7574baa03f02",
+    "semantic_hash": ""
+  },
+  "src/BuildingBlocks/Neros.Messaging.Abstractions/Neros.Messaging.Abstractions.csproj": {
+    "mtime": 1789285080.7997909,
+    "ast_hash": "c512b3d89ac66897c910801d7b04af41",
+    "semantic_hash": ""
+  },
+  "src/BuildingBlocks/Neros.Messaging.Abstractions/RequestFingerprint.cs": {
+    "mtime": 1789285351.8313415,
+    "ast_hash": "ca1b3e359f8a3de182f1acb81c5cce56",
+    "semantic_hash": ""
+  },
+  "src/BuildingBlocks/Neros.ServiceDefaults/FoundationHttp.cs": {
+    "mtime": 1789285405.8457024,
+    "ast_hash": "93ad4e0a6355d61677eb102aae83101c",
+    "semantic_hash": ""
+  },
+  "src/BuildingBlocks/Neros.ServiceDefaults/FoundationTelemetry.cs": {
+    "mtime": 1789285130.9734273,
+    "ast_hash": "c5e1a3711f02f1c51cc2035ba82b8ec6",
+    "semantic_hash": ""
+  },
+  "src/BuildingBlocks/Neros.ServiceDefaults/Neros.ServiceDefaults.csproj": {
+    "mtime": 1789284915.230186,
+    "ast_hash": "288684cae0d55c5583f343bae47c8ed6",
+    "semantic_hash": ""
+  },
+  "src/BuildingBlocks/Neros.ServiceDefaults/SecurityContext.cs": {
+    "mtime": 1789284790.03198,
+    "ast_hash": "dcda1627972734e74709a32f81662c94",
+    "semantic_hash": ""
+  },
+  "src/BuildingBlocks/Neros.ServiceDefaults/ServiceAuthentication.cs": {
+    "mtime": 1789284915.504467,
+    "ast_hash": "19be40d4b139e97db59e0736d41382c0",
+    "semantic_hash": ""
+  },
+  "tests/Neros.Tests/FoundationAuthenticationTests.cs": {
+    "mtime": 1789285026.2712028,
+    "ast_hash": "ce579cf9b6a5eb5d10937c3b2a13892b",
+    "semantic_hash": ""
+  },
+  "tests/Neros.Tests/FoundationHttpTests.cs": {
+    "mtime": 1789285394.3266253,
+    "ast_hash": "addf36227158aa0262556c73444fc449",
+    "semantic_hash": ""
+  },
+  "tests/Neros.Tests/FoundationMessagingTests.cs": {
+    "mtime": 1789285351.8633482,
+    "ast_hash": "03c617515e3ec5211b0b576fcd501222",
+    "semantic_hash": ""
+  },
+  "tests/Neros.Tests/FoundationSecurityTests.cs": {
+    "mtime": 1789284790.0536587,
+    "ast_hash": "120f74e8fe46157e25e36a3e00db7750",
+    "semantic_hash": ""
+  },
+  "tests/Neros.Tests/FoundationTelemetryTests.cs": {
+    "mtime": 1789287147.7973132,
+    "ast_hash": "e0191b7bd8773300dfa762b326e0ffa0",
+    "semantic_hash": ""
+  },
+  "tests/Neros.Tests/OrganizationMigrationTests.cs": {
+    "mtime": 1789286655.548714,
+    "ast_hash": "07b571ec263f4ab81d3f4c9d1a2afc59",
+    "semantic_hash": ""
+  },
+  "tools/Neros.Organization.Migration/Neros.Organization.Migration.csproj": {
+    "mtime": 1789286078.060201,
+    "ast_hash": "27ddabba3b324defc42758fd57625572",
+    "semantic_hash": ""
+  },
+  "tools/Neros.Organization.Migration/PlanMigracion.cs": {
+    "mtime": 1789286666.7060008,
+    "ast_hash": "382e8a9626ee95a4e6f60a4c44cee843",
+    "semantic_hash": ""
+  },
+  "tools/Neros.Organization.Migration/Program.cs": {
+    "mtime": 1789286332.7034612,
+    "ast_hash": "88828b67f46d95cd5ecd9f9e651cf950",
+    "semantic_hash": ""
+  },
+  "docs/adr/ADR-0003-foundation-development.md": {
+    "mtime": 1789286812.7086673,
+    "ast_hash": "8b5d49f732019153e7efabf559825876",
+    "semantic_hash": ""
+  },
+  "docs/execution/D01_FOUNDATION_CONTRACTS.md": {
+    "mtime": 1789286712.5546076,
+    "ast_hash": "6893cac53413e1f4751c2708c8d30805",
+    "semantic_hash": ""
+  },
+  "docs/execution/NEROS_EXECUTION_STATUS.md": {
+    "mtime": 1789287211.7853048,
+    "ast_hash": "0ad86808851d3229bf9129f7c937c9c0",
+    "semantic_hash": ""
+  },
+  "deploy/development/company-tenant-map.json": {
+    "mtime": 1789286655.5297165,
+    "ast_hash": "936d7281dfcceed4077ca18e5df23481",
+    "semantic_hash": ""
+  },
+  "src/Gateway/Neros.Gateway/GatewayHost.cs": {
+    "mtime": 1789287061.8405826,
+    "ast_hash": "faa8d0dde4961183b65b3bd9b68ba307",
+    "semantic_hash": ""
+  },
+  "src/Gateway/Neros.Gateway/Neros.Gateway.csproj": {
+    "mtime": 1789286997.55431,
+    "ast_hash": "8456a23ab8afeaf0b7640205d4a21908",
+    "semantic_hash": ""
+  },
+  "src/Gateway/Neros.Gateway/Program.cs": {
+    "mtime": 1789286997.5753112,
+    "ast_hash": "e23e6fdeae73a56d627c82beb73c86eb",
+    "semantic_hash": ""
+  },
+  "src/Gateway/Neros.Gateway/Properties/launchSettings.json": {
+    "mtime": 1789287212.143461,
+    "ast_hash": "56fd3a4194ed4539359328ce581bba19",
+    "semantic_hash": ""
+  },
+  "src/Services/Organization/Neros.Organization.Api/Neros.Organization.Api.csproj": {
+    "mtime": 1789286894.453445,
+    "ast_hash": "c8ed983072aedfc4ec8407efd02d9ab7",
+    "semantic_hash": ""
+  },
+  "src/Services/Organization/Neros.Organization.Api/OrganizationHost.cs": {
+    "mtime": 1789287061.884583,
+    "ast_hash": "dca124e3a89420065c764453e68f6bf2",
+    "semantic_hash": ""
+  },
+  "src/Services/Organization/Neros.Organization.Api/Program.cs": {
+    "mtime": 1789286894.4909725,
+    "ast_hash": "dec3e992d470ce548fe436efcbc21890",
+    "semantic_hash": ""
+  },
+  "src/Services/Organization/Neros.Organization.Api/Properties/launchSettings.json": {
+    "mtime": 1789287212.143461,
+    "ast_hash": "a0fc7ddcfec47b9945da89d53e29cf80",
+    "semantic_hash": ""
+  },
+  "tests/Neros.Tests/GatewayOrganizationTests.cs": {
+    "mtime": 1789287147.8337924,
+    "ast_hash": "2ebec7efd76dba66dbf0c990b287116a",
+    "semantic_hash": ""
+  },
+  "docs/execution/D02_GATEWAY_ORGANIZATION.md": {
+    "mtime": 1789287212.1129487,
+    "ast_hash": "3b872fb97615f16533dfb13703495a0e",
     "semantic_hash": ""
   }
 }

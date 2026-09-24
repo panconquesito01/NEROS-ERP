@@ -4,14 +4,13 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>neros-api-desarrollo</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.10" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\src\BuildingBlocks\Neros.ServiceDefaults\Neros.ServiceDefaults.csproj" />
     <ProjectReference Include="..\Neros.Application\Neros.Application.csproj" />
+    <ProjectReference Include="..\Neros.Persistence\Neros.Persistence.csproj" />
     <ProjectReference Include="..\Neros.Contracts\Neros.Contracts.csproj" />
     <ProjectReference Include="..\Neros.Shared\Neros.Shared.csproj" />
   </ItemGroup>

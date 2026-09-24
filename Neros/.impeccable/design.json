@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-13T04:54:18.852Z",
+  "title": "Sistema de diseno: Neros ERP",
+  "extensions": {
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Curva compartida de entrada y transformacion de botones."
+      },
+      {
+        "name": "n-enter",
+        "value": "opacity 220ms var(--ease-out), transform 220ms var(--ease-out)",
+        "purpose": "Entrada desde opacidad .3 y translateY(6px) mediante @starting-style; estado base visible. Teclado elimina transicion y transformacion."
+      },
+      {
+        "name": "n-button",
+        "value": "transform 160ms var(--ease-out), background-color 160ms ease",
+        "purpose": "Botones; escala .98 al pulsar solo con hover, puntero fino y modalidad distinta de teclado."
+      },
+      {
+        "name": "prefers-reduced-motion",
+        "value": "opacity 150ms ease",
+        "purpose": "Con prefers-reduced-motion: reduce, entradas y botones eliminan transformacion; entrada desde opacidad .8. Teclado elimina tambien esta transicion."
+      }
+    ],
+    "breakpoints": [
+      { "name": "max-width-540", "value": "540px" },
+      { "name": "sm", "value": "640px" },
+      { "name": "max-width-767", "value": "767px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Boton primario",
+      "kind": "button",
+      "refersTo": "button-primary-claro",
+      "description": "Accion principal; variables CSS compartidas por claro y oscuro.",
+      "html": "<button type=\"button\" class=\"ds-primary\">Acceder</button>",
+      "css": ".ds-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0 16px; min-height: 44px; border-radius: 6px; font-family: Manrope, Aptos, 'Segoe UI', sans-serif; font-size: 13px; font-weight: 600; color: var(--on-accent); background: var(--accent); border: 1px solid transparent; cursor: pointer; transition: transform 160ms var(--ease-out), background-color 160ms ease; } .ds-primary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; } .ds-primary:disabled { cursor: wait; opacity: .65; } @media (hover: hover) and (pointer: fine) { .ds-primary:hover { background: var(--accent-hover); } .ds-primary:active { transform: scale(.98); } } @media (prefers-reduced-motion: reduce) { .ds-primary { transition: opacity 150ms ease; transform: none !important; } } :host-context([data-input=\"keyboard\"]) .ds-primary { transition: none; transform: none; }"
+    },
+    {
+      "name": "Boton secundario",
+      "kind": "button",
+      "refersTo": "button-secondary-claro",
+      "description": "Accion secundaria con superficie y borde neutro; hereda el tema activo.",
+      "html": "<button type=\"button\" class=\"ds-secondary\">Actualizar actividad</button>",
+      "css": ".ds-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0 16px; min-height: 44px; border-radius: 6px; font-family: Manrope, Aptos, 'Segoe UI', sans-serif; font-size: 13px; font-weight: 600; color: var(--ink); background: var(--surface); border: 1px solid var(--line); cursor: pointer; transition: transform 160ms var(--ease-out), background-color 160ms ease; } .ds-secondary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; } .ds-secondary:disabled { cursor: wait; opacity: .65; } @media (hover: hover) and (pointer: fine) { .ds-secondary:hover { background: var(--soft); } .ds-secondary:active { transform: scale(.98); } } @media (prefers-reduced-motion: reduce) { .ds-secondary { transition: opacity 150ms ease; transform: none !important; } } :host-context([data-input=\"keyboard\"]) .ds-secondary { transition: none; transform: none; }"
+    },
+    {
+      "name": "Campo de entrada",
+      "kind": "input",
+      "refersTo": "input-claro",
+      "description": "Marco de entrada con foco interior y texto de 16 px hasta 767 px; hereda el tema activo.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-label\">Correo electronico</span><span class=\"ds-input-frame\"><input class=\"ds-input\" type=\"email\" autocomplete=\"email\" required></span></label>",
+      "css": ".ds-field { display: block; margin-bottom: 20px; font-family: Manrope, Aptos, 'Segoe UI', sans-serif; color: var(--ink); } .ds-label { display: block; margin-bottom: 7px; font-size: 13px; font-weight: 700; } .ds-input-frame { display: flex; align-items: center; gap: 12px; padding: 0 12px; min-height: 48px; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; color: var(--muted); } .ds-input-frame:focus-within { border-color: var(--accent); outline: 2px solid var(--tint); outline-offset: 1px; } .ds-input { width: 100%; min-width: 0; min-height: 46px; background: transparent; color: var(--ink); border: 0; outline: none; font-family: Manrope, Aptos, 'Segoe UI', sans-serif; font-size: 13px; caret-color: var(--accent); accent-color: var(--accent); } .ds-input:focus-visible { outline: none; } .ds-input::placeholder { color: var(--muted); opacity: 1; } @media (max-width: 767px) { .ds-input { font-size: 16px; } }"
+    },
+    {
+      "name": "Navegacion",
+      "kind": "nav",
+      "refersTo": "navigation-active-claro",
+      "description": "Inicio y Mis empresas, con seleccion verde sobre tinte y disposicion horizontal movil.",
+      "html": "<nav class=\"ds-navigation\" aria-label=\"Navegacion principal\"><a class=\"ds-nav-link ds-active\" href=\"#inicio\" aria-current=\"page\">Inicio</a><a class=\"ds-nav-link\" href=\"#empresas\">Mis empresas</a></nav>",
+      "css": ".ds-navigation { display: flex; flex-direction: column; gap: 4px; font-family: Manrope, Aptos, 'Segoe UI', sans-serif; } .ds-nav-link { display: flex; align-items: center; gap: 12px; padding: 0 12px; text-decoration: none; min-height: 44px; border-radius: 6px; color: var(--muted); font-size: 13px; font-weight: 650; } .ds-nav-link.ds-active { background: var(--tint); color: var(--accent); } .ds-nav-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; } @media (hover: hover) and (pointer: fine) { .ds-nav-link:not(.ds-active):hover { color: var(--ink); background: var(--soft); } } @media (max-width: 767px) { .ds-navigation { flex-direction: row; gap: 8px; } .ds-nav-link { flex: 1; justify-content: center; min-height: 40px; } }"
+    },
+    {
+      "name": "Insignia",
+      "kind": "chip",
+      "description": "Etiqueta informativa con borde, sin comportamiento de filtro.",
+      "html": "<span class=\"ds-badge\">En preparacion</span>",
+      "css": ".ds-badge { padding: 5px 10px; border: 1px solid var(--line); border-radius: 5px; font-family: Manrope, Aptos, 'Segoe UI', sans-serif; font-size: 12px; color: var(--muted); white-space: nowrap; }"
+    },
+    {
+      "name": "Acceso",
+      "kind": "card",
+      "description": "Acceso repetido delimitado por borde y superficie, sin sombra ni elevacion ornamental.",
+      "html": "<a class=\"ds-shortcut\" href=\"#empresas\"><strong>Mis empresas</strong></a>",
+      "css": ".ds-shortcut { display: flex; align-items: center; gap: 16px; padding: 20px; text-decoration: none; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); font-family: Manrope, Aptos, 'Segoe UI', sans-serif; } .ds-shortcut strong { display: block; font-size: 14px; } .ds-shortcut:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; } @media (hover: hover) and (pointer: fine) { .ds-shortcut:hover { border-color: var(--accent); } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Registro operativo simplificado",
+    "overview": "Neros presenta un entorno de trabajo multiempresa sobrio, de densidad moderada y lectura directa. Verde, coral y neutros claros o carbon distinguen acciones, contexto y estados sin convertir el inicio en una portada comercial. Manrope, divisores discretos y controles de geometria estable sostienen la identidad.\n\nEste documento registra la implementacion de acceso, inicio y empresas al 2026-09-12. No define modulos futuros ni una composicion obligatoria para todas las pantallas. La evidencia visual y funcional prevalece sobre los valores residuales de configuracion.",
+    "keyCharacteristics": [
+      "Contexto empresarial y acciones reconocibles, con secciones abiertas y listas escaneables.",
+      "Dos paletas efectivas y tres preferencias de apariencia: sistema, claro y oscuro.",
+      "Texto, iconos y estados semanticos combinados; movimiento breve y condicionado.",
+      "Errores y vacios explicitos, sin indicadores ni capacidades de negocio ficticias."
+    ],
+    "rules": [
+      {
+        "name": "The Contraste Por Contexto Rule",
+        "body": "Texto, fondo y estado usan el mismo conjunto semantico del tema; los avisos conservan enlaces legibles y distinguibles sin depender solo del color.",
+        "section": "colors"
+      },
+      {
+        "name": "The Escala Operativa Rule",
+        "body": "No extrapolar marca ni titulo de acceso a paneles compactos; mantener jerarquia por funcion y espaciado entre letras cero, sin escalar la fuente con el ancho del viewport.",
+        "section": "typography"
+      },
+      {
+        "name": "The Separacion Sin Sombra Rule",
+        "body": "Preservar tonos y divisores como sistema de profundidad de estas superficies; no convertir cada seccion en una tarjeta flotante.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Movimiento Condicionado Rule",
+        "body": "Conservar los estados finales visibles y respetar las ramas de teclado y movimiento reducido; no agregar movimiento imprescindible para comprender una accion.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "**Do** reutilizar variables semanticas por tema, con verde principal y coral secundario.",
+      "**Do** mantener nombre y rol empresarial legibles, con envoltura y acciones claras en movil.",
+      "**Do** combinar nombres accesibles, texto de estado, foco visible e iconos locales decorativos.",
+      "**Do** conservar tablas y listas operativas, vacios honestos y navegacion HTML cuando asi esta implementada.",
+      "**Do** mantener las condiciones de teclado, hover y movimiento reducido al reutilizar transiciones."
+    ],
+    "donts": [
+      "**Don't** convertir el inicio operativo en una portada de marketing ni inventar indicadores o modulos activos.",
+      "**Don't** promover los colores residuales `neros` ni `fontFamily.display` de Tailwind a identidad vigente sin evidencia de uso.",
+      "**Don't** usar el coral como error ni mezclar texto y fondo de temas distintos.",
+      "**Don't** presentar rotulos pequenos, pesos tipograficos no descargados o excepciones de radio como reglas universales.",
+      "**Don't** introducir Bootstrap, jQuery, DataTables ni Select2 en la UI nueva.",
+      "**Don't** tratar 9/9 pruebas de cierre como certificacion integral de accesibilidad o como pruebas ejecutadas por esta pasada documental."
+    ]
+  }
+}

@@ -4,6 +4,8 @@ Guia principal para trabajar dentro de `Neros`. La fuente de verdad completa es 
 
 ## Proyecto
 
+Decision vigente: [ADR-0002](../docs/adr/ADR-0002-distributed-modular-platform.md), plataforma modular distribuida SaaS. Las capas globales actuales son compatibilidad, no destino de servicios nuevos. Aplicar limites, modelo tenant, acceso global explicito y gates definidos en [AGENTS.md](../AGENTS.md) y [registro de ejecucion](../docs/execution/NEROS_EXECUTION_STATUS.md).
+
 - Nueva migracion de Neros a .NET 10 por capas.
 - Frontend: Blazor Web App con Tailwind CSS.
 - Backend HTTP: ASP.NET Core Web API.

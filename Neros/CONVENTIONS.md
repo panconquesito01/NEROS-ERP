@@ -11,6 +11,8 @@ Convenciones de `Neros` para codigo, UI, datos, seguridad y agentes.
 
 ## Capas
 
+Arquitectura vigente: [ADR-0002](docs/adr/ADR-0002-distributed-modular-platform.md). Las capas globales siguientes son compatibilidad, no librerias empresariales para servicios nuevos. Cada bounded context posee sus capas/contratos/base/scripts; no SQL, FK, DbContext ni referencias a reglas de otro servicio. Integrar por APIs/eventos/proyecciones autorizadas y transacciones locales con Outbox/Inbox. Solo tecnicos en BuildingBlocks.
+
 - `Neros.Shared`: tipos transversales simples y sin dependencias pesadas.
 - `Neros.Domain`: entidades, value objects, reglas puras e invariantes.
 - `Neros.Contracts`: DTOs, requests, responses y contratos entre UI/API.
@@ -53,6 +55,9 @@ Infrastructure/Persistence futura -> Application ports
 
 ## Base De Datos
 
+- Tenant -> BusinessGroup -> Company -> Branch; una empresa pertenece a un tenant contractual. No DefaultTenant, TenantId nullable en tablas nuevas de negocio ni CompanyId usado como tenant. Indices unicos y autorizacion consideran el ambito correcto.
+- Migraciones con Company -> Tenant explicito, sin asignacion silenciosa; grupos nunca cruzan tenants. Shared/sharded/dedicated usan mismo modelo funcional y contratos, no forks.
+
 - Persistencia futura como infraestructura que implementa puertos de Application.
 - SQL Server como motor objetivo.
 - Cambios de esquema con scripts manuales en `database/scripts/`.
@@ -60,6 +65,9 @@ Infrastructure/Persistence futura -> Application ports
 - SQL raw siempre parametrizado.
 
 ## Seguridad
+
+- Decision vigente del usuario: AdministradorGlobal accede a todos los tenants mediante privilegio de plataforma explicito y auditado, seleccionando un tenant por operacion. No quitar filtros ni omitir validacion de identidad/recurso. Usuarios normales pueden tener membresias independientes por tenant.
+- Mantener revocacion vigente/fail closed en operaciones sensibles; un JWT sin decision actual no acredita membresia vigente. Eventos/jobs/archivos/caches/Search/Analytics conservan TenantId y autorizacion por propietario.
 
 - Identity sera la base de autenticacion.
 - Autorizacion server-side por rol, recurso, empresa/tenant/sucursal cuando aplique.

@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Neros.Contracts\Neros.Contracts.csproj" />
+    <ProjectReference Include="..\src\BuildingBlocks\Neros.ServiceDefaults\Neros.ServiceDefaults.csproj" />
     <ProjectReference Include="..\Neros.Shared\Neros.Shared.csproj" />
   </ItemGroup>
 

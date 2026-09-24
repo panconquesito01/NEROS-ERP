@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="/" />
     <ResourcePreloader />
+    <script src="@Assets["theme-init.js"]"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="@Assets["app.css"]" />
     <link rel="stylesheet" href="@Assets["Neros.Blazor.styles.css"]" />
     <ImportMap />
@@ -16,10 +17,11 @@
     <HeadOutlet />
 </head>
 
-<body>
+<body data-enhance-nav="false">
     <Routes />
     <ReconnectModal />
-    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+    <script src="@Assets["experience.js"]"></script>
+    <script type="module" src="@Assets["login-network.js"]"></script>
     <script src="@Assets["_framework/blazor.web.js"]"></script>
 </body>
 

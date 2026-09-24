@@ -3,18 +3,35 @@
   <Folder Name="/deploy/" />
   <Folder Name="/docs/" />
   <Folder Name="/src/" />
+  <Folder Name="/src/BuildingBlocks/">
+    <Project Path="src/BuildingBlocks/Neros.Messaging.Abstractions/Neros.Messaging.Abstractions.csproj" />
+    <Project Path="src/BuildingBlocks/Neros.ServiceDefaults/Neros.ServiceDefaults.csproj" />
+  </Folder>
   <Folder Name="/src/Core/">
     <Project Path="Neros.Application/Neros.Application.csproj" />
     <Project Path="Neros.Contracts/Neros.Contracts.csproj" />
     <Project Path="Neros.Domain/Neros.Domain.csproj" />
     <Project Path="Neros.Shared/Neros.Shared.csproj" />
   </Folder>
-  <Folder Name="/src/Infrastructure/" />
+  <Folder Name="/src/Infrastructure/">
+    <Project Path="Neros.Persistence/Neros.Persistence.csproj" />
+  </Folder>
   <Folder Name="/src/Modules/" />
   <Folder Name="/src/Presentation/">
     <Project Path="Neros.Api/Neros.Api.csproj" />
     <Project Path="Neros.Blazor/Neros.Blazor.csproj" />
   </Folder>
   <Folder Name="/src/Workers/" />
-  <Folder Name="/tests/" />
+  <Folder Name="/src/Gateway/">
+    <Project Path="src/Gateway/Neros.Gateway/Neros.Gateway.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Organization/">
+    <Project Path="src/Services/Organization/Neros.Organization.Api/Neros.Organization.Api.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Neros.Tests/Neros.Tests.csproj" />
+  </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/Neros.Organization.Migration/Neros.Organization.Migration.csproj" />
+  </Folder>
 </Solution>

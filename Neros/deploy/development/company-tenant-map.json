@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "tenants": [
+    {
+      "tenantId": "f70c8608-2f4a-4d79-90b8-30f1b569bd17",
+      "code": "NEROS-TEST"
+    }
+  ],
+  "businessGroups": [],
+  "companies": [
+    {
+      "companyId": "42336010-6818-443b-9166-d03ab1754478",
+      "tenantId": "f70c8608-2f4a-4d79-90b8-30f1b569bd17",
+      "businessGroupId": null,
+      "migrationStatus": "Aprobada"
+    }
+  ]
+}
