@@ -1,0 +1,1197 @@
+{
+  "Neros/.claude/settings.json": {
+    "mtime": 1786511956.6292946,
+    "ast_hash": "2cdf95f38b20d4e21881d28755a818f4",
+    "semantic_hash": ""
+  },
+  "Neros/.codex/hooks.json": {
+    "mtime": 1785431954.0779345,
+    "ast_hash": "6de6fef4d9b9f12d02bfb6cf6a9d50eb",
+    "semantic_hash": ""
+  },
+  "Neros/.cursor/mcp.json": {
+    "mtime": 1779802918.4513001,
+    "ast_hash": "fc3144d359e83c797d56beb6fe50b4c0",
+    "semantic_hash": ""
+  },
+  "Neros/.impeccable/design.json": {
+    "mtime": 1789275802.5354986,
+    "ast_hash": "03df7f907ba005fa709b76519fabe8b9",
+    "semantic_hash": ""
+  },
+  "Neros/.vscode/launch.json": {
+    "mtime": 1789280653.5951698,
+    "ast_hash": "4c9bfbea0aa8ea0175721c2095161ccb",
+    "semantic_hash": ""
+  },
+  "Neros/.vscode/mcp.json": {
+    "mtime": 1779820612.1830828,
+    "ast_hash": "38c7fe3ac9b9e77264d1acf6b8d715e0",
+    "semantic_hash": ""
+  },
+  "Neros/.vscode/tasks.json": {
+    "mtime": 1786511956.6302931,
+    "ast_hash": "cd564e2cb67ed0c5b5f83ee5fa2a0557",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Api/Controllers/AccesoController.cs": {
+    "mtime": 1789275802.489782,
+    "ast_hash": "6387f056ba467c5b701b6940479a322d",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Api/Controllers/EmpresasController.cs": {
+    "mtime": 1789275802.4912994,
+    "ast_hash": "61288ff0e51a5ac8b0c493a35c685665",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Api/Controllers/WeatherForecastController.cs": {
+    "mtime": 1786510033.7571647,
+    "ast_hash": "f4d8256b499e7644d288bff2294a4d44",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Api/Neros.Api.csproj": {
+    "mtime": 1789287465.1852572,
+    "ast_hash": "30d64d8c5bffb91b1cc4d0821f86c7cf",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Api/Program.cs": {
+    "mtime": 1789287465.1852572,
+    "ast_hash": "2b904a73b11cab04e218106ca8b4bb3f",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Api/Properties/launchSettings.json": {
+    "mtime": 1786507316.9675963,
+    "ast_hash": "ad966964885b3a2b90bee75fef6a812c",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Api/Seguridad/AutenticacionSesion.cs": {
+    "mtime": 1789275802.490792,
+    "ast_hash": "5416a2d15016e1ae722340ef83ea2b6a",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Api/Seguridad/ComandosAdministracion.cs": {
+    "mtime": 1789279878.4244142,
+    "ast_hash": "b4832c84d06e3be26e13b6968f87adf2",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Api/WeatherForecast.cs": {
+    "mtime": 1786510033.765174,
+    "ast_hash": "11479c7e2288f7f352911e4191ce7923",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Api/appsettings.json": {
+    "mtime": 1786507316.9825966,
+    "ast_hash": "f7e65dde4e5533740a0d57ac9355c0e8",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Application/Autenticacion/IServicioIdentidad.cs": {
+    "mtime": 1789275802.4822655,
+    "ast_hash": "cbde1f86ab4f381c2aaef9525d4351c2",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Application/Autenticacion/ServicioEmpresas.cs": {
+    "mtime": 1789275802.483275,
+    "ast_hash": "496850eb09fc17955c243c94f6105c2b",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Application/Class1.cs": {
+    "mtime": 1786510033.7701776,
+    "ast_hash": "3107d2895df7b4a7c82021219262da67",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Application/Neros.Application.csproj": {
+    "mtime": 1786510033.7741742,
+    "ast_hash": "0789a850ecce240a09a0adf4b7202018",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/App.razor": {
+    "mtime": 1790387597.3296602,
+    "ast_hash": "132485dffa886635dd82a2f669421d8b",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Features/Acceso/CatalogoAcceso.razor": {
+    "mtime": 1790387525.8180254,
+    "ast_hash": "2611df0610cfcaaf9eab9610a2709045",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Features/Acceso/PaginaAcceso.razor": {
+    "mtime": 1790387747.3397727,
+    "ast_hash": "d1de8d4523fd2a00c39ba521aca017b1",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Features/Acceso/TextosAcceso.cs": {
+    "mtime": 1790387400.8489885,
+    "ast_hash": "37efbdf83e98eb521ea97022d67781a2",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Features/Empresas/FilaEmpresa.razor": {
+    "mtime": 1790387553.0790174,
+    "ast_hash": "744eb15425d45799d5d6b8304ba8d071",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor": {
+    "mtime": 1790387746.043484,
+    "ast_hash": "31aefe414a28e96d2e74ddab94b6ebe3",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Features/Empresas/TextosEmpresas.cs": {
+    "mtime": 1790387400.8499148,
+    "ast_hash": "a8f4ff771ba3006e782c0cb406d3d59b",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Features/Inicio/ActividadReciente.razor": {
+    "mtime": 1790387579.4215004,
+    "ast_hash": "eb857b2e8138f1be8b4c067da0521b7f",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Features/Inicio/ContextoEmpresa.razor": {
+    "mtime": 1790387573.2772834,
+    "ast_hash": "9778b810930c2587103aee113936d45c",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Features/Inicio/ModulosEnPreparacion.razor": {
+    "mtime": 1790387581.6825228,
+    "ast_hash": "4cfd0eeb42be7c705d83a7cb5199a1e7",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor": {
+    "mtime": 1790387570.1864352,
+    "ast_hash": "82139537e504f58dab19a869ae78de37",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Features/Inicio/TextosInicio.cs": {
+    "mtime": 1790387400.851915,
+    "ast_hash": "3d078a5628915bd4360aec952b74bd5a",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Features/Sistema/PaginaError.razor": {
+    "mtime": 1790387594.9449105,
+    "ast_hash": "b0a9c8f858d249ba40f684eff9ef7b71",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Features/Sistema/PaginaNoEncontrada.razor": {
+    "mtime": 1790387590.640684,
+    "ast_hash": "c2fa4681049636080e66f665e16d0120",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Features/Sistema/TextosSistema.cs": {
+    "mtime": 1790387400.8539164,
+    "ast_hash": "1764dd5a89b99cd7bbb71adf9519611c",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Layout/AuthLayout.razor": {
+    "mtime": 1790387473.9104137,
+    "ast_hash": "9e647826a69e1a26872ea120c15d8ac1",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Layout/MainLayout.razor": {
+    "mtime": 1790387465.844187,
+    "ast_hash": "9b3005319c7ce3d45720e81c7b0eb56d",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Layout/NavMenu.razor": {
+    "mtime": 1790387471.4318433,
+    "ast_hash": "f97aa241b72813cce6b2726b05ac16df",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Layout/ReconnectModal.razor": {
+    "mtime": 1790387477.2073238,
+    "ast_hash": "3e42221040a5d5aeb1853db600890dd0",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Layout/ReconnectModal.razor.js": {
+    "mtime": 1786507287.207044,
+    "ast_hash": "bdc7a0873231c569cd31aa85311186a3",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Routes.razor": {
+    "mtime": 1790387480.2986946,
+    "ast_hash": "9cb7fbe1e6bcfb2339808e5f758e27b0",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Shared/Aviso.razor": {
+    "mtime": 1790387436.1545796,
+    "ast_hash": "3d2289630ef38d6d9e44960de87c8731",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Shared/CatalogoModulos.cs": {
+    "mtime": 1790387449.806057,
+    "ast_hash": "3bc9cfef8ce105ed3c074ca8b08bea06",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Shared/EstadoVacio.razor": {
+    "mtime": 1790386592.559888,
+    "ast_hash": "dcc91abd5e2ed46007ba08217bbb236c",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Shared/Icono.razor": {
+    "mtime": 1789275802.5043643,
+    "ast_hash": "8f92c620b248b4f2be2df61e6c990b3e",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Shared/Marca.razor": {
+    "mtime": 1790387433.22709,
+    "ast_hash": "238e6c29ce3e65cb6507915ef993a5de",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Shared/PaginaEstado.razor": {
+    "mtime": 1790387446.1398437,
+    "ast_hash": "6703e67cf4ab526dbfe0b0c1af2b9c9d",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Shared/Preferencias.razor": {
+    "mtime": 1790387441.975904,
+    "ast_hash": "542b382a68075bbb64a94bbb58e22a38",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Shared/Presentacion.cs": {
+    "mtime": 1790387454.5441284,
+    "ast_hash": "b8944e294ed6b86838d5fc998efd4655",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Shared/SelectorIdioma.razor": {
+    "mtime": 1790387428.6756802,
+    "ast_hash": "f18a9cdf4dd5ce6f13e28bfff21f8f51",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Shared/SelectorTema.razor": {
+    "mtime": 1790387432.28839,
+    "ast_hash": "52867845ab303f22050812540c2399a6",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Shared/TextosCliente.razor": {
+    "mtime": 1790387594.589204,
+    "ast_hash": "774d62803621b3ec19b8afd5bbf8904c",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/Shared/TipoAviso.cs": {
+    "mtime": 1790386577.1803262,
+    "ast_hash": "e53d2939f6da7d626f6d8119a07929ff",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Components/_Imports.razor": {
+    "mtime": 1790387267.4941828,
+    "ast_hash": "7fca9ef3f32b879fe7010d83486bd095",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Localizacion/ConfiguracionLocalizacion.cs": {
+    "mtime": 1790387241.3577416,
+    "ast_hash": "76c8034345be245a71592b136e199066",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Localizacion/Idiomas.cs": {
+    "mtime": 1790387234.9152296,
+    "ast_hash": "1aa40687265cb62cd4f3f087cd5a7a8f",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Localizacion/TextosComunes.cs": {
+    "mtime": 1790387235.37577,
+    "ast_hash": "237e22264a3ef1b2a9c8d81dc60a9e0b",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Neros.Blazor.csproj": {
+    "mtime": 1789287465.221256,
+    "ast_hash": "64b35ce9a207eb34c219bfccae3f5b3e",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Program.cs": {
+    "mtime": 1790387267.5642025,
+    "ast_hash": "7d70253d8d2afc1387094b0381dbba42",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Properties/launchSettings.json": {
+    "mtime": 1786507286.7968738,
+    "ast_hash": "486861960808c4f010aee2fa8c7c9c5c",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Servicios/ClienteNeros.cs": {
+    "mtime": 1789275802.4943166,
+    "ast_hash": "9208902a3d24bdeca68938b46999633f",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Servicios/EndpointsSesion.cs": {
+    "mtime": 1790387254.9771852,
+    "ast_hash": "d8e3291e58f287e3829f0fe9681387c3",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/Servicios/RutaLocal.cs": {
+    "mtime": 1790387242.6653817,
+    "ast_hash": "43ba598624ef7dac379d8db734dcb4f7",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/appsettings.json": {
+    "mtime": 1789275802.4943166,
+    "ast_hash": "fdd8da1a4bf9619ffb1331b47a3bb84c",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/experience.js": {
+    "mtime": 1790387622.4697096,
+    "ast_hash": "c06c3cab0f99bac634f5b721b8be390c",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/login-network.js": {
+    "mtime": 1790387625.7061036,
+    "ast_hash": "c98429289bc1f6101d4b6d8fdc15606c",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/theme-init.js": {
+    "mtime": 1789275802.5083642,
+    "ast_hash": "98347439a9b95d0a439b1bcf972e0bb2",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Contracts/Autenticacion/ContratosAcceso.cs": {
+    "mtime": 1789275802.4812553,
+    "ast_hash": "9b99f4b614cbb99f8097fe65f5b0f4ae",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Contracts/Class1.cs": {
+    "mtime": 1786510033.909225,
+    "ast_hash": "24cbc76cbc5abc0e9a6e0925a3f2dc11",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Contracts/Neros.Contracts.csproj": {
+    "mtime": 1786510033.912228,
+    "ast_hash": "013b26734fa98eee8ea0359a1503f151",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Domain/Class1.cs": {
+    "mtime": 1786510033.9142246,
+    "ast_hash": "1f0e1bb22e19d2fc7331a459690dd6e7",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Domain/Neros.Domain.csproj": {
+    "mtime": 1786510033.9172268,
+    "ast_hash": "013b26734fa98eee8ea0359a1503f151",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Persistence/Neros.Persistence.csproj": {
+    "mtime": 1789275802.485274,
+    "ast_hash": "42dd1d9fa0cc6db284265f0dcb02438a",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Persistence/NerosDbContext.cs": {
+    "mtime": 1789275802.485274,
+    "ast_hash": "f9a2c9eae5db921877f9e149a0a9eafc",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Persistence/Seguridad/ModeloSeguridad.cs": {
+    "mtime": 1789275802.486274,
+    "ast_hash": "c0ac2e49994590f7653a21f3590f3fd8",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Persistence/Seguridad/RepositorioEmpresas.cs": {
+    "mtime": 1789279878.4224088,
+    "ast_hash": "acfd2f79c240cae72bf0dea11255dafd",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Persistence/Seguridad/ServicioIdentidad.cs": {
+    "mtime": 1789275802.4882739,
+    "ast_hash": "380fddce3abb7c5ac794e13089826fb9",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Shared/Class1.cs": {
+    "mtime": 1786510033.9232259,
+    "ast_hash": "dea6fd5b358e5849df355d390b9fd63a",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Shared/Neros.Shared.csproj": {
+    "mtime": 1786507039.260288,
+    "ast_hash": "46b0780bd56312ea2d1bab391f179e89",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.slnx": {
+    "mtime": 1789287465.1527388,
+    "ast_hash": "eb1597b4f6b18241c8657bf780c9f237",
+    "semantic_hash": ""
+  },
+  "Neros/database/scripts/000_crear_base.sql": {
+    "mtime": 1789275802.5113933,
+    "ast_hash": "999aab5e645d682edd085ec7d209b55e",
+    "semantic_hash": ""
+  },
+  "Neros/database/scripts/001_identity_empresas.sql": {
+    "mtime": 1789275802.5124023,
+    "ast_hash": "388501bdab80d7f3f1b92a27351b1d96",
+    "semantic_hash": ""
+  },
+  "Neros/deploy/development/company-tenant-map.json": {
+    "mtime": 1789287465.233256,
+    "ast_hash": "936d7281dfcceed4077ca18e5df23481",
+    "semantic_hash": ""
+  },
+  "Neros/package.json": {
+    "mtime": 1789273243.4372232,
+    "ast_hash": "a05e83d9f6056c16881b31dc0fb87bb3",
+    "semantic_hash": ""
+  },
+  "Neros/src/BuildingBlocks/Neros.Messaging.Abstractions/IntegrationEnvelope.cs": {
+    "mtime": 1789287465.222255,
+    "ast_hash": "e230e1529466b53a4b2da737af2d0ac3",
+    "semantic_hash": ""
+  },
+  "Neros/src/BuildingBlocks/Neros.Messaging.Abstractions/MessagingPorts.cs": {
+    "mtime": 1789287465.223255,
+    "ast_hash": "a40c783b9d548727f0fe7574baa03f02",
+    "semantic_hash": ""
+  },
+  "Neros/src/BuildingBlocks/Neros.Messaging.Abstractions/Neros.Messaging.Abstractions.csproj": {
+    "mtime": 1789287465.222255,
+    "ast_hash": "c512b3d89ac66897c910801d7b04af41",
+    "semantic_hash": ""
+  },
+  "Neros/src/BuildingBlocks/Neros.Messaging.Abstractions/RequestFingerprint.cs": {
+    "mtime": 1789287465.222255,
+    "ast_hash": "ca1b3e359f8a3de182f1acb81c5cce56",
+    "semantic_hash": ""
+  },
+  "Neros/src/BuildingBlocks/Neros.ServiceDefaults/FoundationHttp.cs": {
+    "mtime": 1789287465.2192562,
+    "ast_hash": "93ad4e0a6355d61677eb102aae83101c",
+    "semantic_hash": ""
+  },
+  "Neros/src/BuildingBlocks/Neros.ServiceDefaults/FoundationTelemetry.cs": {
+    "mtime": 1789287465.221256,
+    "ast_hash": "c5e1a3711f02f1c51cc2035ba82b8ec6",
+    "semantic_hash": ""
+  },
+  "Neros/src/BuildingBlocks/Neros.ServiceDefaults/Neros.ServiceDefaults.csproj": {
+    "mtime": 1789287465.2182572,
+    "ast_hash": "288684cae0d55c5583f343bae47c8ed6",
+    "semantic_hash": ""
+  },
+  "Neros/src/BuildingBlocks/Neros.ServiceDefaults/SecurityContext.cs": {
+    "mtime": 1789287465.2192562,
+    "ast_hash": "dcda1627972734e74709a32f81662c94",
+    "semantic_hash": ""
+  },
+  "Neros/src/BuildingBlocks/Neros.ServiceDefaults/ServiceAuthentication.cs": {
+    "mtime": 1789287465.222255,
+    "ast_hash": "19be40d4b139e97db59e0736d41382c0",
+    "semantic_hash": ""
+  },
+  "Neros/src/Gateway/Neros.Gateway/GatewayHost.cs": {
+    "mtime": 1789287465.248266,
+    "ast_hash": "faa8d0dde4961183b65b3bd9b68ba307",
+    "semantic_hash": ""
+  },
+  "Neros/src/Gateway/Neros.Gateway/Neros.Gateway.csproj": {
+    "mtime": 1789287465.2442682,
+    "ast_hash": "8456a23ab8afeaf0b7640205d4a21908",
+    "semantic_hash": ""
+  },
+  "Neros/src/Gateway/Neros.Gateway/Program.cs": {
+    "mtime": 1789287465.248266,
+    "ast_hash": "e23e6fdeae73a56d627c82beb73c86eb",
+    "semantic_hash": ""
+  },
+  "Neros/src/Gateway/Neros.Gateway/Properties/launchSettings.json": {
+    "mtime": 1789287465.248266,
+    "ast_hash": "56fd3a4194ed4539359328ce581bba19",
+    "semantic_hash": ""
+  },
+  "Neros/src/Services/Organization/Neros.Organization.Api/Neros.Organization.Api.csproj": {
+    "mtime": 1789287465.2352567,
+    "ast_hash": "c8ed983072aedfc4ec8407efd02d9ab7",
+    "semantic_hash": ""
+  },
+  "Neros/src/Services/Organization/Neros.Organization.Api/OrganizationHost.cs": {
+    "mtime": 1789287465.2372563,
+    "ast_hash": "dca124e3a89420065c764453e68f6bf2",
+    "semantic_hash": ""
+  },
+  "Neros/src/Services/Organization/Neros.Organization.Api/Program.cs": {
+    "mtime": 1789287465.2412572,
+    "ast_hash": "dec3e992d470ce548fe436efcbc21890",
+    "semantic_hash": ""
+  },
+  "Neros/src/Services/Organization/Neros.Organization.Api/Properties/launchSettings.json": {
+    "mtime": 1789287465.249267,
+    "ast_hash": "a0fc7ddcfec47b9945da89d53e29cf80",
+    "semantic_hash": ""
+  },
+  "Neros/tailwind.config.js": {
+    "mtime": 1790386362.3559332,
+    "ast_hash": "d7f1605914ebf365a3081e031d7697e6",
+    "semantic_hash": ""
+  },
+  "Neros/tests/Neros.Tests/AccesoMultiempresaTests.cs": {
+    "mtime": 1790387833.1081383,
+    "ast_hash": "77e5b41dfa15a1dfd8b49c96e03a696e",
+    "semantic_hash": ""
+  },
+  "Neros/tests/Neros.Tests/EntornoPruebas.cs": {
+    "mtime": 1789287465.2152548,
+    "ast_hash": "0dda99337d8cc667522cbe961f9c299a",
+    "semantic_hash": ""
+  },
+  "Neros/tests/Neros.Tests/FoundationAuthenticationTests.cs": {
+    "mtime": 1789287465.222255,
+    "ast_hash": "ce579cf9b6a5eb5d10937c3b2a13892b",
+    "semantic_hash": ""
+  },
+  "Neros/tests/Neros.Tests/FoundationHttpTests.cs": {
+    "mtime": 1789287465.2182572,
+    "ast_hash": "addf36227158aa0262556c73444fc449",
+    "semantic_hash": ""
+  },
+  "Neros/tests/Neros.Tests/FoundationMessagingTests.cs": {
+    "mtime": 1789287465.222255,
+    "ast_hash": "03c617515e3ec5211b0b576fcd501222",
+    "semantic_hash": ""
+  },
+  "Neros/tests/Neros.Tests/FoundationSecurityTests.cs": {
+    "mtime": 1789287465.220255,
+    "ast_hash": "120f74e8fe46157e25e36a3e00db7750",
+    "semantic_hash": ""
+  },
+  "Neros/tests/Neros.Tests/FoundationTelemetryTests.cs": {
+    "mtime": 1789287465.2262566,
+    "ast_hash": "e0191b7bd8773300dfa762b326e0ffa0",
+    "semantic_hash": ""
+  },
+  "Neros/tests/Neros.Tests/GatewayOrganizationTests.cs": {
+    "mtime": 1789287465.2342563,
+    "ast_hash": "2ebec7efd76dba66dbf0c990b287116a",
+    "semantic_hash": ""
+  },
+  "Neros/tests/Neros.Tests/Neros.Tests.csproj": {
+    "mtime": 1789287465.2152548,
+    "ast_hash": "c4d74fc36f95177b2d5821718bd40fa2",
+    "semantic_hash": ""
+  },
+  "Neros/tests/Neros.Tests/OrganizationMigrationTests.cs": {
+    "mtime": 1789287465.2262566,
+    "ast_hash": "07b571ec263f4ab81d3f4c9d1a2afc59",
+    "semantic_hash": ""
+  },
+  "Neros/tools/Neros.Organization.Migration/Neros.Organization.Migration.csproj": {
+    "mtime": 1789287465.2272556,
+    "ast_hash": "27ddabba3b324defc42758fd57625572",
+    "semantic_hash": ""
+  },
+  "Neros/tools/Neros.Organization.Migration/PlanMigracion.cs": {
+    "mtime": 1789287465.2272556,
+    "ast_hash": "382e8a9626ee95a4e6f60a4c44cee843",
+    "semantic_hash": ""
+  },
+  "Neros/tools/Neros.Organization.Migration/Program.cs": {
+    "mtime": 1789287465.2272556,
+    "ast_hash": "88828b67f46d95cd5ecd9f9e651cf950",
+    "semantic_hash": ""
+  },
+  ".github/copilot-instructions.md": {
+    "mtime": 1786511956.5842912,
+    "ast_hash": "b0856570e13f912b6d8c93bc1b6319f6",
+    "semantic_hash": ""
+  },
+  "Neros/.antigravity/AGENTS.md": {
+    "mtime": 1786512286.0114007,
+    "ast_hash": "1b139784b4e1fe6220870ec792c3ef2e",
+    "semantic_hash": ""
+  },
+  "Neros/.antigravity/README.md": {
+    "mtime": 1786512286.0114007,
+    "ast_hash": "016a0eb9fe6a8a2c7c748ba8fae1fee3",
+    "semantic_hash": ""
+  },
+  "Neros/.claude/README.md": {
+    "mtime": 1786511956.6312933,
+    "ast_hash": "479d1da43786138496500b08a856303a",
+    "semantic_hash": ""
+  },
+  "Neros/.codex/AGENTS.md": {
+    "mtime": 1786512286.0094025,
+    "ast_hash": "7a6b709c35f16eacf161a57b7385e0ad",
+    "semantic_hash": ""
+  },
+  "Neros/.codex/README.md": {
+    "mtime": 1786512286.0094025,
+    "ast_hash": "f1abc0a125989c4e66beee74f096fe3f",
+    "semantic_hash": ""
+  },
+  "Neros/.cursor/AGENTS.md": {
+    "mtime": 1786512285.9944012,
+    "ast_hash": "bd3f209350550e6382721e4a0b19b60f",
+    "semantic_hash": ""
+  },
+  "Neros/.cursor/agents/backend.md": {
+    "mtime": 1786512286.006402,
+    "ast_hash": "cd855c47b47ab9971adbad1c3145c31e",
+    "semantic_hash": ""
+  },
+  "Neros/.cursor/agents/dev.md": {
+    "mtime": 1786512286.006402,
+    "ast_hash": "39c8d8e87f81dce7304a86094326d1ce",
+    "semantic_hash": ""
+  },
+  "Neros/.cursor/agents/frontend.md": {
+    "mtime": 1786512286.006402,
+    "ast_hash": "a4f36ead8b89eb4306b4f041322d3643",
+    "semantic_hash": ""
+  },
+  "Neros/.cursor/agents/planner.md": {
+    "mtime": 1786512286.0054014,
+    "ast_hash": "589b23b4a5af5a2d5c40d33aef10914e",
+    "semantic_hash": ""
+  },
+  "Neros/.cursor/agents/qa.md": {
+    "mtime": 1786512286.006402,
+    "ast_hash": "f3df1d11882e8665450b2f36fb221742",
+    "semantic_hash": ""
+  },
+  "Neros/.github/chatmodes/architect.chatmode.md": {
+    "mtime": 1786511956.612293,
+    "ast_hash": "4e22e296bd6f0494e1fc3bc21485ccb0",
+    "semantic_hash": ""
+  },
+  "Neros/.github/chatmodes/code-review.chatmode.md": {
+    "mtime": 1786511956.6132958,
+    "ast_hash": "a827256fd5503affcdc44d3dd6a0b4df",
+    "semantic_hash": ""
+  },
+  "Neros/.github/chatmodes/debug.chatmode.md": {
+    "mtime": 1786511956.6132958,
+    "ast_hash": "856ebd175865ececb97f4e4248ce46da",
+    "semantic_hash": ""
+  },
+  "Neros/.github/chatmodes/planner-fast.chatmode.md": {
+    "mtime": 1786511956.6132958,
+    "ast_hash": "3dc9594aa9693317e2e87edb1d79a8f7",
+    "semantic_hash": ""
+  },
+  "Neros/.github/chatmodes/refactor.chatmode.md": {
+    "mtime": 1786511956.6142929,
+    "ast_hash": "fcda77a6c2039d110014e5d0644af8fc",
+    "semantic_hash": ""
+  },
+  "Neros/.github/copilot-instructions.md": {
+    "mtime": 1789287465.231258,
+    "ast_hash": "1daa853c23c2bfad511e3297a95a0f0c",
+    "semantic_hash": ""
+  },
+  "Neros/.github/instructions/agent-skills.instructions.md": {
+    "mtime": 1786511956.6052928,
+    "ast_hash": "00446232c74db2623ec4fd6af95c94e2",
+    "semantic_hash": ""
+  },
+  "Neros/.github/instructions/agents.instructions.md": {
+    "mtime": 1786512286.0054014,
+    "ast_hash": "9113924b79a3c7ba0b7be8d8492a699c",
+    "semantic_hash": ""
+  },
+  "Neros/.github/instructions/csharp-async.instructions.md": {
+    "mtime": 1786511956.6052928,
+    "ast_hash": "08b16cdb4e5e8092566fc49c6da85b1b",
+    "semantic_hash": ""
+  },
+  "Neros/.github/instructions/csharp.instructions.md": {
+    "mtime": 1786511956.6092954,
+    "ast_hash": "91abff78742a8b2a2d7d58ee279849b1",
+    "semantic_hash": ""
+  },
+  "Neros/.github/instructions/ef-core.instructions.md": {
+    "mtime": 1786511956.6102917,
+    "ast_hash": "4e563336043c4829c26de3e4dd9a4d62",
+    "semantic_hash": ""
+  },
+  "Neros/.github/instructions/fastreport.instructions.md": {
+    "mtime": 1786511956.6062922,
+    "ast_hash": "b4f87dfa130f7eb248c654c4d94415c6",
+    "semantic_hash": ""
+  },
+  "Neros/.github/instructions/github-actions.instructions.md": {
+    "mtime": 1786511956.6072922,
+    "ast_hash": "be374037ff673a143a2f043f33edf27d",
+    "semantic_hash": ""
+  },
+  "Neros/.github/instructions/instructions.instructions.md": {
+    "mtime": 1786511956.6082935,
+    "ast_hash": "52f6bcce6f192f4b61abee46d6f3d612",
+    "semantic_hash": ""
+  },
+  "Neros/.github/instructions/javascript-frontend.instructions.md": {
+    "mtime": 1786511956.6092954,
+    "ast_hash": "a6cd5d85442181abee4bcd723390650a",
+    "semantic_hash": ""
+  },
+  "Neros/.github/instructions/markdown.instructions.md": {
+    "mtime": 1786511956.6102917,
+    "ast_hash": "06bead42f845f71ca33f12773b1bbdc0",
+    "semantic_hash": ""
+  },
+  "Neros/.github/instructions/razor.instructions.md": {
+    "mtime": 1786511956.6102917,
+    "ast_hash": "b050c0effa70b80b4bfc4aed1fc865f3",
+    "semantic_hash": ""
+  },
+  "Neros/.github/instructions/security-owasp.instructions.md": {
+    "mtime": 1786511956.611293,
+    "ast_hash": "db1d310a0ce0c275f86c4207b0567329",
+    "semantic_hash": ""
+  },
+  "Neros/.github/instructions/signalr.instructions.md": {
+    "mtime": 1786511956.6062922,
+    "ast_hash": "ae09292f2bedf05933a1f66275cd14c5",
+    "semantic_hash": ""
+  },
+  "Neros/.github/prompts/create-api-endpoint.prompt.md": {
+    "mtime": 1786511956.6162927,
+    "ast_hash": "639907aed5a337cfcd4f415b88b0b2b0",
+    "semantic_hash": ""
+  },
+  "Neros/.github/prompts/create-blazor-feature.prompt.md": {
+    "mtime": 1786511956.6162927,
+    "ast_hash": "c5dac1ed9bb4afac4b97449b8e1deebe",
+    "semantic_hash": ""
+  },
+  "Neros/.github/prompts/create-domain-use-case.prompt.md": {
+    "mtime": 1786511956.6162927,
+    "ast_hash": "13cbf37d21c514df61640984876cd427",
+    "semantic_hash": ""
+  },
+  "Neros/.github/prompts/create-sql-script.prompt.md": {
+    "mtime": 1786511956.617292,
+    "ast_hash": "1d613c5a8722b80bd420b2bcea64dfdb",
+    "semantic_hash": ""
+  },
+  "Neros/.github/prompts/develop-reempaque-produccion.prompt.md": {
+    "mtime": 1786511956.618293,
+    "ast_hash": "17c3d642d9e0f4cb04abc8b6139e9958",
+    "semantic_hash": ""
+  },
+  "Neros/.github/workflows/README.md": {
+    "mtime": 1786511956.6192946,
+    "ast_hash": "0936726a87b367964d192845c468077a",
+    "semantic_hash": ""
+  },
+  "Neros/.github/workflows/daily-status.md": {
+    "mtime": 1786511956.6192946,
+    "ast_hash": "5809b84f728bf3ac3e3adb4b66259d75",
+    "semantic_hash": ""
+  },
+  "Neros/.github/workflows/stale-triage.md": {
+    "mtime": 1786511956.6202908,
+    "ast_hash": "46c97e0a7bbfe02ebfb12330d7869c34",
+    "semantic_hash": ""
+  },
+  "Neros/.impeccable/surfaces/acceso-inicio.md": {
+    "mtime": 1789275802.5204284,
+    "ast_hash": "231c50932f4524544c1e6afe833d3f64",
+    "semantic_hash": ""
+  },
+  "Neros/.vscode/AGENTS.md": {
+    "mtime": 1786512285.9934013,
+    "ast_hash": "5e291ce05d9fabc8eeee0af0b1e68459",
+    "semantic_hash": ""
+  },
+  "Neros/.vscode/agents/backend.md": {
+    "mtime": 1786512285.9964027,
+    "ast_hash": "5d62ccd5c5735bd61d7c88116b379f83",
+    "semantic_hash": ""
+  },
+  "Neros/.vscode/agents/dev.md": {
+    "mtime": 1786512285.9964027,
+    "ast_hash": "f3e61b3d316626695d937d27071f4782",
+    "semantic_hash": ""
+  },
+  "Neros/.vscode/agents/frontend.md": {
+    "mtime": 1786512285.9974024,
+    "ast_hash": "79241601612ff54112f485e33fc715b3",
+    "semantic_hash": ""
+  },
+  "Neros/.vscode/agents/planner.md": {
+    "mtime": 1786512285.9974024,
+    "ast_hash": "9f70129b64336c4d12680642c644f84b",
+    "semantic_hash": ""
+  },
+  "Neros/.vscode/agents/qa.md": {
+    "mtime": 1786512285.9984019,
+    "ast_hash": "5bd87016d84147a9b62ff387db1cb228",
+    "semantic_hash": ""
+  },
+  "Neros/AGENTS.md": {
+    "mtime": 1789287465.2302566,
+    "ast_hash": "17876555edb4cf5b4313bf59c55be4be",
+    "semantic_hash": ""
+  },
+  "Neros/ANTIGRAVITY.md": {
+    "mtime": 1786512286.0094025,
+    "ast_hash": "bc34d0b14048762df924484a75ce309d",
+    "semantic_hash": ""
+  },
+  "Neros/CLAUDE.md": {
+    "mtime": 1786511956.5882936,
+    "ast_hash": "01dbd67d2be073d471412e37007c2321",
+    "semantic_hash": ""
+  },
+  "Neros/CODEX.md": {
+    "mtime": 1786512286.008402,
+    "ast_hash": "78dc1ad9e8434ec0de09b03889f3393f",
+    "semantic_hash": ""
+  },
+  "Neros/CONVENTIONS.md": {
+    "mtime": 1790387910.2330205,
+    "ast_hash": "eb718294946fd3b3fc00c156dea727c0",
+    "semantic_hash": ""
+  },
+  "Neros/DESIGN.md": {
+    "mtime": 1790387917.96353,
+    "ast_hash": "a7da95da6893d13a1777de74804d1326",
+    "semantic_hash": ""
+  },
+  "Neros/GEMINI.md": {
+    "mtime": 1786511956.5882936,
+    "ast_hash": "df08b41e69a20f528f27b1e4560e08f8",
+    "semantic_hash": ""
+  },
+  "Neros/PRODUCT.md": {
+    "mtime": 1789275802.4651742,
+    "ast_hash": "5510673423508b7a3f2d192576d69d06",
+    "semantic_hash": ""
+  },
+  "Neros/database/README.md": {
+    "mtime": 1789275802.5113933,
+    "ast_hash": "7fc7e5f012bff6650f91b1e73b280f51",
+    "semantic_hash": ""
+  },
+  "Neros/docs/NEROS_ERP_ARCHITECTURE_ASSESSMENT.md": {
+    "mtime": 1790386408.9530184,
+    "ast_hash": "d5cbeda6ce607b1bda8d260fd6fe5fd2",
+    "semantic_hash": ""
+  },
+  "Neros/docs/NEROS_ERP_IMPLEMENTATION_ROADMAP.md": {
+    "mtime": 1789287465.2182572,
+    "ast_hash": "81425450f146097c927857f9a5ee7d59",
+    "semantic_hash": ""
+  },
+  "Neros/docs/NEROS_ERP_TARGET_ARCHITECTURE.md": {
+    "mtime": 1789287465.2172558,
+    "ast_hash": "c583ca63301446e3041eca6e93875cd1",
+    "semantic_hash": ""
+  },
+  "Neros/docs/README.md": {
+    "mtime": 1789284596.254661,
+    "ast_hash": "754a95b006552bb3c60d2f6bf07b6f88",
+    "semantic_hash": ""
+  },
+  "Neros/docs/adr/0001-monolito-modular.md": {
+    "mtime": 1789284596.2581587,
+    "ast_hash": "248771110fc7569ee1ac8eb337d0acca",
+    "semantic_hash": ""
+  },
+  "Neros/docs/adr/ADR-0002-distributed-modular-platform.md": {
+    "mtime": 1789284596.2581587,
+    "ast_hash": "1bdac5b8d731c4a84c859ae25cc3849a",
+    "semantic_hash": ""
+  },
+  "Neros/docs/adr/ADR-0003-foundation-development.md": {
+    "mtime": 1789287465.2262566,
+    "ast_hash": "8b5d49f732019153e7efabf559825876",
+    "semantic_hash": ""
+  },
+  "Neros/docs/execution/D01_FOUNDATION_CONTRACTS.md": {
+    "mtime": 1789287465.2262566,
+    "ast_hash": "6893cac53413e1f4751c2708c8d30805",
+    "semantic_hash": ""
+  },
+  "Neros/docs/execution/D02_GATEWAY_ORGANIZATION.md": {
+    "mtime": 1789287465.248266,
+    "ast_hash": "230f3c75822cd98f5cd93859dff399e9",
+    "semantic_hash": ""
+  },
+  "Neros/docs/execution/NEROS_EXECUTION_STATUS.md": {
+    "mtime": 1789287465.2182572,
+    "ast_hash": "7669300df2425148dc0177e199d77a32",
+    "semantic_hash": ""
+  },
+  "Neros/docs/gerencial/base-multiempresa.md": {
+    "mtime": 1789275802.5204284,
+    "ast_hash": "7ff56c5b1df10100be0cf2b06066b932",
+    "semantic_hash": ""
+  },
+  "Neros/docs/gerencial/estrategia-comercial-producto.md": {
+    "mtime": 1789279878.4729323,
+    "ast_hash": "80ea8fd51d99d88043235b138c037c51",
+    "semantic_hash": ""
+  },
+  "Neros/docs/tecnica/acceso-multiempresa.md": {
+    "mtime": 1789281836.0650206,
+    "ast_hash": "e17dac6c2d06a48b667e3c4f764459b7",
+    "semantic_hash": ""
+  },
+  "Neros/docs/tecnica/configuracion-y-secretos.md": {
+    "mtime": 1789283166.8999374,
+    "ast_hash": "041136b2f02374d0e76bf9c4d7e17884",
+    "semantic_hash": ""
+  },
+  "Neros/docs/tecnica/validacion.md": {
+    "mtime": 1789281836.0660233,
+    "ast_hash": "f1bf018f57581b58587f7f867369e48a",
+    "semantic_hash": ""
+  },
+  "Neros/skills/acquire-codebase-knowledge/SKILL.md": {
+    "mtime": 1786512286.0004027,
+    "ast_hash": "2217d7f574bf16ddca4d33dfd23363e7",
+    "semantic_hash": ""
+  },
+  "Neros/skills/architecture-blueprint-generator/SKILL.md": {
+    "mtime": 1786512286.0004027,
+    "ast_hash": "c0cb24447a61a3705ad7097f3e080d7f",
+    "semantic_hash": ""
+  },
+  "Neros/skills/aspnet-mvc-razor/SKILL.md": {
+    "mtime": 1786512286.0004027,
+    "ast_hash": "6e628a91f1e7d5ed11316719309ec1bb",
+    "semantic_hash": ""
+  },
+  "Neros/skills/create-implementation-plan/SKILL.md": {
+    "mtime": 1786512286.0014014,
+    "ast_hash": "fecc259dfb89c66c1bc7db5e9fbae0f4",
+    "semantic_hash": ""
+  },
+  "Neros/skills/csharp-async/SKILL.md": {
+    "mtime": 1786512286.0014014,
+    "ast_hash": "3e11f593cdec93d10573c7fb5b0b9e1c",
+    "semantic_hash": ""
+  },
+  "Neros/skills/diagnose/SKILL.md": {
+    "mtime": 1786512286.0014014,
+    "ast_hash": "f876d2441037be350097a01bc47e8f4c",
+    "semantic_hash": ""
+  },
+  "Neros/skills/dotnet-best-practices/SKILL.md": {
+    "mtime": 1786512286.0014014,
+    "ast_hash": "909aee7f4cd16cb9183200b1f62a5b7b",
+    "semantic_hash": ""
+  },
+  "Neros/skills/ef-core/SKILL.md": {
+    "mtime": 1786512286.0024018,
+    "ast_hash": "7cff0959044602200fbb87f51f2fcfa2",
+    "semantic_hash": ""
+  },
+  "Neros/skills/refactor/SKILL.md": {
+    "mtime": 1786512286.0024018,
+    "ast_hash": "6267709f7e61898cc19876055aa5f7f0",
+    "semantic_hash": ""
+  },
+  "Neros/skills/reviewing-code/SKILL.md": {
+    "mtime": 1786512286.0024018,
+    "ast_hash": "ddfd86a078eb2e5778ef470bbd3c5198",
+    "semantic_hash": ""
+  },
+  "Neros/skills/security-review/SKILL.md": {
+    "mtime": 1786512286.0044022,
+    "ast_hash": "20dbc03ac5d8329c693d2ee77d799770",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1786516330.4005406,
+    "ast_hash": "88cc9d9b5848729beb5bdd732daaf34c",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/brand/neros-mark.svg": {
+    "mtime": 1789277457.83456,
+    "ast_hash": "46128bca6d440e0a73e823a9612efb65",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/arrow-down.svg": {
+    "mtime": 1789273239.384041,
+    "ast_hash": "d63aaf2d623ebe9074d330ccd58eecee",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/arrow-left-right.svg": {
+    "mtime": 1789273239.390829,
+    "ast_hash": "bf16633372da4379e4a314f6dc1ab412",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/arrow-right.svg": {
+    "mtime": 1789273239.4038873,
+    "ast_hash": "07bdc0a61f7b1dc4c77a4a79ee4ed163",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/arrow-up-right.svg": {
+    "mtime": 1789273239.4550939,
+    "ast_hash": "adf0bf7f4ad97e62bfe4d5de1d53fc6c",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/building-2.svg": {
+    "mtime": 1789273239.758545,
+    "ast_hash": "c4cf5f22611eae1419bf2e5fd663ba97",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/chart-no-axes-combined.svg": {
+    "mtime": 1789273240.0159237,
+    "ast_hash": "e57b53f31517c318fbb038d3ea1a9b9b",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/check.svg": {
+    "mtime": 1789273240.0329895,
+    "ast_hash": "e1bab85f373762099a9f4439eaa7d6c1",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/chevron-down.svg": {
+    "mtime": 1789273240.0530636,
+    "ast_hash": "7364ee7241667ee0f9869f8482f419b8",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/chevron-right.svg": {
+    "mtime": 1789273240.0676267,
+    "ast_hash": "7029952cebca682e4a42f47f599fa220",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/chevrons-up-down.svg": {
+    "mtime": 1789273240.087366,
+    "ast_hash": "4b8ee5247395ebc741fa01a5014fe29f",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/circle-alert.svg": {
+    "mtime": 1789273240.095041,
+    "ast_hash": "0573ea36f457d946cac6a5323d957a94",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/compass.svg": {
+    "mtime": 1789273240.3541,
+    "ast_hash": "600fa4648ebfc4e4d872c3e89530dadb",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/eye-off.svg": {
+    "mtime": 1789273240.570946,
+    "ast_hash": "a1bd40668328847bfd79acf4d765d1dc",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/eye.svg": {
+    "mtime": 1789273240.5719473,
+    "ast_hash": "a3cd9ef79b7dc605f30ab3418a4800bb",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/fingerprint.svg": {
+    "mtime": 1789273240.78766,
+    "ast_hash": "79ce1daea80e47019e17740d292a6f27",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/grid-2x2.svg": {
+    "mtime": 1789273241.0308743,
+    "ast_hash": "8d432db4df0248a3ed772dafcc74f2c9",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/history.svg": {
+    "mtime": 1789273241.130837,
+    "ast_hash": "4d9c34311bdc16a1e98f8241f4c30cf1",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/house.svg": {
+    "mtime": 1789273241.168532,
+    "ast_hash": "090ea54619ee69ac4d3bfc9c0f5ca87f",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/info.svg": {
+    "mtime": 1789273241.221068,
+    "ast_hash": "4dc8425b612fae2e58b7da75b04238a5",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/languages.svg": {
+    "mtime": 1789273241.2883067,
+    "ast_hash": "5941a5aee7e2d4d38a25279606dd5294",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/layers-2.svg": {
+    "mtime": 1789273241.3058658,
+    "ast_hash": "39685fe9e21192fd625b819e6fa7fa0e",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/lock-keyhole.svg": {
+    "mtime": 1789273241.4349732,
+    "ast_hash": "e6480c476373d9d2085f37d302a4bbeb",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/log-in.svg": {
+    "mtime": 1789273241.4384878,
+    "ast_hash": "763019b0c3b4c944751eb5bd4fa97a80",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/log-out.svg": {
+    "mtime": 1789273241.4399931,
+    "ast_hash": "a050cd51a676c20e1c8c7c962409ded4",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/mail.svg": {
+    "mtime": 1789273241.681041,
+    "ast_hash": "de67a7b99333b98de57ded40105b96c4",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/monitor.svg": {
+    "mtime": 1789273241.8538084,
+    "ast_hash": "03b2c33c72f700613673d4ed0973d525",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/moon.svg": {
+    "mtime": 1789273241.8558104,
+    "ast_hash": "92b267d99bb244309ef961459a26da84",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/package.svg": {
+    "mtime": 1789273241.9855745,
+    "ast_hash": "de1af4f19ed3919524207ae41c727a6c",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/panel-left.svg": {
+    "mtime": 1789273242.0184965,
+    "ast_hash": "d71b22c1412178c6458744fcb07fc8da",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/pause.svg": {
+    "mtime": 1789273242.0708494,
+    "ast_hash": "92db2e38414080fa4b8dc4b31ac28406",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/play.svg": {
+    "mtime": 1789273242.1661382,
+    "ast_hash": "03f1f5d6ccc4dc4cf694b5347076729c",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/receipt-text.svg": {
+    "mtime": 1789273242.2630675,
+    "ast_hash": "7894cab32a5240ae0bcd0ef47df44cba",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/refresh-cw.svg": {
+    "mtime": 1789273242.2912953,
+    "ast_hash": "0308627dd26e16b49550ac5c9cc986f9",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/search-x.svg": {
+    "mtime": 1789273242.4476743,
+    "ast_hash": "6fabb429890863a326e215d087a07262",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/search.svg": {
+    "mtime": 1789273242.4496822,
+    "ast_hash": "9b26522bf5751d50d6ec6ea195dc49c5",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/shield-check.svg": {
+    "mtime": 1789273242.4898944,
+    "ast_hash": "0e640f5c37b76d8a511cf9b94ea2e4cc",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/sun.svg": {
+    "mtime": 1789273242.8711812,
+    "ast_hash": "07264bed9f0f17d91169da6b52c713ad",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/triangle-alert.svg": {
+    "mtime": 1789273243.0551205,
+    "ast_hash": "6d5e8b42f16a2c36deeac9eb5facb5f3",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/user-round.svg": {
+    "mtime": 1789273243.1718514,
+    "ast_hash": "e06b5f63a38df6d0ffea22e7e181becc",
+    "semantic_hash": ""
+  },
+  "Neros/Neros.Blazor/wwwroot/icons/wallet.svg": {
+    "mtime": 1789273243.250013,
+    "ast_hash": "fc46148078e11260db84b37b204bcba8",
+    "semantic_hash": ""
+  }
+}

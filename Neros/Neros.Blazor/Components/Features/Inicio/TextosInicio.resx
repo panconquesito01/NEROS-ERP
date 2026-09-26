@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Titulo" xml:space="preserve"><value>Inicio | Neros ERP</value></data>
+  <data name="Saludo" xml:space="preserve"><value>Hola, {0}.</value></data>
+  <data name="Listo" xml:space="preserve"><value>Todo listo para continuar.</value></data>
+  <data name="ErrorSalida" xml:space="preserve"><value>No se pudo cerrar la sesión en el servidor. Vuelve a pulsar Salir.</value></data>
+  <data name="ErrorCarga" xml:space="preserve"><value>No pudimos cargar tu espacio de trabajo. Inténtalo nuevamente en unos minutos.</value></data>
+  <data name="ErrorTiempo" xml:space="preserve"><value>La consulta tardó más de lo esperado. Vuelve a intentar.</value></data>
+  <data name="ContextoEtiqueta" xml:space="preserve"><value>Empresa activa</value></data>
+  <data name="ContextoRol" xml:space="preserve"><value>Tu rol</value></data>
+  <data name="ContextoCambiar" xml:space="preserve"><value>Cambiar empresa</value></data>
+  <data name="AtajosTitulo" xml:space="preserve"><value>A un paso</value></data>
+  <data name="AtajoEmpresas" xml:space="preserve"><value>Mis empresas</value></data>
+  <data name="AtajoEmpresasDetalle" xml:space="preserve"><value>Cambia de empresa o revisa tus roles</value></data>
+  <data name="AtajoActividad" xml:space="preserve"><value>Mi actividad</value></data>
+  <data name="AtajoActividadDetalle" xml:space="preserve"><value>Tus entradas recientes a esta empresa</value></data>
+  <data name="ActividadTitulo" xml:space="preserve"><value>Mi actividad reciente</value></data>
+  <data name="ActividadResumenUno" xml:space="preserve"><value>Última entrada registrada en esta empresa.</value></data>
+  <data name="ActividadResumenVarios" xml:space="preserve"><value>Últimas {0} entradas registradas en esta empresa.</value></data>
+  <data name="ActividadActualizar" xml:space="preserve"><value>Actualizar</value></data>
+  <data name="ActividadActualizarEtiqueta" xml:space="preserve"><value>Actualizar actividad</value></data>
+  <data name="ActividadVacia" xml:space="preserve"><value>Aún no hay actividad registrada para ti en esta empresa.</value></data>
+  <data name="ActividadTabla" xml:space="preserve"><value>Últimas entradas de tu cuenta a la empresa activa</value></data>
+  <data name="ColumnaActividad" xml:space="preserve"><value>Actividad</value></data>
+  <data name="ColumnaCuando" xml:space="preserve"><value>Cuándo</value></data>
+  <data name="ActividadNota" xml:space="preserve"><value>¿No reconoces alguna entrada? Avisa al administrador de tu empresa para que revise tu cuenta.</value></data>
+  <data name="Accion.Entrada a empresa" xml:space="preserve"><value>Entrada a empresa</value></data>
+  <data name="ModulosTitulo" xml:space="preserve"><value>Módulos del ERP</value></data>
+</root>

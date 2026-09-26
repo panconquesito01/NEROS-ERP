@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="NoEncontradoTitulo" xml:space="preserve"><value>Page not found | Neros ERP</value></data>
+  <data name="NoEncontradoCodigo" xml:space="preserve"><value>Error 404</value></data>
+  <data name="NoEncontradoEncabezado" xml:space="preserve"><value>We couldn&apos;t find this page</value></data>
+  <data name="NoEncontradoDetalle" xml:space="preserve"><value>The address doesn&apos;t exist or isn&apos;t available in Neros yet. Check the link or go back to your workspace.</value></data>
+  <data name="ErrorTitulo" xml:space="preserve"><value>Something went wrong | Neros ERP</value></data>
+  <data name="ErrorCodigo" xml:space="preserve"><value>Unexpected error</value></data>
+  <data name="ErrorEncabezado" xml:space="preserve"><value>Something went wrong</value></data>
+  <data name="ErrorDetalle" xml:space="preserve"><value>We couldn&apos;t complete your request. Please try again in a moment.</value></data>
+  <data name="ErrorReferencia" xml:space="preserve"><value>Reference code:</value></data>
+</root>

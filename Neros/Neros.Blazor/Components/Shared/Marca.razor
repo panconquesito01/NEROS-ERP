@@ -1,0 +1,12 @@
+@inject IStringLocalizer<TextosComunes> C
+
+<a class="n-brand @Clase" href="@Href" aria-label="@C["Marca.Inicio"]"><span class="n-brand-mark"><span class="n-brand-emblem" aria-hidden="true"></span></span>@if (!SoloSimbolo)
+{
+    <span>neros<span class="n-brand-erp">ERP</span></span>
+}</a>
+
+@code {
+    [Parameter] public string Href { get; set; } = "/home";
+    [Parameter] public string? Clase { get; set; }
+    [Parameter] public bool SoloSimbolo { get; set; }
+}

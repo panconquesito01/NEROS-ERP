@@ -1,33 +1,45 @@
 @inherits LayoutComponentBase
 @inject IHttpContextAccessor ContextAccessor
+@inject NavigationManager Navigation
+@inject IStringLocalizer<TextosComunes> C
 
-<a class="n-skip" href="#contenido">Ir al contenido</a>
+<a class="n-skip" href="#contenido">@C["Comun.IrAlContenido"]</a>
 <div class="n-shell">
     <aside class="n-sidebar">
         <NavMenu />
     </aside>
     <div class="n-main">
         <header class="n-topbar">
-            <span class="n-topbar-context"><Icono Nombre="panel-left" /><span>@(Usuario.FindFirstValue(EndpointsSesion.NombreEmpresaClaim) ?? "Espacio de trabajo")</span></span>
+            <Marca Clase="n-topbar-brand" SoloSimbolo="true" />
+            <nav class="n-breadcrumb" aria-label="@C["Layout.Ubicacion"]">
+                <a href="/empresas" title="@C["Layout.CambiarEmpresa"]"><Icono Nombre="building-2" /><span>@(NombreEmpresa ?? C["Layout.SeleccionarEmpresa"])</span></a>
+                @if (ClaveSeccion is not null)
+                {
+                    <Icono Nombre="chevron-right" />
+                    <span aria-current="page">@C[ClaveSeccion]</span>
+                }
+            </nav>
             <div class="n-topbar-actions">
-                <SelectorTema />
+                <Preferencias />
                 <form method="post" action="/sesion/salir" data-busy-form data-enhance="false">
                     <AntiforgeryToken />
-                    <button class="n-icon-button" type="submit" title="Cerrar sesión" aria-label="Cerrar sesión"><Icono Nombre="log-out" /></button>
+                    <button class="n-button n-ghost n-logout" type="submit" title="@C["Layout.CerrarSesion"]" aria-label="@C["Layout.CerrarSesion"]"><Icono Nombre="log-out" /><span>@C["Layout.Salir"]</span></button>
                 </form>
             </div>
         </header>
         <main class="n-content" id="contenido">
             @Body
         </main>
-        <footer class="n-workspace-footer"><span>Neros ERP</span><span>Tu espacio de trabajo</span></footer>
+        <footer class="n-workspace-footer"><span>Neros ERP</span><span>@C["Layout.SesionDe", Usuario.Identity?.Name ?? string.Empty]</span></footer>
     </div>
 </div>
 <div id="blazor-error-ui" data-nosnippet>
-    No se pudo actualizar la página.
-    <a href="." class="reload">Recargar</a>
+    @C["Comun.ErrorActualizar"]
+    <a href="." class="reload">@C["Comun.Recargar"]</a>
 </div>
 
 @code {
     private ClaimsPrincipal Usuario => ContextAccessor.HttpContext?.User ?? new ClaimsPrincipal();
+    private string? NombreEmpresa => Usuario.FindFirstValue(EndpointsSesion.NombreEmpresaClaim);
+    private string? ClaveSeccion => Presentacion.ClaveSeccion(Navigation.ToBaseRelativePath(Navigation.Uri));
 }

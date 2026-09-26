@@ -4,6 +4,7 @@ using System.Threading.RateLimiting;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Neros.Blazor.Components;
+using Neros.Blazor.Localizacion;
 using Neros.Blazor.Servicios;
 using Neros.ServiceDefaults;
 
@@ -13,6 +14,7 @@ builder.AddNerosTelemetry("Neros.Web.Bff");
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AgregarLocalizacionNeros();
 builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddHttpClient<ClienteNeros>(http =>
 {
@@ -84,6 +86,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHttpsRedirection();
 }
 app.UseStatusCodePagesWithReExecute("/not-found", createScopeForStatusCodePages: true);
+app.UseRequestLocalization();
 app.Use(async (context, next) =>
 {
     context.Response.Headers.CacheControl = "no-store";
@@ -97,6 +100,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseAntiforgery();
 app.MapearSesion();
+app.MapearIdioma();
 app.MapStaticAssets();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();

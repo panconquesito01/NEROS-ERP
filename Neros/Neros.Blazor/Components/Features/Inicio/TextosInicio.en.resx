@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Titulo" xml:space="preserve"><value>Home | Neros ERP</value></data>
+  <data name="Saludo" xml:space="preserve"><value>Hello, {0}.</value></data>
+  <data name="Listo" xml:space="preserve"><value>Everything is ready to continue.</value></data>
+  <data name="ErrorSalida" xml:space="preserve"><value>The session could not be closed on the server. Press Sign out again.</value></data>
+  <data name="ErrorCarga" xml:space="preserve"><value>We couldn&apos;t load your workspace. Try again in a few minutes.</value></data>
+  <data name="ErrorTiempo" xml:space="preserve"><value>The request took longer than expected. Please try again.</value></data>
+  <data name="ContextoEtiqueta" xml:space="preserve"><value>Active company</value></data>
+  <data name="ContextoRol" xml:space="preserve"><value>Your role</value></data>
+  <data name="ContextoCambiar" xml:space="preserve"><value>Switch company</value></data>
+  <data name="AtajosTitulo" xml:space="preserve"><value>One step away</value></data>
+  <data name="AtajoEmpresas" xml:space="preserve"><value>My companies</value></data>
+  <data name="AtajoEmpresasDetalle" xml:space="preserve"><value>Switch company or review your roles</value></data>
+  <data name="AtajoActividad" xml:space="preserve"><value>My activity</value></data>
+  <data name="AtajoActividadDetalle" xml:space="preserve"><value>Your recent entries to this company</value></data>
+  <data name="ActividadTitulo" xml:space="preserve"><value>My recent activity</value></data>
+  <data name="ActividadResumenUno" xml:space="preserve"><value>Latest recorded entry in this company.</value></data>
+  <data name="ActividadResumenVarios" xml:space="preserve"><value>Last {0} recorded entries in this company.</value></data>
+  <data name="ActividadActualizar" xml:space="preserve"><value>Refresh</value></data>
+  <data name="ActividadActualizarEtiqueta" xml:space="preserve"><value>Refresh activity</value></data>
+  <data name="ActividadVacia" xml:space="preserve"><value>There is no recorded activity for you in this company yet.</value></data>
+  <data name="ActividadTabla" xml:space="preserve"><value>Latest entries of your account to the active company</value></data>
+  <data name="ColumnaActividad" xml:space="preserve"><value>Activity</value></data>
+  <data name="ColumnaCuando" xml:space="preserve"><value>When</value></data>
+  <data name="ActividadNota" xml:space="preserve"><value>Don&apos;t recognize an entry? Let your company administrator know so they can review your account.</value></data>
+  <data name="Accion.Entrada a empresa" xml:space="preserve"><value>Company entry</value></data>
+  <data name="ModulosTitulo" xml:space="preserve"><value>ERP modules</value></data>
+</root>

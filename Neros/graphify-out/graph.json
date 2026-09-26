@@ -1784,280 +1784,631 @@
       "norm_label": "reconnectmodal"
     },
     {
-      "label": "LoginAccessPanel.razor",
+      "label": "CatalogoAcceso.razor",
       "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginAccessPanel.razor",
+      "source_file": "Neros.Blazor/Components/Features/Acceso/CatalogoAcceso.razor",
       "source_location": null,
       "_origin": "ast",
-      "id": "neros_blazor_components_features_auth_loginaccesspanel",
-      "community": 78,
-      "community_name": "LoginAccessPanel.razor",
-      "norm_label": "loginaccesspanel.razor"
-    },
-    {
-      "label": "EditForm",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginAccessPanel.razor",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "editform",
-      "community": 78,
-      "community_name": "LoginAccessPanel.razor",
-      "norm_label": "editform"
-    },
-    {
-      "label": "DataAnnotationsValidator",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginAccessPanel.razor",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "dataannotationsvalidator",
-      "community": 78,
-      "community_name": "LoginAccessPanel.razor",
-      "norm_label": "dataannotationsvalidator"
-    },
-    {
-      "label": "ValidationSummary",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginAccessPanel.razor",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "validationsummary",
-      "community": 78,
-      "community_name": "LoginAccessPanel.razor",
-      "norm_label": "validationsummary"
-    },
-    {
-      "label": "InputText",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginAccessPanel.razor",
-      "source_location": "L17",
-      "_origin": "ast",
-      "id": "inputtext",
-      "community": 78,
-      "community_name": "LoginAccessPanel.razor",
-      "norm_label": "inputtext"
-    },
-    {
-      "label": "ValidationMessage",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginAccessPanel.razor",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "validationmessage",
-      "community": 78,
-      "community_name": "LoginAccessPanel.razor",
-      "norm_label": "validationmessage"
-    },
-    {
-      "label": "InputCheckbox",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginAccessPanel.razor",
-      "source_location": "L46",
-      "_origin": "ast",
-      "id": "inputcheckbox",
-      "community": 78,
-      "community_name": "LoginAccessPanel.razor",
-      "norm_label": "inputcheckbox"
-    },
-    {
-      "label": "SubmitAsync",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginAccessPanel.razor",
-      "source_location": "L89",
-      "_origin": "ast",
-      "id": "neros_blazor_components_features_auth_loginaccesspanel_submitasync",
-      "community": 78,
-      "community_name": "LoginAccessPanel.razor",
-      "norm_label": "submitasync"
-    },
-    {
-      "label": "TogglePassword",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginAccessPanel.razor",
-      "source_location": "L90",
-      "_origin": "ast",
-      "id": "neros_blazor_components_features_auth_loginaccesspanel_togglepassword",
-      "community": 78,
-      "community_name": "LoginAccessPanel.razor",
-      "norm_label": "togglepassword"
-    },
-    {
-      "label": "ToggleRecoveryHint",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginAccessPanel.razor",
-      "source_location": "L91",
-      "_origin": "ast",
-      "id": "neros_blazor_components_features_auth_loginaccesspanel_togglerecoveryhint",
-      "community": 78,
-      "community_name": "LoginAccessPanel.razor",
-      "norm_label": "togglerecoveryhint"
-    },
-    {
-      "label": "LoginAmbient.razor",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginAmbient.razor",
-      "source_location": null,
-      "_origin": "ast",
-      "id": "neros_blazor_components_features_auth_loginambient",
+      "id": "neros_blazor_components_features_acceso_catalogoacceso",
       "community": 101,
       "community_name": "LoginAmbient.razor",
-      "norm_label": "loginambient.razor"
+      "norm_label": "catalogoacceso.razor"
     },
     {
-      "label": "LoginFormModel.cs",
+      "label": "Icono",
       "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginFormModel.cs",
-      "source_location": "L1",
+      "source_file": "Neros.Blazor/Components/Features/Acceso/CatalogoAcceso.razor",
+      "source_location": "L12",
       "_origin": "ast",
-      "id": "neros_blazor_components_features_auth_loginformmodel",
-      "community": 83,
-      "community_name": "Neros.Blazor.Components.Features.Auth",
-      "norm_label": "loginformmodel.cs"
+      "id": "neros_blazor_components_features_acceso_catalogoacceso_razor_icono",
+      "community": 101,
+      "community_name": "LoginAmbient.razor",
+      "norm_label": "icono"
     },
     {
-      "label": "Neros.Blazor.Components.Features.Auth",
+      "label": "PaginaAcceso.razor",
       "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginFormModel.cs",
-      "source_location": "L3",
-      "type": "namespace",
-      "metadata": {
-        "kind": "csharp_namespace",
-        "namespace": "Neros.Blazor.Components.Features.Auth"
-      },
-      "_origin": "ast",
-      "id": "csharp_namespace:e15dd117ce160d36",
-      "community": 83,
-      "community_name": "Neros.Blazor.Components.Features.Auth",
-      "norm_label": "neros.blazor.components.features.auth"
-    },
-    {
-      "label": "LoginFormModel",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginFormModel.cs",
-      "source_location": "L5",
-      "metadata": {
-        "namespace": "Neros.Blazor.Components.Features.Auth",
-        "scope_chain": [
-          "s48"
-        ]
-      },
-      "_origin": "ast",
-      "id": "neros_blazor_components_features_auth_loginformmodel_neros_blazor_components_features_auth_loginformmodel",
-      "community": 83,
-      "community_name": "Neros.Blazor.Components.Features.Auth",
-      "norm_label": "loginformmodel"
-    },
-    {
-      "label": "LoginHeader.razor",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginHeader.razor",
+      "source_file": "Neros.Blazor/Components/Features/Acceso/PaginaAcceso.razor",
       "source_location": null,
       "_origin": "ast",
-      "id": "neros_blazor_components_features_auth_loginheader",
+      "id": "neros_blazor_components_features_acceso_paginaacceso",
+      "community": 84,
+      "community_name": "Login.razor",
+      "norm_label": "paginaacceso.razor"
+    },
+    {
+      "label": "route:/",
+      "file_type": "concept",
+      "source_file": "Neros.Blazor/Components/Features/Acceso/PaginaAcceso.razor",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "route",
+      "community": 84,
+      "community_name": "Login.razor",
+      "norm_label": "route:/"
+    },
+    {
+      "label": "route:/login",
+      "file_type": "concept",
+      "source_file": "Neros.Blazor/Components/Features/Acceso/PaginaAcceso.razor",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "route_login",
+      "community": 84,
+      "community_name": "Login.razor",
+      "norm_label": "route:/login"
+    },
+    {
+      "label": "PageTitle",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Acceso/PaginaAcceso.razor",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_acceso_paginaacceso_razor_pagetitle",
+      "community": 84,
+      "community_name": "Login.razor",
+      "norm_label": "pagetitle"
+    },
+    {
+      "label": "Marca",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Acceso/PaginaAcceso.razor",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_acceso_paginaacceso_razor_marca",
+      "community": 84,
+      "community_name": "Login.razor",
+      "norm_label": "marca"
+    },
+    {
+      "label": "SelectorTema",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Acceso/PaginaAcceso.razor",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_acceso_paginaacceso_razor_selectortema",
+      "community": 84,
+      "community_name": "Login.razor",
+      "norm_label": "selectortema"
+    },
+    {
+      "label": "Icono",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Acceso/PaginaAcceso.razor",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_acceso_paginaacceso_razor_icono",
+      "community": 84,
+      "community_name": "Login.razor",
+      "norm_label": "icono"
+    },
+    {
+      "label": "AntiforgeryToken",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Acceso/PaginaAcceso.razor",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_acceso_paginaacceso_razor_antiforgerytoken",
+      "community": 84,
+      "community_name": "Login.razor",
+      "norm_label": "antiforgerytoken"
+    },
+    {
+      "label": "CatalogoAcceso",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Acceso/PaginaAcceso.razor",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "catalogoacceso",
+      "community": 84,
+      "community_name": "Login.razor",
+      "norm_label": "catalogoacceso"
+    },
+    {
+      "label": "FilaEmpresa.razor",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/FilaEmpresa.razor",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_empresas_filaempresa",
+      "community": 97,
+      "community_name": "SelectorTema.razor",
+      "norm_label": "filaempresa.razor"
+    },
+    {
+      "label": "Icono",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/FilaEmpresa.razor",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_empresas_filaempresa_razor_icono",
+      "community": 97,
+      "community_name": "SelectorTema.razor",
+      "norm_label": "icono"
+    },
+    {
+      "label": "AntiforgeryToken",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/FilaEmpresa.razor",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_empresas_filaempresa_razor_antiforgerytoken",
+      "community": 97,
+      "community_name": "SelectorTema.razor",
+      "norm_label": "antiforgerytoken"
+    },
+    {
+      "label": "PaginaEmpresas.razor",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_empresas_paginaempresas",
+      "community": 81,
+      "community_name": "Empresas.razor",
+      "norm_label": "paginaempresas.razor"
+    },
+    {
+      "label": "route:/empresas",
+      "file_type": "concept",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "route_empresas",
+      "community": 81,
+      "community_name": "Empresas.razor",
+      "norm_label": "route:/empresas"
+    },
+    {
+      "label": "ClienteNeros",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_empresas_paginaempresas_razor_clienteneros",
+      "community": 81,
+      "community_name": "Empresas.razor",
+      "norm_label": "clienteneros"
+    },
+    {
+      "label": "IHttpContextAccessor",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_empresas_paginaempresas_razor_ihttpcontextaccessor",
+      "community": 81,
+      "community_name": "Empresas.razor",
+      "norm_label": "ihttpcontextaccessor"
+    },
+    {
+      "label": "PageTitle",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_empresas_paginaempresas_razor_pagetitle",
+      "community": 81,
+      "community_name": "Empresas.razor",
+      "norm_label": "pagetitle"
+    },
+    {
+      "label": "Aviso",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_empresas_paginaempresas_razor_aviso",
+      "community": 81,
+      "community_name": "Empresas.razor",
+      "norm_label": "aviso"
+    },
+    {
+      "label": "Icono",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_empresas_paginaempresas_razor_icono",
+      "community": 81,
+      "community_name": "Empresas.razor",
+      "norm_label": "icono"
+    },
+    {
+      "label": "FilaEmpresa",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "filaempresa",
+      "community": 81,
+      "community_name": "Empresas.razor",
+      "norm_label": "filaempresa"
+    },
+    {
+      "label": "EstadoVacio",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_empresas_paginaempresas_razor_estadovacio",
+      "community": 81,
+      "community_name": "Empresas.razor",
+      "norm_label": "estadovacio"
+    },
+    {
+      "label": "ChildContent",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_empresas_paginaempresas_razor_childcontent",
+      "community": 81,
+      "community_name": "Empresas.razor",
+      "norm_label": "childcontent"
+    },
+    {
+      "label": "Acciones",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_empresas_paginaempresas_razor_acciones",
+      "community": 81,
+      "community_name": "Empresas.razor",
+      "norm_label": "acciones"
+    },
+    {
+      "label": "EmpresaDisponible",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L60",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_empresas_paginaempresas_razor_empresadisponible",
+      "community": 81,
+      "community_name": "Empresas.razor",
+      "norm_label": "empresadisponible"
+    },
+    {
+      "label": "OnInitializedAsync",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L66",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_empresas_paginaempresas_oninitializedasync",
+      "community": 81,
+      "community_name": "Empresas.razor",
+      "norm_label": "oninitializedasync"
+    },
+    {
+      "label": "ActividadReciente.razor",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/ActividadReciente.razor",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_inicio_actividadreciente",
+      "community": 83,
+      "community_name": "Neros.Blazor.Components.Features.Auth",
+      "norm_label": "actividadreciente.razor"
+    },
+    {
+      "label": "Icono",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/ActividadReciente.razor",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_inicio_actividadreciente_razor_icono",
+      "community": 83,
+      "community_name": "Neros.Blazor.Components.Features.Auth",
+      "norm_label": "icono"
+    },
+    {
+      "label": "EstadoVacio",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/ActividadReciente.razor",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_inicio_actividadreciente_razor_estadovacio",
+      "community": 83,
+      "community_name": "Neros.Blazor.Components.Features.Auth",
+      "norm_label": "estadovacio"
+    },
+    {
+      "label": "ActividadAcceso",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/ActividadReciente.razor",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_inicio_actividadreciente_razor_actividadacceso",
+      "community": 83,
+      "community_name": "Neros.Blazor.Components.Features.Auth",
+      "norm_label": "actividadacceso"
+    },
+    {
+      "label": "ContextoEmpresa.razor",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/ContextoEmpresa.razor",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_inicio_contextoempresa",
       "community": 102,
       "community_name": "LoginHeader.razor",
-      "norm_label": "loginheader.razor"
+      "norm_label": "contextoempresa.razor"
     },
     {
-      "label": "LoginModule.cs",
+      "label": "Icono",
       "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginModule.cs",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "neros_blazor_components_features_auth_loginmodule",
-      "community": 83,
-      "community_name": "Neros.Blazor.Components.Features.Auth",
-      "norm_label": "loginmodule.cs"
-    },
-    {
-      "label": "LoginModule",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginModule.cs",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/ContextoEmpresa.razor",
       "source_location": "L3",
-      "metadata": {
-        "namespace": "Neros.Blazor.Components.Features.Auth",
-        "scope_chain": [
-          "s0"
-        ]
-      },
       "_origin": "ast",
-      "id": "neros_blazor_components_features_auth_loginmodule_neros_blazor_components_features_auth_loginmodule",
-      "community": 83,
-      "community_name": "Neros.Blazor.Components.Features.Auth",
-      "norm_label": "loginmodule"
+      "id": "neros_blazor_components_features_inicio_contextoempresa_razor_icono",
+      "community": 102,
+      "community_name": "LoginHeader.razor",
+      "norm_label": "icono"
     },
     {
-      "label": "LoginModuleTile.razor",
+      "label": "ModulosEnPreparacion.razor",
       "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginModuleTile.razor",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/ModulosEnPreparacion.razor",
       "source_location": null,
       "_origin": "ast",
-      "id": "neros_blazor_components_features_auth_loginmoduletile",
+      "id": "neros_blazor_components_features_inicio_modulosenpreparacion",
       "community": 103,
       "community_name": "LoginModuleTile.razor",
-      "norm_label": "loginmoduletile.razor"
+      "norm_label": "modulosenpreparacion.razor"
     },
     {
-      "label": "LoginProductStage.razor",
+      "label": "Icono",
       "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginProductStage.razor",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/ModulosEnPreparacion.razor",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_inicio_modulosenpreparacion_razor_icono",
+      "community": 103,
+      "community_name": "LoginModuleTile.razor",
+      "norm_label": "icono"
+    },
+    {
+      "label": "PaginaInicio.razor",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
       "source_location": null,
       "_origin": "ast",
-      "id": "neros_blazor_components_features_auth_loginproductstage",
-      "community": 93,
-      "community_name": "LoginProductStage.razor",
-      "norm_label": "loginproductstage.razor"
+      "id": "neros_blazor_components_features_inicio_paginainicio",
+      "community": 20,
+      "community_name": "Home.razor",
+      "norm_label": "paginainicio.razor"
     },
     {
-      "label": "LoginModuleTile",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginProductStage.razor",
-      "source_location": "L86",
-      "_origin": "ast",
-      "id": "loginmoduletile",
-      "community": 93,
-      "community_name": "LoginProductStage.razor",
-      "norm_label": "loginmoduletile"
-    },
-    {
-      "label": "LoginModule",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginProductStage.razor",
-      "source_location": "L93",
-      "_origin": "ast",
-      "id": "loginmodule",
-      "community": 93,
-      "community_name": "LoginProductStage.razor",
-      "norm_label": "loginmodule"
-    },
-    {
-      "label": "LoginTrustBadge.cs",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginTrustBadge.cs",
+      "label": "route:/home",
+      "file_type": "concept",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "neros_blazor_components_features_auth_logintrustbadge",
-      "community": 83,
-      "community_name": "Neros.Blazor.Components.Features.Auth",
-      "norm_label": "logintrustbadge.cs"
+      "id": "route_home",
+      "community": 20,
+      "community_name": "Home.razor",
+      "norm_label": "route:/home"
     },
     {
-      "label": "LoginTrustBadge",
+      "label": "ClienteNeros",
       "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginTrustBadge.cs",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
       "source_location": "L3",
-      "metadata": {
-        "namespace": "Neros.Blazor.Components.Features.Auth",
-        "scope_chain": [
-          "s0"
-        ]
-      },
       "_origin": "ast",
-      "id": "neros_blazor_components_features_auth_logintrustbadge_neros_blazor_components_features_auth_logintrustbadge",
-      "community": 83,
-      "community_name": "Neros.Blazor.Components.Features.Auth",
-      "norm_label": "logintrustbadge"
+      "id": "neros_blazor_components_features_inicio_paginainicio_razor_clienteneros",
+      "community": 20,
+      "community_name": "Home.razor",
+      "norm_label": "clienteneros"
+    },
+    {
+      "label": "IHttpContextAccessor",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_inicio_paginainicio_razor_ihttpcontextaccessor",
+      "community": 20,
+      "community_name": "Home.razor",
+      "norm_label": "ihttpcontextaccessor"
+    },
+    {
+      "label": "NavigationManager",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_inicio_paginainicio_razor_navigationmanager",
+      "community": 20,
+      "community_name": "Home.razor",
+      "norm_label": "navigationmanager"
+    },
+    {
+      "label": "PageTitle",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_inicio_paginainicio_razor_pagetitle",
+      "community": 20,
+      "community_name": "Home.razor",
+      "norm_label": "pagetitle"
+    },
+    {
+      "label": "Aviso",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_inicio_paginainicio_razor_aviso",
+      "community": 20,
+      "community_name": "Home.razor",
+      "norm_label": "aviso"
+    },
+    {
+      "label": "ContextoEmpresa",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "contextoempresa",
+      "community": 20,
+      "community_name": "Home.razor",
+      "norm_label": "contextoempresa"
+    },
+    {
+      "label": "Icono",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_inicio_paginainicio_razor_icono",
+      "community": 20,
+      "community_name": "Home.razor",
+      "norm_label": "icono"
+    },
+    {
+      "label": "ActividadReciente",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "actividadreciente",
+      "community": 20,
+      "community_name": "Home.razor",
+      "norm_label": "actividadreciente"
+    },
+    {
+      "label": "ModulosEnPreparacion",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "modulosenpreparacion",
+      "community": 20,
+      "community_name": "Home.razor",
+      "norm_label": "modulosenpreparacion"
+    },
+    {
+      "label": "OnInitializedAsync",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_inicio_paginainicio_oninitializedasync",
+      "community": 20,
+      "community_name": "Home.razor",
+      "norm_label": "oninitializedasync"
+    },
+    {
+      "label": "PaginaError.razor",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Sistema/PaginaError.razor",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_sistema_paginaerror",
+      "community": 78,
+      "community_name": "LoginAccessPanel.razor",
+      "norm_label": "paginaerror.razor"
+    },
+    {
+      "label": "System.Diagnostics",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Sistema/PaginaError.razor",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "system_diagnostics",
+      "community": 121,
+      "community_name": "Neros.ServiceDefaults",
+      "norm_label": "system.diagnostics"
+    },
+    {
+      "label": "PageTitle",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Sistema/PaginaError.razor",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_sistema_paginaerror_razor_pagetitle",
+      "community": 78,
+      "community_name": "LoginAccessPanel.razor",
+      "norm_label": "pagetitle"
+    },
+    {
+      "label": "PaginaEstado",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Sistema/PaginaError.razor",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_sistema_paginaerror_razor_paginaestado",
+      "community": 78,
+      "community_name": "LoginAccessPanel.razor",
+      "norm_label": "paginaestado"
+    },
+    {
+      "label": "ChildContent",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Sistema/PaginaError.razor",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_sistema_paginaerror_razor_childcontent",
+      "community": 78,
+      "community_name": "LoginAccessPanel.razor",
+      "norm_label": "childcontent"
+    },
+    {
+      "label": "Detalle",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Sistema/PaginaError.razor",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "detalle",
+      "community": 78,
+      "community_name": "LoginAccessPanel.razor",
+      "norm_label": "detalle"
+    },
+    {
+      "label": "OnInitialized",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Sistema/PaginaError.razor",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_sistema_paginaerror_oninitialized",
+      "community": 78,
+      "community_name": "LoginAccessPanel.razor",
+      "norm_label": "oninitialized"
+    },
+    {
+      "label": "PaginaNoEncontrada.razor",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Sistema/PaginaNoEncontrada.razor",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_sistema_paginanoencontrada",
+      "community": 100,
+      "community_name": "ReconnectModal.razor",
+      "norm_label": "paginanoencontrada.razor"
+    },
+    {
+      "label": "PageTitle",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Sistema/PaginaNoEncontrada.razor",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_sistema_paginanoencontrada_razor_pagetitle",
+      "community": 100,
+      "community_name": "ReconnectModal.razor",
+      "norm_label": "pagetitle"
+    },
+    {
+      "label": "PaginaEstado",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Features/Sistema/PaginaNoEncontrada.razor",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "neros_blazor_components_features_sistema_paginanoencontrada_razor_paginaestado",
+      "community": 100,
+      "community_name": "ReconnectModal.razor",
+      "norm_label": "paginaestado"
     },
     {
       "label": "AuthLayout.razor",
@@ -2080,17 +2431,6 @@
       "community": 96,
       "community_name": "AuthLayout.razor",
       "norm_label": "layoutcomponentbase"
-    },
-    {
-      "label": "Icono.razor",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Layout/Icono.razor",
-      "source_location": null,
-      "_origin": "ast",
-      "id": "neros_blazor_components_layout_icono",
-      "community": 104,
-      "community_name": "Icono.razor",
-      "norm_label": "icono.razor"
     },
     {
       "label": "MainLayout.razor",
@@ -2126,10 +2466,21 @@
       "norm_label": "ihttpcontextaccessor"
     },
     {
+      "label": "NavigationManager",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Layout/MainLayout.razor",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "neros_blazor_components_layout_mainlayout_razor_navigationmanager",
+      "community": 18,
+      "community_name": "NavMenu",
+      "norm_label": "navigationmanager"
+    },
+    {
       "label": "NavMenu",
       "file_type": "code",
       "source_file": "Neros.Blazor/Components/Layout/MainLayout.razor",
-      "source_location": "L7",
+      "source_location": "L8",
       "_origin": "ast",
       "id": "navmenu",
       "community": 18,
@@ -2137,10 +2488,21 @@
       "norm_label": "navmenu"
     },
     {
+      "label": "Marca",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Layout/MainLayout.razor",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "neros_blazor_components_layout_mainlayout_razor_marca",
+      "community": 18,
+      "community_name": "NavMenu",
+      "norm_label": "marca"
+    },
+    {
       "label": "Icono",
       "file_type": "code",
       "source_file": "Neros.Blazor/Components/Layout/MainLayout.razor",
-      "source_location": "L11",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "neros_blazor_components_layout_mainlayout_razor_icono",
       "community": 18,
@@ -2151,7 +2513,7 @@
       "label": "SelectorTema",
       "file_type": "code",
       "source_file": "Neros.Blazor/Components/Layout/MainLayout.razor",
-      "source_location": "L13",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "neros_blazor_components_layout_mainlayout_razor_selectortema",
       "community": 18,
@@ -2162,7 +2524,7 @@
       "label": "AntiforgeryToken",
       "file_type": "code",
       "source_file": "Neros.Blazor/Components/Layout/MainLayout.razor",
-      "source_location": "L15",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "neros_blazor_components_layout_mainlayout_razor_antiforgerytoken",
       "community": 18,
@@ -2192,10 +2554,21 @@
       "norm_label": "ihttpcontextaccessor"
     },
     {
+      "label": "Marca",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Layout/NavMenu.razor",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "neros_blazor_components_layout_navmenu_razor_marca",
+      "community": 19,
+      "community_name": "NavLink",
+      "norm_label": "marca"
+    },
+    {
       "label": "Icono",
       "file_type": "code",
       "source_file": "Neros.Blazor/Components/Layout/NavMenu.razor",
-      "source_location": "L5",
+      "source_location": "L7",
       "_origin": "ast",
       "id": "neros_blazor_components_layout_navmenu_razor_icono",
       "community": 19,
@@ -2206,7 +2579,7 @@
       "label": "NavLink",
       "file_type": "code",
       "source_file": "Neros.Blazor/Components/Layout/NavMenu.razor",
-      "source_location": "L10",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "navlink",
       "community": 19,
@@ -2219,9 +2592,9 @@
       "source_file": "Neros.Blazor/Components/Layout/ReconnectModal.razor",
       "source_location": null,
       "_origin": "ast",
-      "id": "c_desarrollo_personal_erp_aurosoft_migracion_neros_neros_blazor_components_layout_reconnectmodal_razor",
-      "community": 100,
-      "community_name": "ReconnectModal.razor",
+      "id": "neros_blazor_components_layout_reconnectmodal",
+      "community": 135,
+      "community_name": "FoundationHttpTests",
       "norm_label": "reconnectmodal.razor"
     },
     {
@@ -2313,358 +2686,6 @@
       "norm_label": "retrywhendocumentbecomesvisible()"
     },
     {
-      "label": "SelectorTema.razor",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Layout/SelectorTema.razor",
-      "source_location": null,
-      "_origin": "ast",
-      "id": "neros_blazor_components_layout_selectortema",
-      "community": 97,
-      "community_name": "SelectorTema.razor",
-      "norm_label": "selectortema.razor"
-    },
-    {
-      "label": "Icono",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Layout/SelectorTema.razor",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "neros_blazor_components_layout_selectortema_razor_icono",
-      "community": 97,
-      "community_name": "SelectorTema.razor",
-      "norm_label": "icono"
-    },
-    {
-      "label": "Empresas.razor",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Empresas.razor",
-      "source_location": null,
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_empresas",
-      "community": 81,
-      "community_name": "Empresas.razor",
-      "norm_label": "empresas.razor"
-    },
-    {
-      "label": "route:/empresas",
-      "file_type": "concept",
-      "source_file": "Neros.Blazor/Components/Pages/Empresas.razor",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "route_empresas",
-      "community": 81,
-      "community_name": "Empresas.razor",
-      "norm_label": "route:/empresas"
-    },
-    {
-      "label": "ClienteNeros",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Empresas.razor",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_empresas_razor_clienteneros",
-      "community": 81,
-      "community_name": "Empresas.razor",
-      "norm_label": "clienteneros"
-    },
-    {
-      "label": "IHttpContextAccessor",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Empresas.razor",
-      "source_location": "L4",
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_empresas_razor_ihttpcontextaccessor",
-      "community": 81,
-      "community_name": "Empresas.razor",
-      "norm_label": "ihttpcontextaccessor"
-    },
-    {
-      "label": "PageTitle",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Empresas.razor",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_empresas_razor_pagetitle",
-      "community": 81,
-      "community_name": "Empresas.razor",
-      "norm_label": "pagetitle"
-    },
-    {
-      "label": "Icono",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Empresas.razor",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_empresas_razor_icono",
-      "community": 81,
-      "community_name": "Empresas.razor",
-      "norm_label": "icono"
-    },
-    {
-      "label": "AntiforgeryToken",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Empresas.razor",
-      "source_location": "L21",
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_empresas_razor_antiforgerytoken",
-      "community": 81,
-      "community_name": "Empresas.razor",
-      "norm_label": "antiforgerytoken"
-    },
-    {
-      "label": "EmpresaDisponible",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Empresas.razor",
-      "source_location": "L46",
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_empresas_razor_empresadisponible",
-      "community": 81,
-      "community_name": "Empresas.razor",
-      "norm_label": "empresadisponible"
-    },
-    {
-      "label": "OnInitializedAsync",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Empresas.razor",
-      "source_location": "L49",
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_empresas_oninitializedasync",
-      "community": 81,
-      "community_name": "Empresas.razor",
-      "norm_label": "oninitializedasync"
-    },
-    {
-      "label": "Error.razor",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Error.razor",
-      "source_location": null,
-      "_origin": "ast",
-      "id": "c_desarrollo_personal_erp_aurosoft_migracion_neros_neros_blazor_components_pages_error_razor",
-      "community": 121,
-      "community_name": "Neros.ServiceDefaults",
-      "norm_label": "error.razor"
-    },
-    {
-      "label": "System.Diagnostics",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Error.razor",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "system_diagnostics",
-      "community": 121,
-      "community_name": "Neros.ServiceDefaults",
-      "norm_label": "system.diagnostics"
-    },
-    {
-      "label": "PageTitle",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Error.razor",
-      "source_location": "L4",
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_error_razor_pagetitle",
-      "community": 121,
-      "community_name": "Neros.ServiceDefaults",
-      "norm_label": "pagetitle"
-    },
-    {
-      "label": "OnInitialized",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Error.razor",
-      "source_location": "L34",
-      "_origin": "ast",
-      "id": "c_desarrollo_personal_erp_aurosoft_migracion_neros_neros_blazor_components_pages_error_oninitialized",
-      "community": 121,
-      "community_name": "Neros.ServiceDefaults",
-      "norm_label": "oninitialized"
-    },
-    {
-      "label": "Home.razor",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Home.razor",
-      "source_location": null,
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_home",
-      "community": 20,
-      "community_name": "Home.razor",
-      "norm_label": "home.razor"
-    },
-    {
-      "label": "route:/home",
-      "file_type": "concept",
-      "source_file": "Neros.Blazor/Components/Pages/Home.razor",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "route_home",
-      "community": 20,
-      "community_name": "Home.razor",
-      "norm_label": "route:/home"
-    },
-    {
-      "label": "ClienteNeros",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Home.razor",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_home_razor_clienteneros",
-      "community": 20,
-      "community_name": "Home.razor",
-      "norm_label": "clienteneros"
-    },
-    {
-      "label": "IHttpContextAccessor",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Home.razor",
-      "source_location": "L4",
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_home_razor_ihttpcontextaccessor",
-      "community": 20,
-      "community_name": "Home.razor",
-      "norm_label": "ihttpcontextaccessor"
-    },
-    {
-      "label": "NavigationManager",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Home.razor",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "navigationmanager",
-      "community": 20,
-      "community_name": "Home.razor",
-      "norm_label": "navigationmanager"
-    },
-    {
-      "label": "PageTitle",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Home.razor",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_home_razor_pagetitle",
-      "community": 20,
-      "community_name": "Home.razor",
-      "norm_label": "pagetitle"
-    },
-    {
-      "label": "Icono",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Home.razor",
-      "source_location": "L16",
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_home_razor_icono",
-      "community": 20,
-      "community_name": "Home.razor",
-      "norm_label": "icono"
-    },
-    {
-      "label": "OnInitializedAsync",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Home.razor",
-      "source_location": "L76",
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_home_oninitializedasync",
-      "community": 20,
-      "community_name": "Home.razor",
-      "norm_label": "oninitializedasync"
-    },
-    {
-      "label": "Login.razor",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Login.razor",
-      "source_location": null,
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_login",
-      "community": 84,
-      "community_name": "Login.razor",
-      "norm_label": "login.razor"
-    },
-    {
-      "label": "route:/",
-      "file_type": "concept",
-      "source_file": "Neros.Blazor/Components/Pages/Login.razor",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "route",
-      "community": 84,
-      "community_name": "Login.razor",
-      "norm_label": "route:/"
-    },
-    {
-      "label": "route:/login",
-      "file_type": "concept",
-      "source_file": "Neros.Blazor/Components/Pages/Login.razor",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "route_login",
-      "community": 84,
-      "community_name": "Login.razor",
-      "norm_label": "route:/login"
-    },
-    {
-      "label": "PageTitle",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Login.razor",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_login_razor_pagetitle",
-      "community": 84,
-      "community_name": "Login.razor",
-      "norm_label": "pagetitle"
-    },
-    {
-      "label": "SelectorTema",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Login.razor",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_login_razor_selectortema",
-      "community": 84,
-      "community_name": "Login.razor",
-      "norm_label": "selectortema"
-    },
-    {
-      "label": "Icono",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Login.razor",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_login_razor_icono",
-      "community": 84,
-      "community_name": "Login.razor",
-      "norm_label": "icono"
-    },
-    {
-      "label": "AntiforgeryToken",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/Login.razor",
-      "source_location": "L28",
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_login_razor_antiforgerytoken",
-      "community": 84,
-      "community_name": "Login.razor",
-      "norm_label": "antiforgerytoken"
-    },
-    {
-      "label": "NotFound.razor",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/NotFound.razor",
-      "source_location": null,
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_notfound",
-      "community": 24,
-      "community_name": "NotFound.razor",
-      "norm_label": "notfound.razor"
-    },
-    {
-      "label": "PageTitle",
-      "file_type": "code",
-      "source_file": "Neros.Blazor/Components/Pages/NotFound.razor",
-      "source_location": "L4",
-      "_origin": "ast",
-      "id": "neros_blazor_components_pages_notfound_razor_pagetitle",
-      "community": 24,
-      "community_name": "NotFound.razor",
-      "norm_label": "pagetitle"
-    },
-    {
       "label": "Routes.razor",
       "file_type": "code",
       "source_file": "Neros.Blazor/Components/Routes.razor",
@@ -2720,15 +2741,398 @@
       "norm_label": "notauthorized"
     },
     {
-      "label": "FocusOnNavigate",
+      "label": "EstadoVacio",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Routes.razor",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "neros_blazor_components_routes_razor_estadovacio",
+      "community": 9,
+      "community_name": "Routes.razor",
+      "norm_label": "estadovacio"
+    },
+    {
+      "label": "ChildContent",
       "file_type": "code",
       "source_file": "Neros.Blazor/Components/Routes.razor",
       "source_location": "L6",
+      "_origin": "ast",
+      "id": "neros_blazor_components_routes_razor_childcontent",
+      "community": 9,
+      "community_name": "Routes.razor",
+      "norm_label": "childcontent"
+    },
+    {
+      "label": "Acciones",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Routes.razor",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "neros_blazor_components_routes_razor_acciones",
+      "community": 9,
+      "community_name": "Routes.razor",
+      "norm_label": "acciones"
+    },
+    {
+      "label": "Icono",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Routes.razor",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "neros_blazor_components_routes_razor_icono",
+      "community": 9,
+      "community_name": "Routes.razor",
+      "norm_label": "icono"
+    },
+    {
+      "label": "FocusOnNavigate",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Routes.razor",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "focusonnavigate",
       "community": 9,
       "community_name": "Routes.razor",
       "norm_label": "focusonnavigate"
+    },
+    {
+      "label": "Aviso.razor",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/Aviso.razor",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_aviso",
+      "community": 104,
+      "community_name": "Icono.razor",
+      "norm_label": "aviso.razor"
+    },
+    {
+      "label": "Icono",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/Aviso.razor",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_aviso_razor_icono",
+      "community": 104,
+      "community_name": "Icono.razor",
+      "norm_label": "icono"
+    },
+    {
+      "label": "CatalogoModulos.cs",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/CatalogoModulos.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_catalogomodulos",
+      "community": 24,
+      "community_name": "NotFound.razor",
+      "norm_label": "catalogomodulos.cs"
+    },
+    {
+      "label": "Neros.Blazor.Components.Shared",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/CatalogoModulos.cs",
+      "source_location": "L1",
+      "type": "namespace",
+      "metadata": {
+        "kind": "csharp_namespace",
+        "namespace": "Neros.Blazor.Components.Shared"
+      },
+      "_origin": "ast",
+      "id": "csharp_namespace:3dfb12ff78ea669b",
+      "community": 24,
+      "community_name": "NotFound.razor",
+      "norm_label": "neros.blazor.components.shared"
+    },
+    {
+      "label": "ModuloErp",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/CatalogoModulos.cs",
+      "source_location": "L3",
+      "metadata": {
+        "namespace": "Neros.Blazor.Components.Shared",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_catalogomodulos_neros_blazor_components_shared_moduloerp",
+      "community": 24,
+      "community_name": "NotFound.razor",
+      "norm_label": "moduloerp"
+    },
+    {
+      "label": "CatalogoModulos",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/CatalogoModulos.cs",
+      "source_location": "L5",
+      "metadata": {
+        "namespace": "Neros.Blazor.Components.Shared",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_catalogomodulos_neros_blazor_components_shared_catalogomodulos",
+      "community": 24,
+      "community_name": "NotFound.razor",
+      "norm_label": "catalogomodulos"
+    },
+    {
+      "label": "IReadOnlyList",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_catalogomodulos_cs_ireadonlylist",
+      "community": 24,
+      "community_name": "NotFound.razor",
+      "norm_label": "ireadonlylist"
+    },
+    {
+      "label": "IEnumerable",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_catalogomodulos_cs_ienumerable",
+      "community": 24,
+      "community_name": "NotFound.razor",
+      "norm_label": "ienumerable"
+    },
+    {
+      "label": "EstadoVacio.razor",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/EstadoVacio.razor",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_estadovacio",
+      "community": 131,
+      "community_name": "EstadoVacio.razor",
+      "norm_label": "estadovacio.razor"
+    },
+    {
+      "label": "Icono",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/EstadoVacio.razor",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_estadovacio_razor_icono",
+      "community": 131,
+      "community_name": "EstadoVacio.razor",
+      "norm_label": "icono"
+    },
+    {
+      "label": "Icono.razor",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/Icono.razor",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_icono",
+      "community": 136,
+      "community_name": "Icono.razor",
+      "norm_label": "icono.razor"
+    },
+    {
+      "label": "Marca.razor",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/Marca.razor",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_marca",
+      "community": 137,
+      "community_name": "Marca.razor",
+      "norm_label": "marca.razor"
+    },
+    {
+      "label": "PaginaEstado.razor",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/PaginaEstado.razor",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_paginaestado",
+      "community": 93,
+      "community_name": "LoginProductStage.razor",
+      "norm_label": "paginaestado.razor"
+    },
+    {
+      "label": "Marca",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/PaginaEstado.razor",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_paginaestado_razor_marca",
+      "community": 93,
+      "community_name": "LoginProductStage.razor",
+      "norm_label": "marca"
+    },
+    {
+      "label": "SelectorTema",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/PaginaEstado.razor",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_paginaestado_razor_selectortema",
+      "community": 93,
+      "community_name": "LoginProductStage.razor",
+      "norm_label": "selectortema"
+    },
+    {
+      "label": "Icono",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/PaginaEstado.razor",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_paginaestado_razor_icono",
+      "community": 93,
+      "community_name": "LoginProductStage.razor",
+      "norm_label": "icono"
+    },
+    {
+      "label": "Presentacion.cs",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/Presentacion.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_presentacion",
+      "community": 24,
+      "community_name": "NotFound.razor",
+      "norm_label": "presentacion.cs"
+    },
+    {
+      "label": "Presentacion",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/Presentacion.cs",
+      "source_location": "L3",
+      "metadata": {
+        "namespace": "Neros.Blazor.Components.Shared",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_presentacion_neros_blazor_components_shared_presentacion",
+      "community": 24,
+      "community_name": "NotFound.razor",
+      "norm_label": "presentacion"
+    },
+    {
+      "label": ".Iniciales()",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/Presentacion.cs",
+      "source_location": "L5",
+      "metadata": {
+        "namespace": "Neros.Blazor.Components.Shared",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_presentacion_neros_blazor_components_shared_presentacion_iniciales",
+      "community": 24,
+      "community_name": "NotFound.razor",
+      "norm_label": ".iniciales()"
+    },
+    {
+      "label": ".Monograma()",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/Presentacion.cs",
+      "source_location": "L20",
+      "metadata": {
+        "namespace": "Neros.Blazor.Components.Shared",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_presentacion_neros_blazor_components_shared_presentacion_monograma",
+      "community": 24,
+      "community_name": "NotFound.razor",
+      "norm_label": ".monograma()"
+    },
+    {
+      "label": ".PrimerNombre()",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/Presentacion.cs",
+      "source_location": "L22",
+      "metadata": {
+        "namespace": "Neros.Blazor.Components.Shared",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_presentacion_neros_blazor_components_shared_presentacion_primernombre",
+      "community": 24,
+      "community_name": "NotFound.razor",
+      "norm_label": ".primernombre()"
+    },
+    {
+      "label": ".Seccion()",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/Presentacion.cs",
+      "source_location": "L25",
+      "metadata": {
+        "namespace": "Neros.Blazor.Components.Shared",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_presentacion_neros_blazor_components_shared_presentacion_seccion",
+      "community": 24,
+      "community_name": "NotFound.razor",
+      "norm_label": ".seccion()"
+    },
+    {
+      "label": "SelectorTema.razor",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/SelectorTema.razor",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_selectortema",
+      "community": 134,
+      "community_name": "SelectorTema.razor",
+      "norm_label": "selectortema.razor"
+    },
+    {
+      "label": "Icono",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/SelectorTema.razor",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_selectortema_razor_icono",
+      "community": 134,
+      "community_name": "SelectorTema.razor",
+      "norm_label": "icono"
+    },
+    {
+      "label": "TipoAviso.cs",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/TipoAviso.cs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_tipoaviso",
+      "community": 24,
+      "community_name": "NotFound.razor",
+      "norm_label": "tipoaviso.cs"
+    },
+    {
+      "label": "TipoAviso",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/Shared/TipoAviso.cs",
+      "source_location": "L3",
+      "metadata": {
+        "namespace": "Neros.Blazor.Components.Shared",
+        "scope_chain": [
+          "s0"
+        ]
+      },
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared_tipoaviso_neros_blazor_components_shared_tipoaviso",
+      "community": 24,
+      "community_name": "NotFound.razor",
+      "norm_label": "tipoaviso"
     },
     {
       "label": "_Imports.razor",
@@ -2852,10 +3256,21 @@
       "norm_label": "neros.blazor.components.layout"
     },
     {
-      "label": "Microsoft.AspNetCore.Components.Authorization",
+      "label": "Neros.Blazor.Components.Shared",
       "file_type": "code",
       "source_file": "Neros.Blazor/Components/_Imports.razor",
       "source_location": "L12",
+      "_origin": "ast",
+      "id": "neros_blazor_components_shared",
+      "community": 119,
+      "community_name": "_Imports.razor",
+      "norm_label": "neros.blazor.components.shared"
+    },
+    {
+      "label": "Microsoft.AspNetCore.Components.Authorization",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Components/_Imports.razor",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "microsoft_aspnetcore_components_authorization",
       "community": 119,
@@ -2866,18 +3281,18 @@
       "label": "Microsoft.AspNetCore.Authorization",
       "file_type": "code",
       "source_file": "Neros.Blazor/Components/_Imports.razor",
-      "source_location": "L13",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "microsoft_aspnetcore_authorization",
-      "community": 130,
-      "community_name": "EmpresaDisponible",
+      "community": 4,
+      "community_name": "_Imports.razor",
       "norm_label": "microsoft.aspnetcore.authorization"
     },
     {
       "label": "System.Security.Claims",
       "file_type": "code",
       "source_file": "Neros.Blazor/Components/_Imports.razor",
-      "source_location": "L14",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "system_security_claims",
       "community": 4,
@@ -2888,7 +3303,7 @@
       "label": "Neros.Contracts.Autenticacion",
       "file_type": "code",
       "source_file": "Neros.Blazor/Components/_Imports.razor",
-      "source_location": "L15",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "neros_contracts_autenticacion",
       "community": 119,
@@ -2899,7 +3314,7 @@
       "label": "Neros.Blazor.Servicios",
       "file_type": "code",
       "source_file": "Neros.Blazor/Components/_Imports.razor",
-      "source_location": "L16",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "neros_blazor_servicios",
       "community": 119,
@@ -3512,10 +3927,55 @@
       "norm_label": "iresult"
     },
     {
+      "label": ".SeleccionarEmpresaUnicaAsync()",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
+      "source_location": "L87",
+      "metadata": {
+        "namespace": "Neros.Blazor.Servicios",
+        "scope_chain": [
+          "s273"
+        ]
+      },
+      "_origin": "ast",
+      "id": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_seleccionarempresaunicaasync",
+      "community": 22,
+      "community_name": "Program.cs",
+      "norm_label": ".seleccionarempresaunicaasync()"
+    },
+    {
+      "label": "CancellationToken",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "neros_blazor_servicios_endpointssesion_cs_cancellationtoken",
+      "community": 22,
+      "community_name": "Program.cs",
+      "norm_label": "cancellationtoken"
+    },
+    {
+      "label": ".DestinoLocal()",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
+      "source_location": "L106",
+      "metadata": {
+        "namespace": "Neros.Blazor.Servicios",
+        "scope_chain": [
+          "s273"
+        ]
+      },
+      "_origin": "ast",
+      "id": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_destinolocal",
+      "community": 22,
+      "community_name": "Program.cs",
+      "norm_label": ".destinolocal()"
+    },
+    {
       "label": ".RechazarAcceso()",
       "file_type": "code",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L80",
+      "source_location": "L112",
       "metadata": {
         "namespace": "Neros.Blazor.Servicios",
         "scope_chain": [
@@ -3532,7 +3992,7 @@
       "label": ".SolicitaJson()",
       "file_type": "code",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L88",
+      "source_location": "L120",
       "metadata": {
         "namespace": "Neros.Blazor.Servicios",
         "scope_chain": [
@@ -3549,7 +4009,7 @@
       "label": ".SeleccionarAsync()",
       "file_type": "code",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L91",
+      "source_location": "L123",
       "metadata": {
         "namespace": "Neros.Blazor.Servicios",
         "scope_chain": [
@@ -3566,7 +4026,7 @@
       "label": ".SalirAsync()",
       "file_type": "code",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L126",
+      "source_location": "L158",
       "metadata": {
         "namespace": "Neros.Blazor.Servicios",
         "scope_chain": [
@@ -3583,7 +4043,7 @@
       "label": ".ValidarFormularioAsync()",
       "file_type": "code",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L148",
+      "source_location": "L180",
       "metadata": {
         "namespace": "Neros.Blazor.Servicios",
         "scope_chain": [
@@ -3630,10 +4090,32 @@
       "norm_label": "normalize()"
     },
     {
+      "label": "fechaRelativa()",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/wwwroot/experience.js",
+      "source_location": "L97",
+      "_origin": "ast",
+      "id": "neros_blazor_wwwroot_experience_fecharelativa",
+      "community": 94,
+      "community_name": "experience.js",
+      "norm_label": "fecharelativa()"
+    },
+    {
+      "label": "capitalizar()",
+      "file_type": "code",
+      "source_file": "Neros.Blazor/wwwroot/experience.js",
+      "source_location": "L107",
+      "_origin": "ast",
+      "id": "neros_blazor_wwwroot_experience_capitalizar",
+      "community": 94,
+      "community_name": "experience.js",
+      "norm_label": "capitalizar()"
+    },
+    {
       "label": "actualizarEnvio()",
       "file_type": "code",
       "source_file": "Neros.Blazor/wwwroot/experience.js",
-      "source_location": "L81",
+      "source_location": "L125",
       "_origin": "ast",
       "id": "neros_blazor_wwwroot_experience_actualizarenvio",
       "community": 94,
@@ -3644,7 +4126,7 @@
       "label": "mostrarError()",
       "file_type": "code",
       "source_file": "Neros.Blazor/wwwroot/experience.js",
-      "source_location": "L108",
+      "source_location": "L158",
       "_origin": "ast",
       "id": "neros_blazor_wwwroot_experience_mostrarerror",
       "community": 94,
@@ -4351,8 +4833,8 @@
       },
       "_origin": "ast",
       "id": "neros_persistence_seguridad_repositorioempresas_neros_persistence_seguridad_repositorioempresas",
-      "community": 124,
-      "community_name": "SecurityContext",
+      "community": 66,
+      "community_name": "NerosDbContext",
       "norm_label": "repositorioempresas"
     },
     {
@@ -4368,8 +4850,8 @@
       },
       "_origin": "ast",
       "id": "neros_persistence_seguridad_repositorioempresas_neros_persistence_seguridad_repositorioempresas_membresias",
-      "community": 124,
-      "community_name": "SecurityContext",
+      "community": 66,
+      "community_name": "NerosDbContext",
       "norm_label": ".membresias()"
     },
     {
@@ -4379,8 +4861,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "iqueryable",
-      "community": 124,
-      "community_name": "SecurityContext",
+      "community": 66,
+      "community_name": "NerosDbContext",
       "norm_label": "iqueryable"
     },
     {
@@ -4396,8 +4878,8 @@
       },
       "_origin": "ast",
       "id": "neros_persistence_seguridad_repositorioempresas_neros_persistence_seguridad_repositorioempresas_empresasautorizadas",
-      "community": 124,
-      "community_name": "SecurityContext",
+      "community": 66,
+      "community_name": "NerosDbContext",
       "norm_label": ".empresasautorizadas()"
     },
     {
@@ -4413,8 +4895,8 @@
       },
       "_origin": "ast",
       "id": "neros_persistence_seguridad_repositorioempresas_neros_persistence_seguridad_repositorioempresas_proyectar",
-      "community": 124,
-      "community_name": "SecurityContext",
+      "community": 66,
+      "community_name": "NerosDbContext",
       "norm_label": ".proyectar()"
     },
     {
@@ -4430,8 +4912,8 @@
       },
       "_origin": "ast",
       "id": "neros_persistence_seguridad_repositorioempresas_neros_persistence_seguridad_repositorioempresas_listarasync",
-      "community": 124,
-      "community_name": "SecurityContext",
+      "community": 66,
+      "community_name": "NerosDbContext",
       "norm_label": ".listarasync()"
     },
     {
@@ -4441,8 +4923,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "neros_persistence_seguridad_repositorioempresas_cs_cancellationtoken",
-      "community": 124,
-      "community_name": "SecurityContext",
+      "community": 66,
+      "community_name": "NerosDbContext",
       "norm_label": "cancellationtoken"
     },
     {
@@ -4452,8 +4934,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "neros_persistence_seguridad_repositorioempresas_cs_task",
-      "community": 124,
-      "community_name": "SecurityContext",
+      "community": 66,
+      "community_name": "NerosDbContext",
       "norm_label": "task"
     },
     {
@@ -4463,8 +4945,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "neros_persistence_seguridad_repositorioempresas_cs_ireadonlylist",
-      "community": 124,
-      "community_name": "SecurityContext",
+      "community": 66,
+      "community_name": "NerosDbContext",
       "norm_label": "ireadonlylist"
     },
     {
@@ -4480,8 +4962,8 @@
       },
       "_origin": "ast",
       "id": "neros_persistence_seguridad_repositorioempresas_neros_persistence_seguridad_repositorioempresas_obtenerautorizadaasync",
-      "community": 124,
-      "community_name": "SecurityContext",
+      "community": 66,
+      "community_name": "NerosDbContext",
       "norm_label": ".obtenerautorizadaasync()"
     },
     {
@@ -4491,8 +4973,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "neros_persistence_seguridad_repositorioempresas_cs_guid",
-      "community": 124,
-      "community_name": "SecurityContext",
+      "community": 66,
+      "community_name": "NerosDbContext",
       "norm_label": "guid"
     },
     {
@@ -4508,8 +4990,8 @@
       },
       "_origin": "ast",
       "id": "neros_persistence_seguridad_repositorioempresas_neros_persistence_seguridad_repositorioempresas_registrarentradaasync",
-      "community": 124,
-      "community_name": "SecurityContext",
+      "community": 66,
+      "community_name": "NerosDbContext",
       "norm_label": ".registrarentradaasync()"
     },
     {
@@ -4525,8 +5007,8 @@
       },
       "_origin": "ast",
       "id": "neros_persistence_seguridad_repositorioempresas_neros_persistence_seguridad_repositorioempresas_consultaractividadasync",
-      "community": 124,
-      "community_name": "SecurityContext",
+      "community": 66,
+      "community_name": "NerosDbContext",
       "norm_label": ".consultaractividadasync()"
     },
     {
@@ -4536,8 +5018,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "neros_persistence_seguridad_servicioidentidad",
-      "community": 4,
-      "community_name": "_Imports.razor",
+      "community": 132,
+      "community_name": "System.Security.Claims",
       "norm_label": "servicioidentidad.cs"
     },
     {
@@ -4553,8 +5035,8 @@
       },
       "_origin": "ast",
       "id": "neros_persistence_seguridad_servicioidentidad_neros_persistence_seguridad_servicioidentidad",
-      "community": 66,
-      "community_name": "NerosDbContext",
+      "community": 124,
+      "community_name": "SecurityContext",
       "norm_label": "servicioidentidad"
     },
     {
@@ -4564,8 +5046,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "neros_persistence_seguridad_servicioidentidad_cs_string",
-      "community": 66,
-      "community_name": "NerosDbContext",
+      "community": 124,
+      "community_name": "SecurityContext",
       "norm_label": "string"
     },
     {
@@ -4581,8 +5063,8 @@
       },
       "_origin": "ast",
       "id": "neros_persistence_seguridad_servicioidentidad_neros_persistence_seguridad_servicioidentidad_iniciarsesionasync",
-      "community": 66,
-      "community_name": "NerosDbContext",
+      "community": 124,
+      "community_name": "SecurityContext",
       "norm_label": ".iniciarsesionasync()"
     },
     {
@@ -4592,8 +5074,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "neros_persistence_seguridad_servicioidentidad_cs_cancellationtoken",
-      "community": 66,
-      "community_name": "NerosDbContext",
+      "community": 124,
+      "community_name": "SecurityContext",
       "norm_label": "cancellationtoken"
     },
     {
@@ -4603,8 +5085,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "neros_persistence_seguridad_servicioidentidad_cs_task",
-      "community": 66,
-      "community_name": "NerosDbContext",
+      "community": 124,
+      "community_name": "SecurityContext",
       "norm_label": "task"
     },
     {
@@ -4620,8 +5102,8 @@
       },
       "_origin": "ast",
       "id": "neros_persistence_seguridad_servicioidentidad_neros_persistence_seguridad_servicioidentidad_validarsesionasync",
-      "community": 66,
-      "community_name": "NerosDbContext",
+      "community": 124,
+      "community_name": "SecurityContext",
       "norm_label": ".validarsesionasync()"
     },
     {
@@ -4637,8 +5119,8 @@
       },
       "_origin": "ast",
       "id": "neros_persistence_seguridad_servicioidentidad_neros_persistence_seguridad_servicioidentidad_cerrarsesionasync",
-      "community": 66,
-      "community_name": "NerosDbContext",
+      "community": 124,
+      "community_name": "SecurityContext",
       "norm_label": ".cerrarsesionasync()"
     },
     {
@@ -4654,8 +5136,8 @@
       },
       "_origin": "ast",
       "id": "neros_persistence_seguridad_servicioidentidad_neros_persistence_seguridad_servicioidentidad_auditarasync",
-      "community": 66,
-      "community_name": "NerosDbContext",
+      "community": 124,
+      "community_name": "SecurityContext",
       "norm_label": ".auditarasync()"
     },
     {
@@ -4671,8 +5153,8 @@
       },
       "_origin": "ast",
       "id": "neros_persistence_seguridad_servicioidentidad_neros_persistence_seguridad_servicioidentidad_calcularhash",
-      "community": 66,
-      "community_name": "NerosDbContext",
+      "community": 124,
+      "community_name": "SecurityContext",
       "norm_label": ".calcularhash()"
     },
     {
@@ -5297,8 +5779,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_buildingblocks_neros_servicedefaults_foundationhttp",
-      "community": 121,
-      "community_name": "Neros.ServiceDefaults",
+      "community": 11,
+      "community_name": "Error.razor",
       "norm_label": "foundationhttp.cs"
     },
     {
@@ -6323,8 +6805,8 @@
       },
       "_origin": "ast",
       "id": "src_gateway_neros_gateway_gatewayhost_neros_gateway_compatibilityhandler",
-      "community": 130,
-      "community_name": "EmpresaDisponible",
+      "community": 126,
+      "community_name": "AutenticacionSesion",
       "norm_label": "compatibilityhandler"
     },
     {
@@ -6334,8 +6816,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_gateway_neros_gateway_gatewayhost_cs_authenticationschemeoptions",
-      "community": 130,
-      "community_name": "EmpresaDisponible",
+      "community": 126,
+      "community_name": "AutenticacionSesion",
       "norm_label": "authenticationschemeoptions"
     },
     {
@@ -6351,8 +6833,8 @@
       },
       "_origin": "ast",
       "id": "src_gateway_neros_gateway_gatewayhost_neros_gateway_compatibilityhandler_handleauthenticateasync",
-      "community": 130,
-      "community_name": "EmpresaDisponible",
+      "community": 126,
+      "community_name": "AutenticacionSesion",
       "norm_label": ".handleauthenticateasync()"
     },
     {
@@ -6362,8 +6844,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_gateway_neros_gateway_gatewayhost_cs_task",
-      "community": 130,
-      "community_name": "EmpresaDisponible",
+      "community": 126,
+      "community_name": "AutenticacionSesion",
       "norm_label": "task"
     },
     {
@@ -6373,8 +6855,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_gateway_neros_gateway_gatewayhost_cs_authenticateresult",
-      "community": 130,
-      "community_name": "EmpresaDisponible",
+      "community": 126,
+      "community_name": "AutenticacionSesion",
       "norm_label": "authenticateresult"
     },
     {
@@ -6490,8 +6972,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_gateway_neros_gateway_program",
-      "community": 2,
-      "community_name": "http",
+      "community": 130,
+      "community_name": "EmpresaDisponible",
       "norm_label": "program.cs"
     },
     {
@@ -6507,8 +6989,8 @@
       },
       "_origin": "ast",
       "id": "src_gateway_neros_gateway_program_neros_gateway_program",
-      "community": 2,
-      "community_name": "http",
+      "community": 130,
+      "community_name": "EmpresaDisponible",
       "norm_label": "program"
     },
     {
@@ -6524,8 +7006,8 @@
       },
       "_origin": "ast",
       "id": "src_gateway_neros_gateway_program_neros_gateway_program_main",
-      "community": 2,
-      "community_name": "http",
+      "community": 130,
+      "community_name": "EmpresaDisponible",
       "norm_label": ".main()"
     },
     {
@@ -6535,8 +7017,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_gateway_neros_gateway_program_cs_task",
-      "community": 2,
-      "community_name": "http",
+      "community": 130,
+      "community_name": "EmpresaDisponible",
       "norm_label": "task"
     },
     {
@@ -7243,7 +7725,7 @@
       "label": ".ClienteAutorizado()",
       "file_type": "code",
       "source_file": "tests/Neros.Tests/AccesoMultiempresaTests.cs",
-      "source_location": "L300",
+      "source_location": "L299",
       "metadata": {
         "namespace": "Neros.Tests",
         "scope_chain": [
@@ -7271,7 +7753,7 @@
       "label": ".CapturarAsync()",
       "file_type": "code",
       "source_file": "tests/Neros.Tests/AccesoMultiempresaTests.cs",
-      "source_location": "L308",
+      "source_location": "L307",
       "metadata": {
         "namespace": "Neros.Tests",
         "scope_chain": [
@@ -7655,8 +8137,8 @@
       },
       "_origin": "ast",
       "id": "tests_neros_tests_foundationauthenticationtests_neros_tests_foundationauthenticationtests",
-      "community": 120,
-      "community_name": ".TryFromAuthenticatedPrincipal",
+      "community": 121,
+      "community_name": "Neros.ServiceDefaults",
       "norm_label": "foundationauthenticationtests"
     },
     {
@@ -7705,8 +8187,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_neros_tests_foundationhttptests",
-      "community": 121,
-      "community_name": "Neros.ServiceDefaults",
+      "community": 116,
+      "community_name": "FoundationHttpTests.cs",
       "norm_label": "foundationhttptests.cs"
     },
     {
@@ -7722,8 +8204,8 @@
       },
       "_origin": "ast",
       "id": "tests_neros_tests_foundationhttptests_neros_tests_foundationhttptests",
-      "community": 135,
-      "community_name": "FoundationHttpTests",
+      "community": 116,
+      "community_name": "FoundationHttpTests.cs",
       "norm_label": "foundationhttptests"
     },
     {
@@ -7739,8 +8221,8 @@
       },
       "_origin": "ast",
       "id": "tests_neros_tests_foundationhttptests_neros_tests_foundationhttptests_clientereal_reintentaconsultaperonocomando",
-      "community": 135,
-      "community_name": "FoundationHttpTests",
+      "community": 116,
+      "community_name": "FoundationHttpTests.cs",
       "norm_label": ".clientereal_reintentaconsultaperonocomando()"
     },
     {
@@ -7750,8 +8232,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "tests_neros_tests_foundationhttptests_cs_task",
-      "community": 135,
-      "community_name": "FoundationHttpTests",
+      "community": 116,
+      "community_name": "FoundationHttpTests.cs",
       "norm_label": "task"
     },
     {
@@ -7761,8 +8243,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "tests_neros_tests_foundationhttptests_cs_fact",
-      "community": 135,
-      "community_name": "FoundationHttpTests",
+      "community": 116,
+      "community_name": "FoundationHttpTests.cs",
       "norm_label": "fact"
     },
     {
@@ -7778,8 +8260,8 @@
       },
       "_origin": "ast",
       "id": "tests_neros_tests_foundationhttptests_neros_tests_foundationhttptests_httpreal_sanitizaexcepcionynormalizacorrelacion",
-      "community": 135,
-      "community_name": "FoundationHttpTests",
+      "community": 116,
+      "community_name": "FoundationHttpTests.cs",
       "norm_label": ".httpreal_sanitizaexcepcionynormalizacorrelacion()"
     },
     {
@@ -7789,8 +8271,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "tests_neros_tests_foundationhttptests_cs_theory",
-      "community": 135,
-      "community_name": "FoundationHttpTests",
+      "community": 116,
+      "community_name": "FoundationHttpTests.cs",
       "norm_label": "theory"
     },
     {
@@ -7800,8 +8282,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "tests_neros_tests_foundationhttptests_cs_inlinedata",
-      "community": 135,
-      "community_name": "FoundationHttpTests",
+      "community": 116,
+      "community_name": "FoundationHttpTests.cs",
       "norm_label": "inlinedata"
     },
     {
@@ -7817,8 +8299,8 @@
       },
       "_origin": "ast",
       "id": "tests_neros_tests_foundationhttptests_neros_tests_foundationhttptests_httpreal_estadovaciotienecodigoycorrelacion",
-      "community": 135,
-      "community_name": "FoundationHttpTests",
+      "community": 116,
+      "community_name": "FoundationHttpTests.cs",
       "norm_label": ".httpreal_estadovaciotienecodigoycorrelacion()"
     },
     {
@@ -8037,8 +8519,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_neros_tests_foundationmessagingtests",
-      "community": 25,
-      "community_name": "CONVENTIONS.md",
+      "community": 121,
+      "community_name": "Neros.ServiceDefaults",
       "norm_label": "foundationmessagingtests.cs"
     },
     {
@@ -8173,8 +8655,8 @@
       },
       "_origin": "ast",
       "id": "tests_neros_tests_foundationmessagingtests_neros_tests_request",
-      "community": 25,
-      "community_name": "CONVENTIONS.md",
+      "community": 121,
+      "community_name": "Neros.ServiceDefaults",
       "norm_label": "request"
     },
     {
@@ -8730,8 +9212,8 @@
       },
       "_origin": "ast",
       "id": "tests_neros_tests_gatewayorganizationtests_neros_tests_identityindisponible",
-      "community": 2,
-      "community_name": "http",
+      "community": 121,
+      "community_name": "Neros.ServiceDefaults",
       "norm_label": "identityindisponible"
     },
     {
@@ -8741,8 +9223,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "httpmessagehandler",
-      "community": 2,
-      "community_name": "http",
+      "community": 121,
+      "community_name": "Neros.ServiceDefaults",
       "norm_label": "httpmessagehandler"
     },
     {
@@ -8752,8 +9234,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "int",
-      "community": 2,
-      "community_name": "http",
+      "community": 121,
+      "community_name": "Neros.ServiceDefaults",
       "norm_label": "int"
     },
     {
@@ -13101,10 +13583,21 @@
       "norm_label": "frontend"
     },
     {
-      "label": "API Y Application",
+      "label": "Estructura De Neros.Blazor",
       "file_type": "document",
       "source_file": "CONVENTIONS.md",
       "source_location": "L49",
+      "_origin": "ast",
+      "id": "conventions_estructura_de_neros_blazor",
+      "community": 133,
+      "community_name": "CONVENTIONS.md",
+      "norm_label": "estructura de neros.blazor"
+    },
+    {
+      "label": "API Y Application",
+      "file_type": "document",
+      "source_file": "CONVENTIONS.md",
+      "source_location": "L75",
       "_origin": "ast",
       "id": "conventions_api_y_application",
       "community": 133,
@@ -13115,7 +13608,7 @@
       "label": "Base De Datos",
       "file_type": "document",
       "source_file": "CONVENTIONS.md",
-      "source_location": "L56",
+      "source_location": "L82",
       "_origin": "ast",
       "id": "conventions_base_de_datos",
       "community": 133,
@@ -13126,7 +13619,7 @@
       "label": "Seguridad",
       "file_type": "document",
       "source_file": "CONVENTIONS.md",
-      "source_location": "L67",
+      "source_location": "L93",
       "_origin": "ast",
       "id": "conventions_seguridad",
       "community": 133,
@@ -13137,7 +13630,7 @@
       "label": "Validacion",
       "file_type": "document",
       "source_file": "CONVENTIONS.md",
-      "source_location": "L77",
+      "source_location": "L103",
       "_origin": "ast",
       "id": "conventions_validacion",
       "community": 133,
@@ -13335,7 +13828,7 @@
       "label": "Actividad y refresco",
       "file_type": "document",
       "source_file": "DESIGN.md",
-      "source_location": "L227",
+      "source_location": "L231",
       "_origin": "ast",
       "id": "design_actividad_y_refresco",
       "community": 3,
@@ -13346,7 +13839,7 @@
       "label": "Movimiento y teclado",
       "file_type": "document",
       "source_file": "DESIGN.md",
-      "source_location": "L235",
+      "source_location": "L239",
       "_origin": "ast",
       "id": "design_movimiento_y_teclado",
       "community": 3,
@@ -13357,7 +13850,7 @@
       "label": "Catalogo comercial del acceso",
       "file_type": "document",
       "source_file": "DESIGN.md",
-      "source_location": "L243",
+      "source_location": "L247",
       "_origin": "ast",
       "id": "design_catalogo_comercial_del_acceso",
       "community": 3,
@@ -13368,7 +13861,7 @@
       "label": "Interacciones y accesibilidad",
       "file_type": "document",
       "source_file": "DESIGN.md",
-      "source_location": "L247",
+      "source_location": "L251",
       "_origin": "ast",
       "id": "design_interacciones_y_accesibilidad",
       "community": 3,
@@ -13379,7 +13872,7 @@
       "label": "Envio, iconos y dependencias",
       "file_type": "document",
       "source_file": "DESIGN.md",
-      "source_location": "L255",
+      "source_location": "L259",
       "_origin": "ast",
       "id": "design_envio_iconos_y_dependencias",
       "community": 3,
@@ -13390,7 +13883,7 @@
       "label": "Cierre ship y limites de verificacion",
       "file_type": "document",
       "source_file": "DESIGN.md",
-      "source_location": "L263",
+      "source_location": "L267",
       "_origin": "ast",
       "id": "design_cierre_ship_y_limites_de_verificacion",
       "community": 3,
@@ -13401,7 +13894,7 @@
       "label": "Do's and Don'ts",
       "file_type": "document",
       "source_file": "DESIGN.md",
-      "source_location": "L275",
+      "source_location": "L279",
       "_origin": "ast",
       "id": "design_do_s_and_don_ts",
       "community": 3,
@@ -13412,7 +13905,7 @@
       "label": "Do:",
       "file_type": "document",
       "source_file": "DESIGN.md",
-      "source_location": "L277",
+      "source_location": "L281",
       "_origin": "ast",
       "id": "design_do",
       "community": 3,
@@ -13423,7 +13916,7 @@
       "label": "Don't:",
       "file_type": "document",
       "source_file": "DESIGN.md",
-      "source_location": "L285",
+      "source_location": "L289",
       "_origin": "ast",
       "id": "design_don_t",
       "community": 3,
@@ -14743,7 +15236,7 @@
       "label": "Pending gates",
       "file_type": "document",
       "source_file": "docs/execution/NEROS_EXECUTION_STATUS.md",
-      "source_location": "L15",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "docs_execution_neros_execution_status_pending_gates",
       "community": 122,
@@ -14754,7 +15247,7 @@
       "label": "Current blockers",
       "file_type": "document",
       "source_file": "docs/execution/NEROS_EXECUTION_STATUS.md",
-      "source_location": "L19",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "docs_execution_neros_execution_status_current_blockers",
       "community": 122,
@@ -14765,7 +15258,7 @@
       "label": "Important decisions",
       "file_type": "document",
       "source_file": "docs/execution/NEROS_EXECUTION_STATUS.md",
-      "source_location": "L25",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "docs_execution_neros_execution_status_important_decisions",
       "community": 122,
@@ -14776,7 +15269,7 @@
       "label": "Migrations",
       "file_type": "document",
       "source_file": "docs/execution/NEROS_EXECUTION_STATUS.md",
-      "source_location": "L29",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "docs_execution_neros_execution_status_migrations",
       "community": 122,
@@ -14787,7 +15280,7 @@
       "label": "Tests",
       "file_type": "document",
       "source_file": "docs/execution/NEROS_EXECUTION_STATUS.md",
-      "source_location": "L33",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "docs_execution_neros_execution_status_tests",
       "community": 122,
@@ -14798,7 +15291,7 @@
       "label": "Next action",
       "file_type": "document",
       "source_file": "docs/execution/NEROS_EXECUTION_STATUS.md",
-      "source_location": "L41",
+      "source_location": "L43",
       "_origin": "ast",
       "id": "docs_execution_neros_execution_status_next_action",
       "community": 122,
@@ -20207,185 +20700,579 @@
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginAccessPanel.razor",
-      "source_location": "L10",
+      "source_file": "Neros.Blazor/Components/Features/Acceso/CatalogoAcceso.razor",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "neros_blazor_components_features_auth_loginaccesspanel",
-      "target": "dataannotationsvalidator",
+      "source": "neros_blazor_components_features_acceso_catalogoacceso",
+      "target": "neros_blazor_components_features_acceso_catalogoacceso_razor_icono",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginAccessPanel.razor",
-      "source_location": "L9",
+      "source_file": "Neros.Blazor/Components/Features/Acceso/PaginaAcceso.razor",
+      "source_location": "L59",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "neros_blazor_components_features_auth_loginaccesspanel",
-      "target": "editform",
+      "source": "neros_blazor_components_features_acceso_paginaacceso",
+      "target": "catalogoacceso",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginAccessPanel.razor",
-      "source_location": "L46",
+      "source_file": "Neros.Blazor/Components/Features/Acceso/PaginaAcceso.razor",
+      "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "neros_blazor_components_features_auth_loginaccesspanel",
-      "target": "inputcheckbox",
+      "source": "neros_blazor_components_features_acceso_paginaacceso",
+      "target": "neros_blazor_components_features_acceso_paginaacceso_razor_antiforgerytoken",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginAccessPanel.razor",
-      "source_location": "L29",
+      "source_file": "Neros.Blazor/Components/Features/Acceso/PaginaAcceso.razor",
+      "source_location": "L56",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "neros_blazor_components_features_auth_loginaccesspanel",
-      "target": "inputtext",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginAccessPanel.razor",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_features_auth_loginaccesspanel",
-      "target": "neros_blazor_components_features_auth_loginaccesspanel_submitasync",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginAccessPanel.razor",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_features_auth_loginaccesspanel",
-      "target": "neros_blazor_components_features_auth_loginaccesspanel_togglepassword",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginAccessPanel.razor",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_features_auth_loginaccesspanel",
-      "target": "neros_blazor_components_features_auth_loginaccesspanel_togglerecoveryhint",
+      "source": "neros_blazor_components_features_acceso_paginaacceso",
+      "target": "neros_blazor_components_features_acceso_paginaacceso_razor_icono",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginAccessPanel.razor",
-      "source_location": "L41",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_features_auth_loginaccesspanel",
-      "target": "validationmessage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginAccessPanel.razor",
+      "source_file": "Neros.Blazor/Components/Features/Acceso/PaginaAcceso.razor",
       "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "neros_blazor_components_features_auth_loginaccesspanel",
-      "target": "validationsummary",
+      "source": "neros_blazor_components_features_acceso_paginaacceso",
+      "target": "neros_blazor_components_features_acceso_paginaacceso_razor_marca",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Acceso/PaginaAcceso.razor",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_acceso_paginaacceso",
+      "target": "neros_blazor_components_features_acceso_paginaacceso_razor_pagetitle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Acceso/PaginaAcceso.razor",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_acceso_paginaacceso",
+      "target": "neros_blazor_components_features_acceso_paginaacceso_razor_selectortema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Acceso/PaginaAcceso.razor",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_acceso_paginaacceso",
+      "target": "route",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Acceso/PaginaAcceso.razor",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_acceso_paginaacceso",
+      "target": "route_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/FilaEmpresa.razor",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_empresas_filaempresa",
+      "target": "neros_blazor_components_features_empresas_filaempresa_razor_antiforgerytoken",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/FilaEmpresa.razor",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_empresas_filaempresa",
+      "target": "neros_blazor_components_features_empresas_filaempresa_razor_icono",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_empresas_paginaempresas",
+      "target": "filaempresa",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginFormModel.cs",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_empresas_paginaempresas",
+      "target": "neros_blazor_components_features_empresas_paginaempresas_oninitializedasync",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_empresas_paginaempresas",
+      "target": "neros_blazor_components_features_empresas_paginaempresas_razor_acciones",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_empresas_paginaempresas",
+      "target": "neros_blazor_components_features_empresas_paginaempresas_razor_aviso",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_empresas_paginaempresas",
+      "target": "neros_blazor_components_features_empresas_paginaempresas_razor_childcontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "neros_blazor_components_features_auth_loginformmodel",
-      "target": "csharp_namespace:e15dd117ce160d36",
+      "source": "neros_blazor_components_features_empresas_paginaempresas",
+      "target": "neros_blazor_components_features_empresas_paginaempresas_razor_clienteneros",
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
+      "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginFormModel.cs",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_empresas_paginaempresas",
+      "target": "neros_blazor_components_features_empresas_paginaempresas_razor_empresadisponible",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_empresas_paginaempresas",
+      "target": "neros_blazor_components_features_empresas_paginaempresas_razor_estadovacio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_empresas_paginaempresas",
+      "target": "neros_blazor_components_features_empresas_paginaempresas_razor_icono",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_empresas_paginaempresas",
+      "target": "neros_blazor_components_features_empresas_paginaempresas_razor_ihttpcontextaccessor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_empresas_paginaempresas",
+      "target": "neros_blazor_components_features_empresas_paginaempresas_razor_pagetitle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Empresas/PaginaEmpresas.razor",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_empresas_paginaempresas",
+      "target": "route_empresas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/ActividadReciente.razor",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_inicio_actividadreciente",
+      "target": "neros_blazor_components_features_inicio_actividadreciente_razor_actividadacceso",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/ActividadReciente.razor",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_inicio_actividadreciente",
+      "target": "neros_blazor_components_features_inicio_actividadreciente_razor_estadovacio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/ActividadReciente.razor",
+      "source_location": "L39",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_inicio_actividadreciente",
+      "target": "neros_blazor_components_features_inicio_actividadreciente_razor_icono",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/ContextoEmpresa.razor",
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "neros_blazor_components_features_auth_loginformmodel",
-      "target": "neros_blazor_components_features_auth_loginformmodel_neros_blazor_components_features_auth_loginformmodel",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginModule.cs",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_features_auth_loginmodule",
-      "target": "csharp_namespace:e15dd117ce160d36",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginTrustBadge.cs",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_features_auth_logintrustbadge",
-      "target": "csharp_namespace:e15dd117ce160d36",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginModule.cs",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_features_auth_loginmodule",
-      "target": "neros_blazor_components_features_auth_loginmodule_neros_blazor_components_features_auth_loginmodule",
+      "source": "neros_blazor_components_features_inicio_contextoempresa",
+      "target": "neros_blazor_components_features_inicio_contextoempresa_razor_icono",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginProductStage.razor",
-      "source_location": "L93",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/ModulosEnPreparacion.razor",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "neros_blazor_components_features_auth_loginproductstage",
-      "target": "loginmodule",
+      "source": "neros_blazor_components_features_inicio_modulosenpreparacion",
+      "target": "neros_blazor_components_features_inicio_modulosenpreparacion_razor_icono",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginProductStage.razor",
-      "source_location": "L86",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
+      "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "neros_blazor_components_features_auth_loginproductstage",
-      "target": "loginmoduletile",
+      "source": "neros_blazor_components_features_inicio_paginainicio",
+      "target": "actividadreciente",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_inicio_paginainicio",
+      "target": "contextoempresa",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_inicio_paginainicio",
+      "target": "modulosenpreparacion",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Features/Auth/LoginTrustBadge.cs",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_inicio_paginainicio",
+      "target": "neros_blazor_components_features_inicio_paginainicio_oninitializedasync",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_inicio_paginainicio",
+      "target": "neros_blazor_components_features_inicio_paginainicio_razor_aviso",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "neros_blazor_components_features_auth_logintrustbadge",
-      "target": "neros_blazor_components_features_auth_logintrustbadge_neros_blazor_components_features_auth_logintrustbadge",
+      "source": "neros_blazor_components_features_inicio_paginainicio",
+      "target": "neros_blazor_components_features_inicio_paginainicio_razor_clienteneros",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_inicio_paginainicio",
+      "target": "neros_blazor_components_features_inicio_paginainicio_razor_icono",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_inicio_paginainicio",
+      "target": "neros_blazor_components_features_inicio_paginainicio_razor_ihttpcontextaccessor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_inicio_paginainicio",
+      "target": "neros_blazor_components_features_inicio_paginainicio_razor_navigationmanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_inicio_paginainicio",
+      "target": "neros_blazor_components_features_inicio_paginainicio_razor_pagetitle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Inicio/PaginaInicio.razor",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_inicio_paginainicio",
+      "target": "route_home",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Sistema/PaginaError.razor",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_sistema_paginaerror",
+      "target": "detalle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Sistema/PaginaError.razor",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_sistema_paginaerror",
+      "target": "neros_blazor_components_features_sistema_paginaerror_oninitialized",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Sistema/PaginaError.razor",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_sistema_paginaerror",
+      "target": "neros_blazor_components_features_sistema_paginaerror_razor_childcontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Sistema/PaginaError.razor",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_sistema_paginaerror",
+      "target": "neros_blazor_components_features_sistema_paginaerror_razor_pagetitle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Sistema/PaginaError.razor",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_sistema_paginaerror",
+      "target": "neros_blazor_components_features_sistema_paginaerror_razor_paginaestado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Sistema/PaginaError.razor",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_sistema_paginaerror",
+      "target": "system_diagnostics",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/BuildingBlocks/Neros.Messaging.Abstractions/IntegrationEnvelope.cs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Diagnostics",
+        "scope_kind": "file"
+      },
+      "_origin": "ast",
+      "source": "src_buildingblocks_neros_messaging_abstractions_integrationenvelope",
+      "target": "system_diagnostics",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/BuildingBlocks/Neros.ServiceDefaults/FoundationHttp.cs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Diagnostics",
+        "scope_kind": "file"
+      },
+      "_origin": "ast",
+      "source": "src_buildingblocks_neros_servicedefaults_foundationhttp",
+      "target": "system_diagnostics",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Neros.Tests/FoundationTelemetryTests.cs",
+      "source_location": "L2",
+      "weight": 1.0,
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Diagnostics",
+        "scope_kind": "file"
+      },
+      "_origin": "ast",
+      "source": "tests_neros_tests_foundationtelemetrytests",
+      "target": "system_diagnostics",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Neros.Tests/GatewayOrganizationTests.cs",
+      "source_location": "L22",
+      "weight": 1.0,
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Diagnostics",
+        "scope_kind": "file"
+      },
+      "_origin": "ast",
+      "source": "tests_neros_tests_gatewayorganizationtests",
+      "target": "system_diagnostics",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Sistema/PaginaNoEncontrada.razor",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_sistema_paginanoencontrada",
+      "target": "neros_blazor_components_features_sistema_paginanoencontrada_razor_pagetitle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Features/Sistema/PaginaNoEncontrada.razor",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_features_sistema_paginanoencontrada",
+      "target": "neros_blazor_components_features_sistema_paginanoencontrada_razor_paginaestado",
       "confidence_score": 1.0
     },
     {
@@ -20403,7 +21290,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Components/Layout/MainLayout.razor",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_components_layout_mainlayout",
@@ -20414,7 +21301,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Components/Layout/MainLayout.razor",
-      "source_location": "L15",
+      "source_location": "L24",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_components_layout_mainlayout",
@@ -20425,7 +21312,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Components/Layout/MainLayout.razor",
-      "source_location": "L16",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_components_layout_mainlayout",
@@ -20458,7 +21345,29 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Components/Layout/MainLayout.razor",
-      "source_location": "L13",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_layout_mainlayout",
+      "target": "neros_blazor_components_layout_mainlayout_razor_marca",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Layout/MainLayout.razor",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_layout_mainlayout",
+      "target": "neros_blazor_components_layout_mainlayout_razor_navigationmanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Layout/MainLayout.razor",
+      "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_components_layout_mainlayout",
@@ -20469,7 +21378,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Components/Layout/NavMenu.razor",
-      "source_location": "L11",
+      "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_components_layout_navmenu",
@@ -20480,7 +21389,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Components/Layout/NavMenu.razor",
-      "source_location": "L14",
+      "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_components_layout_navmenu",
@@ -20496,6 +21405,17 @@
       "_origin": "ast",
       "source": "neros_blazor_components_layout_navmenu",
       "target": "neros_blazor_components_layout_navmenu_razor_ihttpcontextaccessor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Layout/NavMenu.razor",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_layout_navmenu",
+      "target": "neros_blazor_components_layout_navmenu_razor_marca",
       "confidence_score": 1.0
     },
     {
@@ -20605,353 +21525,6 @@
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Layout/SelectorTema.razor",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_layout_selectortema",
-      "target": "neros_blazor_components_layout_selectortema_razor_icono",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Empresas.razor",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_empresas",
-      "target": "neros_blazor_components_pages_empresas_oninitializedasync",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Empresas.razor",
-      "source_location": "L21",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_empresas",
-      "target": "neros_blazor_components_pages_empresas_razor_antiforgerytoken",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Empresas.razor",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_empresas",
-      "target": "neros_blazor_components_pages_empresas_razor_clienteneros",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Empresas.razor",
-      "source_location": "L46",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_empresas",
-      "target": "neros_blazor_components_pages_empresas_razor_empresadisponible",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Empresas.razor",
-      "source_location": "L40",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_empresas",
-      "target": "neros_blazor_components_pages_empresas_razor_icono",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Empresas.razor",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_empresas",
-      "target": "neros_blazor_components_pages_empresas_razor_ihttpcontextaccessor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Empresas.razor",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_empresas",
-      "target": "neros_blazor_components_pages_empresas_razor_pagetitle",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Empresas.razor",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_empresas",
-      "target": "route_empresas",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Error.razor",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "c_desarrollo_personal_erp_aurosoft_migracion_neros_neros_blazor_components_pages_error_razor",
-      "target": "c_desarrollo_personal_erp_aurosoft_migracion_neros_neros_blazor_components_pages_error_oninitialized",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Error.razor",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "c_desarrollo_personal_erp_aurosoft_migracion_neros_neros_blazor_components_pages_error_razor",
-      "target": "neros_blazor_components_pages_error_razor_pagetitle",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Error.razor",
-      "source_location": "L2",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "c_desarrollo_personal_erp_aurosoft_migracion_neros_neros_blazor_components_pages_error_razor",
-      "target": "system_diagnostics",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/BuildingBlocks/Neros.Messaging.Abstractions/IntegrationEnvelope.cs",
-      "source_location": "L1",
-      "weight": 1.0,
-      "metadata": {
-        "using_kind": "namespace",
-        "target_fqn": "System.Diagnostics",
-        "scope_kind": "file"
-      },
-      "_origin": "ast",
-      "source": "src_buildingblocks_neros_messaging_abstractions_integrationenvelope",
-      "target": "system_diagnostics",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/BuildingBlocks/Neros.ServiceDefaults/FoundationHttp.cs",
-      "source_location": "L1",
-      "weight": 1.0,
-      "metadata": {
-        "using_kind": "namespace",
-        "target_fqn": "System.Diagnostics",
-        "scope_kind": "file"
-      },
-      "_origin": "ast",
-      "source": "src_buildingblocks_neros_servicedefaults_foundationhttp",
-      "target": "system_diagnostics",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Neros.Tests/FoundationTelemetryTests.cs",
-      "source_location": "L2",
-      "weight": 1.0,
-      "metadata": {
-        "using_kind": "namespace",
-        "target_fqn": "System.Diagnostics",
-        "scope_kind": "file"
-      },
-      "_origin": "ast",
-      "source": "tests_neros_tests_foundationtelemetrytests",
-      "target": "system_diagnostics",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tests/Neros.Tests/GatewayOrganizationTests.cs",
-      "source_location": "L22",
-      "weight": 1.0,
-      "metadata": {
-        "using_kind": "namespace",
-        "target_fqn": "System.Diagnostics",
-        "scope_kind": "file"
-      },
-      "_origin": "ast",
-      "source": "tests_neros_tests_gatewayorganizationtests",
-      "target": "system_diagnostics",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Home.razor",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_home",
-      "target": "navigationmanager",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Home.razor",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_home",
-      "target": "neros_blazor_components_pages_home_oninitializedasync",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Home.razor",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_home",
-      "target": "neros_blazor_components_pages_home_razor_clienteneros",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Home.razor",
-      "source_location": "L65",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_home",
-      "target": "neros_blazor_components_pages_home_razor_icono",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Home.razor",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_home",
-      "target": "neros_blazor_components_pages_home_razor_ihttpcontextaccessor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Home.razor",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_home",
-      "target": "neros_blazor_components_pages_home_razor_pagetitle",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Home.razor",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_home",
-      "target": "route_home",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Login.razor",
-      "source_location": "L28",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_login",
-      "target": "neros_blazor_components_pages_login_razor_antiforgerytoken",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Login.razor",
-      "source_location": "L83",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_login",
-      "target": "neros_blazor_components_pages_login_razor_icono",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Login.razor",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_login",
-      "target": "neros_blazor_components_pages_login_razor_pagetitle",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Login.razor",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_login",
-      "target": "neros_blazor_components_pages_login_razor_selectortema",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Login.razor",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_login",
-      "target": "route",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/Login.razor",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_login",
-      "target": "route_login",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "Neros.Blazor/Components/Pages/NotFound.razor",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "neros_blazor_components_pages_notfound",
-      "target": "neros_blazor_components_pages_notfound_razor_pagetitle",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Components/Routes.razor",
       "source_location": "L3",
       "weight": 1.0,
@@ -20964,7 +21537,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Components/Routes.razor",
-      "source_location": "L6",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_components_routes",
@@ -20980,6 +21553,50 @@
       "_origin": "ast",
       "source": "neros_blazor_components_routes",
       "target": "found",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Routes.razor",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_routes",
+      "target": "neros_blazor_components_routes_razor_acciones",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Routes.razor",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_routes",
+      "target": "neros_blazor_components_routes_razor_childcontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Routes.razor",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_routes",
+      "target": "neros_blazor_components_routes_razor_estadovacio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Routes.razor",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_routes",
+      "target": "neros_blazor_components_routes_razor_icono",
       "confidence_score": 1.0
     },
     {
@@ -21005,10 +21622,242 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Shared/Aviso.razor",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_shared_aviso",
+      "target": "neros_blazor_components_shared_aviso_razor_icono",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Shared/CatalogoModulos.cs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_shared_catalogomodulos",
+      "target": "csharp_namespace:3dfb12ff78ea669b",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Shared/CatalogoModulos.cs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_shared_catalogomodulos",
+      "target": "neros_blazor_components_shared_catalogomodulos_neros_blazor_components_shared_catalogomodulos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Shared/CatalogoModulos.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_shared_catalogomodulos",
+      "target": "neros_blazor_components_shared_catalogomodulos_neros_blazor_components_shared_moduloerp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Shared/Presentacion.cs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_shared_presentacion",
+      "target": "csharp_namespace:3dfb12ff78ea669b",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Shared/TipoAviso.cs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_shared_tipoaviso",
+      "target": "csharp_namespace:3dfb12ff78ea669b",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Shared/CatalogoModulos.cs",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "metadata": {
+        "ref_token": "ModuloErp"
+      },
+      "_origin": "ast",
+      "source": "neros_blazor_components_shared_catalogomodulos_neros_blazor_components_shared_catalogomodulos",
+      "target": "neros_blazor_components_shared_catalogomodulos_neros_blazor_components_shared_moduloerp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Shared/CatalogoModulos.cs",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "IEnumerable"
+      },
+      "_origin": "ast",
+      "source": "neros_blazor_components_shared_catalogomodulos_neros_blazor_components_shared_catalogomodulos",
+      "target": "neros_blazor_components_shared_catalogomodulos_cs_ienumerable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Shared/CatalogoModulos.cs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "IReadOnlyList"
+      },
+      "_origin": "ast",
+      "source": "neros_blazor_components_shared_catalogomodulos_neros_blazor_components_shared_catalogomodulos",
+      "target": "neros_blazor_components_shared_catalogomodulos_cs_ireadonlylist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Shared/EstadoVacio.razor",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_shared_estadovacio",
+      "target": "neros_blazor_components_shared_estadovacio_razor_icono",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Shared/PaginaEstado.razor",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_shared_paginaestado",
+      "target": "neros_blazor_components_shared_paginaestado_razor_icono",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Shared/PaginaEstado.razor",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_shared_paginaestado",
+      "target": "neros_blazor_components_shared_paginaestado_razor_marca",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Shared/PaginaEstado.razor",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_shared_paginaestado",
+      "target": "neros_blazor_components_shared_paginaestado_razor_selectortema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Shared/Presentacion.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_shared_presentacion",
+      "target": "neros_blazor_components_shared_presentacion_neros_blazor_components_shared_presentacion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Shared/Presentacion.cs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_shared_presentacion_neros_blazor_components_shared_presentacion",
+      "target": "neros_blazor_components_shared_presentacion_neros_blazor_components_shared_presentacion_iniciales",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Shared/Presentacion.cs",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_shared_presentacion_neros_blazor_components_shared_presentacion",
+      "target": "neros_blazor_components_shared_presentacion_neros_blazor_components_shared_presentacion_monograma",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Shared/Presentacion.cs",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_shared_presentacion_neros_blazor_components_shared_presentacion",
+      "target": "neros_blazor_components_shared_presentacion_neros_blazor_components_shared_presentacion_primernombre",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Shared/Presentacion.cs",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_shared_presentacion_neros_blazor_components_shared_presentacion",
+      "target": "neros_blazor_components_shared_presentacion_neros_blazor_components_shared_presentacion_seccion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Shared/SelectorTema.razor",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_shared_selectortema",
+      "target": "neros_blazor_components_shared_selectortema_razor_icono",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/Shared/TipoAviso.cs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_shared_tipoaviso",
+      "target": "neros_blazor_components_shared_tipoaviso_neros_blazor_components_shared_tipoaviso",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Components/_Imports.razor",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_components_imports",
@@ -21019,7 +21868,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Components/_Imports.razor",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_components_imports",
@@ -21118,7 +21967,18 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Components/_Imports.razor",
-      "source_location": "L16",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_components_imports",
+      "target": "neros_blazor_components_shared",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Components/_Imports.razor",
+      "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_components_imports",
@@ -21129,7 +21989,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Components/_Imports.razor",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_components_imports",
@@ -21162,7 +22022,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Components/_Imports.razor",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_components_imports",
@@ -21814,7 +22674,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L126",
+      "source_location": "L158",
       "weight": 1.0,
       "context": "parameter_type",
       "metadata": {
@@ -21829,7 +22689,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L91",
+      "source_location": "L123",
       "weight": 1.0,
       "context": "parameter_type",
       "metadata": {
@@ -21837,6 +22697,21 @@
       },
       "_origin": "ast",
       "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_seleccionarasync",
+      "target": "neros_blazor_servicios_clienteneros_neros_blazor_servicios_clienteneros",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
+      "source_location": "L87",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "ClienteNeros"
+      },
+      "_origin": "ast",
+      "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_seleccionarempresaunicaasync",
       "target": "neros_blazor_servicios_clienteneros_neros_blazor_servicios_clienteneros",
       "confidence_score": 1.0
     },
@@ -22138,6 +23013,18 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
+      "source_location": "L91",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_seleccionarempresaunicaasync",
+      "target": "neros_blazor_servicios_clienteneros_neros_blazor_servicios_clienteneros_empresasasync"
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/ClienteNeros.cs",
@@ -22215,10 +23102,22 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L104",
+      "source_location": "L136",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_seleccionarasync",
+      "target": "neros_blazor_servicios_clienteneros_neros_blazor_servicios_clienteneros_seleccionarasync"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
+      "source_location": "L92",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_seleccionarempresaunicaasync",
       "target": "neros_blazor_servicios_clienteneros_neros_blazor_servicios_clienteneros_seleccionarasync"
     },
     {
@@ -22239,7 +23138,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L134",
+      "source_location": "L166",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_salirasync",
@@ -22334,6 +23233,17 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
+      "source_location": "L106",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion",
+      "target": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_destinolocal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
       "source_location": "L24",
       "weight": 1.0,
       "_origin": "ast",
@@ -22356,7 +23266,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L80",
+      "source_location": "L112",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion",
@@ -22367,7 +23277,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L126",
+      "source_location": "L158",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion",
@@ -22378,7 +23288,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L91",
+      "source_location": "L123",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion",
@@ -22389,7 +23299,18 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L88",
+      "source_location": "L87",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion",
+      "target": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_seleccionarempresaunicaasync",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
+      "source_location": "L120",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion",
@@ -22400,7 +23321,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L148",
+      "source_location": "L180",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion",
@@ -22502,6 +23423,18 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
+      "source_location": "L65",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_entrarasync",
+      "target": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_destinolocal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
       "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
@@ -22514,7 +23447,19 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L59",
+      "source_location": "L55",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_entrarasync",
+      "target": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_seleccionarempresaunicaasync",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
+      "source_location": "L66",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_entrarasync",
@@ -22537,7 +23482,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L80",
+      "source_location": "L112",
       "weight": 1.0,
       "context": "parameter_type",
       "metadata": {
@@ -22552,7 +23497,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L126",
+      "source_location": "L158",
       "weight": 1.0,
       "context": "parameter_type",
       "metadata": {
@@ -22567,7 +23512,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L91",
+      "source_location": "L123",
       "weight": 1.0,
       "context": "parameter_type",
       "metadata": {
@@ -22582,7 +23527,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L88",
+      "source_location": "L120",
       "weight": 1.0,
       "context": "parameter_type",
       "metadata": {
@@ -22597,7 +23542,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L148",
+      "source_location": "L180",
       "weight": 1.0,
       "context": "parameter_type",
       "metadata": {
@@ -22612,7 +23557,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L126",
+      "source_location": "L158",
       "weight": 1.0,
       "context": "parameter_type",
       "metadata": {
@@ -22627,7 +23572,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L91",
+      "source_location": "L123",
       "weight": 1.0,
       "context": "parameter_type",
       "metadata": {
@@ -22642,7 +23587,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L148",
+      "source_location": "L180",
       "weight": 1.0,
       "context": "parameter_type",
       "metadata": {
@@ -22657,7 +23602,22 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L126",
+      "source_location": "L87",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "ILogger"
+      },
+      "_origin": "ast",
+      "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_seleccionarempresaunicaasync",
+      "target": "neros_blazor_servicios_endpointssesion_cs_ilogger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
+      "source_location": "L158",
       "weight": 1.0,
       "context": "return_type",
       "metadata": {
@@ -22672,7 +23632,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L91",
+      "source_location": "L123",
       "weight": 1.0,
       "context": "return_type",
       "metadata": {
@@ -22687,7 +23647,22 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L148",
+      "source_location": "L87",
+      "weight": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "Task"
+      },
+      "_origin": "ast",
+      "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_seleccionarempresaunicaasync",
+      "target": "neros_blazor_servicios_endpointssesion_cs_task",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
+      "source_location": "L180",
       "weight": 1.0,
       "context": "return_type",
       "metadata": {
@@ -22702,7 +23677,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L80",
+      "source_location": "L112",
       "weight": 1.0,
       "context": "return_type",
       "metadata": {
@@ -22717,7 +23692,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L126",
+      "source_location": "L158",
       "weight": 1.0,
       "context": "generic_arg",
       "metadata": {
@@ -22732,7 +23707,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L91",
+      "source_location": "L123",
       "weight": 1.0,
       "context": "generic_arg",
       "metadata": {
@@ -22744,11 +23719,41 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
+      "source_location": "L87",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "CancellationToken"
+      },
+      "_origin": "ast",
+      "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_seleccionarempresaunicaasync",
+      "target": "neros_blazor_servicios_endpointssesion_cs_cancellationtoken",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
+      "source_location": "L87",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "metadata": {
+        "ref_token": "EmpresaDisponible"
+      },
+      "_origin": "ast",
+      "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_seleccionarempresaunicaasync",
+      "target": "neros_contracts_autenticacion_contratosacceso_neros_contracts_autenticacion_empresadisponible",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L82",
+      "source_location": "L114",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_rechazaracceso",
@@ -22760,7 +23765,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L93",
+      "source_location": "L125",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_seleccionarasync",
@@ -22772,7 +23777,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/Servicios/EndpointsSesion.cs",
-      "source_location": "L128",
+      "source_location": "L160",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_servicios_endpointssesion_neros_blazor_servicios_endpointssesion_salirasync",
@@ -22783,11 +23788,33 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/wwwroot/experience.js",
-      "source_location": "L81",
+      "source_location": "L125",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_wwwroot_experience",
       "target": "neros_blazor_wwwroot_experience_actualizarenvio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/wwwroot/experience.js",
+      "source_location": "L107",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_wwwroot_experience",
+      "target": "neros_blazor_wwwroot_experience_capitalizar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/wwwroot/experience.js",
+      "source_location": "L97",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_wwwroot_experience",
+      "target": "neros_blazor_wwwroot_experience_fecharelativa",
       "confidence_score": 1.0
     },
     {
@@ -22805,7 +23832,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Neros.Blazor/wwwroot/experience.js",
-      "source_location": "L108",
+      "source_location": "L158",
       "weight": 1.0,
       "_origin": "ast",
       "source": "neros_blazor_wwwroot_experience",
@@ -22821,6 +23848,18 @@
       "_origin": "ast",
       "source": "neros_blazor_wwwroot_experience",
       "target": "neros_blazor_wwwroot_experience_normalize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Neros.Blazor/wwwroot/experience.js",
+      "source_location": "L100",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "neros_blazor_wwwroot_experience_fecharelativa",
+      "target": "neros_blazor_wwwroot_experience_capitalizar",
       "confidence_score": 1.0
     },
     {
@@ -23236,7 +24275,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Neros.Tests/AccesoMultiempresaTests.cs",
-      "source_location": "L300",
+      "source_location": "L299",
       "weight": 1.0,
       "context": "parameter_type",
       "metadata": {
@@ -27636,7 +28675,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Neros.Tests/AccesoMultiempresaTests.cs",
-      "source_location": "L308",
+      "source_location": "L307",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_neros_tests_accesomultiempresatests_neros_tests_accesomultiempresatests",
@@ -27647,7 +28686,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Neros.Tests/AccesoMultiempresaTests.cs",
-      "source_location": "L300",
+      "source_location": "L299",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_neros_tests_accesomultiempresatests_neros_tests_accesomultiempresatests",
@@ -27854,7 +28893,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Neros.Tests/AccesoMultiempresaTests.cs",
-      "source_location": "L308",
+      "source_location": "L307",
       "weight": 1.0,
       "context": "return_type",
       "metadata": {
@@ -28346,7 +29385,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Neros.Tests/AccesoMultiempresaTests.cs",
-      "source_location": "L300",
+      "source_location": "L299",
       "weight": 1.0,
       "context": "return_type",
       "metadata": {
@@ -28361,7 +29400,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "tests/Neros.Tests/AccesoMultiempresaTests.cs",
-      "source_location": "L308",
+      "source_location": "L307",
       "weight": 1.0,
       "context": "parameter_type",
       "metadata": {
@@ -34399,7 +35438,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CONVENTIONS.md",
-      "source_location": "L49",
+      "source_location": "L75",
       "weight": 1.0,
       "_origin": "ast",
       "source": "conventions_conventions_md",
@@ -34410,7 +35449,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CONVENTIONS.md",
-      "source_location": "L56",
+      "source_location": "L82",
       "weight": 1.0,
       "_origin": "ast",
       "source": "conventions_conventions_md",
@@ -34476,7 +35515,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CONVENTIONS.md",
-      "source_location": "L67",
+      "source_location": "L93",
       "weight": 1.0,
       "_origin": "ast",
       "source": "conventions_conventions_md",
@@ -34487,11 +35526,22 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CONVENTIONS.md",
-      "source_location": "L77",
+      "source_location": "L103",
       "weight": 1.0,
       "_origin": "ast",
       "source": "conventions_conventions_md",
       "target": "conventions_validacion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CONVENTIONS.md",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "conventions_frontend",
+      "target": "conventions_estructura_de_neros_blazor",
       "confidence_score": 1.0
     },
     {
@@ -34542,7 +35592,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "DESIGN.md",
-      "source_location": "L275",
+      "source_location": "L279",
       "weight": 1.0,
       "_origin": "ast",
       "source": "design_sistema_de_diseno_neros_erp",
@@ -34652,7 +35702,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "DESIGN.md",
-      "source_location": "L227",
+      "source_location": "L231",
       "weight": 1.0,
       "_origin": "ast",
       "source": "design_components",
@@ -34685,7 +35735,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "DESIGN.md",
-      "source_location": "L243",
+      "source_location": "L247",
       "weight": 1.0,
       "_origin": "ast",
       "source": "design_components",
@@ -34696,7 +35746,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "DESIGN.md",
-      "source_location": "L263",
+      "source_location": "L267",
       "weight": 1.0,
       "_origin": "ast",
       "source": "design_components",
@@ -34718,7 +35768,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "DESIGN.md",
-      "source_location": "L255",
+      "source_location": "L259",
       "weight": 1.0,
       "_origin": "ast",
       "source": "design_components",
@@ -34729,7 +35779,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "DESIGN.md",
-      "source_location": "L247",
+      "source_location": "L251",
       "weight": 1.0,
       "_origin": "ast",
       "source": "design_components",
@@ -34740,7 +35790,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "DESIGN.md",
-      "source_location": "L235",
+      "source_location": "L239",
       "weight": 1.0,
       "_origin": "ast",
       "source": "design_components",
@@ -34762,7 +35812,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "DESIGN.md",
-      "source_location": "L277",
+      "source_location": "L281",
       "weight": 1.0,
       "_origin": "ast",
       "source": "design_do_s_and_don_ts",
@@ -34773,7 +35823,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "DESIGN.md",
-      "source_location": "L285",
+      "source_location": "L289",
       "weight": 1.0,
       "_origin": "ast",
       "source": "design_do_s_and_don_ts",
@@ -36368,7 +37418,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/execution/NEROS_EXECUTION_STATUS.md",
-      "source_location": "L19",
+      "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_execution_neros_execution_status_neros_estado_de_ejecucion",
@@ -36390,7 +37440,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/execution/NEROS_EXECUTION_STATUS.md",
-      "source_location": "L25",
+      "source_location": "L27",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_execution_neros_execution_status_neros_estado_de_ejecucion",
@@ -36401,7 +37451,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/execution/NEROS_EXECUTION_STATUS.md",
-      "source_location": "L29",
+      "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_execution_neros_execution_status_neros_estado_de_ejecucion",
@@ -36412,7 +37462,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/execution/NEROS_EXECUTION_STATUS.md",
-      "source_location": "L41",
+      "source_location": "L43",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_execution_neros_execution_status_neros_estado_de_ejecucion",
@@ -36423,7 +37473,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/execution/NEROS_EXECUTION_STATUS.md",
-      "source_location": "L15",
+      "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_execution_neros_execution_status_neros_estado_de_ejecucion",
@@ -36434,7 +37484,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/execution/NEROS_EXECUTION_STATUS.md",
-      "source_location": "L33",
+      "source_location": "L35",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_execution_neros_execution_status_neros_estado_de_ejecucion",
@@ -38533,5 +39583,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c104ce9be9625f33ee43ca6c9eb3ae8780c9b276"
+  "built_at_commit": "57efeadf4d1565a683a8aa97e07c353ef380900d"
 }

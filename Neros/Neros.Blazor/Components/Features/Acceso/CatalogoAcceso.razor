@@ -1,0 +1,29 @@
+@inject IStringLocalizer<TextosAcceso> T
+@inject IStringLocalizer<TextosComunes> C
+
+<section id="modulos" class="n-login-catalog" aria-labelledby="modulos-titulo">
+    <div class="n-catalog-inner">
+        <header class="n-catalog-heading">
+            <h2 id="modulos-titulo">@T["Catalogo.Titulo"]</h2>
+            <p>@T["Catalogo.Intro"]</p>
+        </header>
+        <div class="n-catalog-list">
+            @foreach (var modulo in CatalogoModulos.Todos)
+            {
+                <details class="n-catalog-module">
+                    <summary>
+                        <Icono Nombre="@modulo.Icono" />
+                        <span>
+                            <strong>@C[modulo.ClaveNombre]</strong>
+                            <small>@C[modulo.ClaveLema]</small>
+                            <span class="@(modulo.Disponible ? "n-module-available" : "n-module-planned")">@(modulo.Disponible ? C["Modulo.Disponible"] : C["Modulo.EnPreparacion"])</span>
+                        </span>
+                        <Icono Nombre="chevron-down" />
+                    </summary>
+                    <p>@C[modulo.ClaveAlcance]</p>
+                </details>
+            }
+        </div>
+        <p class="n-catalog-note">@T["Catalogo.Nota"]</p>
+    </div>
+</section>

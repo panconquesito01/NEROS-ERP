@@ -110,7 +110,7 @@ API tiene ApiController, validacion automatica y ProblemDetails para excepciones
 
 Rutas activas login, empresas y home, ademas de error/not-found. Tailwind 3.4.17, Lucide local, Manrope externa, temas sistema/claro/oscuro. La navegacion mejorada esta desactivada; el login ahora usa fetch sin recargar al rechazar credenciales. El selector y la salida siguen siendo POST completos.
 
-theme-init.js prepara apariencia; experience.js gestiona formulario, tema, clave, recordatorio de correo, fechas y filtro; login-network.js define un canvas decorativo con pausa, reduced-motion y limpieza de recursos. No hay framework JS empresarial adicional. No se encontro Bootstrap/jQuery en el flujo activo. Los componentes Features/Auth del prototipo no se invocan desde la ruta actual; usan otros patrones e iconify-icon. No reutilizarlos como si fueran el login vigente.
+theme-init.js prepara apariencia; experience.js gestiona formulario, tema, clave, recordatorio de correo, fechas y filtro; login-network.js define un canvas decorativo con pausa, reduced-motion y limpieza de recursos. No hay framework JS empresarial adicional. No se encontro Bootstrap/jQuery en el flujo activo. Los componentes Features/Auth del prototipo y las hojas CSS con ambito huerfanas (MainLayout, NavMenu, Home, Login) se eliminaron el 2026-09-25; el login vigente es Pages/Login.razor.
 
 Hay registro de interactividad Server y ReconnectModal, pero las paginas de negocio revisadas operan en SSR; no hay hub SignalR de negocio. La UI reutiliza Icono, SelectorTema, layouts y estilos; aun faltan tabla paginada, filtros de servidor y formularios de maestros.
 

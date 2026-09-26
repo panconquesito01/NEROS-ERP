@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Titulo" xml:space="preserve"><value>Sign in | Neros ERP</value></data>
+  <data name="Bienvenida" xml:space="preserve"><value>Welcome to</value></data>
+  <data name="Intro" xml:space="preserve"><value>Sign in to your workspace.</value></data>
+  <data name="Correo" xml:space="preserve"><value>Email</value></data>
+  <data name="CorreoEjemplo" xml:space="preserve"><value>name@company.com</value></data>
+  <data name="Clave" xml:space="preserve"><value>Password</value></data>
+  <data name="ClaveEjemplo" xml:space="preserve"><value>Your password</value></data>
+  <data name="BloqueoMayusculas" xml:space="preserve"><value>Caps Lock is on.</value></data>
+  <data name="RecordarCorreo" xml:space="preserve"><value>Remember my email</value></data>
+  <data name="MantenerSesion" xml:space="preserve"><value>Keep me signed in</value></data>
+  <data name="Entrar" xml:space="preserve"><value>Sign in to Neros</value></data>
+  <data name="Verificando" xml:space="preserve"><value>Verifying access...</value></data>
+  <data name="AyudaTitulo" xml:space="preserve"><value>Need to recover access?</value></data>
+  <data name="AyudaDetalle" xml:space="preserve"><value>Contact your company administrator to review your account. If you made several attempts, wait 15 minutes before trying again.</value></data>
+  <data name="Lema" xml:space="preserve"><value>One sign-in. All your companies.</value></data>
+  <data name="Explorar" xml:space="preserve"><value>Explore modules</value></data>
+  <data name="Pie" xml:space="preserve"><value>A space for every company.</value></data>
+  <data name="SesionExpirada" xml:space="preserve"><value>Your session ended. Sign in again to continue where you left off.</value></data>
+  <data name="Mensaje.credenciales" xml:space="preserve"><value>The email or password is incorrect. Check your details; if you have made several attempts, wait 15 minutes before trying again.</value></data>
+  <data name="Mensaje.datos" xml:space="preserve"><value>Enter a valid email and password.</value></data>
+  <data name="Mensaje.solicitud" xml:space="preserve"><value>The request expired. Refresh the page and try again.</value></data>
+  <data name="Mensaje.red" xml:space="preserve"><value>We couldn&apos;t complete the request. Check your connection and try again.</value></data>
+  <data name="Mensaje.conexion" xml:space="preserve"><value>We couldn&apos;t reach the sign-in service. Your password has not been checked. Try again once the connection is restored.</value></data>
+  <data name="Mensaje.servicio" xml:space="preserve"><value>The service is not available right now. Try again in a few minutes.</value></data>
+  <data name="Mensaje.intentos" xml:space="preserve"><value>Too many attempts. Wait a minute before trying again.</value></data>
+  <data name="Mensaje.salida" xml:space="preserve"><value>You have signed out successfully.</value></data>
+  <data name="Catalogo.Titulo" xml:space="preserve"><value>Your business, connected.</value></data>
+  <data name="Catalogo.Intro" xml:space="preserve"><value>Today, all your companies behind one sign-in. Next step: connecting your commercial and financial operations.</value></data>
+  <data name="Catalogo.Nota" xml:space="preserve"><value>Modules in development are not yet available and have no confirmed release date.</value></data>
+</root>

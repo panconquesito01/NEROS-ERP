@@ -193,7 +193,7 @@ public sealed class AccesoMultiempresaTests(EntornoPruebas entorno) : IClassFixt
         });
         await using var context = await browser.NewContextAsync(new BrowserNewContextOptions
         {
-            BaseURL = entorno.Web.BaseAddress!.ToString(), ViewportSize = new ViewportSize { Width = 1440, Height = 960 }, ColorScheme = ColorScheme.Dark
+            BaseURL = entorno.Web.BaseAddress!.ToString(), Locale = "es-ES", ViewportSize = new ViewportSize { Width = 1440, Height = 960 }, ColorScheme = ColorScheme.Dark
         });
         var page = await context.NewPageAsync();
         await page.GotoAsync("/login");
@@ -240,9 +240,7 @@ public sealed class AccesoMultiempresaTests(EntornoPruebas entorno) : IClassFixt
         await page.GetByRole(AriaRole.Button, new() { Name = "Entrar a Neros" }).ClickAsync();
         await page.WaitForURLAsync("**/empresas");
         await Assertions.Expect(page.Locator("[data-company-row]")).ToHaveCountAsync(2);
-        await page.GetByRole(AriaRole.Searchbox).FillAsync("sin coincidencias");
-        await Assertions.Expect(page.Locator("[data-company-empty]")).ToBeVisibleAsync();
-        await page.GetByRole(AriaRole.Searchbox).FillAsync("");
+        await Assertions.Expect(page.GetByRole(AriaRole.Searchbox)).ToHaveCountAsync(0);
         await CapturarAsync(page, "empresas");
         var csrf = await context.APIRequest.PostAsync("/sesion/empresa", new APIRequestContextOptions
         {
@@ -250,12 +248,13 @@ public sealed class AccesoMultiempresaTests(EntornoPruebas entorno) : IClassFixt
             Headers = new Dictionary<string, string> { ["Content-Type"] = "application/x-www-form-urlencoded" }
         });
         Assert.Equal(400, csrf.Status);
-        await page.GetByRole(AriaRole.Button, new() { Name = "ND Neros Distribucion (prueba)", Exact = false }).ClickAsync();
+        await page.GetByRole(AriaRole.Button, new() { Name = "Entrar a Neros Distribucion (prueba)", Exact = true }).ClickAsync();
         await page.WaitForURLAsync("**/home");
         await Assertions.Expect(page.GetByRole(AriaRole.Heading, new() { Name = "Neros Distribucion (prueba)", Exact = true })).ToBeVisibleAsync();
         await CapturarAsync(page, "inicio");
         await page.GetByRole(AriaRole.Link, new() { Name = "Cambiar empresa", Exact = true }).ClickAsync();
-        await page.GetByRole(AriaRole.Button, new() { Name = "NS Neros Servicios (prueba)", Exact = false }).ClickAsync();
+        await Assertions.Expect(page.GetByRole(AriaRole.Link, new() { Name = "Continuar en Neros Distribucion (prueba), empresa activa", Exact = true })).ToBeVisibleAsync();
+        await page.GetByRole(AriaRole.Button, new() { Name = "Entrar a Neros Servicios (prueba)", Exact = true }).ClickAsync();
         await page.WaitForURLAsync("**/home");
         await Assertions.Expect(page.GetByRole(AriaRole.Heading, new() { Name = "Neros Servicios (prueba)", Exact = true })).ToBeVisibleAsync();
         await page.GetByRole(AriaRole.Button, new() { Name = "Tema del sistema", Exact = true }).ClickAsync();
@@ -268,7 +267,7 @@ public sealed class AccesoMultiempresaTests(EntornoPruebas entorno) : IClassFixt
 
         await using var contextoBasico = await browser.NewContextAsync(new BrowserNewContextOptions
         {
-            BaseURL = entorno.Web.BaseAddress!.ToString(), JavaScriptEnabled = false
+            BaseURL = entorno.Web.BaseAddress!.ToString(), Locale = "es-ES", JavaScriptEnabled = false
         });
         var paginaBasica = await contextoBasico.NewPageAsync();
         await paginaBasica.GotoAsync("/login");
@@ -297,6 +296,61 @@ public sealed class AccesoMultiempresaTests(EntornoPruebas entorno) : IClassFixt
         Assert.True(limiteAlcanzado);
     }
 
+    [Fact]
+    [Trait("Categoria", "Navegador")]
+    public async Task NavegadorEligeYConservaIdiomaAsync()
+    {
+        var cuenta = await entorno.CrearCuentaAsync();
+        using var playwright = await Playwright.CreateAsync();
+        await using var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+        {
+            Headless = true, Channel = OperatingSystem.IsWindows() ? "msedge" : null
+        });
+        await using var context = await browser.NewContextAsync(new BrowserNewContextOptions
+        {
+            BaseURL = entorno.Web.BaseAddress!.ToString(), Locale = "en-US", ViewportSize = new ViewportSize { Width = 1440, Height = 960 }
+        });
+        var page = await context.NewPageAsync();
+        await page.GotoAsync("/login?ReturnUrl=%2Fempresas");
+        await Assertions.Expect(page.Locator("html")).ToHaveAttributeAsync("lang", "en");
+        await Assertions.Expect(page.GetByRole(AriaRole.Heading, new() { Level = 1 })).ToHaveTextAsync("Welcome to Neros.");
+        await page.GetByRole(AriaRole.Button, new() { Name = "Show password", Exact = true }).ClickAsync();
+        await Assertions.Expect(page.GetByRole(AriaRole.Button, new() { Name = "Hide password", Exact = true })).ToBeVisibleAsync();
+        await CapturarAsync(page, "login-en", ("Light theme", "Dark theme"));
+
+        await page.SetViewportSizeAsync(1440, 960);
+        await page.Locator("[data-language-menu] summary").ClickAsync();
+        await Assertions.Expect(page.GetByRole(AriaRole.Button, new() { Name = "English" })).ToHaveAttributeAsync("aria-current", "true");
+        await page.Keyboard.PressAsync("Escape");
+        await Assertions.Expect(page.Locator("[data-language-menu]")).Not.ToHaveAttributeAsync("open", "");
+        await page.Locator("[data-language-menu] summary").ClickAsync();
+        await page.ScreenshotAsync(new PageScreenshotOptions
+        {
+            Path = Path.Combine(CarpetaCapturas(), "login-en-idiomas.png"), Animations = ScreenshotAnimations.Disabled
+        });
+        await page.GetByRole(AriaRole.Button, new() { Name = "Português" }).ClickAsync();
+        await Assertions.Expect(page.Locator("html")).ToHaveAttributeAsync("lang", "pt");
+        await Assertions.Expect(page.GetByRole(AriaRole.Heading, new() { Level = 1 })).ToHaveTextAsync("Bem-vindo ao Neros.");
+        Assert.EndsWith("/login?ReturnUrl=%2Fempresas", page.Url);
+
+        await page.Locator("[data-language-menu] summary").ClickAsync();
+        await page.GetByRole(AriaRole.Button, new() { Name = "Español" }).ClickAsync();
+        await Assertions.Expect(page.GetByRole(AriaRole.Heading, new() { Level = 1 })).ToHaveTextAsync("Bienvenido a Neros.");
+        await page.GetByLabel("Correo electrónico", new() { Exact = true }).FillAsync(cuenta.Correo);
+        await page.GetByLabel("Contraseña", new() { Exact = true }).FillAsync(cuenta.Clave);
+        await page.GetByRole(AriaRole.Button, new() { Name = "Entrar a Neros" }).ClickAsync();
+        await page.WaitForURLAsync("**/empresas");
+        await Assertions.Expect(page.GetByRole(AriaRole.Heading, new() { Name = "Mis empresas", Level = 1 })).ToBeVisibleAsync();
+        await Assertions.Expect(page.GetByRole(AriaRole.Button, new() { Name = "Entrar a Neros Distribucion (prueba)", Exact = true })).ToBeVisibleAsync();
+
+        var idiomaSinToken = await context.APIRequest.PostAsync("/idioma", new APIRequestContextOptions
+        {
+            Data = "Cultura=en&Volver=%2Flogin",
+            Headers = new Dictionary<string, string> { ["Content-Type"] = "application/x-www-form-urlencoded" }
+        });
+        Assert.Equal(400, idiomaSinToken.Status);
+    }
+
     private HttpClient ClienteAutorizado(AccesoConcedido acceso)
     {
         var cliente = entorno.Api.CreateClient();
@@ -305,18 +359,23 @@ public sealed class AccesoMultiempresaTests(EntornoPruebas entorno) : IClassFixt
         return cliente;
     }
 
-    private static async Task CapturarAsync(IPage page, string vista)
+    private static string CarpetaCapturas()
     {
         var root = new DirectoryInfo(AppContext.BaseDirectory);
         while (root is not null && !File.Exists(Path.Combine(root.FullName, "Neros.slnx"))) root = root.Parent;
-        var carpeta = Path.Combine(root!.FullName, ".impeccable", "review");
-        Directory.CreateDirectory(carpeta);
+        return Directory.CreateDirectory(Path.Combine(root!.FullName, ".impeccable", "review")).FullName;
+    }
+
+    private static async Task CapturarAsync(IPage page, string vista, (string Claro, string Oscuro)? temas = null)
+    {
+        var (temaClaro, temaOscuro) = temas ?? ("Tema claro", "Tema oscuro");
+        var carpeta = CarpetaCapturas();
         foreach (var ancho in new[] { 1440, 390 })
         {
             await page.SetViewportSizeAsync(ancho, ancho == 1440 ? 960 : 844);
-            foreach (var tema in new[] { "claro", "oscuro" })
+            foreach (var (tema, etiqueta) in new[] { ("claro", temaClaro), ("oscuro", temaOscuro) })
             {
-                await page.GetByRole(AriaRole.Button, new() { Name = $"Tema {tema}", Exact = true }).ClickAsync();
+                await page.GetByRole(AriaRole.Button, new() { Name = etiqueta, Exact = true }).ClickAsync();
                 await page.EvaluateAsync("() => document.fonts.ready");
                 Assert.False(await page.EvaluateAsync<bool>("() => document.documentElement.scrollWidth > innerWidth"));
                 var icono = await page.Locator(".n-icon").First.EvaluateAsync<string>("element => getComputedStyle(element).maskImage");

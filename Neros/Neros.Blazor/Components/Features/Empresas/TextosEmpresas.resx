@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Titulo" xml:space="preserve"><value>Mis empresas | Neros ERP</value></data>
+  <data name="Encabezado" xml:space="preserve"><value>Mis empresas</value></data>
+  <data name="SubtituloSinActiva" xml:space="preserve"><value>Elige dónde vas a trabajar hoy.</value></data>
+  <data name="SubtituloConActiva" xml:space="preserve"><value>Continúa en tu empresa activa o cambia a otra.</value></data>
+  <data name="ContadorUno" xml:space="preserve"><value>{0} empresa</value></data>
+  <data name="ContadorVarios" xml:space="preserve"><value>{0} empresas</value></data>
+  <data name="Buscar" xml:space="preserve"><value>Buscar empresa</value></data>
+  <data name="BuscarEjemplo" xml:space="preserve"><value>Buscar por nombre, código o identificación</value></data>
+  <data name="SinCoincidencias" xml:space="preserve"><value>No hay empresas que coincidan con tu búsqueda.</value></data>
+  <data name="VacioTitulo" xml:space="preserve"><value>Aún no tienes empresas asignadas</value></data>
+  <data name="VacioDetalle" xml:space="preserve"><value>Solicita al administrador de tu organización que te asigne una empresa y un rol. Cuando lo haga, aparecerá aquí.</value></data>
+  <data name="VacioConsultar" xml:space="preserve"><value>Volver a consultar</value></data>
+  <data name="ErrorPermiso" xml:space="preserve"><value>No tienes acceso a esa empresa o dejó de estar disponible.</value></data>
+  <data name="ErrorServicio" xml:space="preserve"><value>No pudimos cambiar de empresa. Inténtalo nuevamente.</value></data>
+  <data name="ErrorCarga" xml:space="preserve"><value>No pudimos cargar tus empresas. Inténtalo nuevamente en unos minutos.</value></data>
+  <data name="ErrorTiempo" xml:space="preserve"><value>La consulta tardó más de lo esperado. Vuelve a intentar.</value></data>
+  <data name="FilaContinuarEtiqueta" xml:space="preserve"><value>Continuar en {0}, empresa activa</value></data>
+  <data name="FilaActiva" xml:space="preserve"><value>Activa</value></data>
+  <data name="FilaContinuar" xml:space="preserve"><value>· Continuar</value></data>
+  <data name="FilaEntrarEtiqueta" xml:space="preserve"><value>Entrar a {0}</value></data>
+  <data name="FilaEntrar" xml:space="preserve"><value>Entrar</value></data>
+  <data name="FilaEntrando" xml:space="preserve"><value>Entrando...</value></data>
+</root>

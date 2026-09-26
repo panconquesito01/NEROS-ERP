@@ -1,0 +1,26 @@
+﻿@page "/Error"
+@layout AuthLayout
+@using System.Diagnostics
+@inject IStringLocalizer<TextosSistema> T
+
+<PageTitle>@T["ErrorTitulo"]</PageTitle>
+
+<PaginaEstado NombreIcono="triangle-alert" Codigo="@T["ErrorCodigo"]" Titulo="@T["ErrorEncabezado"]" EsError="true">
+    <ChildContent>@T["ErrorDetalle"]</ChildContent>
+    <Detalle>
+        @if (!string.IsNullOrEmpty(RequestId))
+        {
+            <p class="n-status-reference">@T["ErrorReferencia"] <code>@RequestId</code></p>
+        }
+    </Detalle>
+</PaginaEstado>
+
+@code {
+    [CascadingParameter]
+    private HttpContext? HttpContext { get; set; }
+
+    private string? RequestId { get; set; }
+
+    protected override void OnInitialized() =>
+        RequestId = Activity.Current?.Id ?? HttpContext?.TraceIdentifier;
+}

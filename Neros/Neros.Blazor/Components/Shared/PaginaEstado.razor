@@ -1,0 +1,28 @@
+﻿@inject IStringLocalizer<TextosComunes> C
+
+<div class="n-status-page">
+    <header class="n-login-header">
+        <Marca />
+        <Preferencias />
+    </header>
+    <section class="n-status n-enter" aria-labelledby="estado-titulo">
+        <span class="n-status-icon @(EsError ? "n-status-error" : null)"><Icono Nombre="@NombreIcono" /></span>
+        <p class="n-status-code">@Codigo</p>
+        <h1 id="estado-titulo">@Titulo</h1>
+        <p>@ChildContent</p>
+        @Detalle
+        <div class="n-status-actions">
+            <a class="n-button n-primary" href="/home"><Icono Nombre="house" />@C["Estado.IrInicio"]</a>
+            <a class="n-button n-secondary" href="/empresas"><Icono Nombre="building-2" />@C["Estado.MisEmpresas"]</a>
+        </div>
+    </section>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public string NombreIcono { get; set; } = string.Empty;
+    [Parameter, EditorRequired] public string Codigo { get; set; } = string.Empty;
+    [Parameter, EditorRequired] public string Titulo { get; set; } = string.Empty;
+    [Parameter] public bool EsError { get; set; }
+    [Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
+    [Parameter] public RenderFragment? Detalle { get; set; }
+}

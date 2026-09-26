@@ -1,0 +1,28 @@
+@inject NavigationManager Navigation
+@inject IStringLocalizer<TextosComunes> C
+
+<details class="n-language" data-language-menu>
+    <summary aria-label="@($"{C["Idioma.Cambiar"]}: {Actual.NombreNativo}")" title="@C["Idioma.Cambiar"]">
+        <Icono Nombre="languages" /><span>@Actual.Codigo.ToUpperInvariant()</span>
+    </summary>
+    <form class="n-language-menu" method="post" action="/idioma" data-enhance="false">
+        <AntiforgeryToken />
+        <input type="hidden" name="Volver" value="@Volver" />
+        @foreach (var idioma in Idiomas.Disponibles)
+        {
+            var seleccionado = idioma.Codigo == Actual.Codigo;
+            <button type="submit" name="Cultura" value="@idioma.Codigo" lang="@idioma.Codigo" aria-current="@(seleccionado ? "true" : null)">
+                <span>@idioma.NombreNativo</span>
+                @if (seleccionado)
+                {
+                    <Icono Nombre="check" />
+                }
+            </button>
+        }
+    </form>
+</details>
+
+@code {
+    private Idioma Actual => Idiomas.Actual;
+    private string Volver => "/" + Navigation.ToBaseRelativePath(Navigation.Uri);
+}

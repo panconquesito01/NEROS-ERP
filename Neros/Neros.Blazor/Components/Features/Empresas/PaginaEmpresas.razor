@@ -1,0 +1,89 @@
+@page "/empresas"
+@attribute [Authorize]
+@inject ClienteNeros Cliente
+@inject IHttpContextAccessor ContextAccessor
+@inject IStringLocalizer<TextosEmpresas> T
+
+<PageTitle>@T["Titulo"]</PageTitle>
+
+<section class="n-page n-enter" aria-labelledby="empresas-titulo">
+    <header class="n-page-heading">
+        <div>
+            <h1 id="empresas-titulo">@T["Encabezado"]</h1>
+            <p>@(EmpresaActivaId is null ? T["SubtituloSinActiva"] : T["SubtituloConActiva"])</p>
+        </div>
+        @if (empresas.Count > 0)
+        {
+            <span class="n-badge">@T[empresas.Count == 1 ? "ContadorUno" : "ContadorVarios", empresas.Count]</span>
+        }
+    </header>
+    @if (error is not null)
+    {
+        <Aviso ReintentarHref="/empresas">@error</Aviso>
+    }
+    @if (empresas.Count > 0)
+    {
+        @if (empresas.Count >= UmbralBusqueda)
+        {
+            <div class="n-company-toolbar">
+                <label class="n-input-icon n-search">
+                    <Icono Nombre="search" />
+                    <span class="sr-only">@T["Buscar"]</span>
+                    <input type="search" placeholder="@T["BuscarEjemplo"]" data-company-search autocomplete="off" spellcheck="false" aria-describedby="empresas-resultado" />
+                    <kbd class="n-kbd" aria-hidden="true">/</kbd>
+                </label>
+                <p id="empresas-resultado" class="n-search-result" role="status" data-company-count data-total="@empresas.Count"></p>
+            </div>
+        }
+        <ul class="n-company-list" role="list">
+            @foreach (var empresa in empresas)
+            {
+                <FilaEmpresa Empresa="empresa" Activa="@(empresa.Id == EmpresaActivaId)" />
+            }
+        </ul>
+        <EstadoVacio NombreIcono="search-x" Clase="n-empty-search" data-company-empty hidden>
+            @T["SinCoincidencias"]
+        </EstadoVacio>
+    }
+    else if (error is null)
+    {
+        <EstadoVacio NombreIcono="building-2" Titulo="@T["VacioTitulo"]">
+            <ChildContent>@T["VacioDetalle"]</ChildContent>
+            <Acciones><a class="n-button n-secondary" href="/empresas"><Icono Nombre="refresh-cw" />@T["VacioConsultar"]</a></Acciones>
+        </EstadoVacio>
+    }
+</section>
+
+@code {
+    private const int UmbralBusqueda = 6;
+
+    [SupplyParameterFromQuery(Name = "estado")] public string? Estado { get; set; }
+    private IReadOnlyList<EmpresaDisponible> empresas = [];
+    private string? error;
+
+    private Guid? EmpresaActivaId =>
+        Guid.TryParse(ContextAccessor.HttpContext?.User.FindFirstValue(EndpointsSesion.EmpresaClaim), out var id) ? id : null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        error = Estado switch
+        {
+            "permiso" => T["ErrorPermiso"].Value,
+            "servicio" => T["ErrorServicio"].Value,
+            _ => null
+        };
+        try
+        {
+            var context = ContextAccessor.HttpContext!;
+            empresas = await Cliente.EmpresasAsync(context.User.FindFirstValue(EndpointsSesion.TokenClaim)!, context.RequestAborted);
+        }
+        catch (HttpRequestException)
+        {
+            error = T["ErrorCarga"];
+        }
+        catch (TaskCanceledException)
+        {
+            error = T["ErrorTiempo"];
+        }
+    }
+}

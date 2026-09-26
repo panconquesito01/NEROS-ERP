@@ -70,7 +70,8 @@ class RedAcceso extends HTMLElement {
         const detenido = this.pausado || this.reducido.matches;
         this.boton.disabled = this.reducido.matches;
         this.boton.setAttribute('aria-pressed', String(detenido));
-        const etiqueta = this.reducido.matches ? 'Movimiento reducido activado' : detenido ? 'Reanudar animacion' : 'Pausar animacion';
+        const clave = this.reducido.matches ? 'MovimientoReducido' : detenido ? 'ReanudarAnimacion' : 'PausarAnimacion';
+        const etiqueta = window.nerosTexto?.(clave) ?? clave;
         this.boton.setAttribute('aria-label', etiqueta);
         this.boton.title = etiqueta;
         this.boton.querySelector('.n-icon').style.setProperty('--icon', `url('/icons/${detenido ? 'play' : 'pause'}.svg')`);

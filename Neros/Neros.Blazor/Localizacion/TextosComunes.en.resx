@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Comun.IrAlContenido" xml:space="preserve"><value>Skip to content</value></data>
+  <data name="Comun.ErrorActualizar" xml:space="preserve"><value>The page could not be updated.</value></data>
+  <data name="Comun.Recargar" xml:space="preserve"><value>Reload</value></data>
+  <data name="Comun.Reintentar" xml:space="preserve"><value>Try again</value></data>
+  <data name="Marca.Inicio" xml:space="preserve"><value>Neros ERP, home</value></data>
+  <data name="Layout.Ubicacion" xml:space="preserve"><value>Location</value></data>
+  <data name="Layout.CambiarEmpresa" xml:space="preserve"><value>Switch company</value></data>
+  <data name="Layout.SeleccionarEmpresa" xml:space="preserve"><value>Select company</value></data>
+  <data name="Layout.CerrarSesion" xml:space="preserve"><value>Sign out</value></data>
+  <data name="Layout.Salir" xml:space="preserve"><value>Sign out</value></data>
+  <data name="Layout.SesionDe" xml:space="preserve"><value>Signed in as {0}</value></data>
+  <data name="Nav.Principal" xml:space="preserve"><value>Main navigation</value></data>
+  <data name="Nav.EspacioTrabajo" xml:space="preserve"><value>Workspace</value></data>
+  <data name="Nav.SinEmpresa" xml:space="preserve"><value>No active company</value></data>
+  <data name="Nav.EmpresaActiva" xml:space="preserve"><value>Active company</value></data>
+  <data name="Seccion.Inicio" xml:space="preserve"><value>Home</value></data>
+  <data name="Seccion.Empresas" xml:space="preserve"><value>My companies</value></data>
+  <data name="Tema.Grupo" xml:space="preserve"><value>Appearance</value></data>
+  <data name="Tema.Sistema" xml:space="preserve"><value>System theme</value></data>
+  <data name="Tema.Claro" xml:space="preserve"><value>Light theme</value></data>
+  <data name="Tema.Oscuro" xml:space="preserve"><value>Dark theme</value></data>
+  <data name="Idioma.Cambiar" xml:space="preserve"><value>Change language</value></data>
+  <data name="Estado.IrInicio" xml:space="preserve"><value>Go to home</value></data>
+  <data name="Estado.MisEmpresas" xml:space="preserve"><value>My companies</value></data>
+  <data name="Sesion.Terminada.Titulo" xml:space="preserve"><value>Your session has ended</value></data>
+  <data name="Sesion.Terminada.Detalle" xml:space="preserve"><value>For your security, sign in again to continue.</value></data>
+  <data name="Sesion.Terminada.Volver" xml:space="preserve"><value>Back to sign in</value></data>
+  <data name="Solicitud.Vencida" xml:space="preserve"><value>The request expired. Reload the page and try again.</value></data>
+  <data name="Modulo.Disponible" xml:space="preserve"><value>Available</value></data>
+  <data name="Modulo.EnPreparacion" xml:space="preserve"><value>In development</value></data>
+  <data name="Modulo.Multiempresa.Nombre" xml:space="preserve"><value>Multi-company access</value></data>
+  <data name="Modulo.Multiempresa.Lema" xml:space="preserve"><value>Your companies. One place.</value></data>
+  <data name="Modulo.Multiempresa.Alcance" xml:space="preserve"><value>Sign in with your account, choose an authorized company and switch context without signing out. Review your recent access activity.</value></data>
+  <data name="Modulo.Ventas.Nombre" xml:space="preserve"><value>Sales and invoicing</value></data>
+  <data name="Modulo.Ventas.Lema" xml:space="preserve"><value>From first contact to payment.</value></data>
+  <data name="Modulo.Ventas.Alcance" xml:space="preserve"><value>We plan to connect quotes, orders, deliveries and returns. Tax invoicing will depend on each country and its enablement.</value></data>
+  <data name="Modulo.Inventarios.Nombre" xml:space="preserve"><value>Inventory</value></data>
+  <data name="Modulo.Inventarios.Lema" xml:space="preserve"><value>Every product in its place.</value></data>
+  <data name="Modulo.Inventarios.Alcance" xml:space="preserve"><value>Products, warehouses, movements and counts planned to give visibility into stock and support purchasing decisions.</value></data>
+  <data name="Modulo.Compras.Nombre" xml:space="preserve"><value>Purchasing and suppliers</value></data>
+  <data name="Modulo.Compras.Lema" xml:space="preserve"><value>Supply with more context.</value></data>
+  <data name="Modulo.Compras.Alcance" xml:space="preserve"><value>The proposed scope includes requests, orders, receipts and returns, with tracking of each supplier and purchase.</value></data>
+  <data name="Modulo.Finanzas.Nombre" xml:space="preserve"><value>Finance and accounting</value></data>
+  <data name="Modulo.Finanzas.Lema" xml:space="preserve"><value>A clearer view of your money.</value></data>
+  <data name="Modulo.Finanzas.Alcance" xml:space="preserve"><value>Receivables, payables, treasury and accounting are part of the planned roadmap, with controls by company and period.</value></data>
+  <data name="Modulo.Informes.Nombre" xml:space="preserve"><value>Management and reports</value></data>
+  <data name="Modulo.Informes.Lema" xml:space="preserve"><value>Information to decide.</value></data>
+  <data name="Modulo.Informes.Alcance" xml:space="preserve"><value>Operational and management reports planned to relate activity to results. Cross-company consolidation is not yet available.</value></data>
+  <data name="Reconexion.Intentando" xml:space="preserve"><value>Reconnecting to the server...</value></data>
+  <data name="Reconexion.Reintento" xml:space="preserve"><value>Could not reconnect. Retrying in</value></data>
+  <data name="Reconexion.Segundos" xml:space="preserve"><value>seconds.</value></data>
+  <data name="Reconexion.Fallo" xml:space="preserve"><value>Could not reconnect.</value></data>
+  <data name="Reconexion.RecargaSugerida" xml:space="preserve"><value>Try again or reload the page.</value></data>
+  <data name="Reconexion.Reintentar" xml:space="preserve"><value>Try again</value></data>
+  <data name="Reconexion.Pausada" xml:space="preserve"><value>The server paused the session.</value></data>
+  <data name="Reconexion.ReanudarFallo" xml:space="preserve"><value>Could not resume the session.</value></data>
+  <data name="Reconexion.Reanudar" xml:space="preserve"><value>Resume</value></data>
+  <data name="Js.HaceUnMomento" xml:space="preserve"><value>Just now</value></data>
+  <data name="Js.CoincidenciasEmpresas" xml:space="preserve"><value>{0} of {1} companies</value></data>
+  <data name="Js.MostrarClave" xml:space="preserve"><value>Show password</value></data>
+  <data name="Js.OcultarClave" xml:space="preserve"><value>Hide password</value></data>
+  <data name="Js.PausarAnimacion" xml:space="preserve"><value>Pause animation</value></data>
+  <data name="Js.ReanudarAnimacion" xml:space="preserve"><value>Resume animation</value></data>
+  <data name="Js.MovimientoReducido" xml:space="preserve"><value>Reduced motion enabled</value></data>
+</root>

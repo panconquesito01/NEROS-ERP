@@ -1,0 +1,12 @@
+@inject IStringLocalizer<TextosInicio> T
+
+<section class="n-company-context" aria-label="@T["ContextoEtiqueta"]">
+    <span class="n-company-monogram">@Presentacion.Monograma(Empresa.Codigo)</span>
+    <div class="n-context-name"><span class="n-active-badge"><Icono Nombre="check" />@T["ContextoEtiqueta"]</span><h2>@Empresa.Nombre</h2><p>@Empresa.Codigo · @Empresa.Identificacion</p></div>
+    <div class="n-context-role"><span>@T["ContextoRol"]</span><strong>@Empresa.Rol</strong></div>
+    <a class="n-button n-secondary" href="/empresas"><Icono Nombre="arrow-left-right" />@T["ContextoCambiar"]</a>
+</section>
+
+@code {
+    [Parameter, EditorRequired] public EmpresaDisponible Empresa { get; set; } = default!;
+}

@@ -1,0 +1,13 @@
+@using System.Text.Json
+@inject IStringLocalizer<TextosComunes> C
+
+<script type="application/json" id="neros-textos">@((MarkupString)Json)</script>
+
+@code {
+    private const string Prefijo = "Js.";
+
+    private string Json => JsonSerializer.Serialize(
+        C.GetAllStrings(includeParentCultures: true)
+            .Where(texto => texto.Name.StartsWith(Prefijo, StringComparison.Ordinal))
+            .ToDictionary(texto => texto.Name[Prefijo.Length..], texto => texto.Value));
+}

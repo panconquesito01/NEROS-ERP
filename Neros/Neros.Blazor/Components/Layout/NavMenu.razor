@@ -1,20 +1,31 @@
 @inject IHttpContextAccessor ContextAccessor
+@inject IStringLocalizer<TextosComunes> C
 
-<a class="n-brand n-sidebar-brand" href="/home" aria-label="Neros ERP, inicio"><span class="n-brand-mark"><span class="n-brand-emblem" aria-hidden="true"></span></span><span>neros<span class="n-brand-erp">ERP</span></span></a>
-<a class="n-company-switch" href="/empresas">
-    <Icono Nombre="building-2" />
-    <span><small>Empresa activa</small><strong>@(Usuario.FindFirstValue(EndpointsSesion.NombreEmpresaClaim) ?? "Seleccionar empresa")</strong></span>
+<Marca Clase="n-sidebar-brand" />
+<a class="n-company-switch" href="/empresas" title="@C["Layout.CambiarEmpresa"]">
+    @if (NombreEmpresa is null)
+    {
+        <span class="n-company-switch-mark"><Icono Nombre="building-2" /></span>
+        <span><small>@C["Nav.SinEmpresa"]</small><strong>@C["Layout.SeleccionarEmpresa"]</strong></span>
+    }
+    else
+    {
+        <span class="n-company-switch-mark">@Presentacion.Iniciales(NombreEmpresa)</span>
+        <span><small>@C["Nav.EmpresaActiva"]</small><strong>@NombreEmpresa</strong></span>
+    }
     <Icono Nombre="chevrons-up-down" />
 </a>
-<nav class="n-navigation" aria-label="Navegación principal">
-    <NavLink class="n-nav-link" href="home" Match="NavLinkMatch.All"><Icono Nombre="house" />Inicio</NavLink>
-    <NavLink class="n-nav-link" href="empresas"><Icono Nombre="building-2" />Mis empresas</NavLink>
+<nav class="n-navigation" aria-label="@C["Nav.Principal"]">
+    <span class="n-nav-label" aria-hidden="true">@C["Nav.EspacioTrabajo"]</span>
+    <NavLink class="n-nav-link" href="home" Match="NavLinkMatch.All"><Icono Nombre="house" /><span>@C["Seccion.Inicio"]</span></NavLink>
+    <NavLink class="n-nav-link" href="empresas"><Icono Nombre="building-2" /><span>@C["Seccion.Empresas"]</span></NavLink>
 </nav>
 <div class="n-sidebar-user">
-    <span class="n-avatar"><Icono Nombre="user-round" /></span>
-    <span><strong>@Usuario.Identity?.Name</strong><small>@Usuario.FindFirstValue(ClaimTypes.Email)</small></span>
+    <span class="n-avatar" aria-hidden="true">@Presentacion.Iniciales(Usuario.Identity?.Name)</span>
+    <span><strong>@Usuario.Identity?.Name</strong><small title="@Usuario.FindFirstValue(ClaimTypes.Email)">@Usuario.FindFirstValue(ClaimTypes.Email)</small></span>
 </div>
 
 @code {
     private ClaimsPrincipal Usuario => ContextAccessor.HttpContext?.User ?? new ClaimsPrincipal();
+    private string? NombreEmpresa => Usuario.FindFirstValue(EndpointsSesion.NombreEmpresaClaim);
 }

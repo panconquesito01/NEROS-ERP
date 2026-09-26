@@ -1,0 +1,9 @@
+﻿@page "/not-found"
+@layout AuthLayout
+@inject IStringLocalizer<TextosSistema> T
+
+<PageTitle>@T["NoEncontradoTitulo"]</PageTitle>
+
+<PaginaEstado NombreIcono="compass" Codigo="@T["NoEncontradoCodigo"]" Titulo="@T["NoEncontradoEncabezado"]">
+    @T["NoEncontradoDetalle"]
+</PaginaEstado>

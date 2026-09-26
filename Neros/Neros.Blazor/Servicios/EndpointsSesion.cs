@@ -4,6 +4,8 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.Extensions.Localization;
+using Neros.Blazor.Localizacion;
 using Neros.Contracts.Autenticacion;
 
 namespace Neros.Blazor.Servicios;
@@ -45,18 +47,25 @@ public static class EndpointsSesion
             {
                 return RechazarAcceso(context, "credenciales", StatusCodes.Status401Unauthorized);
             }
-            var principal = new ClaimsPrincipal(new ClaimsIdentity(
+            List<Claim> claims =
             [
                 new Claim(ClaimTypes.NameIdentifier, acceso.Usuario.Id),
                 new Claim(ClaimTypes.Name, acceso.Usuario.Nombre),
                 new Claim(ClaimTypes.Email, acceso.Usuario.Correo),
                 new Claim(TokenClaim, acceso.Token)
-            ], CookieAuthenticationDefaults.AuthenticationScheme));
-            await context.SignInAsync(principal, new AuthenticationProperties
+            ];
+            var empresaUnica = await SeleccionarEmpresaUnicaAsync(cliente, acceso.Token, logger, context.RequestAborted);
+            if (empresaUnica is not null)
+            {
+                claims.Add(new Claim(EmpresaClaim, empresaUnica.Id.ToString()));
+                claims.Add(new Claim(NombreEmpresaClaim, empresaUnica.Nombre));
+            }
+            await context.SignInAsync(new ClaimsPrincipal(new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme)), new AuthenticationProperties
             {
                 IsPersistent = solicitud.Recordarme, ExpiresUtc = acceso.Expira, AllowRefresh = false
             });
-            return SolicitaJson(context) ? Results.NoContent() : Results.LocalRedirect("/empresas");
+            var destino = empresaUnica is null ? "/empresas" : DestinoLocal(form["Destino"]) ?? "/home";
+            return SolicitaJson(context) ? Results.Json(new { destino }) : Results.LocalRedirect(destino);
         }
         catch (HttpRequestException error)
         {
@@ -77,11 +86,40 @@ public static class EndpointsSesion
         }
     }
 
+    private static async Task<EmpresaDisponible?> SeleccionarEmpresaUnicaAsync(ClienteNeros cliente, string token, ILogger logger, CancellationToken cancellationToken)
+    {
+        try
+        {
+            var empresas = await cliente.EmpresasAsync(token, cancellationToken);
+            return empresas.Count == 1 ? await cliente.SeleccionarAsync(token, empresas[0].Id, cancellationToken) : null;
+        }
+        catch (HttpRequestException error)
+        {
+            logger.LogWarning("Acceso: no se pudo preseleccionar la empresa. Estado HTTP {Estado}", error.StatusCode);
+            return null;
+        }
+        catch (TaskCanceledException) when (!cancellationToken.IsCancellationRequested)
+        {
+            logger.LogWarning("Acceso: la preseleccion de empresa excedio el tiempo de respuesta");
+            return null;
+        }
+    }
+
+    private static string? DestinoLocal(string? destino) =>
+        RutaLocal.Validar(destino) is { Length: > 1 } ruta
+            && !ruta.StartsWith("/sesion", StringComparison.OrdinalIgnoreCase) && !ruta.StartsWith("/login", StringComparison.OrdinalIgnoreCase)
+            && !ruta.StartsWith("/idioma", StringComparison.OrdinalIgnoreCase)
+            ? ruta
+            : null;
+
+    private static IResult SolicitudVencida(HttpContext context) =>
+        Results.BadRequest(context.RequestServices.GetRequiredService<IStringLocalizer<TextosComunes>>()["Solicitud.Vencida"].Value);
+
     internal static IResult RechazarAcceso(HttpContext context, string estado, int codigoHttp)
     {
         if (SolicitaJson(context)) return Results.Json(new { estado }, statusCode: codigoHttp);
         return estado == "solicitud"
-            ? Results.BadRequest("La solicitud vencio. Recarga la pagina e intentalo de nuevo.")
+            ? SolicitudVencida(context)
             : Results.LocalRedirect($"/login?estado={estado}");
     }
 
@@ -92,7 +130,7 @@ public static class EndpointsSesion
     {
         if (!await ValidarFormularioAsync(context, antiforgery))
         {
-            return Results.BadRequest("La solicitud vencio. Recarga la pagina e intentalo de nuevo.");
+            return SolicitudVencida(context);
         }
         var form = await context.Request.ReadFormAsync(context.RequestAborted);
         if (!Guid.TryParse(form["EmpresaId"], out var empresaId))
@@ -127,7 +165,7 @@ public static class EndpointsSesion
     {
         if (!await ValidarFormularioAsync(context, antiforgery))
         {
-            return Results.BadRequest("La solicitud vencio. Recarga la pagina e intentalo de nuevo.");
+            return SolicitudVencida(context);
         }
         try
         {

@@ -1,0 +1,79 @@
+@page "/"
+@page "/login"
+@layout AuthLayout
+@attribute [Microsoft.AspNetCore.Authorization.AllowAnonymous]
+@inject IStringLocalizer<TextosAcceso> T
+@inject IStringLocalizer<TextosComunes> C
+
+<PageTitle>@T["Titulo"]</PageTitle>
+
+<div class="n-login">
+    <neros-red class="n-login-network" aria-hidden="true"></neros-red>
+    <header class="n-login-header">
+        <Marca Href="/login" />
+        <Preferencias />
+    </header>
+    <div class="n-login-content">
+        <section class="n-access n-enter" aria-labelledby="acceso-titulo">
+            <header class="n-access-heading">
+                <div class="n-access-title">
+                    <h1 id="acceso-titulo">@T["Bienvenida"] <span>Neros.</span></h1>
+                    <span class="n-access-symbol" aria-hidden="true"><Icono Nombre="log-in" /></span>
+                </div>
+                <p class="n-access-intro">@T["Intro"]</p>
+            </header>
+            <div class="n-notice @ClaseAviso" role="@(ClaseAviso == "n-error" ? "alert" : "status")" hidden="@(Mensaje is null)" data-login-result
+                 data-credenciales="@MensajeAcceso("credenciales")" data-datos="@MensajeAcceso("datos")"
+                 data-conexion="@MensajeAcceso("conexion")" data-servicio="@MensajeAcceso("servicio")"
+                 data-intentos="@MensajeAcceso("intentos")" data-solicitud="@MensajeAcceso("solicitud")" data-red="@MensajeAcceso("red")"><Icono Nombre="info" /><p>@Mensaje</p></div>
+            <form method="post" action="/sesion/entrar" class="n-login-form" data-login-form data-busy-form data-enhance="false">
+                <AntiforgeryToken />
+                @if (!string.IsNullOrEmpty(Destino))
+                {
+                    <input type="hidden" name="Destino" value="@Destino" />
+                }
+                <div class="n-field">
+                    <label for="correo">@T["Correo"]</label>
+                    <div class="n-input-icon"><Icono Nombre="mail" /><input id="correo" name="Correo" type="email" autocomplete="username" inputmode="email" autocapitalize="none" placeholder="@T["CorreoEjemplo"]" required maxlength="256" spellcheck="false" /></div>
+                </div>
+                <div class="n-field">
+                    <label for="clave">@T["Clave"]</label>
+                    <div class="n-input-icon"><Icono Nombre="lock-keyhole" /><input id="clave" name="Clave" type="password" autocomplete="current-password" placeholder="@T["ClaveEjemplo"]" required maxlength="128" aria-describedby="caps-lock" /><button class="n-password-toggle" type="button" data-password-toggle="clave" aria-label="@C["Js.MostrarClave"]" aria-pressed="false" title="@C["Js.MostrarClave"]"><Icono Nombre="eye" /></button></div>
+                    <p id="caps-lock" class="n-caps-warning" role="status" hidden>@T["BloqueoMayusculas"]</p>
+                </div>
+                <div class="n-login-options">
+                    <label class="n-checkbox"><input type="checkbox" data-remember-email /> @T["RecordarCorreo"]</label>
+                    <label class="n-checkbox"><input type="checkbox" name="Recordarme" value="true" /> @T["MantenerSesion"]</label>
+                </div>
+                <button class="n-button n-primary n-login-submit" type="submit"><span data-idle-label>@T["Entrar"]</span><span data-busy-label hidden role="status">@T["Verificando"]</span><span class="n-submit-symbol"><Icono Nombre="arrow-right" /></span></button>
+            </form>
+            <details class="n-access-help">
+                <summary>@T["AyudaTitulo"]</summary>
+                <p>@T["AyudaDetalle"]</p>
+            </details>
+            <div class="n-access-bottom"><Icono Nombre="building-2" /><span>@T["Lema"]</span></div>
+        </section>
+        <div class="n-login-discover">
+            <a href="#modulos"><span>@T["Explorar"]</span><Icono Nombre="arrow-down" /></a>
+            <button class="n-icon-button" type="button" data-network-toggle aria-label="@C["Js.PausarAnimacion"]" title="@C["Js.PausarAnimacion"]" aria-pressed="false" hidden><Icono Nombre="pause" /></button>
+        </div>
+    </div>
+    <CatalogoAcceso />
+    <footer class="n-login-footer"><span>Neros ERP</span><span>@T["Pie"]</span></footer>
+</div>
+
+@code {
+    private static readonly HashSet<string> Estados = ["credenciales", "datos", "solicitud", "red", "conexion", "servicio", "intentos", "salida"];
+
+    [SupplyParameterFromQuery(Name = "estado")] public string? Estado { get; set; }
+    [SupplyParameterFromQuery(Name = "ReturnUrl")] public string? Destino { get; set; }
+    private string? Mensaje => Estado is null && !string.IsNullOrEmpty(Destino) ? T["SesionExpirada"].Value : MensajeAcceso(Estado);
+    private string ClaseAviso => Estado switch
+    {
+        "salida" => "n-success",
+        null when !string.IsNullOrEmpty(Destino) => string.Empty,
+        _ => "n-error"
+    };
+    private string? MensajeAcceso(string? estado) =>
+        estado is not null && Estados.Contains(estado) ? T[$"Mensaje.{estado}"].Value : null;
+}

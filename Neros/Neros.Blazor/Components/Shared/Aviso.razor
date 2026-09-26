@@ -1,0 +1,23 @@
+@inject IStringLocalizer<TextosComunes> C
+
+<div class="n-notice @ClaseTipo" role="@(Tipo == TipoAviso.Error ? "alert" : "status")">
+    <Icono Nombre="@(Tipo == TipoAviso.Error ? "circle-alert" : "info")" />
+    <p>@ChildContent</p>
+    @if (ReintentarHref is not null)
+    {
+        <a href="@ReintentarHref">@C["Comun.Reintentar"]</a>
+    }
+</div>
+
+@code {
+    [Parameter] public TipoAviso Tipo { get; set; } = TipoAviso.Error;
+    [Parameter] public string? ReintentarHref { get; set; }
+    [Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
+
+    private string ClaseTipo => Tipo switch
+    {
+        TipoAviso.Error => "n-error",
+        TipoAviso.Exito => "n-success",
+        _ => string.Empty
+    };
+}

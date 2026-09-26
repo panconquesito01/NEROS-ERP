@@ -1,16 +1,16 @@
-# Graph Report - Neros  (2026-09-13)
+# Graph Report - Neros  (2026-09-25)
 
 ## Corpus Check
-- 181 files · ~69,792 words
+- 185 files · ~71,092 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1418 nodes · 1769 edges · 134 communities (117 shown, 17 thin omitted)
-- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 36 edges (avg confidence: 0.76)
+- 1459 nodes · 1816 edges · 138 communities (115 shown, 23 thin omitted)
+- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 38 edges (avg confidence: 0.76)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c104ce9b`
+- Built from commit: `57efeadf`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -107,11 +107,17 @@
 - Antigravity Agents - Neros
 - Codex Agents - Neros
 - LoginProductStage.razor
+- experience.js
 - theme-init.js
 - AuthLayout.razor
 - SelectorTema.razor
 - HttpGet
 - string
+- ReconnectModal.razor
+- LoginAmbient.razor
+- LoginHeader.razor
+- LoginModuleTile.razor
+- Icono.razor
 - Neros ERP - Estrategia Gerencial, Comercial y de Producto
 - Base multiempresa de Neros ERP
 - Configuracion por entorno y secretos de Neros
@@ -138,9 +144,10 @@
 - .EjecutarAsync
 - IEnumerable
 - EmpresaDisponible
+- EstadoVacio.razor
 - System.Security.Claims
 - CONVENTIONS.md
-- FoundationHttpTests
+- SelectorTema.razor
 
 ## God Nodes (most connected - your core abstractions)
 1. `NEROS ERP: arquitectura objetivo distribuida` - 18 edges
@@ -149,27 +156,27 @@
 4. `Neros ERP - Estrategia Gerencial, Comercial y de Producto` - 15 edges
 5. `.NET Best Practices - Neros` - 14 edges
 6. `System.Security.Claims` - 13 edges
-7. `Neros.ServiceDefaults` - 13 edges
-8. `NEROS ERP: roadmap de plataforma distribuida` - 13 edges
-9. `ClienteNeros` - 12 edges
-10. `EmpresaDisponible` - 12 edges
+7. `ClienteNeros` - 13 edges
+8. `EmpresaDisponible` - 13 edges
+9. `Neros.ServiceDefaults` - 13 edges
+10. `NEROS ERP: roadmap de plataforma distribuida` - 13 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `FabricaApi` --references--> `AccesoController`  [EXTRACTED]
   tests/Neros.Tests/EntornoPruebas.cs → Neros.Api/Controllers/AccesoController.cs
-- `ServicioIdentidad` --implements--> `IServicioIdentidad`  [EXTRACTED]
-  Neros.Persistence/Seguridad/ServicioIdentidad.cs → Neros.Application/Autenticacion/IServicioIdentidad.cs
 - `RepositorioEmpresas` --implements--> `IRepositorioEmpresas`  [EXTRACTED]
   Neros.Persistence/Seguridad/RepositorioEmpresas.cs → Neros.Application/Autenticacion/IServicioIdentidad.cs
+- `ServicioIdentidad` --implements--> `IServicioIdentidad`  [EXTRACTED]
+  Neros.Persistence/Seguridad/ServicioIdentidad.cs → Neros.Application/Autenticacion/IServicioIdentidad.cs
+- `ServicioIdentidad` --references--> `Usuario`  [EXTRACTED]
+  Neros.Persistence/Seguridad/ServicioIdentidad.cs → Neros.Persistence/Seguridad/ModeloSeguridad.cs
 - `NerosDbContext` --references--> `Empresa`  [EXTRACTED]
-  Neros.Persistence/NerosDbContext.cs → Neros.Persistence/Seguridad/ModeloSeguridad.cs
-- `NerosDbContext` --references--> `EventoAcceso`  [EXTRACTED]
   Neros.Persistence/NerosDbContext.cs → Neros.Persistence/Seguridad/ModeloSeguridad.cs
 
 ## Import Cycles
 - None detected.
 
-## Communities (134 total, 17 thin omitted)
+## Communities (138 total, 23 thin omitted)
 
 ### Community 0 - "Neros.Shared"
 Cohesion: 0.06
@@ -180,16 +187,16 @@ Cohesion: 0.12
 Nodes (16): agentsPath, buildCommand, _comment, _comment_hooks, defaultLanguage, enabledPlugins, feature-dev@claude-plugins-official, frontend-design@claude-plugins-official (+8 more)
 
 ### Community 2 - "http"
-Cohesion: 0.07
-Nodes (30): ClusterConfig, Neros.Organization.Api, HttpMessageHandler, int, RouteConfig, SecurityKey, WebApplication, WebApplicationBuilder (+22 more)
+Cohesion: 0.08
+Nodes (25): ClusterConfig, Neros.Organization.Api, RouteConfig, SecurityKey, WebApplication, WebApplicationBuilder, GatewayHost, string (+17 more)
 
 ### Community 3 - "http"
 Cohesion: 0.05
 Nodes (36): Actividad y refresco, Botones y controles de icono, Campos y acceso, Catalogo comercial del acceso, Cierre ship y limites de verificacion, Colors, Components, Do: (+28 more)
 
 ### Community 4 - "_Imports.razor"
-Cohesion: 0.21
-Nodes (7): Neros.Api.Seguridad, Neros.Api.Controllers, Neros.Blazor.Servicios, Neros.Application.Autenticacion, Neros.Contracts.Autenticacion, Neros.Blazor.Components, System.Security.Claims
+Cohesion: 0.20
+Nodes (8): Neros.Api.Seguridad, Neros.Api.Controllers, Neros.Blazor.Servicios, Neros.Application.Autenticacion, Neros.Contracts.Autenticacion, Microsoft.AspNetCore.Authorization, Neros.Blazor.Components, System.Security.Claims
 
 ### Community 6 - "ReconnectModal.razor.js"
 Cohesion: 0.32
@@ -204,8 +211,8 @@ Cohesion: 0.33
 Nodes (5): AzureDevOps, postman, ADO_MCP_AUTH_TOKEN, npx, @azure-devops/mcp
 
 ### Community 9 - "Routes.razor"
-Cohesion: 0.33
-Nodes (5): AuthorizeRouteView, FocusOnNavigate, Found, NotAuthorized, Router
+Cohesion: 0.20
+Nodes (9): AuthorizeRouteView, FocusOnNavigate, Found, Acciones, ChildContent, EstadoVacio, Icono, NotAuthorized (+1 more)
 
 ### Community 10 - "WeatherForecast.cs"
 Cohesion: 0.50
@@ -224,32 +231,36 @@ Cohesion: 0.11
 Nodes (23): App, IAsyncLifetime, IClassFixture, IHost, IHostBuilder, IPage, IWebHostBuilder, AccesoConcedido (+15 more)
 
 ### Community 18 - "NavMenu"
-Cohesion: 0.29
-Nodes (6): NavMenu, AntiforgeryToken, Icono, IHttpContextAccessor, LayoutComponentBase, SelectorTema
+Cohesion: 0.22
+Nodes (8): NavMenu, AntiforgeryToken, Icono, IHttpContextAccessor, LayoutComponentBase, Marca, NavigationManager, SelectorTema
 
 ### Community 19 - "NavLink"
-Cohesion: 0.50
-Nodes (3): NavLink, Icono, IHttpContextAccessor
+Cohesion: 0.40
+Nodes (4): NavLink, Icono, IHttpContextAccessor, Marca
 
 ### Community 20 - "Home.razor"
-Cohesion: 0.25
-Nodes (7): NavigationManager, OnInitializedAsync, ClienteNeros, Icono, IHttpContextAccessor, PageTitle, route:/home
+Cohesion: 0.17
+Nodes (11): ActividadReciente, ContextoEmpresa, ModulosEnPreparacion, OnInitializedAsync, Aviso, ClienteNeros, Icono, IHttpContextAccessor (+3 more)
 
 ### Community 21 - "C# Async â€” Neros"
 Cohesion: 0.22
 Nodes (8): Banned, By Layer, C# Async - Neros, Cancellation, Exceptions, Names, Parallelism, Return Types
 
 ### Community 22 - "Program.cs"
-Cohesion: 0.16
-Nodes (15): HttpMethod, IAntiforgery, IResult, CancellationToken, Guid, HttpRequestMessage, IReadOnlyList, Task (+7 more)
+Cohesion: 0.15
+Nodes (16): HttpMethod, IAntiforgery, IResult, CancellationToken, Guid, HttpRequestMessage, IReadOnlyList, Task (+8 more)
 
 ### Community 23 - "ReconnectModal.razor"
 Cohesion: 0.13
 Nodes (15): ASPNETCORE_ENVIRONMENT, applicationUrl, commandName, dotnetRunMessages, environmentVariables, launchBrowser, applicationUrl, commandName (+7 more)
 
+### Community 24 - "NotFound.razor"
+Cohesion: 0.15
+Nodes (7): Neros.Blazor.Components.Shared, IEnumerable, IReadOnlyList, CatalogoModulos, ModuloErp, Presentacion, TipoAviso
+
 ### Community 25 - "CONVENTIONS.md"
-Cohesion: 0.08
-Nodes (21): Neros.Messaging.Abstractions, DateTimeOffset, Guid, JsonElement, IntegrationEnvelope, CancellationToken, Guid, Task (+13 more)
+Cohesion: 0.09
+Nodes (20): Neros.Messaging.Abstractions, DateTimeOffset, Guid, JsonElement, IntegrationEnvelope, CancellationToken, Guid, Task (+12 more)
 
 ### Community 26 - "package.json"
 Cohesion: 0.15
@@ -396,8 +407,8 @@ Cohesion: 0.22
 Nodes (8): Acceptance Criteria, Common Plan Gaps To Avoid, Create Implementation Plan - Neros, Output, Plan Template, Planning Heuristics, Preflight, Rules
 
 ### Community 66 - "NerosDbContext"
-Cohesion: 0.17
-Nodes (16): DbSet, IdentityUser, IdentityUserContext, ModelBuilder, NerosDbContext, DateTimeOffset, Guid, Empresa (+8 more)
+Cohesion: 0.16
+Nodes (18): DbSet, IdentityUser, IdentityUserContext, IQueryable, ModelBuilder, NerosDbContext, DateTimeOffset, Guid (+10 more)
 
 ### Community 67 - "Architecture Blueprint Generator - Neros"
 Cohesion: 0.14
@@ -440,8 +451,8 @@ Cohesion: 0.20
 Nodes (9): Anti-Patterns, Dev Agent, Entrega esperada, Mision, Reglas de implementacion, Required Context, Skills To Load, Validacion (+1 more)
 
 ### Community 78 - "LoginAccessPanel.razor"
-Cohesion: 0.20
-Nodes (9): DataAnnotationsValidator, EditForm, InputCheckbox, InputText, SubmitAsync, TogglePassword, ToggleRecoveryHint, ValidationMessage (+1 more)
+Cohesion: 0.33
+Nodes (5): Detalle, OnInitialized, ChildContent, PageTitle, PaginaEstado
 
 ### Community 79 - "Dev Agent"
 Cohesion: 0.20
@@ -452,20 +463,20 @@ Cohesion: 0.22
 Nodes (7): Arquitectura Objetivo, Comandos Canonicos, Entrega, Flujo Recomendado, Prioridad, Reglas Duras, Seleccion De Skill
 
 ### Community 81 - "Empresas.razor"
-Cohesion: 0.22
-Nodes (8): OnInitializedAsync, AntiforgeryToken, ClienteNeros, EmpresaDisponible, Icono, IHttpContextAccessor, PageTitle, route:/empresas
+Cohesion: 0.15
+Nodes (12): FilaEmpresa, OnInitializedAsync, Acciones, Aviso, ChildContent, ClienteNeros, EmpresaDisponible, EstadoVacio (+4 more)
 
 ### Community 82 - "ANTIGRAVITY.md"
 Cohesion: 0.25
 Nodes (6): Comandos Canonicos, Fuentes De Verdad, Modelo Del Proyecto, Reglas Duras, Roles Equivalentes, Workflow
 
 ### Community 83 - "Neros.Blazor.Components.Features.Auth"
-Cohesion: 0.29
-Nodes (4): Neros.Blazor.Components.Features.Auth, LoginFormModel, LoginModule, LoginTrustBadge
+Cohesion: 0.50
+Nodes (3): ActividadAcceso, EstadoVacio, Icono
 
 ### Community 84 - "Login.razor"
-Cohesion: 0.29
-Nodes (6): AntiforgeryToken, Icono, PageTitle, SelectorTema, route:/, route:/login
+Cohesion: 0.22
+Nodes (8): CatalogoAcceso, AntiforgeryToken, Icono, Marca, PageTitle, SelectorTema, route:/, route:/login
 
 ### Community 85 - "CLAUDE.md"
 Cohesion: 0.33
@@ -498,6 +509,10 @@ Nodes (3): Antigravity Agents - Neros, Flujo, Reglas Compartidas
 ### Community 92 - "Codex Agents - Neros"
 Cohesion: 0.50
 Nodes (3): Codex Agents - Neros, Flujo, Fuente De Verdad
+
+### Community 93 - "LoginProductStage.razor"
+Cohesion: 0.50
+Nodes (3): Icono, Marca, SelectorTema
 
 ### Community 105 - "Neros ERP - Estrategia Gerencial, Comercial y de Producto"
 Cohesion: 0.08
@@ -540,8 +555,8 @@ Cohesion: 0.50
 Nodes (4): Base de datos Neros ERP, Instalacion, Reversion, Seguridad y operacion
 
 ### Community 116 - "FoundationHttpTests.cs"
-Cohesion: 0.14
-Nodes (10): ConcurrentQueue, EventId, Func, IDisposable, ILoggerProvider, LogLevel, Exception, ILogger (+2 more)
+Cohesion: 0.11
+Nodes (15): ConcurrentQueue, EventId, Func, IDisposable, ILoggerProvider, LogLevel, Exception, Fact (+7 more)
 
 ### Community 117 - "ServiceAuthentication.cs"
 Cohesion: 0.22
@@ -552,16 +567,16 @@ Cohesion: 0.17
 Nodes (11): ASPNETCORE_ENVIRONMENT, Identity__Authority, Services__Compatibility, Services__Organization, applicationUrl, commandName, environmentVariables, launchBrowser (+3 more)
 
 ### Community 119 - "_Imports.razor"
-Cohesion: 0.17
-Nodes (11): Microsoft.AspNetCore.Components.Authorization, Microsoft.AspNetCore.Components.Forms, Microsoft.AspNetCore.Components.Routing, Microsoft.AspNetCore.Components.Web, Microsoft.AspNetCore.Components.Web.Virtualization, Microsoft.JSInterop, Neros.Blazor, Neros.Blazor.Components.Layout (+3 more)
+Cohesion: 0.15
+Nodes (12): Microsoft.AspNetCore.Components.Authorization, Microsoft.AspNetCore.Components.Forms, Microsoft.AspNetCore.Components.Routing, Microsoft.AspNetCore.Components.Web, Microsoft.AspNetCore.Components.Web.Virtualization, Microsoft.JSInterop, Neros.Blazor, Neros.Blazor.Components.Layout (+4 more)
 
 ### Community 120 - ".TryFromAuthenticatedPrincipal"
 Cohesion: 0.10
-Nodes (21): AuthorizationHandler, AuthorizationHandlerContext, Claim, IReadOnlySet, ServicePermission, ClaimsPrincipal, DateTimeOffset, Guid (+13 more)
+Nodes (20): AuthorizationHandler, AuthorizationHandlerContext, Claim, IReadOnlySet, ServicePermission, ClaimsPrincipal, DateTimeOffset, Guid (+12 more)
 
 ### Community 121 - "Neros.ServiceDefaults"
-Cohesion: 0.23
-Nodes (6): OnInitialized, Neros.ServiceDefaults, Neros.Tests, PageTitle, System.Diagnostics, SpanEvidence
+Cohesion: 0.19
+Nodes (9): Neros.ServiceDefaults, Neros.Tests, HttpMessageHandler, int, System.Diagnostics, FoundationAuthenticationTests, Request, SpanEvidence (+1 more)
 
 ### Community 122 - "NEROS: estado de ejecucion"
 Cohesion: 0.22
@@ -573,15 +588,15 @@ Nodes (9): ASPNETCORE_ENVIRONMENT, Identity__Authority, applicationUrl, commandN
 
 ### Community 124 - "SecurityContext"
 Cohesion: 0.06
-Nodes (42): AllowAnonymous, WeatherForecastController, ControllerBase, EnableRateLimiting, IActionResult, IQueryable, ActionResult, CancellationToken (+34 more)
+Nodes (40): AllowAnonymous, WeatherForecastController, ControllerBase, EnableRateLimiting, IActionResult, ActionResult, CancellationToken, HttpGet (+32 more)
 
 ### Community 125 - "EvidenceExporter"
 Cohesion: 0.40
 Nodes (5): Activity, BaseExporter, Batch, ExportResult, EvidenceExporter
 
 ### Community 126 - "AutenticacionSesion"
-Cohesion: 0.33
-Nodes (5): AuthenticationHandler, AuthenticateResult, AuthenticationSchemeOptions, Task, AutenticacionSesion
+Cohesion: 0.18
+Nodes (9): AuthenticationHandler, AuthenticateResult, AuthenticationSchemeOptions, Task, AutenticacionSesion, AuthenticateResult, AuthenticationSchemeOptions, Task (+1 more)
 
 ### Community 127 - "D-01: contratos, amenazas y transicion"
 Cohesion: 0.33
@@ -592,40 +607,36 @@ Cohesion: 0.47
 Nodes (3): IServiceProvider, Task, ComandosAdministracion
 
 ### Community 130 - "EmpresaDisponible"
-Cohesion: 0.25
-Nodes (6): Neros.Gateway, Microsoft.AspNetCore.Authorization, AuthenticateResult, AuthenticationSchemeOptions, Task, CompatibilityHandler
+Cohesion: 0.33
+Nodes (3): Neros.Gateway, Task, Program
 
 ### Community 132 - "System.Security.Claims"
-Cohesion: 0.39
+Cohesion: 0.33
 Nodes (4): Neros.Persistence.Seguridad, Neros.Persistence, Program, System.Net.Http.Json
 
 ### Community 133 - "CONVENTIONS.md"
-Cohesion: 0.18
-Nodes (9): API Y Application, Base De Datos, Capas, Dependencias Permitidas, Frontend, Idioma Y Nombres, No Hacer, Seguridad (+1 more)
-
-### Community 135 - "FoundationHttpTests"
-Cohesion: 0.39
-Nodes (5): Fact, InlineData, Task, Theory, FoundationHttpTests
+Cohesion: 0.17
+Nodes (10): API Y Application, Base De Datos, Capas, Dependencias Permitidas, Estructura De Neros.Blazor, Frontend, Idioma Y Nombres, No Hacer (+2 more)
 
 ## Knowledge Gaps
-- **704 isolated node(s):** `$schema`, `frontend-design@claude-plugins-official`, `feature-dev@claude-plugins-official`, `_comment`, `skillsPath` (+699 more)
+- **726 isolated node(s):** `$schema`, `frontend-design@claude-plugins-official`, `feature-dev@claude-plugins-official`, `_comment`, `skillsPath` (+721 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **17 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **23 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Neros.ServiceDefaults` connect `Neros.ServiceDefaults` to `EmpresaDisponible`, `http`, `System.Security.Claims`, `_Imports.razor`, `Error.razor`, `ServiceAuthentication.cs`, `.TryFromAuthenticatedPrincipal`?**
-  _High betweenness centrality (0.033) - this node is a cross-community bridge._
-- **Why does `Neros.Tests` connect `Neros.ServiceDefaults` to `FabricaApi`, `CONVENTIONS.md`, `System.Security.Claims`?**
-  _High betweenness centrality (0.030) - this node is a cross-community bridge._
+- **Why does `Neros.Tests` connect `Neros.ServiceDefaults` to `FoundationHttpTests.cs`, `FabricaApi`, `System.Security.Claims`?**
+  _High betweenness centrality (0.036) - this node is a cross-community bridge._
+- **Why does `Neros.ServiceDefaults` connect `Neros.ServiceDefaults` to `EmpresaDisponible`, `http`, `System.Security.Claims`, `_Imports.razor`, `Error.razor`, `FoundationHttpTests.cs`, `ServiceAuthentication.cs`, `.TryFromAuthenticatedPrincipal`?**
+  _High betweenness centrality (0.023) - this node is a cross-community bridge._
 - **Why does `System.Security.Claims` connect `_Imports.razor` to `.TryFromAuthenticatedPrincipal`, `Neros.ServiceDefaults`, `System.Security.Claims`, `_Imports.razor`?**
-  _High betweenness centrality (0.027) - this node is a cross-community bridge._
+  _High betweenness centrality (0.022) - this node is a cross-community bridge._
 - **What connects `$schema`, `frontend-design@claude-plugins-official`, `feature-dev@claude-plugins-official` to the rest of the system?**
-  _704 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _726 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Neros.Shared` be split into smaller, more focused modules?**
   _Cohesion score 0.058279370952821465 - nodes in this community are weakly interconnected._
 - **Should `settings.json` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `http` be split into smaller, more focused modules?**
-  _Cohesion score 0.06666666666666667 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0824524312896406 - nodes in this community are weakly interconnected._

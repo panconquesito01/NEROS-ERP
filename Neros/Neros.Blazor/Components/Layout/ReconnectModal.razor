@@ -1,4 +1,6 @@
-﻿<script type="module" src="@Assets["Components/Layout/ReconnectModal.razor.js"]"></script>
+﻿@inject IStringLocalizer<TextosComunes> C
+
+<script type="module" src="@Assets["Components/Layout/ReconnectModal.razor.js"]"></script>
 
 <dialog id="components-reconnect-modal" data-nosnippet>
     <div class="components-reconnect-container">
@@ -7,25 +9,25 @@
             <div></div>
         </div>
         <p class="components-reconnect-first-attempt-visible">
-            Rejoining the server...
+            @C["Reconexion.Intentando"]
         </p>
         <p class="components-reconnect-repeated-attempt-visible">
-            Rejoin failed... trying again in <span id="components-seconds-to-next-attempt"></span> seconds.
+            @C["Reconexion.Reintento"] <span id="components-seconds-to-next-attempt"></span> @C["Reconexion.Segundos"]
         </p>
         <p class="components-reconnect-failed-visible">
-            Failed to rejoin.<br />Please retry or reload the page.
+            @C["Reconexion.Fallo"]<br />@C["Reconexion.RecargaSugerida"]
         </p>
         <button id="components-reconnect-button" class="components-reconnect-failed-visible">
-            Retry
+            @C["Reconexion.Reintentar"]
         </button>
         <p class="components-pause-visible">
-            The session has been paused by the server.
+            @C["Reconexion.Pausada"]
         </p>
         <p class="components-resume-failed-visible">
-            Failed to resume the session.<br />Please retry or reload the page.
+            @C["Reconexion.ReanudarFallo"]<br />@C["Reconexion.RecargaSugerida"]
         </p>
         <button id="components-resume-button" class="components-pause-visible components-resume-failed-visible">
-            Resume
+            @C["Reconexion.Reanudar"]
         </button>
     </div>
 </dialog>

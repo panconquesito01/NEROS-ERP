@@ -3,6 +3,7 @@ using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Options;
 using Neros.Application.Autenticacion;
+using Neros.Contracts.Autenticacion;
 
 namespace Neros.Api.Seguridad;
 
@@ -19,7 +20,15 @@ public sealed class AutenticacionSesion(
         {
             return AuthenticateResult.NoResult();
         }
-        var usuario = await identidad.ValidarSesionAsync(header[7..], Context.RequestAborted);
+        UsuarioActual? usuario;
+        try
+        {
+            usuario = await identidad.ValidarSesionAsync(header[7..], Context.RequestAborted);
+        }
+        catch (OperationCanceledException) when (Context.RequestAborted.IsCancellationRequested)
+        {
+            return AuthenticateResult.NoResult();
+        }
         if (usuario is null)
         {
             return AuthenticateResult.Fail("Sesion no valida.");

@@ -1,6 +1,13 @@
 (() => {
     window.nerosTheme?.apply();
 
+    const idioma = document.documentElement.lang || 'es';
+    let textos = {};
+    try { textos = JSON.parse(document.getElementById('neros-textos')?.textContent || '{}'); } catch { }
+    window.nerosTexto = (clave, ...valores) =>
+        (textos[clave] ?? clave).replace(/\{(\d+)\}/g, (_, indice) => String(valores[Number(indice)] ?? ''));
+    const texto = window.nerosTexto;
+
     function modality(value) {
         document.documentElement.dataset.input = value;
         try { sessionStorage.setItem('neros.input', value); } catch { }
@@ -50,32 +57,86 @@
             const visible = input.type === 'password';
             input.type = visible ? 'text' : 'password';
             toggle.setAttribute('aria-pressed', String(visible));
-            toggle.setAttribute('aria-label', visible ? 'Ocultar contraseña' : 'Mostrar contraseña');
+            toggle.setAttribute('aria-label', texto(visible ? 'OcultarClave' : 'MostrarClave'));
             toggle.title = toggle.getAttribute('aria-label');
             const icon = toggle.querySelector('.n-icon');
             if (icon) icon.style.setProperty('--icon', `url('/icons/${visible ? 'eye-off' : 'eye'}.svg')`);
         }
+        document.querySelectorAll('[data-language-menu][open]').forEach(menu => {
+            if (!menu.contains(event.target)) menu.open = false;
+        });
+    });
+    document.addEventListener('keydown', event => {
+        if (event.key !== 'Escape') return;
+        document.querySelectorAll('[data-language-menu][open]').forEach(menu => {
+            menu.open = false;
+            menu.querySelector('summary').focus();
+        });
     });
 
     function normalize(value) {
-        return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es').trim();
+        return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase(idioma).trim();
     }
-    document.querySelector('[data-company-search]')?.addEventListener('input', event => {
-        const query = normalize(event.target.value);
-        let matches = 0;
-        document.querySelectorAll('[data-company-row]').forEach(row => {
-            row.hidden = !normalize(row.dataset.companyRow).includes(query);
-            if (!row.hidden) matches++;
+    const companySearch = document.querySelector('[data-company-search]');
+    if (companySearch) {
+        const count = document.querySelector('[data-company-count]');
+        const filtrar = () => {
+            const query = normalize(companySearch.value);
+            let matches = 0;
+            document.querySelectorAll('[data-company-row]').forEach(row => {
+                row.hidden = !normalize(row.dataset.companyRow).includes(query);
+                if (!row.hidden) matches++;
+            });
+            document.querySelector('[data-company-empty]').hidden = matches !== 0;
+            if (count) count.textContent = query ? texto('CoincidenciasEmpresas', matches, count.dataset.total) : '';
+        };
+        companySearch.addEventListener('input', filtrar);
+        companySearch.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && companySearch.value) {
+                companySearch.value = '';
+                filtrar();
+            }
         });
-        document.querySelector('[data-company-empty]').hidden = matches !== 0;
-    });
+        document.addEventListener('keydown', event => {
+            const editable = event.target.closest?.('input, textarea, select, [contenteditable="true"]');
+            if (event.key === '/' && !editable && !event.ctrlKey && !event.metaKey && !event.altKey) {
+                event.preventDefault();
+                companySearch.focus();
+            }
+        });
+        if (companySearch.value) filtrar();
+    }
 
+    const formatoLargo = new Intl.DateTimeFormat(idioma, { weekday: 'long', day: 'numeric', month: 'long' });
+    const formatoCorto = new Intl.DateTimeFormat(idioma, { dateStyle: 'medium', timeStyle: 'short' });
+    const formatoHora = new Intl.DateTimeFormat(idioma, { timeStyle: 'short' });
+    const relativo = new Intl.RelativeTimeFormat(idioma, { numeric: 'auto' });
+    function fechaRelativa(date) {
+        const minutos = Math.round((Date.now() - date.getTime()) / 60000);
+        if (minutos < 1) return texto('HaceUnMomento');
+        if (minutos < 60) return capitalizar(relativo.format(-minutos, 'minute'));
+        const hoy = new Date();
+        const dias = Math.round((new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate()) - new Date(date.getFullYear(), date.getMonth(), date.getDate())) / 86400000);
+        if (dias === 0) return capitalizar(relativo.format(-Math.round(minutos / 60), 'hour'));
+        if (dias < 7) return `${capitalizar(relativo.format(-dias, 'day'))}, ${formatoHora.format(date)}`;
+        return formatoCorto.format(date);
+    }
+    function capitalizar(texto) {
+        return texto.charAt(0).toLocaleUpperCase(idioma) + texto.slice(1);
+    }
     document.querySelectorAll('time[data-local-date]').forEach(time => {
         const date = new Date(time.dateTime);
         if (Number.isNaN(date.getTime())) return;
-        time.textContent = new Intl.DateTimeFormat('es', time.dataset.localDate === 'long'
-            ? { weekday: 'long', day: 'numeric', month: 'long' }
-            : { dateStyle: 'medium', timeStyle: 'short' }).format(date);
+        const tipo = time.dataset.localDate;
+        if (tipo === 'relative') {
+            time.textContent = fechaRelativa(date);
+            time.title = formatoCorto.format(date);
+        } else {
+            time.textContent = (tipo === 'long' ? formatoLargo : formatoCorto).format(date);
+        }
+    });
+    document.querySelectorAll('.n-time-absolute').forEach(time => {
+        time.hidden = !time.textContent || time.textContent === time.previousElementSibling?.textContent;
     });
 
     function actualizarEnvio(form, ocupado) {
@@ -94,6 +155,12 @@
             return;
         }
         actualizarEnvio(form, true);
+        if (form.matches('[data-company-form]')) {
+            const lista = form.closest('.n-company-list');
+            lista?.setAttribute('data-selecting', '');
+            lista?.querySelectorAll('[data-company-form] button[type="submit"]').forEach(button => button.disabled = true);
+            return;
+        }
         if (!form.matches('[data-login-form]')) return;
         event.preventDefault();
 
@@ -120,9 +187,14 @@
                 method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' },
                 credentials: 'same-origin', redirect: 'error', signal: controlador.signal
             });
-            if (respuesta.status === 204) {
+            if (respuesta.ok) {
+                let destino = '/empresas';
+                if (respuesta.status !== 204 && respuesta.headers.get('content-type')?.includes('application/json')) {
+                    const resultado = await respuesta.json();
+                    if (typeof resultado.destino === 'string' && /^\/(?![\/\\])/.test(resultado.destino)) destino = resultado.destino;
+                }
                 navegar = true;
-                window.location.assign('/empresas');
+                window.location.assign(destino);
                 return;
             }
             if (respuesta.status === 429) mostrarError('intentos');
@@ -143,6 +215,7 @@
         document.querySelectorAll('[data-busy-form]').forEach(form => {
             actualizarEnvio(form, false);
         });
+        document.querySelectorAll('.n-company-list[data-selecting]').forEach(lista => lista.removeAttribute('data-selecting'));
         window.nerosTheme?.apply();
     });
 })();

@@ -1,0 +1,12 @@
+@inject IStringLocalizer<TextosInicio> T
+@inject IStringLocalizer<TextosComunes> C
+
+<details class="n-roadmap">
+    <summary><span><Icono Nombre="grid-2x2" />@T["ModulosTitulo"]</span><span class="n-roadmap-label">@C["Modulo.EnPreparacion"] <Icono Nombre="chevron-down" /></span></summary>
+    <ul class="n-module-list">
+        @foreach (var modulo in CatalogoModulos.EnPreparacion)
+        {
+            <li><Icono Nombre="@modulo.Icono" /><strong>@C[modulo.ClaveNombre]</strong><span>@C["Modulo.EnPreparacion"]</span></li>
+        }
+    </ul>
+</details>

@@ -1,7 +1,14 @@
-﻿<Router AppAssembly="typeof(Program).Assembly" NotFoundPage="typeof(Pages.NotFound)">
+﻿@inject IStringLocalizer<TextosComunes> C
+
+<Router AppAssembly="typeof(Program).Assembly" NotFoundPage="typeof(Features.Sistema.PaginaNoEncontrada)">
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)">
-            <NotAuthorized><p class="n-notice">Tu sesión ha terminado. <a href="/login">Volver al acceso</a></p></NotAuthorized>
+            <NotAuthorized>
+                <EstadoVacio NombreIcono="lock-keyhole" Titulo="@C["Sesion.Terminada.Titulo"]">
+                    <ChildContent>@C["Sesion.Terminada.Detalle"]</ChildContent>
+                    <Acciones><a class="n-button n-primary" href="/login"><Icono Nombre="log-in" />@C["Sesion.Terminada.Volver"]</a></Acciones>
+                </EstadoVacio>
+            </NotAuthorized>
         </AuthorizeRouteView>
         <FocusOnNavigate RouteData="routeData" Selector="h1" />
     </Found>

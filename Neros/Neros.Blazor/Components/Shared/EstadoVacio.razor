@@ -1,0 +1,18 @@
+﻿<div class="n-empty @Clase" @attributes="Atributos">
+    <Icono Nombre="@NombreIcono" />
+    @if (Titulo is not null)
+    {
+        <h2>@Titulo</h2>
+    }
+    <p>@ChildContent</p>
+    @Acciones
+</div>
+
+@code {
+    [Parameter, EditorRequired] public string NombreIcono { get; set; } = string.Empty;
+    [Parameter] public string? Titulo { get; set; }
+    [Parameter] public string? Clase { get; set; }
+    [Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
+    [Parameter] public RenderFragment? Acciones { get; set; }
+    [Parameter(CaptureUnmatchedValues = true)] public IReadOnlyDictionary<string, object>? Atributos { get; set; }
+}

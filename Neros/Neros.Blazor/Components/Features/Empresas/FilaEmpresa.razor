@@ -1,0 +1,37 @@
+@inject IStringLocalizer<TextosEmpresas> T
+
+<li data-company-row="@($"{Empresa.Nombre} {Empresa.Codigo} {Empresa.Identificacion}")">
+    @if (Activa)
+    {
+        <a class="n-company-row n-company-row-active" href="/home" aria-label="@T["FilaContinuarEtiqueta", Empresa.Nombre]">
+            @Contenido
+            <span class="n-company-action"><Icono Nombre="check" /><span>@T["FilaActiva"]</span><span class="n-company-action-extra">@T["FilaContinuar"]</span></span>
+        </a>
+    }
+    else
+    {
+        <form method="post" action="/sesion/empresa" data-busy-form data-company-form data-enhance="false">
+            <AntiforgeryToken />
+            <input type="hidden" name="EmpresaId" value="@Empresa.Id" />
+            <button class="n-company-row" type="submit" aria-label="@T["FilaEntrarEtiqueta", Empresa.Nombre]">
+                @Contenido
+                <span class="n-company-action">
+                    <span data-idle-label>@T["FilaEntrar"]</span>
+                    <span data-busy-label hidden>@T["FilaEntrando"]</span>
+                    <span class="n-row-symbol"><Icono Nombre="arrow-right" /></span>
+                </span>
+            </button>
+        </form>
+    }
+</li>
+
+@code {
+    [Parameter, EditorRequired] public EmpresaDisponible Empresa { get; set; } = default!;
+    [Parameter] public bool Activa { get; set; }
+
+    private RenderFragment Contenido => @<text>
+        <span class="n-company-monogram">@Presentacion.Monograma(Empresa.Codigo)</span>
+        <span class="n-company-info"><strong>@Empresa.Nombre</strong><small>@Empresa.Codigo · @Empresa.Identificacion</small></span>
+        <span class="n-company-role">@Empresa.Rol</span>
+    </text>;
+}

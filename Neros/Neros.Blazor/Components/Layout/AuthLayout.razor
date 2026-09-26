@@ -1,10 +1,11 @@
 @inherits LayoutComponentBase
+@inject IStringLocalizer<TextosComunes> C
 
 <main id="contenido">
     @Body
 </main>
 
 <div id="blazor-error-ui" data-nosnippet>
-    No se pudo actualizar la página.
-    <a href="." class="reload">Recargar</a>
+    @C["Comun.ErrorActualizar"]
+    <a href="." class="reload">@C["Comun.Recargar"]</a>
 </div>

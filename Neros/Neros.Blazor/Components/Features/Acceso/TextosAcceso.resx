@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Titulo" xml:space="preserve"><value>Acceso | Neros ERP</value></data>
+  <data name="Bienvenida" xml:space="preserve"><value>Bienvenido a</value></data>
+  <data name="Intro" xml:space="preserve"><value>Ingresa a tu espacio de trabajo.</value></data>
+  <data name="Correo" xml:space="preserve"><value>Correo electrónico</value></data>
+  <data name="CorreoEjemplo" xml:space="preserve"><value>nombre@empresa.com</value></data>
+  <data name="Clave" xml:space="preserve"><value>Contraseña</value></data>
+  <data name="ClaveEjemplo" xml:space="preserve"><value>Tu contraseña</value></data>
+  <data name="BloqueoMayusculas" xml:space="preserve"><value>Bloqueo de mayúsculas activado.</value></data>
+  <data name="RecordarCorreo" xml:space="preserve"><value>Recordar mi correo</value></data>
+  <data name="MantenerSesion" xml:space="preserve"><value>Mantener sesión</value></data>
+  <data name="Entrar" xml:space="preserve"><value>Entrar a Neros</value></data>
+  <data name="Verificando" xml:space="preserve"><value>Verificando acceso...</value></data>
+  <data name="AyudaTitulo" xml:space="preserve"><value>¿Necesitas recuperar el acceso?</value></data>
+  <data name="AyudaDetalle" xml:space="preserve"><value>Contacta al administrador de tu empresa para revisar tu cuenta. Si realizaste varios intentos, espera 15 minutos antes de volver a entrar.</value></data>
+  <data name="Lema" xml:space="preserve"><value>Un acceso. Tus empresas.</value></data>
+  <data name="Explorar" xml:space="preserve"><value>Explorar módulos</value></data>
+  <data name="Pie" xml:space="preserve"><value>Un espacio para cada empresa.</value></data>
+  <data name="SesionExpirada" xml:space="preserve"><value>Tu sesión terminó. Vuelve a entrar para continuar donde estabas.</value></data>
+  <data name="Mensaje.credenciales" xml:space="preserve"><value>El correo o la contraseña son incorrectos. Revisa tus datos; si has realizado varios intentos, espera 15 minutos antes de volver a entrar.</value></data>
+  <data name="Mensaje.datos" xml:space="preserve"><value>Completa el correo y la contraseña con datos válidos.</value></data>
+  <data name="Mensaje.solicitud" xml:space="preserve"><value>La solicitud venció. Actualiza la página e inténtalo de nuevo.</value></data>
+  <data name="Mensaje.red" xml:space="preserve"><value>No pudimos completar la solicitud. Comprueba tu conexión e inténtalo de nuevo.</value></data>
+  <data name="Mensaje.conexion" xml:space="preserve"><value>No pudimos conectar con el servicio de acceso. Tu contraseña no se ha comprobado. Inténtalo de nuevo cuando se restablezca la conexión.</value></data>
+  <data name="Mensaje.servicio" xml:space="preserve"><value>El servicio no está disponible en este momento. Inténtalo nuevamente en unos minutos.</value></data>
+  <data name="Mensaje.intentos" xml:space="preserve"><value>Demasiados intentos. Espera un minuto antes de volver a intentar.</value></data>
+  <data name="Mensaje.salida" xml:space="preserve"><value>Tu sesión se cerró correctamente.</value></data>
+  <data name="Catalogo.Titulo" xml:space="preserve"><value>Tu negocio, conectado.</value></data>
+  <data name="Catalogo.Intro" xml:space="preserve"><value>Hoy, tus empresas en un mismo acceso. El siguiente paso: conectar tu operación comercial y financiera.</value></data>
+  <data name="Catalogo.Nota" xml:space="preserve"><value>Los módulos en preparación aún no están disponibles y no tienen una fecha de lanzamiento confirmada.</value></data>
+</root>

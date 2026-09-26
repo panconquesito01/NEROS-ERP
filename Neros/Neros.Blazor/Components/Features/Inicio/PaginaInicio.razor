@@ -1,0 +1,68 @@
+@page "/home"
+@attribute [Authorize]
+@inject ClienteNeros Cliente
+@inject IHttpContextAccessor ContextAccessor
+@inject NavigationManager Navigation
+@inject IStringLocalizer<TextosInicio> T
+
+<PageTitle>@T["Titulo"]</PageTitle>
+
+<section class="n-page n-enter">
+    <header class="n-page-heading">
+        <div><h1>@T["Saludo", Presentacion.PrimerNombre(ContextAccessor.HttpContext?.User.Identity?.Name)]</h1><p>@T["Listo"]</p></div>
+        <time class="n-date" datetime="@DateTimeOffset.UtcNow.ToString("O")" data-local-date="long">@DateTime.UtcNow.ToString("d")</time>
+    </header>
+    @if (Estado == "salida")
+    {
+        <Aviso>@T["ErrorSalida"]</Aviso>
+    }
+    @if (error is not null)
+    {
+        <Aviso ReintentarHref="/home">@error</Aviso>
+    }
+    else if (inicio is not null)
+    {
+        <ContextoEmpresa Empresa="inicio.Empresa" />
+        <section class="n-shortcuts" aria-labelledby="accesos-titulo">
+            <h2 id="accesos-titulo">@T["AtajosTitulo"]</h2>
+            <div class="n-shortcut-grid">
+                <a class="n-shortcut" href="/empresas"><span class="n-shortcut-icon"><Icono Nombre="building-2" /></span><span><strong>@T["AtajoEmpresas"]</strong><small>@T["AtajoEmpresasDetalle"]</small></span><Icono Nombre="arrow-up-right" /></a>
+                <a class="n-shortcut" href="#actividad"><span class="n-shortcut-icon n-coral"><Icono Nombre="history" /></span><span><strong>@T["AtajoActividad"]</strong><small>@T["AtajoActividadDetalle"]</small></span><Icono Nombre="arrow-down" /></a>
+            </div>
+        </section>
+        <ActividadReciente Actividad="inicio.Actividad" />
+        <ModulosEnPreparacion />
+    }
+</section>
+
+@code {
+    [SupplyParameterFromQuery(Name = "estado")] public string? Estado { get; set; }
+    private InicioEmpresa? inicio;
+    private string? error;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var context = ContextAccessor.HttpContext!;
+        if (!Guid.TryParse(context.User.FindFirstValue(EndpointsSesion.EmpresaClaim), out var empresaId))
+        {
+            Navigation.NavigateTo("/empresas", forceLoad: true);
+            return;
+        }
+        try
+        {
+            inicio = await Cliente.InicioAsync(context.User.FindFirstValue(EndpointsSesion.TokenClaim)!, empresaId, context.RequestAborted);
+            if (inicio is null)
+            {
+                Navigation.NavigateTo("/empresas?estado=permiso", forceLoad: true);
+            }
+        }
+        catch (HttpRequestException)
+        {
+            error = T["ErrorCarga"];
+        }
+        catch (TaskCanceledException)
+        {
+            error = T["ErrorTiempo"];
+        }
+    }
+}

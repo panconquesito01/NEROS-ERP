@@ -1,0 +1,50 @@
+@inject IStringLocalizer<TextosInicio> T
+
+<section class="n-activity" id="actividad" aria-labelledby="actividad-titulo">
+    <header class="n-section-heading">
+        <div>
+            <h2 id="actividad-titulo">@T["ActividadTitulo"]</h2>
+            @if (Actividad.Count > 0)
+            {
+                <p class="n-section-summary">@T[Actividad.Count == 1 ? "ActividadResumenUno" : "ActividadResumenVarios", Actividad.Count]</p>
+            }
+        </div>
+        <form method="get" action="/home#actividad" data-busy-form data-enhance="false">
+            <input type="hidden" name="actualizar" value="@Guid.NewGuid().ToString("N")" />
+            <button class="n-button n-ghost n-refresh" type="submit" title="@T["ActividadActualizarEtiqueta"]" aria-label="@T["ActividadActualizarEtiqueta"]"><Icono Nombre="refresh-cw" /><span>@T["ActividadActualizar"]</span></button>
+        </form>
+    </header>
+    @if (Actividad.Count == 0)
+    {
+        <EstadoVacio NombreIcono="history">@T["ActividadVacia"]</EstadoVacio>
+    }
+    else
+    {
+        <div class="n-table-container">
+            <table class="n-table">
+                <caption class="sr-only">@T["ActividadTabla"]</caption>
+                <thead><tr><th scope="col">@T["ColumnaActividad"]</th><th scope="col">@T["ColumnaCuando"]</th></tr></thead>
+                <tbody>
+                    @foreach (var actividad in Actividad)
+                    {
+                        <tr>
+                            <td><span class="n-table-action"><span class="n-table-action-icon"><Icono Nombre="log-in" /></span>@Accion(actividad.Accion)</span></td>
+                            <td>
+                                <time class="n-time-relative" datetime="@actividad.Fecha.ToString("O")" data-local-date="relative">@actividad.Fecha.ToString("g") UTC</time>
+                                <time class="n-time-absolute" datetime="@actividad.Fecha.ToString("O")" data-local-date="short" aria-hidden="true"></time>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <p class="n-table-note"><Icono Nombre="shield-check" />@T["ActividadNota"]</p>
+    }
+</section>
+
+@code {
+    [Parameter, EditorRequired] public IReadOnlyList<ActividadAcceso> Actividad { get; set; } = [];
+
+    private string Accion(string accion) =>
+        T[$"Accion.{accion}"] is { ResourceNotFound: false } texto ? texto.Value : accion;
+}
