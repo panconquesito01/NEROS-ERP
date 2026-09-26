@@ -1,0 +1,218 @@
+@page "/ventas/{Programa}"
+@page "/ventas/{Programa}/{RegistroId:guid}"
+@page "/inventarios/{Programa}"
+@page "/inventarios/{Programa}/{RegistroId:guid}"
+@page "/compras/{Programa}"
+@page "/compras/{Programa}/{RegistroId:guid}"
+@page "/finanzas/{Programa}"
+@page "/finanzas/{Programa}/{RegistroId:guid}"
+@page "/informes/{Programa}"
+@page "/informes/{Programa}/{RegistroId:guid}"
+@rendermode InteractiveServer
+@attribute [Authorize]
+@inject ClienteNeros Cliente
+@inject IHttpContextAccessor ContextAccessor
+@inject NavigationManager Navigation
+@inject IStringLocalizer<TextosModulos> T
+@inject IStringLocalizer<TextosComunes> C
+
+<PageTitle>@(programa?.Titulo ?? T["ProgramaNoEncontrado"]) | Neros ERP</PageTitle>
+
+<section class="n-page n-enter">
+    @if (programa is null || modulo is null)
+    {
+        <PaginaEstado NombreIcono="compass" Codigo="404" Titulo="@T["ProgramaNoEncontrado"]">@T["ProgramaNoEncontradoDetalle"]</PaginaEstado>
+    }
+    else if (!ModuloPermitido)
+    {
+        <PaginaEstado NombreIcono="shield" Codigo="403" Titulo="@T["ModuloNoHabilitado"]">@T["ModuloNoHabilitadoDetalle"]</PaginaEstado>
+    }
+    else if (!TienePermisoPrograma)
+    {
+        <PaginaEstado NombreIcono="shield" Codigo="403" Titulo="@T["SinPermiso"]">@T["SinPermisoDetalle"]</PaginaEstado>
+    }
+    else
+    {
+        <header class="n-page-heading">
+            <div>
+                <p class="n-dashboard-eyebrow"><a class="n-link-subtle" href="@modulo.Ruta">@C[modulo.ClaveNombre]</a></p>
+                <h1><Icono Nombre="@programa.Icono" /> @programa.Titulo</h1>
+                <p>@programa.Detalle</p>
+            </div>
+            @if (RegistroId is null && PuedeGestionar && programa.PermiteCrearBorrador)
+            {
+                <button type="button" class="n-button" disabled="@creando" @onclick="CrearBorradorAsync">
+                    <Icono Nombre="layers-2" />@T["NuevoBorrador"]
+                </button>
+            }
+            @if (RegistroId is not null)
+            {
+                <a class="n-button n-button--secondary" href="@programa.Ruta">@T["VolverListado"]</a>
+            }
+        </header>
+
+        <NavegacionProgramasModulo ModuloClave="@programa.ModuloClave" ProgramaActivo="@programa.Slug" />
+
+        @if (aviso is not null) { <Aviso Tipo="tipoAviso">@aviso</Aviso> }
+
+        @if (RegistroId is { } registroId)
+        {
+            <EditorProgramaOperativo Programa="@programa" RegistroId="@registroId" PuedeGestionar="@PuedeGestionar" />
+        }
+        else if (datos?.AvisoModulo is { Length: > 0 } avisoModulo)
+        {
+            <Aviso ReintentarHref="@Navigation.Uri">@avisoModulo</Aviso>
+        }
+        else if (cargando)
+        {
+            <EstadoCargando>@T["Cargando"]</EstadoCargando>
+        }
+        else if (datos is { Filas.Count: > 0 })
+        {
+            <div class="n-form-card n-table-container">
+                <table class="n-user-table n-table--clickable">
+                    <thead>
+                        <tr>
+                            <th>@T["ColNumero"]</th>
+                            <th>@T["ColEstado"]</th>
+                            <th>@T["ColFecha"]</th>
+                            <th>@T["ColReferencia"]</th>
+                            <th>@T["ColTotal"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var fila in datos.Filas)
+                        {
+                            <tr role="button" tabindex="0" @onclick="() => AbrirDetalle(fila.Id)" @onkeydown="e => TeclaFila(e, fila.Id)">
+                                <td><strong>@(fila.Numero ?? fila.Id.ToString()[..8])</strong></td>
+                                <td><span class="n-chip">@fila.Estado</span></td>
+                                <td>@(fila.Fecha?.ToString("d") ?? "—")</td>
+                                <td>@(fila.Referencia ?? "—")</td>
+                                <td>@(fila.Total is { } total ? total.ToString("N2") : "—")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <EstadoVacio NombreIcono="layers-2" Titulo="@T["SinRegistros"]">
+                <ChildContent>@T["SinRegistrosDetalle"]</ChildContent>
+                <Acciones>
+                    @if (PuedeGestionar && programa.PermiteCrearBorrador)
+                    {
+                        <button type="button" class="n-button" @onclick="CrearBorradorAsync">@T["NuevoBorrador"]</button>
+                    }
+                </Acciones>
+            </EstadoVacio>
+        }
+    }
+</section>
+
+@code {
+    [Parameter] public string Programa { get; set; } = string.Empty;
+    [Parameter] public Guid? RegistroId { get; set; }
+
+    private ProgramaModulo? programa;
+    private ModuloErp? modulo;
+    private Neros.Contracts.Operacion.PaginaProgramaOperativo? datos;
+    private bool cargando = true;
+    private bool creando;
+    private string? aviso;
+    private TipoAviso tipoAviso = TipoAviso.Informacion;
+
+    private ClaimsPrincipal Usuario => ContextAccessor.HttpContext!.User;
+    private string Token => Usuario.FindFirstValue(EndpointsSesion.TokenClaim)!;
+    private Guid? EmpresaId => Guid.TryParse(Usuario.FindFirstValue(EndpointsSesion.EmpresaClaim), out var id) ? id : null;
+    private bool ModuloPermitido => modulo is null || CatalogoModulos.UsuarioTieneModulo(Usuario, modulo.Clave);
+    private bool TienePermisoPrograma => programa is null || Usuario.HasClaim(CodigosPermiso.Claim, programa.PermisoConsultar);
+    private bool PuedeGestionar => programa?.PermisoGestionar is { } p && Usuario.HasClaim(CodigosPermiso.Claim, p);
+
+    protected override async Task OnParametersSetAsync()
+    {
+        var segmentos = Navigation.ToBaseRelativePath(Navigation.Uri).Split('?', '#')[0].Split('/', StringSplitOptions.RemoveEmptyEntries);
+        var rutaModulo = segmentos.Length > 0 ? segmentos[0] : string.Empty;
+        var claveModulo = ClaveModulo(rutaModulo);
+        modulo = claveModulo is null ? null : CatalogoModulos.Todos.FirstOrDefault(m => m.Clave == claveModulo);
+        programa = CatalogoProgramasModulo.Resolver(rutaModulo, Programa);
+
+        if (programa is null || EmpresaId is not { } empresaId)
+        {
+            cargando = false;
+            return;
+        }
+
+        if (!TienePermisoPrograma)
+        {
+            cargando = false;
+            return;
+        }
+
+        if (RegistroId is not null)
+        {
+            cargando = false;
+            return;
+        }
+
+        cargando = true;
+        try
+        {
+            datos = await Cliente.ProgramaOperativoAsync(Token, empresaId, CatalogoProgramasModulo.ClaveApi(programa), 1, ContextAccessor.HttpContext!.RequestAborted);
+        }
+        catch (HttpRequestException)
+        {
+            aviso = T["ErrorCarga"].Value;
+            tipoAviso = TipoAviso.Error;
+        }
+        finally { cargando = false; }
+    }
+
+    private void AbrirDetalle(Guid id) => Navigation.NavigateTo($"{programa!.Ruta}/{id:D}");
+
+    private void TeclaFila(KeyboardEventArgs e, Guid id)
+    {
+        if (e.Key is "Enter" or " ")
+            AbrirDetalle(id);
+    }
+
+    private async Task CrearBorradorAsync()
+    {
+        if (programa is null || EmpresaId is not { } empresaId || creando) return;
+        creando = true;
+        try
+        {
+            var (creado, noDisponible) = await Cliente.CrearBorradorProgramaAsync(Token, empresaId, CatalogoProgramasModulo.ClaveApi(programa), ContextAccessor.HttpContext!.RequestAborted);
+            if (noDisponible)
+            {
+                aviso = T["ModuloSqlPendiente"].Value;
+                tipoAviso = TipoAviso.Error;
+                return;
+            }
+            if (creado is null)
+            {
+                aviso = T["SinPermisoGestionar"].Value;
+                tipoAviso = TipoAviso.Error;
+                return;
+            }
+            if (Guid.TryParse(creado.Id, out var nuevoId))
+                Navigation.NavigateTo($"{programa.Ruta}/{nuevoId:D}");
+        }
+        catch (HttpRequestException)
+        {
+            aviso = T["ErrorCarga"].Value;
+            tipoAviso = TipoAviso.Error;
+        }
+        finally { creando = false; }
+    }
+
+    private static string? ClaveModulo(string ruta) => ruta.ToLowerInvariant() switch
+    {
+        "ventas" => "Ventas",
+        "inventarios" => "Inventarios",
+        "compras" => "Compras",
+        "finanzas" => "Finanzas",
+        "informes" => "Informes",
+        _ => null
+    };
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Clave.Titulo" xml:space="preserve"><value>Change password | Neros ERP</value></data>
+  <data name="Clave.Encabezado" xml:space="preserve"><value>Change password</value></data>
+  <data name="Clave.Subtitulo" xml:space="preserve"><value>When you save, we will sign out your other open sessions.</value></data>
+  <data name="Clave.Obligatoria" xml:space="preserve"><value>An administrator reset your password. Create a new one to continue.</value></data>
+  <data name="Clave.Actual" xml:space="preserve"><value>Current password</value></data>
+  <data name="Clave.Nueva" xml:space="preserve"><value>New password</value></data>
+  <data name="Clave.Confirmacion" xml:space="preserve"><value>Confirm new password</value></data>
+  <data name="Clave.Requisitos" xml:space="preserve"><value>At least 12 characters, with uppercase, lowercase, numbers and a symbol.</value></data>
+  <data name="Clave.Guardar" xml:space="preserve"><value>Save password</value></data>
+  <data name="Clave.Guardando" xml:space="preserve"><value>Saving...</value></data>
+  <data name="Clave.Cambiada" xml:space="preserve"><value>Your password was updated and your other sessions were signed out.</value></data>
+  <data name="Clave.Continuar" xml:space="preserve"><value>Continue</value></data>
+  <data name="Clave.Error.clave_actual" xml:space="preserve"><value>The current password is incorrect.</value></data>
+  <data name="Clave.Error.misma_clave" xml:space="preserve"><value>The new password must be different from the current one.</value></data>
+  <data name="Clave.Error.politica" xml:space="preserve"><value>The new password does not meet the requirements.</value></data>
+  <data name="Clave.Error.bloqueado" xml:space="preserve"><value>Too many failed attempts. Your account is temporarily locked.</value></data>
+  <data name="Clave.Error.confirmacion" xml:space="preserve"><value>The confirmation does not match the new password.</value></data>
+  <data name="Clave.Error.longitud" xml:space="preserve"><value>The new password must be at least 12 characters long.</value></data>
+  <data name="Clave.Error.intentos" xml:space="preserve"><value>Too many attempts. Wait a minute and try again.</value></data>
+  <data name="Clave.Error.servicio" xml:space="preserve"><value>We could not save the password. Try again.</value></data>
+  <data name="Clave.Error.datos" xml:space="preserve"><value>Fill in all the fields.</value></data>
+  <data name="Sesiones.Titulo" xml:space="preserve"><value>My sessions | Neros ERP</value></data>
+  <data name="Sesiones.Encabezado" xml:space="preserve"><value>My sessions</value></data>
+  <data name="Sesiones.Subtitulo" xml:space="preserve"><value>Devices with access to your account. Sign out the ones you don't recognize.</value></data>
+  <data name="Sesiones.Actual" xml:space="preserve"><value>This session</value></data>
+  <data name="Sesiones.Inicio" xml:space="preserve"><value>Started:</value></data>
+  <data name="Sesiones.UltimaActividad" xml:space="preserve"><value>Last activity:</value></data>
+  <data name="Sesiones.Ip" xml:space="preserve"><value>IP {0}</value></data>
+  <data name="Sesiones.NavegadorEn" xml:space="preserve"><value>{0} on {1}</value></data>
+  <data name="Sesiones.Desconocido" xml:space="preserve"><value>Unknown device</value></data>
+  <data name="Sesiones.Cerrar" xml:space="preserve"><value>Sign out</value></data>
+  <data name="Sesiones.CerrarEtiqueta" xml:space="preserve"><value>Sign out the session on {0}</value></data>
+  <data name="Sesiones.CerrarOtras" xml:space="preserve"><value>Sign out others</value></data>
+  <data name="Sesiones.CerrarTodas" xml:space="preserve"><value>Sign out all</value></data>
+  <data name="Sesiones.ConfirmarOtras" xml:space="preserve"><value>Sign out all your other sessions?</value></data>
+  <data name="Sesiones.ConfirmarTodas" xml:space="preserve"><value>Sign out all your sessions, including this one?</value></data>
+  <data name="Sesiones.Cerrada" xml:space="preserve"><value>Session signed out.</value></data>
+  <data name="Sesiones.Otras" xml:space="preserve"><value>{0} sessions signed out.</value></data>
+  <data name="Sesiones.OtrasNinguna" xml:space="preserve"><value>There were no other open sessions.</value></data>
+  <data name="Sesiones.NoEncontrada" xml:space="preserve"><value>That session was no longer active.</value></data>
+  <data name="Sesiones.ErrorServicio" xml:space="preserve"><value>We could not complete the operation. Try again.</value></data>
+  <data name="Sesiones.ErrorCarga" xml:space="preserve"><value>We could not load your sessions.</value></data>
+  <data name="Sesiones.Vacio" xml:space="preserve"><value>There are no active sessions.</value></data>
+</root>

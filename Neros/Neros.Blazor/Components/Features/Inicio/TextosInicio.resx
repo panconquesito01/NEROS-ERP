@@ -6,7 +6,14 @@
   <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
   <data name="Titulo" xml:space="preserve"><value>Inicio | Neros ERP</value></data>
   <data name="Saludo" xml:space="preserve"><value>Hola, {0}.</value></data>
-  <data name="Listo" xml:space="preserve"><value>Todo listo para continuar.</value></data>
+  <data name="Listo" xml:space="preserve"><value>Elige qué quieres hacer: cambiar de empresa, abrir un módulo o revisar tu seguridad.</value></data>
+  <data name="ModulosLead" xml:space="preserve"><value>Los módulos disponibles abren de inmediato. El resto aparecerá aquí cuando estén listos para tu empresa.</value></data>
+  <data name="AtajosResumen" xml:space="preserve"><value>Accesos frecuentes sin buscar en menús.</value></data>
+  <data name="AtajoModulosDetalle" xml:space="preserve"><value>Ventas, inventario, finanzas y más</value></data>
+  <data name="AtajoRegionalDetalle" xml:space="preserve"><value>País, moneda, zona horaria y TRM</value></data>
+  <data name="AtajoEquipo" xml:space="preserve"><value>Equipo de la empresa</value></data>
+  <data name="AtajoEquipoDetalle" xml:space="preserve"><value>Invita usuarios y asigna roles</value></data>
+  <data name="AtajoClaveDetalle" xml:space="preserve"><value>Mantén tu acceso protegido</value></data>
   <data name="ErrorSalida" xml:space="preserve"><value>No se pudo cerrar la sesión en el servidor. Vuelve a pulsar Salir.</value></data>
   <data name="ErrorCarga" xml:space="preserve"><value>No pudimos cargar tu espacio de trabajo. Inténtalo nuevamente en unos minutos.</value></data>
   <data name="ErrorTiempo" xml:space="preserve"><value>La consulta tardó más de lo esperado. Vuelve a intentar.</value></data>
@@ -30,4 +37,20 @@
   <data name="ActividadNota" xml:space="preserve"><value>¿No reconoces alguna entrada? Avisa al administrador de tu empresa para que revise tu cuenta.</value></data>
   <data name="Accion.Entrada a empresa" xml:space="preserve"><value>Entrada a empresa</value></data>
   <data name="ModulosTitulo" xml:space="preserve"><value>Módulos del ERP</value></data>
+  <data name="Cargando" xml:space="preserve"><value>Cargando tu espacio de trabajo…</value></data>
+  <data name="CuentaTitulo" xml:space="preserve"><value>Cuenta y seguridad</value></data>
+  <data name="CuentaClaveTemporal" xml:space="preserve"><value>Debes cambiar tu contraseña temporal antes de continuar con operaciones sensibles.</value></data>
+  <data name="CuentaUltimoAcceso" xml:space="preserve"><value>Último acceso a esta empresa</value></data>
+  <data name="CuentaSinAcceso" xml:space="preserve"><value>Aún no hay entradas registradas</value></data>
+  <data name="CuentaSesiones" xml:space="preserve"><value>Sesiones abiertas</value></data>
+  <data name="CuentaSesionesUna" xml:space="preserve"><value>1 sesión activa</value></data>
+  <data name="CuentaSesionesVarias" xml:space="preserve"><value>{0} sesiones activas</value></data>
+  <data name="CuentaVerSesiones" xml:space="preserve"><value>Ver sesiones</value></data>
+  <data name="CuentaCambiarClave" xml:space="preserve"><value>Cambiar contraseña</value></data>
+  <data name="AdminTitulo" xml:space="preserve"><value>Administración de plataforma</value></data>
+  <data name="AdminResumen" xml:space="preserve"><value>Herramientas reservadas al administrador global.</value></data>
+  <data name="AdminEmpresas" xml:space="preserve"><value>Empresas</value></data>
+  <data name="AdminEmpresasDetalle" xml:space="preserve"><value>Alta de empresas, logos e identificación</value></data>
+  <data name="AdminUsuarios" xml:space="preserve"><value>Usuarios</value></data>
+  <data name="AdminUsuariosDetalle" xml:space="preserve"><value>Consulta cuentas, desbloquea accesos y restablece contraseñas</value></data>
 </root>

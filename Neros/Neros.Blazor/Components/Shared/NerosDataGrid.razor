@@ -1,0 +1,67 @@
+<section class="n-data-grid @ClaseDensidad" aria-busy="@Cargando">
+    @if (BarraHerramientas is not null)
+    {
+        @BarraHerramientas
+    }
+    @if (Cargando)
+    {
+        <EstadoCargando>@TextoCargando</EstadoCargando>
+    }
+    else if (Vacio)
+    {
+        @ContenidoVacio
+    }
+    else
+    {
+        <div class="n-table-container">
+            <table class="n-table @ClaseTabla">
+                @if (!string.IsNullOrWhiteSpace(Caption))
+                {
+                    <caption class="sr-only">@Caption</caption>
+                }
+                @Encabezado
+                @Cuerpo
+            </table>
+        </div>
+        @if (TotalPaginas > 1)
+        {
+            <nav class="n-pagination" aria-label="@EtiquetaPaginacion">
+                @if (Pagina > 1)
+                {
+                    <a class="n-button n-secondary n-compact" href="@EnlacePagina(Pagina - 1)"><Icono Nombre="chevron-left" /><span>@TextoAnterior</span></a>
+                }
+                <span>@TextoPagina(Pagina, TotalPaginas)</span>
+                @if (Pagina < TotalPaginas)
+                {
+                    <a class="n-button n-secondary n-compact" href="@EnlacePagina(Pagina + 1)"><span>@TextoSiguiente</span><Icono Nombre="chevron-right" /></a>
+                }
+            </nav>
+        }
+    }
+</section>
+
+@code {
+    [Parameter] public bool Cargando { get; set; }
+    [Parameter] public bool Vacio { get; set; }
+    [Parameter] public string Densidad { get; set; } = "comoda";
+    [Parameter] public string? ClaseTabla { get; set; }
+    [Parameter] public string? Caption { get; set; }
+    [Parameter, EditorRequired] public RenderFragment Encabezado { get; set; } = default!;
+    [Parameter, EditorRequired] public RenderFragment Cuerpo { get; set; } = default!;
+    [Parameter] public RenderFragment? BarraHerramientas { get; set; }
+    [Parameter, EditorRequired] public RenderFragment ContenidoVacio { get; set; } = default!;
+    [Parameter, EditorRequired] public RenderFragment TextoCargando { get; set; } = default!;
+    [Parameter] public int Pagina { get; set; } = 1;
+    [Parameter] public int TotalPaginas { get; set; }
+    [Parameter, EditorRequired] public Func<int, string> EnlacePagina { get; set; } = _ => "#";
+    [Parameter, EditorRequired] public string EtiquetaPaginacion { get; set; } = string.Empty;
+    [Parameter, EditorRequired] public string TextoAnterior { get; set; } = string.Empty;
+    [Parameter, EditorRequired] public string TextoSiguiente { get; set; } = string.Empty;
+    [Parameter, EditorRequired] public Func<int, int, string> TextoPagina { get; set; } = (_, _) => string.Empty;
+
+    private string ClaseDensidad => Densidad switch
+    {
+        "compacta" => "n-density-compact",
+        _ => "n-density-comfort"
+    };
+}

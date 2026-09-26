@@ -15,9 +15,15 @@
     <ProjectReference Include="..\..\Neros.Api\Neros.Api.csproj" />
     <ProjectReference Include="..\..\src\Gateway\Neros.Gateway\Neros.Gateway.csproj" />
     <ProjectReference Include="..\..\src\Services\Organization\Neros.Organization.Api\Neros.Organization.Api.csproj" />
+    <ProjectReference Include="..\..\src\Services\Terceros\Neros.Terceros.Api\Neros.Terceros.Api.csproj" />
+    <ProjectReference Include="..\..\src\Services\Search\Neros.Search.Api\Neros.Search.Api.csproj" />
     <ProjectReference Include="..\..\tools\Neros.Organization.Migration\Neros.Organization.Migration.csproj" />
+    <ProjectReference Include="..\..\tools\Neros.Database.Deploy\Neros.Database.Deploy.csproj" />
     <ProjectReference Include="..\..\src\BuildingBlocks\Neros.Messaging.Abstractions\Neros.Messaging.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\BuildingBlocks\Neros.Messaging.RabbitMQ\Neros.Messaging.RabbitMQ.csproj" />
+    <ProjectReference Include="..\..\src\BuildingBlocks\Neros.Messaging.Sql\Neros.Messaging.Sql.csproj" />
     <ProjectReference Include="..\..\Neros.Blazor\Neros.Blazor.csproj" />
+    <ProjectReference Include="..\..\Neros.Domain\Neros.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\deploy\development\company-tenant-map.json" Link="Fixtures\company-tenant-map.json" CopyToOutputDirectory="PreserveNewest" />

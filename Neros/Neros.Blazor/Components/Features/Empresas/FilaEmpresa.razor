@@ -30,7 +30,7 @@
     [Parameter] public bool Activa { get; set; }
 
     private RenderFragment Contenido => @<text>
-        <span class="n-company-monogram">@Presentacion.Monograma(Empresa.Codigo)</span>
+        <MarcaEmpresa EmpresaId="@Empresa.Id" Monograma="@Presentacion.Monograma(Empresa.Codigo)" TieneLogo="@Empresa.TieneLogo" />
         <span class="n-company-info"><strong>@Empresa.Nombre</strong><small>@Empresa.Codigo · @Empresa.Identificacion</small></span>
         <span class="n-company-role">@Empresa.Rol</span>
     </text>;

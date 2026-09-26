@@ -1,0 +1,13 @@
+@using Neros.Blazor.Components.Features.Empresas
+@inject ServicioUiModales Modales
+@implements IDisposable
+
+<ModalExplorarModulos Abierto="Modales.ModulosAbierto" AbiertoChanged="Modales.CerrarModulos" />
+<ModalMenuMas Abierto="Modales.MasAbierto" AbiertoChanged="Modales.CerrarMas" />
+<ModalCambioClave Abierto="Modales.ClaveAbierto" AbiertoChanged="Modales.CerrarClave" />
+<ModalCambiarEmpresa Abierto="Modales.EmpresasAbierto" AbiertoChanged="Modales.CerrarEmpresas" />
+
+@code {
+    protected override void OnInitialized() => Modales.Cambio += StateHasChanged;
+    public void Dispose() => Modales.Cambio -= StateHasChanged;
+}

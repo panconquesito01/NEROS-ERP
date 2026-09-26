@@ -14,7 +14,7 @@ Convenciones de `Neros` para codigo, UI, datos, seguridad y agentes.
 Arquitectura vigente: [ADR-0002](docs/adr/ADR-0002-distributed-modular-platform.md). Las capas globales siguientes son compatibilidad, no librerias empresariales para servicios nuevos. Cada bounded context posee sus capas/contratos/base/scripts; no SQL, FK, DbContext ni referencias a reglas de otro servicio. Integrar por APIs/eventos/proyecciones autorizadas y transacciones locales con Outbox/Inbox. Solo tecnicos en BuildingBlocks.
 
 - `Neros.Shared`: tipos transversales simples y sin dependencias pesadas.
-- `Neros.Domain`: entidades, value objects, reglas puras e invariantes.
+- `Neros.Domain`: entidades, value objects, reglas puras e invariantes (p. ej. `Globalizacion/Dinero`, `MotorRedondeo`, `Impuestos/MotorImpuestos`, `Contabilidad/MotorPartidaDoble`, `Inventario/MotorPromedioPonderado`).
 - `Neros.Contracts`: DTOs, requests, responses y contratos entre UI/API.
 - `Neros.Application`: casos de uso, puertos, validaciones, politicas y transacciones.
 - `Neros.Api`: endpoints HTTP, autenticacion, autorizacion, DI y adaptadores de borde.
@@ -99,8 +99,8 @@ Neros.Blazor/
 
 - Persistencia futura como infraestructura que implementa puertos de Application.
 - SQL Server como motor objetivo.
-- Cambios de esquema con scripts manuales en `database/scripts/`.
-- EF Core puede mapear y consultar, pero no es la unica fuente de verdad del esquema.
+- Esquema solo con scripts versionados e inmutables en `database/<modulo>/migrations`, aplicados con `tools/Neros.Database.Deploy`. Reglas completas en [SQL_CONVENTIONS](database/conventions/SQL_CONVENTIONS.md) y [DEPLOYMENT_GUIDE](database/conventions/DEPLOYMENT_GUIDE.md).
+- EF Core mapea y consulta; nunca crea ni cambia esquema (sin Migrations, `Migrate()`, `EnsureCreated()` ni `GenerateCreateScript()`). La prueba de deriva compara el modelo EF con la base desplegada por scripts.
 - SQL raw siempre parametrizado.
 
 ## Seguridad
@@ -110,7 +110,8 @@ Neros.Blazor/
 
 - Identity sera la base de autenticacion.
 - Autorizacion server-side por rol, recurso, empresa/tenant/sucursal cuando aplique.
-- Auditoria para acciones sensibles: login, permisos, procesamiento, cierres, anulaciones y reportes.
+- Permisos con formato `MODULO.RECURSO.ACCION`: el codigo se declara en `Neros.Contracts.Seguridad.CodigosPermiso` y la asignacion en `Neros.Application.Seguridad.Permisos`. Cada permiso es una politica de la API (`[Authorize(Policy = ...)]`); el BFF solo lo usa para mostrar u ocultar opciones.
+- Auditoria para acciones sensibles: login, permisos, procesamiento, cierres, anulaciones y reportes. Registrar actor y entidad afectada en `auditoria.Evento` (append-only) y nunca claves, tokens ni secretos en `Detalle`.
 - No loggear secretos ni payloads sensibles.
 
 ## Validacion

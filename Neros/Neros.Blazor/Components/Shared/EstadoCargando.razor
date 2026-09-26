@@ -1,0 +1,8 @@
+<div class="n-loading" role="status" aria-live="polite">
+    <span class="n-loading-spinner" aria-hidden="true"></span>
+    <p>@ChildContent</p>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
+}

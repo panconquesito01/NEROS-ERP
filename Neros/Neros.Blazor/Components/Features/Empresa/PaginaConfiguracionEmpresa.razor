@@ -1,0 +1,143 @@
+@page "/empresa/configuracion"
+@rendermode InteractiveServer
+@attribute [Authorize(Policy = CodigosPermiso.EmpresaConfiguracionConsultar)]
+@inject ClienteNeros Cliente
+@inject IHttpContextAccessor ContextAccessor
+@inject IStringLocalizer<TextosConfiguracionEmpresa> T
+
+<PageTitle>@T["Titulo"]</PageTitle>
+
+<section class="n-page n-enter">
+    <header class="n-page-heading">
+        <div>
+            <h1>@T["Encabezado"]</h1>
+            <p>@T["Subtitulo", NombreEmpresa ?? ""]</p>
+        </div>
+    </header>
+
+    @if (EmpresaId is null)
+    {
+        <Aviso>@T["SinEmpresa"]</Aviso>
+    }
+    else if (cargando)
+    {
+        <EstadoCargando>@T["Cargando"]</EstadoCargando>
+    }
+    else
+    {
+        @if (aviso is not null) { <Aviso Tipo="tipoAviso">@aviso</Aviso> }
+        @if (!PuedeModificar) { <p class="n-hint">@T["SoloLectura"]</p> }
+
+        @if (catalogos is not null)
+        {
+            <form class="n-form-card" @onsubmit="GuardarAsync">
+                <label>@T["Pais"]<select @bind="pais" disabled="@(!PuedeModificar)">
+                    @foreach (var p in catalogos.Paises) { <option value="@p.Codigo">@p.Nombre (@p.Codigo)</option> }
+                </select></label>
+                <label>@T["Moneda"]<select @bind="moneda" disabled="@(!PuedeModificar)">
+                    @foreach (var m in catalogos.Monedas) { <option value="@m.Codigo">@m.Nombre (@m.Codigo)</option> }
+                </select></label>
+                <label>@T["ZonaHoraria"]<select @bind="zona" disabled="@(!PuedeModificar)">
+                    @foreach (var z in catalogos.ZonasHorarias) { <option value="@z.Id">@z.Nombre</option> }
+                </select></label>
+                <label>@T["Cultura"]<select @bind="cultura" disabled="@(!PuedeModificar)">
+                    <option value="es-CO">es-CO</option><option value="es-MX">es-MX</option><option value="en-US">en-US</option><option value="pt-BR">pt-BR</option>
+                </select></label>
+                <label>@T["MarcoContable"]<select @bind="marco" disabled="@(!PuedeModificar)">
+                    <option value="Local">Local</option><option value="CO-GRUPO1">CO-GRUPO1</option><option value="CO-GRUPO2">CO-GRUPO2</option><option value="CO-GRUPO3">CO-GRUPO3</option>
+                </select></label>
+                @if (PuedeModificar)
+                {
+                    <button class="n-button" type="submit">@T["Guardar"]</button>
+                }
+            </form>
+
+            <section class="n-form-card">
+                <h2>@T["TasasTitulo"]</h2>
+                <p>@T["TasasDetalle"]</p>
+                <p class="n-hint">@T["TasasAutomatico"]</p>
+                @if (tasas is { Tasas.Count: > 0 })
+                {
+                    <table class="n-user-table">
+                        <thead><tr><th>@T["TasasOrigen"]</th><th>@T["TasasValor"]</th><th>@T["TasasFuente"]</th></tr></thead>
+                        <tbody>
+                            @foreach (var tasa in tasas.Tasas)
+                            {
+                                <tr>
+                                    <td>@tasa.MonedaOrigen</td>
+                                    <td>@Presentacion.Numero(tasa.Valor)</td>
+                                    <td><small>@tasa.Fuente · @tasa.Fecha</small></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p class="n-hint">@T["TasasVacio"]</p>
+                }
+            </section>
+        }
+    }
+</section>
+
+@code {
+    private CatalogosTransversales? catalogos;
+    private PaginaTasasCambio? tasas;
+    private string pais = "CO";
+    private string moneda = "COP";
+    private string zona = "America/Bogota";
+    private string cultura = "es-CO";
+    private string marco = "Local";
+    private string? aviso;
+    private TipoAviso tipoAviso = TipoAviso.Error;
+    private bool cargando = true;
+
+    private Guid? EmpresaId => Guid.TryParse(ContextAccessor.HttpContext?.User.FindFirstValue(EndpointsSesion.EmpresaClaim), out var id) ? id : null;
+    private string? NombreEmpresa => ContextAccessor.HttpContext?.User.FindFirstValue(EndpointsSesion.NombreEmpresaClaim);
+    private string Token => ContextAccessor.HttpContext!.User.FindFirstValue(EndpointsSesion.TokenClaim)!;
+    private bool PuedeModificar => ContextAccessor.HttpContext!.User.HasClaim(CodigosPermiso.Claim, CodigosPermiso.EmpresaConfiguracionModificar);
+
+    protected override async Task OnInitializedAsync() => await CargarAsync();
+
+    private async Task CargarAsync()
+    {
+        cargando = true;
+        if (EmpresaId is not { } e) { cargando = false; return; }
+        try
+        {
+            var regional = await Cliente.ConfiguracionRegionalAsync(Token, e, ContextAccessor.HttpContext!.RequestAborted);
+            if (regional is not null)
+            {
+                pais = regional.Pais;
+                moneda = regional.MonedaFuncional;
+                zona = regional.ZonaHoraria;
+                cultura = regional.CulturaFormato;
+                marco = regional.MarcoContable;
+            }
+            catalogos = await Cliente.CatalogosGlobalizacionAsync(Token, pais, ContextAccessor.HttpContext!.RequestAborted);
+            tasas = await Cliente.TasasCambioAsync(Token, moneda, null, pais, ContextAccessor.HttpContext!.RequestAborted);
+        }
+        catch (HttpRequestException) { aviso = T["Error.servicio"].Value; }
+        finally { cargando = false; }
+    }
+
+    private ConfiguracionRegionalEmpresa ModeloActual() =>
+        new(pais, moneda, zona, cultura, marco);
+
+    private async Task GuardarAsync()
+    {
+        if (EmpresaId is not { } e || !PuedeModificar) return;
+        var (guardada, error) = await Cliente.GuardarConfiguracionRegionalAsync(Token, e, ModeloActual(), ContextAccessor.HttpContext!.RequestAborted);
+        if (error is not null) { aviso = T[$"Error.{error}"].Value; tipoAviso = TipoAviso.Error; return; }
+        if (guardada is not null)
+        {
+            pais = guardada.Pais; moneda = guardada.MonedaFuncional; zona = guardada.ZonaHoraria;
+            cultura = guardada.CulturaFormato; marco = guardada.MarcoContable;
+        }
+        aviso = T["Guardado"].Value;
+        tipoAviso = TipoAviso.Exito;
+        tasas = await Cliente.TasasCambioAsync(Token, moneda, null, pais, ContextAccessor.HttpContext!.RequestAborted);
+    }
+
+}

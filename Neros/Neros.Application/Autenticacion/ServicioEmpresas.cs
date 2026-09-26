@@ -7,6 +7,9 @@ public sealed class ServicioEmpresas(IRepositorioEmpresas empresas)
     public Task<IReadOnlyList<EmpresaDisponible>> ListarAsync(string usuarioId, CancellationToken cancellationToken) =>
         empresas.ListarAsync(usuarioId, cancellationToken);
 
+    public Task<EmpresaDisponible?> ConsultarAutorizadaAsync(string usuarioId, Guid empresaId, CancellationToken cancellationToken) =>
+        empresas.ObtenerAutorizadaAsync(usuarioId, empresaId, cancellationToken);
+
     public async Task<EmpresaDisponible?> SeleccionarAsync(string usuarioId, Guid empresaId, CancellationToken cancellationToken)
     {
         var empresa = await empresas.ObtenerAutorizadaAsync(usuarioId, empresaId, cancellationToken);

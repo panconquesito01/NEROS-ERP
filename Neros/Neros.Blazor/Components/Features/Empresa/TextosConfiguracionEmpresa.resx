@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Cargando" xml:space="preserve"><value>Cargando configuración…</value></data>
+  <data name="Titulo" xml:space="preserve"><value>Configuración regional | Neros ERP</value></data>
+  <data name="Encabezado" xml:space="preserve"><value>Configuración regional</value></data>
+  <data name="Subtitulo" xml:space="preserve"><value>País, moneda funcional y zona horaria de {0}.</value></data>
+  <data name="Pais" xml:space="preserve"><value>País</value></data>
+  <data name="Moneda" xml:space="preserve"><value>Moneda funcional</value></data>
+  <data name="ZonaHoraria" xml:space="preserve"><value>Zona horaria</value></data>
+  <data name="Cultura" xml:space="preserve"><value>Formato regional</value></data>
+  <data name="MarcoContable" xml:space="preserve"><value>Marco contable</value></data>
+  <data name="Guardar" xml:space="preserve"><value>Guardar cambios</value></data>
+  <data name="Guardado" xml:space="preserve"><value>Configuración actualizada.</value></data>
+  <data name="SinEmpresa" xml:space="preserve"><value>Selecciona una empresa para continuar.</value></data>
+  <data name="SoloLectura" xml:space="preserve"><value>Solo un administrador de la empresa puede modificar estos datos.</value></data>
+  <data name="TasasTitulo" xml:space="preserve"><value>Tasas de cambio (TRM / mercado)</value></data>
+  <data name="TasasDetalle" xml:space="preserve"><value>Tasas del día hacia tu moneda funcional, usadas en documentos y conversiones.</value></data>
+  <data name="TasasAutomatico" xml:space="preserve"><value>La TRM se actualiza sola cada 24 h desde fuentes oficiales y de mercado. Al abrir esta pantalla o guardar la configuración regional se refrescan si faltan datos de hoy.</value></data>
+  <data name="TasasSincronizado" xml:space="preserve"><value>Tasas actualizadas ({0} pares, fuente {1}).</value></data>
+  <data name="TasasVacio" xml:space="preserve"><value>Aún no hay tasas de hoy; el sistema las traerá en segundo plano o en la próxima visita si el mercado ya publicó la cotización.</value></data>
+  <data name="TasasOrigen" xml:space="preserve"><value>Origen</value></data>
+  <data name="TasasValor" xml:space="preserve"><value>1 unidad → moneda funcional</value></data>
+  <data name="TasasFuente" xml:space="preserve"><value>Fuente</value></data>
+  <data name="Error.servicio" xml:space="preserve"><value>No se pudo contactar el servicio. Intenta de nuevo.</value></data>
+  <data name="Error.permiso" xml:space="preserve"><value>No tienes permiso para esta acción.</value></data>
+  <data name="Error.proveedor_sin_datos" xml:space="preserve"><value>El proveedor de tasas no devolvió datos para hoy.</value></data>
+</root>

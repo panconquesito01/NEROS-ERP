@@ -49,11 +49,10 @@ La configuracion de desarrollo solicita cifrado y acepta el certificado local. E
 npm ci
 npm run css:build
 dotnet build .\Neros.slnx -v minimal
-sqlcmd -S localhost -E -C -b -i .\database\scripts\000_crear_base.sql
-sqlcmd -S localhost -E -C -b -d NEROSERP -i .\database\scripts\001_identity_empresas.sql
+dotnet run --project .\tools\Neros.Database.Deploy -- apply --modulo compatibilidad --servidor localhost --base NEROSERP --crear-base
 ```
 
-El script 001 se aplica una sola vez sobre una base vacia. No ejecutar si ya fue instalado. Ver [procedimiento SQL](../../database/README.md).
+El runner aplica solo los scripts pendientes y registra cada uno. Una base instalada con los scripts anteriores se adopta con `baseline --hasta V0001`. Ver [procedimiento SQL](../../database/README.md).
 
 ## Alta inicial
 
@@ -123,8 +122,11 @@ Frontend: http://localhost:5268. API: http://localhost:5067. `Api:BaseUrl` debe 
 | AspNetUserClaims / Logins / Tokens | Almacenamiento estandar Identity; no implica que MFA o acceso externo esten implementados |
 | Empresas | Identificador GUID, codigo unico, razon social, identificacion y estado |
 | UsuariosEmpresas | Clave compuesta usuario/empresa, rol y estado de la membresia |
-| Sesiones | Hash SHA-256 de token aleatorio de 256 bits, usuario, sello de seguridad y vencimiento |
+| Sesiones | Hash SHA-256 de token aleatorio de 256 bits, usuario, sello de seguridad, vencimiento, `Id` publico, inicio, ultima actividad, IP, agente y revocacion (fecha y motivo) |
 | EventosAcceso | Usuario opcional, empresa opcional, fecha UTC y accion |
+| auditoria.Evento | Ledger append-only: fecha, modulo, accion, resultado, actor, entidad afectada, IP, agente, correlacion y detalle sin secretos (V0002) |
+
+`AspNetUsers.DebeCambiarClave` (V0002) obliga a cambiar la clave antes de usar el sistema.
 
 Los identificadores de usuario los genera Identity como GUID de texto. SQL Server puede advertir sobre la longitud teorica de claves compuestas de Identity; no suministrar identificadores arbitrariamente largos. Los proveedores de login externo y MFA quedan fuera de esta entrega.
 
@@ -138,6 +140,24 @@ Los identificadores de usuario los genera Identity como GUID de texto. SQL Serve
 | GET /api/empresas | Sesion valida | Solo membresias activas de usuario y empresa activos |
 | POST /api/empresas/{id}/seleccionar | Pertenencia activa | Empresa y auditoria; 404 sin acceso |
 | GET /api/empresas/{id}/inicio | Pertenencia activa | Empresa y ultimos 8 eventos personales; 404 sin acceso |
+| POST /api/cuenta/clave | Sesion valida, 10/min por sesion | 200 con sesion nueva; 400 `clave_actual`, `misma_clave`, `politica` o `bloqueado` |
+| GET /api/cuenta/sesiones | Sesion valida | Sesiones activas propias, la actual primero |
+| POST /api/cuenta/sesiones/{id}/cerrar | Sesion valida | 204; 404 si no es propia o ya no esta activa |
+| POST /api/cuenta/sesiones/cerrar-otras y cerrar-todas | Sesion valida | Cantidad cerrada |
+| GET /api/admin/usuarios?buscar&pagina&tamano | `PLATAFORMA.USUARIO.CONSULTAR` | Pagina de usuarios (maximo 100) |
+| POST /api/admin/usuarios/{id}/restablecer-clave | `PLATAFORMA.USUARIO.RESTABLECER_CLAVE` | 200 con clave temporal; 400 `propia_cuenta`; 404 |
+| POST /api/admin/usuarios/{id}/desbloquear | `PLATAFORMA.USUARIO.DESBLOQUEAR` | 204; 404 |
+
+Con `DebeCambiarClave` la API responde 403 `cambio_clave_requerido` salvo en `yo`, `logout`, `cuenta/clave` y `cuenta/sesiones/cerrar-todas`. El BFF redirige a `/cuenta/clave` todas las paginas salvo la salida.
+
+## Cuenta, permisos y auditoria
+
+- Permisos `MODULO.RECURSO.ACCION` en `Neros.Contracts.Seguridad.CodigosPermiso`; la asignacion vive en `Neros.Application.Seguridad.Permisos`. Hoy solo `AdministradorGlobal` recibe los de plataforma. Se recalculan desde SQL en cada solicitud y el BFF los refresca desde `api/acceso/yo`, sin cache de permisos obsoletos.
+- Cambio de clave: verifica la actual con bloqueo, rota el sello, revoca todas las sesiones y emite una nueva con el mismo vencimiento, en una transaccion.
+- Restablecimiento: solo administrador global y nunca sobre la propia cuenta. Genera 20 caracteres aleatorios (`RandomNumberGenerator`, sin caracteres ambiguos), marca `DebeCambiarClave`, desbloquea y revoca todas las sesiones. La clave se muestra una sola vez en la pagina; no se guarda ni se audita. La pagina reemplaza la entrada del historial para que recargar no repita la operacion.
+- Logout y cierres revocan la sesion (`RevocadaEnUtc`, `MotivoRevocacion`) en lugar de borrarla, para conservar el historial.
+- `auditoria.Evento` registra actor y entidad afectada de acceso, cambio de clave, cierres de sesion, restablecimiento y desbloqueo. Es un ledger append-only: no admite UPDATE ni DELETE.
+- La IP y el agente llegan del BFF en `X-Neros-Client-Ip` y `X-Neros-Client-Agent`; son informativos, no una prueba de origen.
 
 La API recibe la sesion en Authorization Bearer. El token no se expone a JavaScript: el servidor Blazor lo conserva dentro de su cookie cifrada y firmada con Data Protection. Nunca registrar ese header, cookies ni respuestas de login.
 
@@ -145,7 +165,7 @@ La API recibe la sesion en Authorization Bearer. El token no se expone a JavaScr
 
 - Cookie HttpOnly, SameSite=Lax y Secure obligatorio fuera de Development; expiracion absoluta, sin renovacion deslizante.
 - Sesion ordinaria: 8 horas y cookie de sesion. Mantener sesion: 7 dias y cookie persistente.
-- Logout elimina la sesion en SQL; un token copiado deja de ser valido.
+- Logout revoca la sesion en SQL; un token copiado deja de ser valido.
 - La API comprueba vencimiento, usuario activo, bloqueo y sello en cada solicitud autenticada.
 - La empresa seleccionada en la cookie es contexto de navegacion, nunca una autorizacion. Application y Persistence verifican la membresia en cada consulta.
 - Los tres roles tienen acceso al inicio y a su propia actividad; no otorgan permisos transaccionales que aun no existen.
@@ -181,4 +201,4 @@ La prueba de navegador usa Playwright y Microsoft Edge en Windows. En otros sist
 
 Configurar HTTPS en ambos hosts, `Api:BaseUrl` HTTPS, certificado SQL confiable, secretos gestionados, permisos SQL minimos, llaves Data Protection persistentes y protegidas, backups y retencion de auditoria. Configurar proxies de confianza antes de interpretar IP reenviadas. Evaluar limites distribuidos al escalar horizontalmente.
 
-Pendientes funcionales: administracion web de usuarios y permisos, recuperacion de clave verificada, MFA, permisos por accion, sucursales, consolidacion autorizada y modulos transaccionales. No publicar como un ERP transaccional terminado.
+Pendientes funcionales: alta y edicion web de usuarios, asignacion web de permisos y membresias, recuperacion de clave verificada por correo, MFA, permisos por empresa en endpoints, sucursales, consolidacion autorizada y modulos transaccionales. No publicar como un ERP transaccional terminado.

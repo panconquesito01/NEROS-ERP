@@ -1,0 +1,515 @@
+@page "/administracion/usuarios"
+@rendermode InteractiveServer
+@attribute [Authorize(Policy = CodigosPermiso.UsuarioConsultar)]
+@inject ClienteNeros Cliente
+@inject IHttpContextAccessor ContextAccessor
+@inject IStringLocalizer<TextosAdministracion> T
+
+<PageTitle>@T["Usuarios.Titulo"]</PageTitle>
+
+<section class="n-page n-enter" aria-labelledby="usuarios-titulo">
+    <header class="n-page-heading">
+        <div>
+            <h1 id="usuarios-titulo">@T["Usuarios.Encabezado"]</h1>
+            <p>@T["Usuarios.SubtituloExtendido"]</p>
+        </div>
+        @if (pagina is not null)
+        {
+            <span class="n-badge">@T[pagina.Total == 1 ? "Usuarios.TotalUno" : "Usuarios.Total", pagina.Total]</span>
+        }
+    </header>
+
+    @if (claveTemporal is not null)
+    {
+        <div class="n-secret" role="status" data-resultado-unico>
+            <div>
+                <strong>@T["Usuarios.ClaveGenerada.Titulo", usuarioAfectado ?? string.Empty]</strong>
+                <p>@T["Usuarios.ClaveGenerada.Detalle"]</p>
+            </div>
+            <div class="n-secret-value">
+                <code id="clave-temporal">@claveTemporal</code>
+                <button class="n-button n-secondary n-compact" type="button" data-copy="clave-temporal"><Icono Nombre="copy" /><span>@T["Usuarios.Copiar"]</span></button>
+            </div>
+        </div>
+    }
+    @if (aviso is not null)
+    {
+        <Aviso Tipo="tipoAviso">@aviso</Aviso>
+    }
+
+    @if (PuedeCrear)
+    {
+        <div class="n-heading-actions"><button type="button" class="n-button" @onclick="() => crearAbierto = true"><Icono Nombre="user-round" />@T["Usuarios.CrearAccion"]</button></div>
+    }
+
+    <form class="n-company-toolbar" method="get" action="/administracion/usuarios" data-enhance="false">
+        <label class="n-input-icon n-search">
+            <Icono Nombre="search" />
+            <span class="sr-only">@T["Usuarios.Buscar"]</span>
+            <input type="search" name="buscar" value="@Buscar" placeholder="@T["Usuarios.BuscarEjemplo"]" maxlength="100" autocomplete="off" spellcheck="false" />
+        </label>
+        <button class="n-button n-secondary" type="submit">@T["Usuarios.BuscarAccion"]</button>
+    </form>
+
+    @if (pagina is { Usuarios.Count: > 0 })
+    {
+        <form method="post" @formname="usuarios" @onsubmit="OperarAsync" data-enhance="false">
+            <AntiforgeryToken />
+            <NerosDataGrid Cargando="cargando"
+                           Vacio="false"
+                           ClaseTabla="n-user-table"
+                           Caption="@T["Usuarios.Tabla"]"
+                           Pagina="@pagina.Pagina"
+                           TotalPaginas="@TotalPaginas"
+                           EnlacePagina="@EnlacePagina"
+                           EtiquetaPaginacion="@T["Usuarios.Paginacion"]"
+                           TextoAnterior="@T["Usuarios.Anterior"]"
+                           TextoSiguiente="@T["Usuarios.Siguiente"]"
+                           TextoPagina="@TextoPaginaActual">
+                <TextoCargando>@T["Usuarios.Cargando"]</TextoCargando>
+                <ContenidoVacio><EstadoVacio NombreIcono="search-x">@T["Usuarios.Vacio"]</EstadoVacio></ContenidoVacio>
+                <Encabezado>
+                    <thead>
+                        <tr>
+                            <th scope="col">@T["Usuarios.Nombre"]</th>
+                            <th scope="col">@T["Usuarios.Estado"]</th>
+                            <th scope="col">@T["Usuarios.UltimoAcceso"]</th>
+                            <th scope="col"><span class="sr-only">@T["Usuarios.Acciones"]</span></th>
+                        </tr>
+                    </thead>
+                </Encabezado>
+                <Cuerpo>
+                    <tbody>
+                        @foreach (var usuario in pagina.Usuarios)
+                        {
+                            <tr>
+                                <td>
+                                    <span class="n-user-cell">
+                                        <span class="n-avatar" aria-hidden="true">@Presentacion.Iniciales(usuario.Nombre)</span>
+                                        <span><strong>@usuario.Nombre</strong><small>@usuario.Correo</small></span>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="n-chips">
+                                        <span class="@(usuario.Activo ? "n-chip n-chip-ok" : "n-chip")">@T[usuario.Activo ? "Usuarios.Activo" : "Usuarios.Inactivo"]</span>
+                                        @if (usuario.Bloqueado) { <span class="n-chip n-chip-error">@T["Usuarios.Bloqueado"]</span> }
+                                        @if (usuario.DebeCambiarClave) { <span class="n-chip n-chip-warn">@T["Usuarios.ClaveTemporal"]</span> }
+                                        @if (usuario.AdministradorGlobal) { <span class="n-chip">@T["Usuarios.Admin"]</span> }
+                                    </span>
+                                </td>
+                                <td>
+                                    @if (usuario.UltimoAccesoUtc is { } acceso)
+                                    {
+                                        <time datetime="@Presentacion.FechaIso(acceso)" data-local-date="relative">@Presentacion.FechaUtc(acceso)</time>
+                                    }
+                                    else
+                                    {
+                                        <span>@T["Usuarios.Nunca"]</span>
+                                    }
+                                </td>
+                                <td>
+                                    <span class="n-row-actions">
+                                        @if (PuedeModificar)
+                                        {
+                                            <button class="n-button n-secondary n-compact" type="button"
+                                                    aria-label="@T["Usuarios.EditarEtiqueta", usuario.Nombre]"
+                                                    @onclick="() => AbrirEditarAsync(usuario.Id)"><Icono Nombre="user-cog" /><span>@T["Usuarios.Editar"]</span></button>
+                                        }
+                                        @if (usuario.Id != ActorId && PuedeModificar)
+                                        {
+                                            if (usuario.Activo)
+                                            {
+                                                <button class="n-button n-secondary n-compact" type="submit" name="Operacion" value="desactivar|@usuario.Id"
+                                                        data-confirm="@T["Usuarios.ConfirmarDesactivar", usuario.Nombre]"
+                                                        aria-label="@T["Usuarios.DesactivarEtiqueta", usuario.Nombre]"><Icono Nombre="lock-keyhole" /><span>@T["Usuarios.Desactivar"]</span></button>
+                                            }
+                                            else
+                                            {
+                                                <button class="n-button n-secondary n-compact" type="submit" name="Operacion" value="activar|@usuario.Id"
+                                                        data-confirm="@T["Usuarios.ConfirmarActivar", usuario.Nombre]"
+                                                        aria-label="@T["Usuarios.ActivarEtiqueta", usuario.Nombre]"><Icono Nombre="check" /><span>@T["Usuarios.Activar"]</span></button>
+                                            }
+                                        }
+                                        @if (usuario.Bloqueado && PuedeDesbloquear)
+                                        {
+                                            <button class="n-button n-secondary n-compact" type="submit" name="Operacion" value="desbloquear|@usuario.Id"
+                                                    aria-label="@T["Usuarios.DesbloquearEtiqueta", usuario.Nombre]"><Icono Nombre="lock-open" /><span>@T["Usuarios.Desbloquear"]</span></button>
+                                        }
+                                        @if (usuario.Id != ActorId && PuedeRestablecer)
+                                        {
+                                            <button class="n-button n-secondary n-compact" type="submit" name="Operacion" value="restablecer|@usuario.Id"
+                                                    data-confirm="@T["Usuarios.ConfirmarRestablecer", usuario.Nombre]"
+                                                    aria-label="@T["Usuarios.RestablecerEtiqueta", usuario.Nombre]"><Icono Nombre="key-round" /><span>@T["Usuarios.Restablecer"]</span></button>
+                                        }
+                                        @if (usuario.Id != ActorId && PuedeEliminar)
+                                        {
+                                            <button class="n-button n-secondary n-compact n-danger" type="submit" name="Operacion" value="eliminar|@usuario.Id"
+                                                    data-confirm="@T["Usuarios.ConfirmarEliminar", usuario.Nombre]"
+                                                    aria-label="@T["Usuarios.EliminarEtiqueta", usuario.Nombre]"><Icono Nombre="triangle-alert" /><span>@T["Usuarios.Eliminar"]</span></button>
+                                        }
+                                    </span>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </Cuerpo>
+            </NerosDataGrid>
+        </form>
+    }
+    else
+    {
+        <NerosDataGrid Cargando="cargando"
+                       Vacio="pagina is not null"
+                       Pagina="1"
+                       TotalPaginas="0"
+                       EnlacePagina="@EnlacePagina"
+                       EtiquetaPaginacion="@T["Usuarios.Paginacion"]"
+                       TextoAnterior="@T["Usuarios.Anterior"]"
+                       TextoSiguiente="@T["Usuarios.Siguiente"]"
+                       TextoPagina="@TextoPaginaActual">
+            <TextoCargando>@T["Usuarios.Cargando"]</TextoCargando>
+            <ContenidoVacio><EstadoVacio NombreIcono="search-x">@T["Usuarios.Vacio"]</EstadoVacio></ContenidoVacio>
+            <Encabezado><thead><tr><th scope="col">@T["Usuarios.Nombre"]</th></tr></thead></Encabezado>
+            <Cuerpo><tbody></tbody></Cuerpo>
+        </NerosDataGrid>
+    }
+</section>
+
+<ModalNeros Titulo="@T["Usuarios.Crear"]" Abierto="crearAbierto" AbiertoChanged="v => crearAbierto = v" AnchoExtra="true">
+    <ChildContent>
+        <form id="form-crear-usuario" class="n-modal-form" @onsubmit="CrearUsuarioAsync" @onsubmit:preventDefault="true">
+            <FormularioUsuarioPlataforma EsEdicion="false"
+                                         @bind-Correo="nuevoUsuario.Correo"
+                                         Perfil="nuevoUsuario.Perfil"
+                                         TiposDocumento="tiposDocumento"
+                                         @bind-AdministradorGlobal="administradorGlobalCrear"
+                                         Empresas="empresasPlataforma"
+                                         @bind-EmpresaSeleccionada="empresaAsignada"
+                                         @bind-EmpresaSeleccionada:after="OnEmpresaCrearChangedAsync"
+                                         @bind-Rol="rolInicial"
+                                         ModulosSeleccionados="modulosSeleccionados"
+                                         ModulosSeleccionadosChanged="ActualizarModulosAsync" />
+        </form>
+    </ChildContent>
+    <Pie>
+        <button type="button" class="n-button n-secondary" @onclick="() => crearAbierto = false">@T["Usuarios.Cancelar"]</button>
+        <button class="n-button" type="submit" form="form-crear-usuario">@T["Usuarios.CrearAccion"]</button>
+    </Pie>
+</ModalNeros>
+
+<ModalNeros Titulo="@T["Usuarios.EditarTitulo"]" Abierto="editarAbierto" AbiertoChanged="v => editarAbierto = v" AnchoExtra="true">
+    <ChildContent>
+        @if (usuarioEditando is not null)
+        {
+            <form id="form-editar-usuario" class="n-modal-form" @onsubmit="GuardarEdicionAsync" @onsubmit:preventDefault="true">
+                <FormularioUsuarioPlataforma EsEdicion="true"
+                                             CorreoMostrar="@usuarioEditando.Correo"
+                                             Perfil="perfilEdicion"
+                                             TiposDocumento="tiposDocumento"
+                                             @bind-AdministradorGlobal="administradorGlobalEdicion"
+                                             Empresas="empresasPlataforma"
+                                             @bind-EmpresaSeleccionada="empresaAccesoEdicion"
+                                             @bind-EmpresaSeleccionada:after="OnEmpresaEdicionChangedAsync"
+                                             @bind-Rol="rolAccesoEdicion"
+                                             ModulosSeleccionados="modulosAccesoEdicion"
+                                             ModulosSeleccionadosChanged="ActualizarModulosEdicionAsync"
+                                             MembresiasResumen="ResumenMembresiasEdicion()" />
+            </form>
+        }
+    </ChildContent>
+    <Pie>
+        <button type="button" class="n-button n-secondary" @onclick="() => editarAbierto = false">@T["Usuarios.Cancelar"]</button>
+        <button class="n-button" type="submit" form="form-editar-usuario" disabled="@(usuarioEditando is null)">@T["Usuarios.Guardar"]</button>
+    </Pie>
+</ModalNeros>
+
+@code {
+    private const int Tamano = 20;
+
+    [SupplyParameterFromQuery(Name = "buscar")] public string? Buscar { get; set; }
+    [SupplyParameterFromQuery(Name = "pagina")] public int? NumeroPagina { get; set; }
+    [SupplyParameterFromForm(FormName = "usuarios")] public string? Operacion { get; set; }
+
+    private PaginaUsuarios? pagina;
+    private IReadOnlyList<EmpresaAdministrada> empresasPlataforma = [];
+    private SolicitudCrearUsuarioPlataforma nuevoUsuario = new();
+    private string empresaAsignada = string.Empty;
+    private string rolInicial = "Operador";
+    private bool administradorGlobalCrear;
+    private bool administradorGlobalEdicion;
+    private string empresaAccesoEdicion = string.Empty;
+    private string rolAccesoEdicion = "Operador";
+    private HashSet<string> modulosSeleccionados = ModulosPorDefecto();
+    private HashSet<string> modulosAccesoEdicion = ModulosPorDefecto();
+    private Dictionary<Guid, MembresiaEdicion> membresiasEdicion = new();
+    private IReadOnlyList<CatalogoTipoIdentificacion> tiposDocumento = [];
+    private bool crearAbierto;
+    private bool editarAbierto;
+    private DetalleUsuarioPlataforma? usuarioEditando;
+    private PerfilPersonaUsuario perfilEdicion = new();
+    private bool cargando = true;
+    private string? claveTemporal;
+    private string? usuarioAfectado;
+    private string? aviso;
+    private TipoAviso tipoAviso = TipoAviso.Error;
+
+    private ClaimsPrincipal Usuario => ContextAccessor.HttpContext!.User;
+    private string Token => Usuario.FindFirstValue(EndpointsSesion.TokenClaim)!;
+    private string? ActorId => Usuario.FindFirstValue(ClaimTypes.NameIdentifier);
+    private bool PuedeRestablecer => Usuario.HasClaim(CodigosPermiso.Claim, CodigosPermiso.UsuarioRestablecerClave);
+    private bool PuedeDesbloquear => Usuario.HasClaim(CodigosPermiso.Claim, CodigosPermiso.UsuarioDesbloquear);
+    private bool PuedeCrear => Usuario.HasClaim(CodigosPermiso.Claim, CodigosPermiso.UsuarioCrear);
+    private bool PuedeModificar => Usuario.HasClaim(CodigosPermiso.Claim, CodigosPermiso.UsuarioModificar);
+    private bool PuedeEliminar => Usuario.HasClaim(CodigosPermiso.Claim, CodigosPermiso.UsuarioEliminar);
+    private int TotalPaginas => pagina is null ? 0 : (int)Math.Ceiling(pagina.Total / (double)pagina.Tamano);
+
+    protected override Task OnInitializedAsync() => CargarAsync();
+
+    private async Task OperarAsync()
+    {
+        var partes = (Operacion ?? string.Empty).Split('|', 2);
+        if (partes.Length != 2 || partes[1].Length == 0) return;
+        var afectado = pagina?.Usuarios.FirstOrDefault(usuario => usuario.Id == partes[1]);
+        var cancelacion = ContextAccessor.HttpContext!.RequestAborted;
+        try
+        {
+            string? error;
+            if (partes[0] == "restablecer")
+            {
+                (claveTemporal, error) = await Cliente.RestablecerClaveAsync(Token, partes[1], cancelacion);
+                usuarioAfectado = afectado?.Nombre;
+            }
+            else if (partes[0] == "desbloquear")
+            {
+                error = await Cliente.DesbloquearAsync(Token, partes[1], cancelacion);
+                if (error is null) (aviso, tipoAviso) = (T["Usuarios.Desbloqueado", afectado?.Nombre ?? string.Empty].Value, TipoAviso.Exito);
+            }
+            else if (partes[0] == "desactivar")
+            {
+                error = await Cliente.CambiarEstadoUsuarioPlataformaAsync(Token, partes[1], false, cancelacion);
+                if (error is null) (aviso, tipoAviso) = (T["Usuarios.Desactivado", afectado?.Nombre ?? string.Empty].Value, TipoAviso.Exito);
+            }
+            else if (partes[0] == "activar")
+            {
+                error = await Cliente.CambiarEstadoUsuarioPlataformaAsync(Token, partes[1], true, cancelacion);
+                if (error is null) (aviso, tipoAviso) = (T["Usuarios.Activado", afectado?.Nombre ?? string.Empty].Value, TipoAviso.Exito);
+            }
+            else if (partes[0] == "eliminar")
+            {
+                error = await Cliente.EliminarUsuarioPlataformaAsync(Token, partes[1], cancelacion);
+                if (error is null) (aviso, tipoAviso) = (T["Usuarios.Eliminado", afectado?.Nombre ?? string.Empty].Value, TipoAviso.Exito);
+            }
+            else return;
+            if (error is not null) (aviso, tipoAviso) = (T[$"Usuarios.Error.{error}"].Value, TipoAviso.Error);
+        }
+        catch (Exception error) when (error is HttpRequestException or TaskCanceledException)
+        {
+            (aviso, tipoAviso) = (T["Usuarios.Error.servicio"].Value, TipoAviso.Error);
+        }
+        await CargarAsync();
+    }
+
+    private Task ActualizarModulosAsync(HashSet<string> modulos)
+    {
+        modulosSeleccionados = modulos;
+        return Task.CompletedTask;
+    }
+
+    private Task ActualizarModulosEdicionAsync(HashSet<string> modulos)
+    {
+        modulosAccesoEdicion = modulos;
+        return Task.CompletedTask;
+    }
+
+    private sealed record MembresiaEdicion(string Rol, HashSet<string> Modulos);
+
+    private static HashSet<string> ModulosPorDefecto() =>
+        new(CatalogoModulos.Todos.Where(m => m.Disponible).Select(m => m.Clave), StringComparer.OrdinalIgnoreCase);
+
+    private void PersistirMembresiaActualEdicion()
+    {
+        if (!Guid.TryParse(empresaAccesoEdicion, out var empresaId))
+        {
+            return;
+        }
+
+        membresiasEdicion[empresaId] = new MembresiaEdicion(
+            rolAccesoEdicion,
+            new HashSet<string>(modulosAccesoEdicion, StringComparer.OrdinalIgnoreCase));
+    }
+
+    private Task OnEmpresaEdicionChangedAsync()
+    {
+        PersistirMembresiaActualEdicion();
+        if (!Guid.TryParse(empresaAccesoEdicion, out var empresaId))
+        {
+            return Task.CompletedTask;
+        }
+
+        if (membresiasEdicion.TryGetValue(empresaId, out var membresia))
+        {
+            rolAccesoEdicion = membresia.Rol;
+            modulosAccesoEdicion = new HashSet<string>(membresia.Modulos, StringComparer.OrdinalIgnoreCase);
+        }
+        else
+        {
+            rolAccesoEdicion = "Operador";
+            modulosAccesoEdicion = ModulosPorDefecto();
+        }
+
+        return Task.CompletedTask;
+    }
+
+    private Task OnEmpresaCrearChangedAsync()
+    {
+        if (string.IsNullOrEmpty(empresaAsignada))
+        {
+            return Task.CompletedTask;
+        }
+
+        if (modulosSeleccionados.Count == 0)
+        {
+            modulosSeleccionados = ModulosPorDefecto();
+        }
+
+        return Task.CompletedTask;
+    }
+
+    private IReadOnlyList<FormularioUsuarioPlataforma.MembresiaResumenUi> ResumenMembresiasEdicion()
+    {
+        PersistirMembresiaActualEdicion();
+        return membresiasEdicion
+            .Select(par =>
+            {
+                var empresa = empresasPlataforma.FirstOrDefault(e => e.Id == par.Key);
+                return new FormularioUsuarioPlataforma.MembresiaResumenUi(empresa?.Nombre ?? par.Key.ToString(), par.Value.Rol);
+            })
+            .OrderBy(resumen => resumen.EmpresaNombre)
+            .ToList();
+    }
+
+    private async Task AbrirEditarAsync(string usuarioId)
+    {
+        var cancelacion = ContextAccessor.HttpContext!.RequestAborted;
+        try
+        {
+            usuarioEditando = await Cliente.UsuarioPlataformaAsync(Token, usuarioId, cancelacion);
+            if (usuarioEditando is null)
+            {
+                (aviso, tipoAviso) = (T["Usuarios.Error.no_encontrado"].Value, TipoAviso.Error);
+                return;
+            }
+            perfilEdicion = new PerfilPersonaUsuario
+            {
+                PrimerNombre = usuarioEditando.Perfil.PrimerNombre,
+                SegundoNombre = usuarioEditando.Perfil.SegundoNombre,
+                PrimerApellido = usuarioEditando.Perfil.PrimerApellido,
+                SegundoApellido = usuarioEditando.Perfil.SegundoApellido,
+                TipoDocumento = usuarioEditando.Perfil.TipoDocumento,
+                NumeroDocumento = usuarioEditando.Perfil.NumeroDocumento,
+                Ciudad = usuarioEditando.Perfil.Ciudad,
+                Direccion = usuarioEditando.Perfil.Direccion
+            };
+            administradorGlobalEdicion = usuarioEditando.AdministradorGlobal;
+            membresiasEdicion = usuarioEditando.Membresias.ToDictionary(
+                membresia => membresia.EmpresaId,
+                membresia => new MembresiaEdicion(
+                    membresia.Rol,
+                    new HashSet<string>(
+                        membresia.ModulosHabilitados.Count > 0 ? membresia.ModulosHabilitados : ModulosPorDefecto(),
+                        StringComparer.OrdinalIgnoreCase)));
+            empresaAccesoEdicion = usuarioEditando.Membresias.FirstOrDefault()?.EmpresaId.ToString() ?? string.Empty;
+            await OnEmpresaEdicionChangedAsync();
+            editarAbierto = true;
+        }
+        catch (Exception error) when (error is HttpRequestException or TaskCanceledException)
+        {
+            (aviso, tipoAviso) = (T["Usuarios.Error.servicio"].Value, TipoAviso.Error);
+        }
+    }
+
+    private async Task GuardarEdicionAsync()
+    {
+        if (usuarioEditando is null) return;
+        var cancelacion = ContextAccessor.HttpContext!.RequestAborted;
+        PersistirMembresiaActualEdicion();
+        var solicitud = new SolicitudActualizarUsuarioPlataforma
+        {
+            Perfil = perfilEdicion,
+            AdministradorGlobal = administradorGlobalEdicion,
+            Membresias = membresiasEdicion.Select(par => new MembresiaUsuarioPlataformaSolicitud
+            {
+                EmpresaId = par.Key,
+                Rol = par.Value.Rol,
+                ModulosHabilitados = par.Value.Modulos.ToList()
+            }).ToList()
+        };
+        var error = await Cliente.ActualizarUsuarioPlataformaAsync(Token, usuarioEditando.Id, solicitud, cancelacion);
+        if (error is not null)
+        {
+            (aviso, tipoAviso) = (T[$"Usuarios.Error.{error}"].Value, TipoAviso.Error);
+            return;
+        }
+        editarAbierto = false;
+        usuarioEditando = null;
+        (aviso, tipoAviso) = (T["Usuarios.Actualizado", perfilEdicion.NombreCompleto()].Value, TipoAviso.Exito);
+        await CargarAsync();
+    }
+
+    private async Task CrearUsuarioAsync()
+    {
+        var cancelacion = ContextAccessor.HttpContext!.RequestAborted;
+        nuevoUsuario.AdministradorGlobal = administradorGlobalCrear;
+        nuevoUsuario.MembresiaInicial = Guid.TryParse(empresaAsignada, out var empresaId)
+            ? new SolicitudAsignarEmpresa { EmpresaId = empresaId, Rol = rolInicial }
+            : null;
+        nuevoUsuario.ModulosHabilitados = modulosSeleccionados.ToList();
+        var (creado, error) = await Cliente.CrearUsuarioPlataformaAsync(Token, nuevoUsuario, cancelacion);
+        if (error is not null)
+        {
+            (aviso, tipoAviso) = (T[$"Usuarios.Error.{error}"].Value, TipoAviso.Error);
+            return;
+        }
+        claveTemporal = creado!.ClaveTemporal;
+        usuarioAfectado = nuevoUsuario.Perfil.NombreCompleto();
+        crearAbierto = false;
+        nuevoUsuario = new();
+        empresaAsignada = string.Empty;
+        administradorGlobalCrear = false;
+        rolInicial = "Operador";
+        modulosSeleccionados = ModulosPorDefecto();
+        (aviso, tipoAviso) = (T["Usuarios.Creado", usuarioAfectado ?? string.Empty].Value, TipoAviso.Exito);
+        await CargarAsync();
+    }
+
+    private async Task CargarAsync()
+    {
+        cargando = true;
+        try
+        {
+            var cancelacion = ContextAccessor.HttpContext!.RequestAborted;
+            if (PuedeCrear || PuedeModificar)
+            {
+                var paginaEmpresas = await Cliente.EmpresasPlataformaAsync(Token, null, 1, 200, cancelacion);
+                empresasPlataforma = paginaEmpresas.Empresas;
+                var cat = await Cliente.CatalogosGlobalizacionAsync(Token, "CO", cancelacion);
+                tiposDocumento = cat.TiposIdentificacion.Where(t => t.Pais == "CO").ToList();
+            }
+            pagina = await Cliente.UsuariosAsync(Token, Buscar?.Trim(), Math.Max(1, NumeroPagina ?? 1), Tamano, cancelacion);
+        }
+        catch (Exception error) when (error is HttpRequestException or TaskCanceledException)
+        {
+            pagina = null;
+            (aviso, tipoAviso) = (T["Usuarios.ErrorCarga"].Value, TipoAviso.Error);
+        }
+        finally
+        {
+            cargando = false;
+        }
+    }
+
+    private string EnlacePagina(int numero) =>
+        $"/administracion/usuarios?pagina={numero}" + (string.IsNullOrWhiteSpace(Buscar) ? string.Empty : $"&buscar={Uri.EscapeDataString(Buscar)}");
+
+    private string TextoPaginaActual(int actual, int total) => T["Usuarios.Pagina", actual, total].Value;
+}

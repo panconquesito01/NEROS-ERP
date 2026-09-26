@@ -1,0 +1,39 @@
+@inject IHttpContextAccessor ContextAccessor
+@inject IStringLocalizer<TextosCuenta> T
+@inject IStringLocalizer<TextosComunes> C
+
+<ModalNeros Titulo="@T["Clave.Encabezado"]" Abierto="Abierto" AbiertoChanged="AbiertoChanged" AnchoGrande="false">
+    @if (DebeCambiarClave)
+    {
+        <Aviso Tipo="TipoAviso.Informacion">@T["Clave.Obligatoria"]</Aviso>
+    }
+    <form class="n-form-stack" method="post" action="/sesion/clave" data-busy-form data-enhance="false">
+        <AntiforgeryToken />
+        @Campo("modal-clave-actual", "ClaveActual", T["Clave.Actual"].Value, "current-password", 1)
+        @Campo("modal-clave-nueva", "ClaveNueva", T["Clave.Nueva"].Value, "new-password", 12, "modal-clave-requisitos")
+        <p class="n-field-hint" id="modal-clave-requisitos">@T["Clave.Requisitos"]</p>
+        @Campo("modal-clave-confirmacion", "Confirmacion", T["Clave.Confirmacion"].Value, "new-password", 12)
+        <button class="n-button n-primary" type="submit">
+            <Icono Nombre="key-round" />
+            <span>@T["Clave.Guardar"]</span>
+        </button>
+    </form>
+    <p class="n-hint"><a href="/cuenta/clave">@T["Clave.AbrirPagina"]</a></p>
+</ModalNeros>
+
+@code {
+    [Parameter] public bool Abierto { get; set; }
+    [Parameter] public EventCallback<bool> AbiertoChanged { get; set; }
+
+    private ClaimsPrincipal Usuario => ContextAccessor.HttpContext?.User ?? new ClaimsPrincipal();
+    private bool DebeCambiarClave => Usuario.HasClaim(EndpointsSesion.DebeCambiarClaveClaim, "true");
+
+    private RenderFragment Campo(string id, string nombre, string etiqueta, string autocompletar, int minimo, string? descripcion = null) => @<div class="n-field">
+        <label for="@id">@etiqueta</label>
+        <div class="n-input-icon">
+            <Icono Nombre="lock-keyhole" />
+            <input id="@id" name="@nombre" type="password" autocomplete="@autocompletar" required minlength="@minimo" maxlength="128" aria-describedby="@descripcion" />
+            <button class="n-password-toggle" type="button" data-password-toggle="@id" aria-label="@C["Js.MostrarClave"]"><Icono Nombre="eye" /></button>
+        </div>
+    </div>;
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Clave.Titulo" xml:space="preserve"><value>Cambiar contraseña | Neros ERP</value></data>
+  <data name="Clave.Encabezado" xml:space="preserve"><value>Cambiar contraseña</value></data>
+  <data name="Clave.Subtitulo" xml:space="preserve"><value>Al guardar, cerraremos tus otras sesiones abiertas.</value></data>
+  <data name="Clave.Obligatoria" xml:space="preserve"><value>Un administrador restableció tu contraseña. Crea una nueva para continuar.</value></data>
+  <data name="Clave.Actual" xml:space="preserve"><value>Contraseña actual</value></data>
+  <data name="Clave.Nueva" xml:space="preserve"><value>Nueva contraseña</value></data>
+  <data name="Clave.Confirmacion" xml:space="preserve"><value>Confirmar nueva contraseña</value></data>
+  <data name="Clave.Requisitos" xml:space="preserve"><value>Al menos 12 caracteres, con mayúsculas, minúsculas, números y un símbolo.</value></data>
+  <data name="Clave.Guardar" xml:space="preserve"><value>Guardar contraseña</value></data>
+  <data name="Clave.Guardando" xml:space="preserve"><value>Guardando...</value></data>
+  <data name="Clave.Cambiada" xml:space="preserve"><value>Tu contraseña se actualizó y cerramos tus otras sesiones.</value></data>
+  <data name="Clave.Continuar" xml:space="preserve"><value>Continuar</value></data>
+  <data name="Clave.AbrirPagina" xml:space="preserve"><value>Abrir en pantalla completa</value></data>
+  <data name="Clave.Error.clave_actual" xml:space="preserve"><value>La contraseña actual no es correcta.</value></data>
+  <data name="Clave.Error.misma_clave" xml:space="preserve"><value>La nueva contraseña debe ser distinta de la actual.</value></data>
+  <data name="Clave.Error.politica" xml:space="preserve"><value>La nueva contraseña no cumple los requisitos.</value></data>
+  <data name="Clave.Error.bloqueado" xml:space="preserve"><value>Demasiados intentos fallidos. Tu cuenta quedó bloqueada temporalmente.</value></data>
+  <data name="Clave.Error.confirmacion" xml:space="preserve"><value>La confirmación no coincide con la nueva contraseña.</value></data>
+  <data name="Clave.Error.longitud" xml:space="preserve"><value>La nueva contraseña debe tener al menos 12 caracteres.</value></data>
+  <data name="Clave.Error.intentos" xml:space="preserve"><value>Demasiados intentos. Espera un minuto e inténtalo de nuevo.</value></data>
+  <data name="Clave.Error.servicio" xml:space="preserve"><value>No pudimos guardar la contraseña. Inténtalo de nuevo.</value></data>
+  <data name="Clave.Error.datos" xml:space="preserve"><value>Completa todos los campos.</value></data>
+  <data name="Sesiones.Titulo" xml:space="preserve"><value>Mis sesiones | Neros ERP</value></data>
+  <data name="Sesiones.Encabezado" xml:space="preserve"><value>Mis sesiones</value></data>
+  <data name="Sesiones.Subtitulo" xml:space="preserve"><value>Dispositivos con acceso a tu cuenta. Cierra los que no reconozcas.</value></data>
+  <data name="Sesiones.Actual" xml:space="preserve"><value>Esta sesión</value></data>
+  <data name="Sesiones.Inicio" xml:space="preserve"><value>Inicio:</value></data>
+  <data name="Sesiones.UltimaActividad" xml:space="preserve"><value>Última actividad:</value></data>
+  <data name="Sesiones.Ip" xml:space="preserve"><value>IP {0}</value></data>
+  <data name="Sesiones.NavegadorEn" xml:space="preserve"><value>{0} en {1}</value></data>
+  <data name="Sesiones.Desconocido" xml:space="preserve"><value>Dispositivo desconocido</value></data>
+  <data name="Sesiones.Cerrar" xml:space="preserve"><value>Cerrar</value></data>
+  <data name="Sesiones.CerrarEtiqueta" xml:space="preserve"><value>Cerrar la sesión de {0}</value></data>
+  <data name="Sesiones.CerrarOtras" xml:space="preserve"><value>Cerrar las demás</value></data>
+  <data name="Sesiones.CerrarTodas" xml:space="preserve"><value>Cerrar todas</value></data>
+  <data name="Sesiones.ConfirmarOtras" xml:space="preserve"><value>¿Cerrar todas tus otras sesiones?</value></data>
+  <data name="Sesiones.ConfirmarTodas" xml:space="preserve"><value>¿Cerrar todas tus sesiones, incluida esta?</value></data>
+  <data name="Sesiones.Cerrada" xml:space="preserve"><value>Sesión cerrada.</value></data>
+  <data name="Sesiones.Otras" xml:space="preserve"><value>Cerramos {0} sesiones.</value></data>
+  <data name="Sesiones.OtrasNinguna" xml:space="preserve"><value>No había otras sesiones abiertas.</value></data>
+  <data name="Sesiones.NoEncontrada" xml:space="preserve"><value>Esa sesión ya no estaba activa.</value></data>
+  <data name="Sesiones.ErrorServicio" xml:space="preserve"><value>No pudimos completar la operación. Inténtalo de nuevo.</value></data>
+  <data name="Sesiones.ErrorCarga" xml:space="preserve"><value>No pudimos cargar tus sesiones.</value></data>
+  <data name="Sesiones.Vacio" xml:space="preserve"><value>No hay sesiones activas.</value></data>
+</root>

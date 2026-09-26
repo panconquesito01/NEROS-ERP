@@ -9,7 +9,8 @@
         "ASPNETCORE_ENVIRONMENT": "Development",
         "Identity__Authority": "https://localhost:7180/",
         "Services__Compatibility": "http://localhost:5067/",
-        "Services__Organization": "http://localhost:5070/"
+        "Services__Organization": "http://localhost:5070/",
+        "Services__Search": "http://localhost:5072/"
       }
     }
   }

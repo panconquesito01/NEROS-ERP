@@ -1,37 +1,46 @@
 @page "/home"
+@rendermode InteractiveServer
 @attribute [Authorize]
 @inject ClienteNeros Cliente
 @inject IHttpContextAccessor ContextAccessor
 @inject NavigationManager Navigation
 @inject IStringLocalizer<TextosInicio> T
+@inject ServicioUiModales UiModales
 
 <PageTitle>@T["Titulo"]</PageTitle>
 
 <section class="n-page n-enter">
-    <header class="n-page-heading">
-        <div><h1>@T["Saludo", Presentacion.PrimerNombre(ContextAccessor.HttpContext?.User.Identity?.Name)]</h1><p>@T["Listo"]</p></div>
-        <time class="n-date" datetime="@DateTimeOffset.UtcNow.ToString("O")" data-local-date="long">@DateTime.UtcNow.ToString("d")</time>
-    </header>
     @if (Estado == "salida")
     {
         <Aviso>@T["ErrorSalida"]</Aviso>
     }
-    @if (error is not null)
+    @if (cargando)
+    {
+        <EstadoCargando>@T["Cargando"]</EstadoCargando>
+    }
+    else if (error is not null)
     {
         <Aviso ReintentarHref="/home">@error</Aviso>
     }
     else if (inicio is not null)
     {
-        <ContextoEmpresa Empresa="inicio.Empresa" />
-        <section class="n-shortcuts" aria-labelledby="accesos-titulo">
-            <h2 id="accesos-titulo">@T["AtajosTitulo"]</h2>
-            <div class="n-shortcut-grid">
-                <a class="n-shortcut" href="/empresas"><span class="n-shortcut-icon"><Icono Nombre="building-2" /></span><span><strong>@T["AtajoEmpresas"]</strong><small>@T["AtajoEmpresasDetalle"]</small></span><Icono Nombre="arrow-up-right" /></a>
-                <a class="n-shortcut" href="#actividad"><span class="n-shortcut-icon n-coral"><Icono Nombre="history" /></span><span><strong>@T["AtajoActividad"]</strong><small>@T["AtajoActividadDetalle"]</small></span><Icono Nombre="arrow-down" /></a>
+        <div class="n-dashboard-v2">
+            <EncabezadoInicio NombreUsuario="@ContextAccessor.HttpContext?.User.Identity?.Name"
+                              Empresa="inicio.Empresa"
+                              AbrirModulos="AbrirModulosAsync" />
+            <AccesosRapidosInicio AbrirModulos="AbrirModulosAsync" />
+            <TarjetasModulos />
+            <div class="n-dashboard-split">
+                <TarjetaCuentaSeguridad DebeCambiarClave="@DebeCambiarClave"
+                                        UltimoAccesoUtc="@UltimoAccesoUtc"
+                                        SesionesAbiertas="@sesionesAbiertas" />
+                <ActividadReciente Actividad="inicio.Actividad" />
             </div>
-        </section>
-        <ActividadReciente Actividad="inicio.Actividad" />
-        <ModulosEnPreparacion />
+            @if (AdministradorGlobal)
+            {
+                <PanelAdministracionPlataforma />
+            }
+        </div>
     }
 </section>
 
@@ -39,6 +48,12 @@
     [SupplyParameterFromQuery(Name = "estado")] public string? Estado { get; set; }
     private InicioEmpresa? inicio;
     private string? error;
+    private bool cargando = true;
+    private int sesionesAbiertas;
+    private ClaimsPrincipal Usuario => ContextAccessor.HttpContext!.User;
+    private bool DebeCambiarClave => Usuario.HasClaim(EndpointsSesion.DebeCambiarClaveClaim, "true");
+    private bool AdministradorGlobal => Usuario.HasClaim(ClaimTypes.Role, "AdministradorGlobal");
+    private DateTime? UltimoAccesoUtc => inicio?.Actividad.OrderByDescending(actividad => actividad.Fecha).FirstOrDefault()?.Fecha.UtcDateTime;
 
     protected override async Task OnInitializedAsync()
     {
@@ -48,9 +63,14 @@
             Navigation.NavigateTo("/empresas", forceLoad: true);
             return;
         }
+        var token = context.User.FindFirstValue(EndpointsSesion.TokenClaim)!;
         try
         {
-            inicio = await Cliente.InicioAsync(context.User.FindFirstValue(EndpointsSesion.TokenClaim)!, empresaId, context.RequestAborted);
+            var tInicio = Cliente.InicioAsync(token, empresaId, context.RequestAborted);
+            var tSesiones = Cliente.SesionesAsync(token, context.RequestAborted);
+            await Task.WhenAll(tInicio, tSesiones);
+            inicio = await tInicio;
+            sesionesAbiertas = (await tSesiones).Count;
             if (inicio is null)
             {
                 Navigation.NavigateTo("/empresas?estado=permiso", forceLoad: true);
@@ -64,5 +84,11 @@
         {
             error = T["ErrorTiempo"];
         }
+        finally
+        {
+            cargando = false;
+        }
     }
+
+    private Task AbrirModulosAsync() { UiModales.AbrirModulos(); return Task.CompletedTask; }
 }

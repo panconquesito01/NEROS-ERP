@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Cookies.Titulo" xml:space="preserve"><value>Cookie policy | Neros ERP</value></data>
+  <data name="Cookies.Encabezado" xml:space="preserve"><value>Cookie policy</value></data>
+  <data name="Cookies.Subtitulo" xml:space="preserve"><value>These cookies and browser storage entries are used by Neros ERP. Essential ones are required to sign in and protect forms.</value></data>
+  <data name="Cookies.Enlace" xml:space="preserve"><value>Cookie policy</value></data>
+  <data name="Cookies.Columna.Nombre" xml:space="preserve"><value>Name</value></data>
+  <data name="Cookies.Columna.Almacenamiento" xml:space="preserve"><value>Storage</value></data>
+  <data name="Cookies.Columna.Proveedor" xml:space="preserve"><value>Provider</value></data>
+  <data name="Cookies.Columna.Categoria" xml:space="preserve"><value>Category</value></data>
+  <data name="Cookies.Columna.Finalidad" xml:space="preserve"><value>Purpose</value></data>
+  <data name="Cookies.Columna.Duracion" xml:space="preserve"><value>Duration</value></data>
+  <data name="Cookies.Esencial" xml:space="preserve"><value>Essential</value></data>
+  <data name="Cookies.Opcional" xml:space="preserve"><value>Optional</value></data>
+  <data name="Cookies.Nota" xml:space="preserve"><value>Session data is removed when you sign out or when the cookie expires.</value></data>
+  <data name="Cookies.Vacio" xml:space="preserve"><value>No published definitions.</value></data>
+  <data name="Legal.Titulo" xml:space="preserve"><value>Legal documents | Neros ERP</value></data>
+  <data name="Legal.Encabezado" xml:space="preserve"><value>Before you continue</value></data>
+  <data name="Legal.Subtitulo" xml:space="preserve"><value>Review and accept the current documents to use Neros ERP.</value></data>
+  <data name="Legal.Aceptar" xml:space="preserve"><value>Accept and continue</value></data>
+  <data name="Legal.Aceptando" xml:space="preserve"><value>Recording acceptance...</value></data>
+  <data name="Legal.Checkbox" xml:space="preserve"><value>I have read and accept {0} (version {1})</value></data>
+  <data name="Legal.Error.error" xml:space="preserve"><value>We could not record your acceptance. Try again.</value></data>
+  <data name="Legal.Error.servicio" xml:space="preserve"><value>The service is unavailable. Try again later.</value></data>
+</root>

@@ -1,0 +1,39 @@
+@inject IStringLocalizer<TextosInicio> T
+@inject IStringLocalizer<TextosComunes> C
+@inject IHttpContextAccessor ContextAccessor
+
+<section class="n-module-cards" data-module-grid aria-labelledby="modulos-titulo">
+    <header class="n-section-heading">
+        <h2 id="modulos-titulo">@T["ModulosTitulo"]</h2>
+    </header>
+    <ul class="n-module-card-grid">
+        @foreach (var modulo in CatalogoModulos.ParaUsuario(ContextAccessor.HttpContext?.User ?? new ClaimsPrincipal()))
+        {
+            <li class="@(modulo.Disponible ? "n-module-card n-module-card-live" : "n-module-card n-module-card-soon")">
+                @if (modulo.Disponible && modulo.Ruta is not null)
+                {
+                    <a class="n-module-card-link" href="@modulo.Ruta">
+                        <span class="n-module-card-icon"><Icono Nombre="@modulo.Icono" /></span>
+                        <span class="n-module-card-copy">
+                            <strong>@C[modulo.ClaveNombre]</strong>
+                            <small>@C[modulo.ClaveLema]</small>
+                            <span class="n-module-available">@C["Modulo.Disponible"]</span>
+                        </span>
+                        <Icono Nombre="arrow-up-right" />
+                    </a>
+                }
+                else
+                {
+                    <div class="n-module-card-link" aria-disabled="true">
+                        <span class="n-module-card-icon"><Icono Nombre="@modulo.Icono" /></span>
+                        <span class="n-module-card-copy">
+                            <strong>@C[modulo.ClaveNombre]</strong>
+                            <small>@C[modulo.ClaveLema]</small>
+                            <span class="n-module-planned">@C["Modulo.EnPreparacion"]</span>
+                        </span>
+                    </div>
+                }
+            </li>
+        }
+    </ul>
+</section>

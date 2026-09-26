@@ -1,0 +1,18 @@
+@inject IStringLocalizer<TextosInicio> T
+
+<section class="n-admin-panel" aria-labelledby="admin-plataforma-titulo">
+    <header class="n-section-heading">
+        <h2 id="admin-plataforma-titulo">@T["AdminTitulo"]</h2>
+        <p class="n-section-summary">@T["AdminResumen"]</p>
+    </header>
+    <a class="n-shortcut" href="/administracion/plataforma/empresas">
+        <span class="n-shortcut-icon"><Icono Nombre="building-2" /></span>
+        <span><strong>@T["AdminEmpresas"]</strong><small>@T["AdminEmpresasDetalle"]</small></span>
+        <Icono Nombre="arrow-up-right" />
+    </a>
+    <a class="n-shortcut" href="/administracion/usuarios">
+        <span class="n-shortcut-icon"><Icono Nombre="users-round" /></span>
+        <span><strong>@T["AdminUsuarios"]</strong><small>@T["AdminUsuariosDetalle"]</small></span>
+        <Icono Nombre="arrow-up-right" />
+    </a>
+</section>

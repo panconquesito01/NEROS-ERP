@@ -1,0 +1,41 @@
+@inject IStringLocalizer<TextosAdministracion> T
+
+<fieldset class="n-form-section">
+    <legend>@T["Perfil.Identidad"]</legend>
+    <div class="n-form-grid">
+        <label>@T["Perfil.PrimerNombre"]<input @bind="Perfil.PrimerNombre" required maxlength="80" /></label>
+        <label>@T["Perfil.SegundoNombre"]<input @bind="Perfil.SegundoNombre" maxlength="80" /></label>
+        <label>@T["Perfil.PrimerApellido"]<input @bind="Perfil.PrimerApellido" required maxlength="80" /></label>
+        <label>@T["Perfil.SegundoApellido"]<input @bind="Perfil.SegundoApellido" maxlength="80" /></label>
+    </div>
+</fieldset>
+<fieldset class="n-form-section">
+    <legend>@T["Perfil.Documento"]</legend>
+    <div class="n-form-grid">
+        <label>@T["Perfil.TipoDocumento"]<select @bind="Perfil.TipoDocumento" required>
+            @foreach (var tipo in TiposDocumento)
+            {
+                <option value="@tipo.Codigo">@tipo.Nombre</option>
+            }
+        </select></label>
+        <label>@T["Perfil.NumeroDocumento"]<input @bind="Perfil.NumeroDocumento" required maxlength="30" inputmode="numeric" /></label>
+    </div>
+</fieldset>
+<fieldset class="n-form-section">
+    <legend>@T["Perfil.Contacto"]</legend>
+    <div class="n-form-grid">
+        <label>@T["Perfil.Ciudad"]<input @bind="Perfil.Ciudad" maxlength="120" /></label>
+        <label>@T["Perfil.Direccion"]<input @bind="Perfil.Direccion" maxlength="256" /></label>
+    </div>
+</fieldset>
+
+@code {
+    [Parameter, EditorRequired] public PerfilPersonaUsuario Perfil { get; set; } = new();
+    [Parameter] public IReadOnlyList<CatalogoTipoIdentificacion> TiposDocumento { get; set; } = [];
+
+    protected override void OnParametersSet()
+    {
+        if (TiposDocumento.Count > 0 && string.IsNullOrWhiteSpace(Perfil.TipoDocumento))
+            Perfil.TipoDocumento = TiposDocumento[0].Codigo;
+    }
+}

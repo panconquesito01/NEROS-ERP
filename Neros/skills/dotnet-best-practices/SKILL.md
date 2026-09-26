@@ -46,7 +46,7 @@ description: "Use for .NET 10 best practices in Neros: Blazor Web App, ASP.NET C
 
 ## Data
 
-- SQL Server changes use manual scripts in `database/scripts/`.
+- SQL Server changes use versioned scripts in `database/<modulo>/migrations/` applied by `tools/Neros.Database.Deploy`; no EF Migrations or `EnsureCreated()` (ADR-0004).
 - EF Core is allowed as ORM/query mapper, not the only schema source of truth.
 - Use parameterized SQL and bounded queries.
 

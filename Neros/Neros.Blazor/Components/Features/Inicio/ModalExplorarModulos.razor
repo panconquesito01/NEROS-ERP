@@ -1,0 +1,12 @@
+@inject IStringLocalizer<TextosComunes> C
+@inject IStringLocalizer<TextosInicio> T
+
+<ModalNeros Titulo="@C["Nav.ExplorarModulos"]" Abierto="Abierto" AbiertoChanged="AbiertoChanged" AnchoGrande="true">
+    <p class="n-modal-lead">@T["ModulosLead"]</p>
+    <ExploradorModulos />
+</ModalNeros>
+
+@code {
+    [Parameter] public bool Abierto { get; set; }
+    [Parameter] public EventCallback<bool> AbiertoChanged { get; set; }
+}

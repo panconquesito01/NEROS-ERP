@@ -14,11 +14,6 @@ public static class ComandosAdministracion
     {
         await using var scope = services.CreateAsyncScope();
         var database = scope.ServiceProvider.GetRequiredService<NerosDbContext>();
-        if (argumentos.Contains("--generar-sql"))
-        {
-            Console.Write(database.Database.GenerateCreateScript());
-            return;
-        }
         var inicializar = argumentos.Contains("--inicializar-admin");
         var administradorGlobal = argumentos.Contains("--administrador-global");
         if (administradorGlobal && !inicializar)

@@ -6,6 +6,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Yarp.ReverseProxy" Version="2.3.0" />
+    <ProjectReference Include="..\..\..\Neros.Contracts\Neros.Contracts.csproj" />
     <ProjectReference Include="..\..\BuildingBlocks\Neros.ServiceDefaults\Neros.ServiceDefaults.csproj" />
   </ItemGroup>
 </Project>

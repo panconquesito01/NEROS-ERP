@@ -1,0 +1,18 @@
+@inject IStringLocalizer<TextosModulos> T
+
+<nav class="n-program-nav" aria-label="@T["NavProgramas"]">
+    @foreach (var programa in Programas)
+    {
+        var activo = programa.Slug.Equals(ProgramaActivo, StringComparison.OrdinalIgnoreCase);
+        <a class="n-program-nav-link @(activo ? "n-program-nav-active" : "")" href="@programa.Ruta">
+            <Icono Nombre="@programa.Icono" />
+            <span>@programa.Titulo</span>
+        </a>
+    }
+</nav>
+
+@code {
+    [Parameter, EditorRequired] public string ModuloClave { get; set; } = string.Empty;
+    [Parameter] public string? ProgramaActivo { get; set; }
+    private IReadOnlyList<ProgramaModulo> Programas => CatalogoProgramasModulo.DeModulo(ModuloClave);
+}

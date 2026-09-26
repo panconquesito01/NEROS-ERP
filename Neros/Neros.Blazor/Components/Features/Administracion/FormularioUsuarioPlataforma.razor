@@ -1,0 +1,81 @@
+@inject IStringLocalizer<TextosAdministracion> T
+
+<div class="n-modal-form-sections">
+    @if (EsEdicion && !string.IsNullOrWhiteSpace(CorreoMostrar))
+    {
+        <p class="n-modal-lead">@T["Usuarios.Formulario.CorreoFijo"] <strong>@CorreoMostrar</strong></p>
+    }
+    else if (!EsEdicion)
+    {
+        <div class="n-field n-modal-field">
+            <label for="usuario-correo">@T["Usuarios.Correo"]</label>
+            <input id="usuario-correo" type="email" @bind="Correo" required maxlength="256" autocomplete="off" />
+        </div>
+    }
+
+    <FormularioPerfilUsuario Perfil="Perfil" TiposDocumento="TiposDocumento" />
+
+    <fieldset class="n-form-section">
+        <legend>@T["Usuarios.Formulario.Plataforma"]</legend>
+        <p class="n-field-hint n-field-hint-tight">@T["Usuarios.Formulario.PlataformaDetalle"]</p>
+        <label class="n-check-row">
+            <input type="checkbox" @bind="AdministradorGlobal" />
+            <span>
+                <strong>@T["Usuarios.Admin"]</strong>
+                <small>@T["Usuarios.Formulario.AdminGlobalDetalle"]</small>
+            </span>
+        </label>
+    </fieldset>
+
+    <fieldset class="n-form-section">
+        <legend>@T["Usuarios.Formulario.AccesoEmpresa"]</legend>
+        <p class="n-field-hint n-field-hint-tight">@T["Usuarios.Formulario.AccesoEmpresaDetalle"]</p>
+        <div class="n-field n-modal-field">
+            <label for="usuario-empresa">@T["Usuarios.MembresiaOpcional"]</label>
+            <select id="usuario-empresa" @bind="EmpresaSeleccionada" @bind:after="NotificarEmpresaAsync">
+                <option value="">@T["Usuarios.SinEmpresa"]</option>
+                @foreach (var empresa in Empresas)
+                {
+                    <option value="@empresa.Id">@empresa.Nombre (@empresa.Codigo)</option>
+                }
+            </select>
+        </div>
+        @if (MembresiasResumen.Count > 0)
+        {
+            <p class="n-membership-summary">
+                <span>@T["Usuarios.Formulario.MembresiasActivas"]</span>
+                @foreach (var membresia in MembresiasResumen)
+                {
+                    <span class="n-chip">@membresia.EmpresaNombre · @membresia.Rol</span>
+                }
+            </p>
+        }
+        @if (!string.IsNullOrEmpty(EmpresaSeleccionada))
+        {
+            <SelectorModulosEmpresa @bind-Rol="Rol" ModulosSeleccionados="ModulosSeleccionados" ModulosSeleccionadosChanged="ModulosSeleccionadosChanged" />
+        }
+    </fieldset>
+</div>
+
+@code {
+    [Parameter] public bool EsEdicion { get; set; }
+    [Parameter] public string? CorreoMostrar { get; set; }
+    [Parameter] public string Correo { get; set; } = string.Empty;
+    [Parameter] public EventCallback<string> CorreoChanged { get; set; }
+    [Parameter, EditorRequired] public PerfilPersonaUsuario Perfil { get; set; } = new();
+    [Parameter] public IReadOnlyList<CatalogoTipoIdentificacion> TiposDocumento { get; set; } = [];
+    [Parameter] public bool AdministradorGlobal { get; set; }
+    [Parameter] public EventCallback<bool> AdministradorGlobalChanged { get; set; }
+    [Parameter] public IReadOnlyList<EmpresaAdministrada> Empresas { get; set; } = [];
+    [Parameter] public string EmpresaSeleccionada { get; set; } = string.Empty;
+    [Parameter] public EventCallback<string> EmpresaSeleccionadaChanged { get; set; }
+    [Parameter] public string Rol { get; set; } = "Operador";
+    [Parameter] public EventCallback<string> RolChanged { get; set; }
+    [Parameter] public HashSet<string> ModulosSeleccionados { get; set; } = new(StringComparer.OrdinalIgnoreCase);
+    [Parameter] public EventCallback<HashSet<string>> ModulosSeleccionadosChanged { get; set; }
+    [Parameter] public IReadOnlyList<MembresiaResumenUi> MembresiasResumen { get; set; } = [];
+
+    public sealed record MembresiaResumenUi(string EmpresaNombre, string Rol);
+
+    private async Task NotificarEmpresaAsync() => await EmpresaSeleccionadaChanged.InvokeAsync(EmpresaSeleccionada);
+}

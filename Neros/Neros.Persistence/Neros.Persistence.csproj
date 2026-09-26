@@ -9,5 +9,6 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.10" />
     <ProjectReference Include="..\Neros.Application\Neros.Application.csproj" />
+    <ProjectReference Include="..\src\Services\Organization\Neros.Organization.Persistence\Neros.Organization.Persistence.csproj" />
   </ItemGroup>
 </Project>

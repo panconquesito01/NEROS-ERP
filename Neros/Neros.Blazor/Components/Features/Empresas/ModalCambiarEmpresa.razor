@@ -1,0 +1,42 @@
+@inject ClienteNeros Cliente
+@inject IHttpContextAccessor ContextAccessor
+@inject NavigationManager Navigation
+@inject IStringLocalizer<TextosComunes> C
+@inject IStringLocalizer<TextosEmpresas> T
+
+<ModalNeros Titulo="@C["Layout.CambiarEmpresa"]" Abierto="Abierto" AbiertoChanged="AbiertoChanged" AnchoGrande="true">
+    <p class="n-modal-lead">@T["ModalCambiarDetalle"]</p>
+    <ListaSeleccionEmpresas empresas="empresas" EmpresaActivaId="EmpresaActivaId" cargando="cargando" error="error" Volver="@Volver" />
+    <p class="n-hint"><a href="/empresas">@T["AbrirPaginaEmpresas"]</a></p>
+</ModalNeros>
+
+@code {
+    [Parameter] public bool Abierto { get; set; }
+    [Parameter] public EventCallback<bool> AbiertoChanged { get; set; }
+
+    private IReadOnlyList<EmpresaDisponible> empresas = [];
+    private string? error;
+    private bool cargando;
+
+    private Guid? EmpresaActivaId =>
+        Guid.TryParse(ContextAccessor.HttpContext?.User.FindFirstValue(EndpointsSesion.EmpresaClaim), out var id) ? id : null;
+
+    private string Volver => Navigation.ToBaseRelativePath(Navigation.Uri) is { Length: > 0 } r ? $"/{r}" : "/home";
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (!Abierto) return;
+        cargando = true;
+        error = null;
+        try
+        {
+            var ctx = ContextAccessor.HttpContext!;
+            empresas = await Cliente.EmpresasAsync(ctx.User.FindFirstValue(EndpointsSesion.TokenClaim)!, ctx.RequestAborted);
+        }
+        catch (HttpRequestException)
+        {
+            error = T["ErrorCarga"];
+        }
+        finally { cargando = false; }
+    }
+}

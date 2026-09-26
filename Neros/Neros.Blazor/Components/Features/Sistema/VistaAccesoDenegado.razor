@@ -1,0 +1,6 @@
+@inject IStringLocalizer<TextosComunes> C
+
+<EstadoVacio NombreIcono="lock-keyhole" Titulo="@C["Sesion.Terminada.Titulo"]">
+    <ChildContent>@C["Sesion.Terminada.Detalle"]</ChildContent>
+    <Acciones><a class="n-button n-primary" href="/login"><Icono Nombre="log-in" />@C["Sesion.Terminada.Volver"]</a></Acciones>
+</EstadoVacio>

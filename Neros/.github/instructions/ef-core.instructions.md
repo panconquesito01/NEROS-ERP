@@ -16,9 +16,9 @@ Persistence is added as infrastructure. It must not leak into Blazor or Domain.
 
 ## Schema
 
-- Database schema changes use manual SQL Server scripts in `database/scripts/`.
-- Prefer idempotent scripts and rollback notes for risky changes.
-- Keep migrations out unless explicitly approved for a specific workflow.
+- Schema changes only through versioned, immutable scripts in `database/<modulo>/migrations`, applied with `tools/Neros.Database.Deploy` (ADR-0004). Follow `database/conventions/SQL_CONVENTIONS.md`.
+- EF Migrations, `Database.Migrate()`, `EnsureCreated()` and `GenerateCreateScript()` are forbidden, including in tests.
+- Every mapping change needs its script; the EF drift test must stay green.
 
 ## Queries
 

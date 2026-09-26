@@ -1,0 +1,54 @@
+@inject IHttpContextAccessor ContextAccessor
+@inject IStringLocalizer<TextosInicio> T
+@inject IStringLocalizer<TextosComunes> C
+@inject ServicioUiModales UiModales
+
+<section class="n-shortcuts" aria-labelledby="accesos-inicio">
+    <header class="n-section-heading">
+        <div>
+            <h2 id="accesos-inicio">@T["AtajosTitulo"]</h2>
+            <p class="n-section-summary">@T["AtajosResumen"]</p>
+        </div>
+    </header>
+    <div class="n-shortcut-grid">
+        <button type="button" class="n-shortcut n-shortcut-button" @onclick="AbrirModulos">
+            <span class="n-shortcut-icon"><Icono Nombre="grid-2x2" /></span>
+            <span><strong>@C["Nav.VerModulos"]</strong><small>@T["AtajoModulosDetalle"]</small></span>
+            <Icono Nombre="arrow-up-right" />
+        </button>
+        <a class="n-shortcut" href="/empresas">
+            <span class="n-shortcut-icon"><Icono Nombre="building-2" /></span>
+            <span><strong>@T["AtajoEmpresas"]</strong><small>@T["AtajoEmpresasDetalle"]</small></span>
+            <Icono Nombre="arrow-up-right" />
+        </a>
+        @if (PuedeConfiguracion)
+        {
+            <a class="n-shortcut" href="/empresa/configuracion">
+                <span class="n-shortcut-icon"><Icono Nombre="globe" /></span>
+                <span><strong>@C["Seccion.ConfiguracionEmpresa"]</strong><small>@T["AtajoRegionalDetalle"]</small></span>
+                <Icono Nombre="arrow-up-right" />
+            </a>
+        }
+        @if (PuedeUsuariosEmpresa)
+        {
+            <a class="n-shortcut" href="/administracion/empresa/usuarios">
+                <span class="n-shortcut-icon"><Icono Nombre="users-round" /></span>
+                <span><strong>@T["AtajoEquipo"]</strong><small>@T["AtajoEquipoDetalle"]</small></span>
+                <Icono Nombre="arrow-up-right" />
+            </a>
+        }
+        <button type="button" class="n-shortcut n-shortcut-button" @onclick="UiModales.AbrirClave">
+            <span class="n-shortcut-icon n-coral"><Icono Nombre="key-round" /></span>
+            <span><strong>@T["CuentaCambiarClave"]</strong><small>@T["AtajoClaveDetalle"]</small></span>
+            <Icono Nombre="arrow-up-right" />
+        </button>
+    </div>
+</section>
+
+@code {
+    [Parameter] public EventCallback AbrirModulos { get; set; }
+
+    private ClaimsPrincipal Usuario => ContextAccessor.HttpContext?.User ?? new ClaimsPrincipal();
+    private bool PuedeConfiguracion => Usuario.HasClaim(CodigosPermiso.Claim, CodigosPermiso.EmpresaConfiguracionConsultar);
+    private bool PuedeUsuariosEmpresa => Usuario.HasClaim(CodigosPermiso.Claim, CodigosPermiso.EmpresaMiembroAdministrar);
+}

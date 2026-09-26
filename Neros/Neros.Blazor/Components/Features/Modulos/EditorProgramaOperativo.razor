@@ -1,0 +1,194 @@
+@using System.Security.Claims
+@using Neros.Contracts.Operacion
+@inject ClienteNeros Cliente
+@inject IHttpContextAccessor ContextAccessor
+@inject NavigationManager Navigation
+@inject IStringLocalizer<TextosModulos> T
+
+@if (cargando)
+{
+    <EstadoCargando>@T["Cargando"]</EstadoCargando>
+}
+else if (detalle is null)
+{
+    <Aviso Tipo="TipoAviso.Error">@T["ErrorCarga"]</Aviso>
+}
+else
+{
+    @if (mensaje is not null) { <Aviso Tipo="tipoMensaje">@mensaje</Aviso> }
+
+    <div class="n-form-card n-module-workspace">
+        <div class="n-form-grid">
+            @foreach (var campo in CamposEditables)
+            {
+                <label class="n-field">
+                    <span>@Etiqueta(campo.Key)</span>
+                    <input class="n-input" @bind="valores[campo.Key]" disabled="@(!detalle.Editable)" />
+                </label>
+            }
+        </div>
+        @if (detalle.Editable && PuedeGestionar)
+        {
+            <div class="n-form-actions">
+                <button type="button" class="n-button" disabled="@guardando" @onclick="GuardarAsync">@T["Guardar"]</button>
+            </div>
+        }
+    </div>
+
+    @if (detalle.Lineas.Count > 0 || SoportaLineas)
+    {
+        <div class="n-form-card n-table-container">
+            <h2>@T["LineasDocumento"]</h2>
+            @if (detalle.Lineas.Count > 0)
+            {
+                <table class="n-user-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>@T["ColDescripcion"]</th>
+                            <th>@T["ColCantidad"]</th>
+                            <th>@T["ColPrecio"]</th>
+                            <th>@T["ColTotal"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var linea in detalle.Lineas)
+                        {
+                            <tr>
+                                <td>@linea.LineaNumero</td>
+                                <td>@linea.Descripcion</td>
+                                <td>@linea.Cantidad.ToString("N2")</td>
+                                <td>@linea.PrecioUnitario.ToString("N2")</td>
+                                <td>@linea.TotalLinea.ToString("N2")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            @if (detalle.Editable && SoportaLineas && PuedeGestionar)
+            {
+                <div class="n-form-grid n-form-grid--linea">
+                    <label class="n-field"><span>@T["ColDescripcion"]</span><input class="n-input" @bind="nuevaLinea.Descripcion" /></label>
+                    <label class="n-field"><span>@T["ColCantidad"]</span><input class="n-input" type="number" step="0.01" @bind="nuevaLinea.Cantidad" /></label>
+                    <label class="n-field"><span>@T["ColPrecio"]</span><input class="n-input" type="number" step="0.01" @bind="nuevaLinea.PrecioUnitario" /></label>
+                    <button type="button" class="n-button n-button--secondary" disabled="@agregandoLinea" @onclick="AgregarLineaAsync">@T["AgregarLinea"]</button>
+                </div>
+            }
+        </div>
+    }
+
+    @if (detalle.AccionesDisponibles.Count > 0 && PuedeGestionar)
+    {
+        <div class="n-form-actions">
+            @foreach (var accion in detalle.AccionesDisponibles)
+            {
+                <button type="button" class="n-button n-button--secondary" disabled="@ejecutandoAccion" @onclick="() => AccionAsync(accion)">
+                    @EtiquetaAccion(accion)
+                </button>
+            }
+        </div>
+    }
+}
+
+@code {
+    [Parameter] public ProgramaModulo Programa { get; set; } = null!;
+    [Parameter] public Guid RegistroId { get; set; }
+    [Parameter] public bool PuedeGestionar { get; set; }
+
+    private DetalleProgramaOperativo? detalle;
+    private Dictionary<string, string?> valores = new(StringComparer.OrdinalIgnoreCase);
+    private SolicitudLineaPrograma nuevaLinea = new() { Cantidad = 1 };
+    private bool cargando = true;
+    private bool guardando;
+    private bool agregandoLinea;
+    private bool ejecutandoAccion;
+    private string? mensaje;
+    private TipoAviso tipoMensaje = TipoAviso.Exito;
+
+    private ClaimsPrincipal Usuario => ContextAccessor.HttpContext!.User;
+    private string Token => Usuario.FindFirstValue(EndpointsSesion.TokenClaim)!;
+    private Guid EmpresaId => Guid.Parse(Usuario.FindFirstValue(EndpointsSesion.EmpresaClaim)!);
+
+    private bool SoportaLineas => Programa.Slug is "cotizaciones" or "pedidos" or "ordenes" or "facturacion";
+
+    private IEnumerable<KeyValuePair<string, string?>> CamposEditables =>
+        valores.Where(p => p.Key is not ("estado" or "tipo" or "id" or "programa"));
+
+    protected override async Task OnParametersSetAsync() => await CargarAsync();
+
+    private async Task CargarAsync()
+    {
+        cargando = true;
+        try
+        {
+            detalle = await Cliente.DetalleProgramaAsync(Token, EmpresaId, CatalogoProgramasModulo.ClaveApi(Programa), RegistroId, ContextAccessor.HttpContext!.RequestAborted);
+            valores = detalle?.Campos.ToDictionary(p => p.Key, p => p.Value, StringComparer.OrdinalIgnoreCase) ?? new();
+        }
+        finally { cargando = false; }
+    }
+
+    private async Task GuardarAsync()
+    {
+        if (detalle is null || guardando) return;
+        guardando = true;
+        try
+        {
+            var ok = await Cliente.GuardarProgramaAsync(Token, EmpresaId, CatalogoProgramasModulo.ClaveApi(Programa), RegistroId,
+                new SolicitudGuardarPrograma { Campos = valores }, ContextAccessor.HttpContext!.RequestAborted);
+            mensaje = ok ? T["GuardadoOk"].Value : T["ErrorCarga"].Value;
+            tipoMensaje = ok ? TipoAviso.Exito : TipoAviso.Error;
+            if (ok) await CargarAsync();
+        }
+        finally { guardando = false; }
+    }
+
+    private async Task AgregarLineaAsync()
+    {
+        if (detalle is null || agregandoLinea || string.IsNullOrWhiteSpace(nuevaLinea.Descripcion)) return;
+        agregandoLinea = true;
+        try
+        {
+            var linea = await Cliente.AgregarLineaProgramaAsync(Token, EmpresaId, CatalogoProgramasModulo.ClaveApi(Programa), RegistroId, nuevaLinea, ContextAccessor.HttpContext!.RequestAborted);
+            if (linea is null)
+            {
+                mensaje = T["ErrorCarga"].Value;
+                tipoMensaje = TipoAviso.Error;
+                return;
+            }
+            nuevaLinea = new SolicitudLineaPrograma { Cantidad = 1 };
+            await CargarAsync();
+        }
+        finally { agregandoLinea = false; }
+    }
+
+    private async Task AccionAsync(string accion)
+    {
+        if (ejecutandoAccion) return;
+        ejecutandoAccion = true;
+        try
+        {
+            var ok = await Cliente.AccionProgramaAsync(Token, EmpresaId, CatalogoProgramasModulo.ClaveApi(Programa), RegistroId, accion, ContextAccessor.HttpContext!.RequestAborted);
+            mensaje = ok ? T["AccionOk", accion].Value : T["ErrorCarga"].Value;
+            tipoMensaje = ok ? TipoAviso.Exito : TipoAviso.Error;
+            if (ok) await CargarAsync();
+        }
+        finally { ejecutandoAccion = false; }
+    }
+
+    private string Etiqueta(string clave) => clave.ToLowerInvariant() switch
+    {
+        "cliente" or "proveedor" or "razonsocial" => T["ColReferencia"].Value,
+        "codigo" or "numero" => T["ColNumero"].Value,
+        "nombre" or "descripcion" => T["ColDescripcion"].Value,
+        "fecha" => T["ColFecha"].Value,
+        "total" or "importe" or "saldo" => T["ColTotal"].Value,
+        _ => char.ToUpper(clave[0]) + clave[1..]
+    };
+
+    private string EtiquetaAccion(string accion) => accion switch
+    {
+        AccionesPrograma.Confirmar => T["ConfirmarDocumento"].Value,
+        AccionesPrograma.Anular => T["AnularDocumento"].Value,
+        _ => accion
+    };
+}

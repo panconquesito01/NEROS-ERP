@@ -12,7 +12,7 @@ Guia operativa principal para agentes de IA que trabajen en `Neros`.
 
 ## Estructura
 
-El arbol siguiente describe la compatibilidad existente, no un nucleo empresarial compartido para servicios nuevos. Seguir [roadmap D-01..D-18](docs/NEROS_ERP_IMPLEMENTATION_ROADMAP.md) y [estado de ejecucion](docs/execution/NEROS_EXECUTION_STATUS.md); no crear proyectos vacios ni saltar gates.
+El arbol siguiente describe la compatibilidad existente, no un nucleo empresarial compartido para servicios nuevos. Seguir el [plan maestro](docs/execution/PLAN_MAESTRO_NEROS_ERP.md), el [roadmap D-01..D-18](docs/NEROS_ERP_IMPLEMENTATION_ROADMAP.md) y el [estado de ejecucion](docs/execution/NEROS_EXECUTION_STATUS.md); no crear proyectos vacios ni saltar gates salvo los autorizados en ADR-0004.
 
 ```text
 Neros/
@@ -67,7 +67,8 @@ Infraestructura/Persistence futura -> implementa puertos de Application
 - `Neros.Domain` no referencia infraestructura, EF Core, ASP.NET, Blazor ni paquetes externos de UI.
 - `Neros.Contracts` contiene DTOs y contratos entre API/Blazor; no debe filtrar entidades EF ni objetos de UI.
 - No guardar secretos en repositorio. Usar User Secrets, variables de entorno o secret manager.
-- Cambios de base de datos: preferir scripts SQL Server manuales versionados en `database/scripts/`.
+- Esquema solo con scripts SQL versionados en `database/<modulo>/` aplicados con `tools/Neros.Database.Deploy` ([ADR-0004](docs/adr/ADR-0004-plan-maestro-scripts-sql-y-salto-de-gates.md), [convenciones SQL](database/conventions/SQL_CONVENTIONS.md)). Prohibidos EF Migrations, `Database.Migrate()`, `EnsureCreated()` y `GenerateCreateScript()`, tambien en pruebas.
+- Plan de ejecucion vigente: [plan maestro 2.1](docs/execution/PLAN_MAESTRO_NEROS_ERP.md); sus fases marcadas con ⚠ saltan gates D-XX con autorizacion del usuario (ADR-0004).
 - No versionar `.vs/`, `bin/`, `obj/`, `node_modules/` ni caches de Graphify.
 
 ## Workflow recomendado

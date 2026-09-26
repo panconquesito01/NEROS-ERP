@@ -5,7 +5,7 @@ description: "Use for EF Core and SQL Server work in Neros: future persistence, 
 
 # EF Core / SQL Server - Neros
 
-Neros has not committed to a persistence project as the source of schema truth. When persistence is added, EF Core maps and queries SQL Server while schema changes are documented as manual scripts.
+SQL scripts are the only source of schema truth (ADR-0004). EF Core maps and queries SQL Server; it never creates or changes schema.
 
 ## Placement
 
@@ -17,11 +17,10 @@ Neros has not committed to a persistence project as the source of schema truth. 
 
 ## Schema Changes
 
-- Prefer manual SQL Server scripts in `database/scripts/`.
-- Scripts should be named with order/date and intent.
-- Make scripts idempotent where practical.
-- Include rollback notes or compensating script when risky.
-- Keep seed/reference data explicit.
+- Only versioned scripts in `database/<modulo>/migrations/V0001__descripcion.sql`, immutable once applied; fixes are new scripts.
+- Mandatory header and rules from `database/conventions/SQL_CONVENTIONS.md`; apply with `tools/Neros.Database.Deploy`.
+- Forbidden: EF Migrations, `Database.Migrate()`, `EnsureCreated()`, `GenerateCreateScript()`, also in tests.
+- Destructive changes use expand/contract with approval; seed/reference data goes to `seed/` and is idempotent.
 
 ## Query Rules
 
@@ -43,31 +42,14 @@ Neros has not committed to a persistence project as the source of schema truth. 
 1. Identify the use case that needs persistence and define the Application port first.
 2. Decide whether the operation is command, query, report or background job.
 3. Design the SQL Server shape with constraints, indexes and audit needs.
-4. Create or update the manual SQL script under `database/scripts/`.
+4. Add a new versioned script under `database/<modulo>/migrations/` plus its validation; keep the EF drift test green.
 5. Implement EF Core mapping/query code in the future persistence project.
 6. Project outward to DTOs; never leak entities to API/Blazor contracts.
 7. Validate performance, transaction scope and rollback story.
 
 ## Manual SQL Script Template
 
-```sql
--- Purpose: <business change>
--- Preconditions: <tables/config expected>
--- Rollback: <rollback script or mitigation>
-
-IF NOT EXISTS (
-	SELECT 1
-	FROM sys.tables
-	WHERE name = N'<TableName>'
-	  AND schema_id = SCHEMA_ID(N'dbo')
-)
-BEGIN
-	CREATE TABLE dbo.<TableName> (
-		Id bigint IDENTITY(1,1) NOT NULL CONSTRAINT PK_<TableName> PRIMARY KEY,
-		CreadoEn datetime2(0) NOT NULL CONSTRAINT DF_<TableName>_CreadoEn DEFAULT SYSUTCDATETIME()
-	);
-END;
-```
+Use the header and example from `database/conventions/SQL_CONVENTIONS.md`. The runner wraps each transactional script in a transaction; do not add `BEGIN TRANSACTION`/`COMMIT` inside it.
 
 ## Common Mistakes And Fixes
 
@@ -110,7 +92,7 @@ var sql = "SELECT * FROM Pedidos WHERE Numero = '" + numero + "'";
 
 ## Validation Checklist
 
-- SQL script reviewed for idempotency and rollback.
+- SQL script has complete header, validation script and passes `plan`/`apply`/`validate` on a temporary database.
 - Raw SQL is parameterized.
 - No DbContext crosses into Blazor, Domain or Contracts.
 - Transaction boundary is documented.

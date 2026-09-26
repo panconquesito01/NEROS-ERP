@@ -1,0 +1,61 @@
+@inject IHttpContextAccessor ContextAccessor
+@inject IStringLocalizer<TextosComunes> C
+@inject ServicioUiModales UiModales
+
+<ModalNeros Titulo="@C["Nav.MenuMas"]" Abierto="Abierto" AbiertoChanged="AbiertoChanged">
+    <nav class="n-modal-nav" aria-label="@C["Nav.MenuMas"]">
+        @if (TieneAdminEmpresa)
+        {
+            <p class="n-modal-nav-label">@C["Nav.AdministracionEmpresa"]</p>
+            @if (PuedeConfiguracion)
+            {
+                <a class="n-modal-nav-link" href="empresa/configuracion"><Icono Nombre="globe" /><span>@C["Seccion.ConfiguracionEmpresa"]</span></a>
+            }
+            @if (PuedeUsuariosEmpresa)
+            {
+                <a class="n-modal-nav-link" href="administracion/empresa/usuarios"><Icono Nombre="users-round" /><span>@C["Seccion.UsuariosEmpresa"]</span></a>
+            }
+        }
+        @if (TieneAdminPlataforma)
+        {
+            <p class="n-modal-nav-label">@C["Nav.AdministracionPlataforma"]</p>
+            @if (PuedeEmpresasPlataforma)
+            {
+                <a class="n-modal-nav-link" href="administracion/plataforma/empresas"><Icono Nombre="building-2" /><span>@C["Seccion.EmpresasPlataforma"]</span></a>
+            }
+            @if (PuedeUsuariosPlataforma)
+            {
+                <a class="n-modal-nav-link" href="administracion/usuarios"><Icono Nombre="users-round" /><span>@C["Seccion.UsuariosPlataforma"]</span></a>
+            }
+        }
+        <p class="n-modal-nav-label">@C["Nav.AccesosCuenta"]</p>
+        <button type="button" class="n-modal-nav-link" @onclick="AbrirClaveAsync"><Icono Nombre="key-round" /><span>@C["Menu.CambiarClave"]</span></button>
+        @if (!RestringirAcceso)
+        {
+            <a class="n-modal-nav-link" href="cuenta/sesiones"><Icono Nombre="monitor-smartphone" /><span>@C["Menu.Sesiones"]</span></a>
+        }
+    </nav>
+</ModalNeros>
+
+@code {
+    [Parameter] public bool Abierto { get; set; }
+    [Parameter] public EventCallback<bool> AbiertoChanged { get; set; }
+
+    private ClaimsPrincipal Usuario => ContextAccessor.HttpContext?.User ?? new ClaimsPrincipal();
+    private bool RestringirAcceso =>
+        Usuario.HasClaim(EndpointsSesion.DebeCambiarClaveClaim, "true")
+        || Usuario.HasClaim(EndpointsSesion.LegalPendienteClaim, "true");
+    private bool PuedeConfiguracion => Usuario.HasClaim(CodigosPermiso.Claim, CodigosPermiso.EmpresaConfiguracionConsultar);
+    private bool PuedeUsuariosEmpresa => Usuario.HasClaim(CodigosPermiso.Claim, CodigosPermiso.EmpresaMiembroAdministrar);
+    private bool PuedeEmpresasPlataforma => Usuario.HasClaim(CodigosPermiso.Claim, CodigosPermiso.PlataformaEmpresaConsultar);
+    private bool PuedeUsuariosPlataforma => Usuario.HasClaim(CodigosPermiso.Claim, CodigosPermiso.UsuarioConsultar);
+    private bool TieneEmpresaActiva => EndpointsSesion.TieneEmpresaSeleccionada(Usuario);
+    private bool TieneAdminEmpresa => TieneEmpresaActiva && (PuedeConfiguracion || PuedeUsuariosEmpresa);
+    private bool TieneAdminPlataforma => PuedeEmpresasPlataforma || PuedeUsuariosPlataforma;
+
+    private async Task AbrirClaveAsync()
+    {
+        await AbiertoChanged.InvokeAsync(false);
+        UiModales.AbrirClave();
+    }
+}

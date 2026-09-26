@@ -156,7 +156,7 @@ Conservar ahora Neros.Blazor, Neros.Api, Neros.Application, Neros.Persistence, N
 
 Creacion por gate: D-02 Gateway y primer host Organization; D-03 abstracciones/adaptador mensajeria y dispatcher; D-04 AppHost/config/pipelines/containers; D-05 capas y base Organization reales; D-06 Identity; D-08 Master Data; D-09 Inventory; D-10 Sales; D-12 Jobs; D-13 Finance; D-15 Purchasing; D-16 Workflow/Integration/Notification; D-17 Analytics/Search; D-18 otros contextos con flujo real. Los workers pertenecen al servicio y se agregan cuando hay mensajes/jobs propios. Neros.Observability se extrae solo para configuracion tecnica realmente repetida; no catalogo gigante de servicios.
 
-Cada nuevo dominio usa Neros.<Servicio>.Api, Domain, Application, Infrastructure y Contracts, con Worker cuando corresponda; Identity no necesita Domain vacio. Scripts por servicio en database/scripts, tests por servicio y E2E de plataforma; no crear carpetas sin contenido. El arbol detallado esta en la seccion 15 de la arquitectura. No se han creado estos proyectos en esta revision.
+Cada nuevo dominio usa Neros.<Servicio>.Api, Domain, Application, Infrastructure y Contracts, con Worker cuando corresponda; Identity no necesita Domain vacio. Scripts por modulo en database/<modulo> aplicados con tools/Neros.Database.Deploy (ADR-0004), tests por servicio y E2E de plataforma; no crear carpetas sin contenido. El arbol detallado esta en la seccion 15 de la arquitectura. No se han creado estos proyectos en esta revision.
 
 ## 10. Decisiones y lista de aplazamiento
 

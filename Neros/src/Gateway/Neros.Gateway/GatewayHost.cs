@@ -4,6 +4,7 @@ using Microsoft.Extensions.Options;
 using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.RateLimiting;
+using Neros.Contracts.Organizacion;
 using Neros.ServiceDefaults;
 using Yarp.ReverseProxy.Configuration;
 using Yarp.ReverseProxy.Forwarder;
@@ -17,11 +18,15 @@ public static class GatewayHost
     {
         var legacy = Destino(builder, "Services:Compatibility");
         var organization = Destino(builder, "Services:Organization");
+        var terceros = Destino(builder, "Services:Terceros");
+        var search = Destino(builder, "Services:Search");
         if (!Uri.TryCreate(builder.Configuration["Identity:Authority"], UriKind.Absolute, out var authority))
             throw new InvalidOperationException("Configurar Identity:Authority con el emisor HTTPS autorizado.");
         builder.AddNerosTelemetry("Neros.Gateway");
         builder.Services.AddNerosHttp();
-        builder.Services.AddNerosServiceAuthentication(authority, "neros.organization");
+        builder.Services.AddNerosServiceAuthentication(authority, OrganizacionAudiencias.Api);
+        builder.Services.AddPuenteSesionOrganizacion(builder.Configuration);
+        builder.Services.AddValidacionPuenteJwt(builder.Configuration);
         builder.Services.AddAuthentication(options =>
         {
             options.DefaultScheme = null;
@@ -46,9 +51,24 @@ public static class GatewayHost
         [
             Ruta("access", "compatibility", "/api/acceso/{**remainder}", "anonymous"),
             Ruta("companies", "compatibility", "/api/empresas/{**remainder}", "anonymous"),
-            Ruta("organization", "organization", "/api/v1/organization/{**remainder}", "organization")
+            Ruta("account", "compatibility", "/api/cuenta/{**remainder}", "anonymous"),
+            Ruta("user-admin", "compatibility", "/api/admin/usuarios/{**remainder}", "anonymous"),
+            Ruta("platform-admin", "compatibility", "/api/admin/plataforma/{**remainder}", "anonymous"),
+            Ruta("company-admin", "compatibility", "/api/admin/empresa/{**remainder}", "anonymous"),
+            Ruta("privacy", "compatibility", "/api/privacidad/{**remainder}", "anonymous"),
+            Ruta("globalizacion", "compatibility", "/api/globalizacion/{**remainder}", "anonymous"),
+            Ruta("organization-correspondencia", "organization", "/api/v1/organization/correspondencia/{**remainder}", "anonymous"),
+            Ruta("organization", "organization", "/api/v1/organization/{**remainder}", "organization"),
+            Ruta("terceros", "terceros", "/api/v1/terceros/{**remainder}", "anonymous"),
+            Ruta("search", "search", "/api/v1/search/{**remainder}", "anonymous")
         ];
-        ClusterConfig[] clusters = [Cluster("compatibility", legacy), Cluster("organization", organization)];
+        ClusterConfig[] clusters =
+        [
+            Cluster("compatibility", legacy),
+            Cluster("organization", organization),
+            Cluster("terceros", terceros),
+            Cluster("search", search)
+        ];
         builder.Services.AddReverseProxy().LoadFromMemory(routes, clusters)
             .ConfigureHttpClient((_, handler) => handler.ConnectTimeout = TimeSpan.FromSeconds(3))
             .AddTransforms(context => context.AddRequestTransform(request =>
@@ -69,6 +89,7 @@ public static class GatewayHost
             }
             await next(context);
         });
+        app.UsePuenteSesionOrganizacion();
         app.UseAuthentication();
         app.UseAuthorization();
         app.UseRateLimiter();
@@ -101,7 +122,7 @@ public static class GatewayHost
         AuthorizationPolicy = policy,
         Transforms =
         [
-            new Dictionary<string, string> { ["RequestHeadersAllowed"] = "Accept;Authorization;Content-Type;Content-Length;If-Match;If-None-Match;Idempotency-Key;X-Correlation-Id" },
+            new Dictionary<string, string> { ["RequestHeadersAllowed"] = "Accept;Authorization;Content-Type;Content-Length;If-Match;If-None-Match;Idempotency-Key;X-Correlation-Id;X-Neros-Client-Ip;X-Neros-Client-Agent;X-Neros-Company-Id" },
             new Dictionary<string, string> { ["X-Forwarded"] = "Remove" }
         ]
     };

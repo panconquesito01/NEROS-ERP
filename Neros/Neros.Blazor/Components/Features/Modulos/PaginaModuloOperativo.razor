@@ -1,0 +1,59 @@
+@page "/ventas"
+@page "/inventarios"
+@page "/compras"
+@page "/finanzas"
+@page "/informes"
+@using System.Security.Claims
+@rendermode InteractiveServer
+@attribute [Authorize]
+@inject NavigationManager Navigation
+@inject IHttpContextAccessor ContextAccessor
+@inject IStringLocalizer<TextosComunes> C
+@inject IStringLocalizer<TextosModulos> T
+
+<PageTitle>@(modulo is null ? "Módulo" : C[modulo.ClaveNombre]) | Neros ERP</PageTitle>
+
+<section class="n-page n-enter">
+    @if (modulo is null)
+    {
+        <PaginaEstado NombreIcono="compass" Codigo="404" Titulo="@T["ModuloNoEncontrado"]">@T["ModuloNoEncontradoDetalle"]</PaginaEstado>
+    }
+    else if (!ModuloPermitido)
+    {
+        <PaginaEstado NombreIcono="shield" Codigo="403" Titulo="@T["ModuloNoHabilitado"]">@T["ModuloNoHabilitadoDetalle"]</PaginaEstado>
+    }
+    else
+    {
+        <header class="n-page-heading">
+            <div>
+                <p class="n-dashboard-eyebrow">@T["EtiquetaModulo"]</p>
+                <h1><Icono Nombre="@modulo.Icono" /> @C[modulo.ClaveNombre]</h1>
+                <p>@C[modulo.ClaveLema]</p>
+            </div>
+        </header>
+        <p class="n-module-workspace-lead">@C[modulo.ClaveAlcance]</p>
+        <div class="n-shortcut-grid n-module-workspace-grid">
+            @foreach (var programa in CatalogoProgramasModulo.DeModulo(modulo.Clave))
+            {
+                <a class="n-shortcut" href="@programa.Ruta">
+                    <span class="n-shortcut-icon"><Icono Nombre="@programa.Icono" /></span>
+                    <span><strong>@programa.Titulo</strong><small>@programa.Detalle</small></span>
+                    <Icono Nombre="arrow-up-right" />
+                </a>
+            }
+        </div>
+    }
+</section>
+
+@code {
+    private ModuloErp? modulo;
+    private ClaimsPrincipal Usuario => ContextAccessor.HttpContext?.User ?? new ClaimsPrincipal();
+    private bool ModuloPermitido => modulo is null || CatalogoModulos.UsuarioTieneModulo(Usuario, modulo.Clave);
+
+    protected override void OnParametersSet()
+    {
+        var ruta = Navigation.ToBaseRelativePath(Navigation.Uri).Split('?', '#')[0].Trim('/');
+        modulo = CatalogoModulos.Todos.FirstOrDefault(m =>
+            m.Ruta is not null && m.Ruta.Trim('/').Equals(ruta, StringComparison.OrdinalIgnoreCase));
+    }
+}

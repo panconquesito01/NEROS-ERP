@@ -1,0 +1,32 @@
+@inject IStringLocalizer<TextosComunes> C
+@inject IHttpContextAccessor ContextAccessor
+
+<ul class="n-module-explorer">
+    @foreach (var modulo in CatalogoModulos.ParaUsuario(ContextAccessor.HttpContext?.User ?? new ClaimsPrincipal()))
+    {
+        <li class="@(modulo.Disponible ? "n-module-explorer-item n-module-explorer-live" : "n-module-explorer-item")">
+            @if (modulo.Disponible && modulo.Ruta is not null)
+            {
+                <a class="n-module-explorer-link" href="@modulo.Ruta">
+                    <span class="n-module-card-icon"><Icono Nombre="@modulo.Icono" /></span>
+                    <span class="n-module-explorer-copy">
+                        <strong>@C[modulo.ClaveNombre]</strong>
+                        <small>@C[modulo.ClaveLema]</small>
+                    </span>
+                    <span class="n-chip n-chip-ok">@C["Modulo.Disponible"]</span>
+                </a>
+            }
+            else
+            {
+                <div class="n-module-explorer-link" aria-disabled="true">
+                    <span class="n-module-card-icon"><Icono Nombre="@modulo.Icono" /></span>
+                    <span class="n-module-explorer-copy">
+                        <strong>@C[modulo.ClaveNombre]</strong>
+                        <small>@C[modulo.ClaveLema]</small>
+                    </span>
+                    <span class="n-chip">@C["Modulo.EnPreparacion"]</span>
+                </div>
+            }
+        </li>
+    }
+</ul>

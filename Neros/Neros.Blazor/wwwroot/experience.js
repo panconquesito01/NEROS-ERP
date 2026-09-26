@@ -1,5 +1,6 @@
 (() => {
     window.nerosTheme?.apply();
+    if (document.querySelector('[data-resultado-unico]')) history.replaceState(null, '', location.href);
 
     const idioma = document.documentElement.lang || 'es';
     let textos = {};
@@ -62,13 +63,28 @@
             const icon = toggle.querySelector('.n-icon');
             if (icon) icon.style.setProperty('--icon', `url('/icons/${visible ? 'eye-off' : 'eye'}.svg')`);
         }
-        document.querySelectorAll('[data-language-menu][open]').forEach(menu => {
+        const copy = event.target.closest('[data-copy]');
+        if (copy) copiar(copy);
+        document.querySelectorAll('[data-language-menu][open], [data-menu][open]').forEach(menu => {
             if (!menu.contains(event.target)) menu.open = false;
         });
     });
+    async function copiar(boton) {
+        const origen = document.getElementById(boton.dataset.copy);
+        const etiqueta = boton.querySelector('span:not(.n-icon)');
+        const original = etiqueta?.textContent;
+        try {
+            await navigator.clipboard.writeText(origen.textContent.trim());
+            if (etiqueta) etiqueta.textContent = texto('Copiado');
+        } catch {
+            getSelection().selectAllChildren(origen);
+            if (etiqueta) etiqueta.textContent = texto('CopiaNoDisponible');
+        }
+        setTimeout(() => { if (etiqueta) etiqueta.textContent = original; }, 2500);
+    }
     document.addEventListener('keydown', event => {
         if (event.key !== 'Escape') return;
-        document.querySelectorAll('[data-language-menu][open]').forEach(menu => {
+        document.querySelectorAll('[data-language-menu][open], [data-menu][open]').forEach(menu => {
             menu.open = false;
             menu.querySelector('summary').focus();
         });
@@ -148,6 +164,11 @@
     }
 
     document.addEventListener('submit', async event => {
+        const confirmacion = event.submitter?.dataset.confirm;
+        if (confirmacion && !window.confirm(confirmacion)) {
+            event.preventDefault();
+            return;
+        }
         const form = event.target.closest('[data-busy-form]');
         if (!form) return;
         if (form.getAttribute('aria-busy') === 'true') {

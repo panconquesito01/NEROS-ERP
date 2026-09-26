@@ -1,5 +1,6 @@
 @inject IHttpContextAccessor ContextAccessor
 @inject IStringLocalizer<TextosComunes> C
+@inject ServicioUiModales UiModales
 
 <Marca Clase="n-sidebar-brand" />
 <a class="n-company-switch" href="/empresas" title="@C["Layout.CambiarEmpresa"]">
@@ -8,6 +9,12 @@
         <span class="n-company-switch-mark"><Icono Nombre="building-2" /></span>
         <span><small>@C["Nav.SinEmpresa"]</small><strong>@C["Layout.SeleccionarEmpresa"]</strong></span>
     }
+    else if (Guid.TryParse(Usuario.FindFirstValue(EndpointsSesion.EmpresaClaim), out var empresaActiva))
+    {
+        <MarcaEmpresa EmpresaId="empresaActiva" Monograma="@Presentacion.Iniciales(NombreEmpresa)" TieneLogo="@TieneLogoEmpresa"
+                      ClaseImagen="n-company-switch-logo" ClaseMonograma="n-company-switch-mark" />
+        <span><small>@C["Nav.EmpresaActiva"]</small><strong>@NombreEmpresa</strong></span>
+    }
     else
     {
         <span class="n-company-switch-mark">@Presentacion.Iniciales(NombreEmpresa)</span>
@@ -15,12 +22,60 @@
     }
     <Icono Nombre="chevrons-up-down" />
 </a>
-<nav class="n-navigation" aria-label="@C["Nav.Principal"]">
-    <span class="n-nav-label" aria-hidden="true">@C["Nav.EspacioTrabajo"]</span>
-    <NavLink class="n-nav-link" href="home" Match="NavLinkMatch.All"><Icono Nombre="house" /><span>@C["Seccion.Inicio"]</span></NavLink>
+
+<nav class="n-navigation n-navigation-desktop" aria-label="@C["Nav.Principal"]" hidden="@RestringirNavegacion">
+    @if (TieneEmpresaActiva)
+    {
+        <span class="n-nav-label" aria-hidden="true">@C["Nav.EspacioTrabajo"]</span>
+        <NavLink class="n-nav-link" href="home" Match="NavLinkMatch.All"><Icono Nombre="house" /><span>@C["Seccion.Inicio"]</span></NavLink>
+        <button type="button" class="n-nav-link n-nav-trigger" @onclick="UiModales.AbrirModulos">
+            <Icono Nombre="grid-2x2" /><span>@C["Nav.VerModulos"]</span>
+        </button>
+    }
+    else
+    {
+        <span class="n-nav-label" aria-hidden="true">@C["Nav.EspacioTrabajo"]</span>
+        <p class="n-nav-hint">@C["Nav.ElegirEmpresaPrimero"]</p>
+    }
     <NavLink class="n-nav-link" href="empresas"><Icono Nombre="building-2" /><span>@C["Seccion.Empresas"]</span></NavLink>
+
+    @if (TieneAdminEmpresa)
+    {
+        <span class="n-nav-label n-nav-label-group" aria-hidden="true">@C["Nav.AdministracionEmpresa"]</span>
+        @if (PuedeConfiguracion)
+        {
+            <NavLink class="n-nav-link" href="empresa/configuracion"><Icono Nombre="globe" /><span>@C["Seccion.ConfiguracionEmpresa"]</span></NavLink>
+        }
+        @if (PuedeUsuariosEmpresa)
+        {
+            <NavLink class="n-nav-link" href="administracion/empresa/usuarios"><Icono Nombre="users-round" /><span>@C["Seccion.UsuariosEmpresa"]</span></NavLink>
+        }
+    }
+    @if (TieneAdminPlataforma)
+    {
+        <span class="n-nav-label n-nav-label-group" aria-hidden="true">@C["Nav.AdministracionPlataforma"]</span>
+        @if (PuedeEmpresasPlataforma)
+        {
+            <NavLink class="n-nav-link" href="administracion/plataforma/empresas"><Icono Nombre="building-2" /><span>@C["Seccion.EmpresasPlataforma"]</span></NavLink>
+        }
+        @if (PuedeUsuariosPlataforma)
+        {
+            <NavLink class="n-nav-link" href="administracion/usuarios"><Icono Nombre="users-round" /><span>@C["Seccion.UsuariosPlataforma"]</span></NavLink>
+        }
+    }
 </nav>
-<div class="n-sidebar-user">
+
+<nav class="n-navigation n-navigation-mobile" aria-label="@C["Nav.Principal"]" hidden="@RestringirNavegacion">
+    @if (TieneEmpresaActiva)
+    {
+        <NavLink class="n-nav-link" href="home" Match="NavLinkMatch.All"><Icono Nombre="house" /><span>@C["Seccion.Inicio"]</span></NavLink>
+        <button type="button" class="n-nav-link n-nav-trigger" @onclick="UiModales.AbrirModulos"><Icono Nombre="grid-2x2" /><span>@C["Nav.Modulos"]</span></button>
+    }
+    <NavLink class="n-nav-link" href="empresas"><Icono Nombre="building-2" /><span>@C["Seccion.Empresas"]</span></NavLink>
+    <button type="button" class="n-nav-link n-nav-trigger" @onclick="UiModales.AbrirMas"><Icono Nombre="panel-left" /><span>@C["Nav.MenuMas"]</span></button>
+</nav>
+
+<div class="n-sidebar-user n-sidebar-user-desktop">
     <span class="n-avatar" aria-hidden="true">@Presentacion.Iniciales(Usuario.Identity?.Name)</span>
     <span><strong>@Usuario.Identity?.Name</strong><small title="@Usuario.FindFirstValue(ClaimTypes.Email)">@Usuario.FindFirstValue(ClaimTypes.Email)</small></span>
 </div>
@@ -28,4 +83,16 @@
 @code {
     private ClaimsPrincipal Usuario => ContextAccessor.HttpContext?.User ?? new ClaimsPrincipal();
     private string? NombreEmpresa => Usuario.FindFirstValue(EndpointsSesion.NombreEmpresaClaim);
+    private bool TieneLogoEmpresa => Usuario.HasClaim(EndpointsSesion.EmpresaLogoClaim, "true");
+    private bool RestringirNavegacion =>
+        Usuario.HasClaim(EndpointsSesion.DebeCambiarClaveClaim, "true")
+        || Usuario.HasClaim(EndpointsSesion.LegalPendienteClaim, "true");
+
+    private bool PuedeConfiguracion => Usuario.HasClaim(CodigosPermiso.Claim, CodigosPermiso.EmpresaConfiguracionConsultar);
+    private bool PuedeUsuariosEmpresa => Usuario.HasClaim(CodigosPermiso.Claim, CodigosPermiso.EmpresaMiembroAdministrar);
+    private bool PuedeEmpresasPlataforma => Usuario.HasClaim(CodigosPermiso.Claim, CodigosPermiso.PlataformaEmpresaConsultar);
+    private bool PuedeUsuariosPlataforma => Usuario.HasClaim(CodigosPermiso.Claim, CodigosPermiso.UsuarioConsultar);
+    private bool TieneEmpresaActiva => EndpointsSesion.TieneEmpresaSeleccionada(Usuario);
+    private bool TieneAdminEmpresa => TieneEmpresaActiva && (PuedeConfiguracion || PuedeUsuariosEmpresa);
+    private bool TieneAdminPlataforma => PuedeEmpresasPlataforma || PuedeUsuariosPlataforma;
 }

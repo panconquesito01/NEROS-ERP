@@ -1,0 +1,26 @@
+@* Avatar de empresa: logo servido por el BFF o monograma de respaldo. *@
+@if (MostrarLogo)
+{
+    <img class="@ClaseImagen" src="@RutaLogo" alt="" loading="lazy" @onerror="OcultarLogo" hidden="@logoFallido" />
+}
+@if (!MostrarLogo || logoFallido)
+{
+    <span class="@ClaseMonograma" aria-hidden="true">@TextoMonograma</span>
+}
+
+@code {
+    [Parameter, EditorRequired] public Guid EmpresaId { get; set; }
+    [Parameter] public string Monograma { get; set; } = "?";
+    [Parameter] public bool TieneLogo { get; set; }
+    [Parameter] public string ClaseImagen { get; set; } = "n-company-logo";
+    [Parameter] public string ClaseMonograma { get; set; } = "n-company-monogram";
+
+    private bool logoFallido;
+    private bool MostrarLogo => TieneLogo && !logoFallido;
+    private string RutaLogo => $"/empresas/{EmpresaId:D}/logo?v=1";
+    private string TextoMonograma => string.IsNullOrWhiteSpace(Monograma) ? "?" : Monograma;
+
+    protected override void OnParametersSet() => logoFallido = false;
+
+    private void OcultarLogo() => logoFallido = true;
+}

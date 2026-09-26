@@ -29,7 +29,7 @@ Old MVC Controller action -> API endpoint + Application use case
 Old ViewModel/Form -> Contract request/response DTO
 Old Razor view -> Blazor page/component + Tailwind
 Old repository/service logic -> Application port + Domain rule + infrastructure implementation later
-Old SQL/EF schema change -> manual SQL script in database/scripts/
+Old SQL/EF schema change -> versioned SQL script in database/<modulo>/migrations/ (ADR-0004)
 ```
 
 ## Legacy Extraction Workflow

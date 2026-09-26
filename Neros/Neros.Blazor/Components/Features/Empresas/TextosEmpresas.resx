@@ -26,4 +26,7 @@
   <data name="FilaEntrarEtiqueta" xml:space="preserve"><value>Entrar a {0}</value></data>
   <data name="FilaEntrar" xml:space="preserve"><value>Entrar</value></data>
   <data name="FilaEntrando" xml:space="preserve"><value>Entrando...</value></data>
+  <data name="Cargando" xml:space="preserve"><value>Cargando empresas…</value></data>
+  <data name="ModalCambiarDetalle" xml:space="preserve"><value>Elige la empresa con la que quieres continuar. Tu sesión se mantiene.</value></data>
+  <data name="AbrirPaginaEmpresas" xml:space="preserve"><value>Abrir pantalla completa de empresas</value></data>
 </root>

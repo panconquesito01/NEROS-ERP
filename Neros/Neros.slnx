@@ -5,6 +5,8 @@
   <Folder Name="/src/" />
   <Folder Name="/src/BuildingBlocks/">
     <Project Path="src/BuildingBlocks/Neros.Messaging.Abstractions/Neros.Messaging.Abstractions.csproj" />
+    <Project Path="src/BuildingBlocks/Neros.Messaging.RabbitMQ/Neros.Messaging.RabbitMQ.csproj" />
+    <Project Path="src/BuildingBlocks/Neros.Messaging.Sql/Neros.Messaging.Sql.csproj" />
     <Project Path="src/BuildingBlocks/Neros.ServiceDefaults/Neros.ServiceDefaults.csproj" />
   </Folder>
   <Folder Name="/src/Core/">
@@ -21,17 +23,28 @@
     <Project Path="Neros.Api/Neros.Api.csproj" />
     <Project Path="Neros.Blazor/Neros.Blazor.csproj" />
   </Folder>
-  <Folder Name="/src/Workers/" />
+  <Folder Name="/src/Workers/">
+    <Project Path="src/Workers/Neros.Integration.Worker/Neros.Integration.Worker.csproj" />
+  </Folder>
   <Folder Name="/src/Gateway/">
     <Project Path="src/Gateway/Neros.Gateway/Neros.Gateway.csproj" />
   </Folder>
   <Folder Name="/src/Services/Organization/">
     <Project Path="src/Services/Organization/Neros.Organization.Api/Neros.Organization.Api.csproj" />
+    <Project Path="src/Services/Organization/Neros.Organization.Persistence/Neros.Organization.Persistence.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Terceros/">
+    <Project Path="src/Services/Terceros/Neros.Terceros.Api/Neros.Terceros.Api.csproj" />
+    <Project Path="src/Services/Terceros/Neros.Terceros.Persistence/Neros.Terceros.Persistence.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Search/">
+    <Project Path="src/Services/Search/Neros.Search.Api/Neros.Search.Api.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/Neros.Tests/Neros.Tests.csproj" />
   </Folder>
   <Folder Name="/tools/">
+    <Project Path="tools/Neros.Database.Deploy/Neros.Database.Deploy.csproj" />
     <Project Path="tools/Neros.Organization.Migration/Neros.Organization.Migration.csproj" />
   </Folder>
 </Solution>

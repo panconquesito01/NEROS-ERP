@@ -238,6 +238,8 @@ public sealed class AccesoMultiempresaTests(EntornoPruebas entorno) : IClassFixt
         await page.GetByRole(AriaRole.Button, new() { Name = "Ocultar contraseña", Exact = true }).ClickAsync();
         await page.GetByLabel("Mantener sesión", new() { Exact = true }).CheckAsync();
         await page.GetByRole(AriaRole.Button, new() { Name = "Entrar a Neros" }).ClickAsync();
+        await page.WaitForURLAsync(NavegacionPruebas.DestinoTrasLogin(), new() { Timeout = 30_000 });
+        await NavegacionPruebas.CompletarLegalesSiPendientesAsync(page);
         await page.WaitForURLAsync("**/empresas");
         await Assertions.Expect(page.Locator("[data-company-row]")).ToHaveCountAsync(2);
         await Assertions.Expect(page.GetByRole(AriaRole.Searchbox)).ToHaveCountAsync(0);
@@ -260,6 +262,8 @@ public sealed class AccesoMultiempresaTests(EntornoPruebas entorno) : IClassFixt
         await page.GetByRole(AriaRole.Button, new() { Name = "Tema del sistema", Exact = true }).ClickAsync();
         await page.EmulateMediaAsync(new() { ColorScheme = ColorScheme.Light, ReducedMotion = ReducedMotion.Reduce });
         await Assertions.Expect(page.Locator("html")).ToHaveAttributeAsync("data-theme", "light");
+        await page.Locator("[data-menu] summary").ClickAsync();
+        await Assertions.Expect(page.GetByRole(AriaRole.Link, new() { Name = "Administrar usuarios" })).ToHaveCountAsync(0);
         await page.GetByRole(AriaRole.Button, new() { Name = "Cerrar sesión", Exact = true }).ClickAsync();
         await page.WaitForURLAsync("**/login?estado=salida");
         await page.GotoAsync("/home");
@@ -301,6 +305,7 @@ public sealed class AccesoMultiempresaTests(EntornoPruebas entorno) : IClassFixt
     public async Task NavegadorEligeYConservaIdiomaAsync()
     {
         var cuenta = await entorno.CrearCuentaAsync();
+        await entorno.AceptarLegalesAsync(await entorno.EntrarAsync(cuenta, aceptarLegales: false));
         using var playwright = await Playwright.CreateAsync();
         await using var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
         {
@@ -359,14 +364,14 @@ public sealed class AccesoMultiempresaTests(EntornoPruebas entorno) : IClassFixt
         return cliente;
     }
 
-    private static string CarpetaCapturas()
+    internal static string CarpetaCapturas()
     {
         var root = new DirectoryInfo(AppContext.BaseDirectory);
         while (root is not null && !File.Exists(Path.Combine(root.FullName, "Neros.slnx"))) root = root.Parent;
         return Directory.CreateDirectory(Path.Combine(root!.FullName, ".impeccable", "review")).FullName;
     }
 
-    private static async Task CapturarAsync(IPage page, string vista, (string Claro, string Oscuro)? temas = null)
+    internal static async Task CapturarAsync(IPage page, string vista, (string Claro, string Oscuro)? temas = null)
     {
         var (temaClaro, temaOscuro) = temas ?? ("Tema claro", "Tema oscuro");
         var carpeta = CarpetaCapturas();

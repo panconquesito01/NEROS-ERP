@@ -1,0 +1,147 @@
+@page "/administracion/empresa/usuarios"
+@rendermode InteractiveServer
+@attribute [Authorize(Policy = CodigosPermiso.EmpresaMiembroAdministrar)]
+@inject ClienteNeros Cliente
+@inject IHttpContextAccessor ContextAccessor
+@inject IStringLocalizer<TextosAdministracion> T
+@inject IStringLocalizer<TextosComunes> C
+
+<PageTitle>@T["Empresa.Usuarios.Titulo"]</PageTitle>
+
+<section class="n-page n-enter">
+    <header class="n-page-heading">
+        <div>
+            <h1>@T["Empresa.Usuarios.Encabezado"]</h1>
+            <p>@T["Empresa.Usuarios.Subtitulo", NombreEmpresa ?? ""]</p>
+        </div>
+        <div class="n-heading-actions">
+            <button type="button" class="n-button" @onclick="() => invitarAbierto = true"><Icono Nombre="user-round" />@T["Empresa.Usuarios.Invitar"]</button>
+        </div>
+    </header>
+
+    @if (aviso is not null) { <Aviso Tipo="tipoAviso">@aviso</Aviso> }
+    @if (claveTemporal is not null)
+    {
+        <div class="n-secret"><div><strong>@T["Usuarios.ClaveGenerada.Titulo"]</strong><p>@T["Usuarios.ClaveGenerada.Detalle"]</p></div><code>@claveTemporal</code></div>
+    }
+
+    @if (cargando)
+    {
+        <EstadoCargando>@T["Usuarios.Cargando"]</EstadoCargando>
+    }
+    else if (pagina is { Miembros.Count: > 0 })
+    {
+        <div class="n-form-card n-table-container">
+            <table class="n-user-table">
+                <thead><tr><th>@T["Usuarios.Nombre"]</th><th>@T["Empresa.Usuarios.Rol"]</th><th>@T["Usuarios.Estado"]</th><th></th></tr></thead>
+                <tbody>
+                    @foreach (var m in pagina.Miembros)
+                    {
+                        <tr>
+                            <td class="n-user-cell"><strong>@m.Nombre</strong><small>@m.Correo</small></td>
+                            <td>@m.Rol</td>
+                            <td><span class="n-chip @(m.Bloqueado ? "n-chip-warn" : "n-chip-ok")">@(m.Bloqueado ? T["Usuarios.Bloqueado"] : T["Usuarios.Activo"])</span></td>
+                            <td>
+                                @if (m.Id != ActorId)
+                                {
+                                    <button type="button" class="n-button n-secondary n-compact" @onclick="() => RestablecerAsync(m.Id)">@T["Usuarios.Restablecer"]</button>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <EstadoVacio NombreIcono="users-round" Titulo="@T["Empresa.Usuarios.Vacio"]">
+            <ChildContent>@T["Empresa.Usuarios.VacioDetalle"]</ChildContent>
+            <Acciones><button type="button" class="n-button" @onclick="() => invitarAbierto = true">@T["Empresa.Usuarios.Invitar"]</button></Acciones>
+        </EstadoVacio>
+    }
+</section>
+
+<ModalNeros Titulo="@T["Empresa.Usuarios.Invitar"]" Abierto="invitarAbierto" AbiertoChanged="v => invitarAbierto = v" AnchoExtra="true">
+    <ChildContent>
+    <form id="form-invitacion" class="n-modal-form" @onsubmit="CrearMiembroAsync" @onsubmit:preventDefault="true">
+        <div class="n-field n-modal-field">
+            <label for="miembro-correo">@T["Usuarios.Correo"]</label>
+            <input id="miembro-correo" type="email" @bind="solicitud.Correo" required maxlength="256" />
+        </div>
+        <FormularioPerfilUsuario Perfil="solicitud.Perfil" TiposDocumento="tiposDocumento" />
+        <fieldset class="n-form-section">
+            <legend>@T["Usuarios.Formulario.AccesoEmpresa"]</legend>
+            <SelectorModulosEmpresa @bind-Rol="solicitud.Rol" ModulosSeleccionados="modulosSeleccionados" ModulosSeleccionadosChanged="ActualizarModulosAsync" />
+        </fieldset>
+    </form>
+    </ChildContent>
+    <Pie>
+        <button type="button" class="n-button n-secondary" @onclick="() => invitarAbierto = false">@C["Modal.Cerrar"]</button>
+        <button class="n-button" type="submit" form="form-invitacion" disabled="@guardando">@T["Empresa.Usuarios.Crear"]</button>
+    </Pie>
+</ModalNeros>
+
+@code {
+    private PaginaMiembrosEmpresa? pagina;
+    private SolicitudCrearMiembroEmpresa solicitud = new();
+    private HashSet<string> modulosSeleccionados = new(StringComparer.OrdinalIgnoreCase) { "Multiempresa" };
+    private IReadOnlyList<CatalogoTipoIdentificacion> tiposDocumento = [];
+    private string? claveTemporal;
+    private string? aviso;
+    private TipoAviso tipoAviso = TipoAviso.Error;
+    private bool invitarAbierto;
+    private bool cargando = true;
+    private bool guardando;
+
+    private Guid? EmpresaId => Guid.TryParse(ContextAccessor.HttpContext?.User.FindFirstValue(EndpointsSesion.EmpresaClaim), out var id) ? id : null;
+    private string? NombreEmpresa => ContextAccessor.HttpContext?.User.FindFirstValue(EndpointsSesion.NombreEmpresaClaim);
+    private string Token => ContextAccessor.HttpContext!.User.FindFirstValue(EndpointsSesion.TokenClaim)!;
+    private string? ActorId => ContextAccessor.HttpContext!.User.FindFirstValue(System.Security.Claims.ClaimTypes.NameIdentifier);
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (EmpresaId is not { } e) { cargando = false; return; }
+        try
+        {
+            var cat = await Cliente.CatalogosGlobalizacionAsync(Token, "CO", ContextAccessor.HttpContext!.RequestAborted);
+            tiposDocumento = cat.TiposIdentificacion.Where(t => t.Pais == "CO").ToList();
+            pagina = await Cliente.MiembrosEmpresaAsync(Token, e, null, 1, 50, ContextAccessor.HttpContext!.RequestAborted);
+        }
+        catch (HttpRequestException) { aviso = T["Usuarios.Error.servicio"].Value; tipoAviso = TipoAviso.Error; }
+        finally { cargando = false; }
+    }
+
+    private Task ActualizarModulosAsync(HashSet<string> modulos)
+    {
+        modulosSeleccionados = modulos;
+        return Task.CompletedTask;
+    }
+
+    private async Task CrearMiembroAsync()
+    {
+        if (EmpresaId is not { } e || guardando) return;
+        guardando = true;
+        solicitud.ModulosHabilitados = modulosSeleccionados.ToList();
+        try
+        {
+            var (creado, error) = await Cliente.CrearMiembroEmpresaAsync(Token, e, solicitud, ContextAccessor.HttpContext!.RequestAborted);
+            if (error is not null) { aviso = T[$"Usuarios.Error.{error}"].Value; tipoAviso = TipoAviso.Error; return; }
+            if (creado?.ClaveTemporal is { Length: > 0 } clave) claveTemporal = clave;
+            invitarAbierto = false;
+            solicitud = new SolicitudCrearMiembroEmpresa();
+            modulosSeleccionados = new(StringComparer.OrdinalIgnoreCase) { "Multiempresa" };
+            pagina = await Cliente.MiembrosEmpresaAsync(Token, e, null, 1, 50, ContextAccessor.HttpContext!.RequestAborted);
+            aviso = T["Empresa.Usuarios.Creado"].Value;
+            tipoAviso = TipoAviso.Exito;
+        }
+        finally { guardando = false; }
+    }
+
+    private async Task RestablecerAsync(string usuarioId)
+    {
+        if (EmpresaId is not { } e) return;
+        var (clave, _) = await Cliente.RestablecerClaveEmpresaAsync(Token, e, usuarioId, ContextAccessor.HttpContext!.RequestAborted);
+        if (clave is not null) claveTemporal = clave;
+    }
+}

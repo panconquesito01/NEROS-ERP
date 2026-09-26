@@ -1,0 +1,109 @@
+@page "/cuenta/sesiones"
+@attribute [Authorize]
+@inject ClienteNeros Cliente
+@inject IHttpContextAccessor ContextAccessor
+@inject IStringLocalizer<TextosCuenta> T
+
+<PageTitle>@T["Sesiones.Titulo"]</PageTitle>
+
+<section class="n-page n-enter" aria-labelledby="sesiones-titulo">
+    <header class="n-page-heading">
+        <div>
+            <h1 id="sesiones-titulo">@T["Sesiones.Encabezado"]</h1>
+            <p>@T["Sesiones.Subtitulo"]</p>
+        </div>
+        @if (sesiones.Count > 0)
+        {
+            <div class="n-heading-actions">
+                @if (sesiones.Count > 1)
+                {
+                    <form method="post" action="/sesion/sesiones/cerrar-otras" data-busy-form data-enhance="false">
+                        <AntiforgeryToken />
+                        <button class="n-button n-secondary" type="submit" data-confirm="@T["Sesiones.ConfirmarOtras"]"><Icono Nombre="x" /><span>@T["Sesiones.CerrarOtras"]</span></button>
+                    </form>
+                }
+                <form method="post" action="/sesion/sesiones/cerrar-todas" data-busy-form data-enhance="false">
+                    <AntiforgeryToken />
+                    <button class="n-button n-ghost n-danger" type="submit" data-confirm="@T["Sesiones.ConfirmarTodas"]"><Icono Nombre="log-out" /><span>@T["Sesiones.CerrarTodas"]</span></button>
+                </form>
+            </div>
+        }
+    </header>
+    @if (aviso is not null)
+    {
+        <Aviso Tipo="tipoAviso">@aviso</Aviso>
+    }
+    @if (sesiones.Count > 0)
+    {
+        <ul class="n-session-list" role="list">
+            @foreach (var sesion in sesiones)
+            {
+                var descripcion = Descripcion(sesion.AgenteUsuario);
+                <li class="@(sesion.Actual ? "n-session n-session-current" : "n-session")">
+                    <span class="n-session-icon"><Icono Nombre="monitor-smartphone" /></span>
+                    <span class="n-session-info">
+                        <strong>@descripcion</strong>
+                        <small>
+                            @if (sesion.Ip is not null) { <span>@T["Sesiones.Ip", sesion.Ip]</span> }
+                            <span>@T["Sesiones.Inicio"] <time datetime="@Presentacion.FechaIso(sesion.InicioUtc)" data-local-date="short">@Presentacion.FechaUtc(sesion.InicioUtc)</time></span>
+                            <span>@T["Sesiones.UltimaActividad"] <time datetime="@Presentacion.FechaIso(sesion.UltimaActividadUtc)" data-local-date="relative">@Presentacion.FechaUtc(sesion.UltimaActividadUtc)</time></span>
+                        </small>
+                    </span>
+                    @if (sesion.Actual)
+                    {
+                        <span class="n-active-badge"><Icono Nombre="check" />@T["Sesiones.Actual"]</span>
+                    }
+                    else
+                    {
+                        <form method="post" action="/sesion/sesiones/cerrar" data-busy-form data-enhance="false">
+                            <AntiforgeryToken />
+                            <input type="hidden" name="SesionId" value="@sesion.Id" />
+                            <button class="n-button n-secondary n-compact" type="submit" aria-label="@T["Sesiones.CerrarEtiqueta", descripcion]">@T["Sesiones.Cerrar"]</button>
+                        </form>
+                    }
+                </li>
+            }
+        </ul>
+    }
+    else if (aviso is null)
+    {
+        <EstadoVacio NombreIcono="monitor-smartphone">@T["Sesiones.Vacio"]</EstadoVacio>
+    }
+</section>
+
+@code {
+    [SupplyParameterFromQuery(Name = "estado")] public string? Estado { get; set; }
+    [SupplyParameterFromQuery(Name = "cantidad")] public int? Cantidad { get; set; }
+    private IReadOnlyList<SesionActiva> sesiones = [];
+    private string? aviso;
+    private TipoAviso tipoAviso = TipoAviso.Exito;
+
+    protected override async Task OnInitializedAsync()
+    {
+        (aviso, tipoAviso) = Estado switch
+        {
+            "cerrada" => (T["Sesiones.Cerrada"].Value, TipoAviso.Exito),
+            "otras" => (Cantidad is > 0 ? T["Sesiones.Otras", Cantidad.Value].Value : T["Sesiones.OtrasNinguna"].Value, TipoAviso.Exito),
+            "no_encontrada" => (T["Sesiones.NoEncontrada"].Value, TipoAviso.Informacion),
+            "servicio" => (T["Sesiones.ErrorServicio"].Value, TipoAviso.Error),
+            _ => (null, TipoAviso.Exito)
+        };
+        try
+        {
+            var context = ContextAccessor.HttpContext!;
+            sesiones = await Cliente.SesionesAsync(context.User.FindFirstValue(EndpointsSesion.TokenClaim)!, context.RequestAborted);
+        }
+        catch (Exception error) when (error is HttpRequestException or TaskCanceledException)
+        {
+            (aviso, tipoAviso) = (T["Sesiones.ErrorCarga"].Value, TipoAviso.Error);
+        }
+    }
+
+    private string Descripcion(string? agente) => Presentacion.Dispositivo(agente) switch
+    {
+        ({ } navegador, { } sistema) => T["Sesiones.NavegadorEn", navegador, sistema],
+        ({ } navegador, null) => navegador,
+        (null, { } sistema) => sistema,
+        _ => T["Sesiones.Desconocido"]
+    };
+}

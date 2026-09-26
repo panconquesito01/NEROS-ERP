@@ -20,7 +20,7 @@ Generate architecture documentation for the new Neros system, not the previous m
 3. **Dependency Direction**: allowed and forbidden references.
 4. **Runtime Flow**: Blazor -> API -> Application -> Domain -> port -> infrastructure.
 5. **Contracts**: DTO naming, request/response boundaries, validation ownership.
-6. **Data Strategy**: SQL Server, EF Core as mapper/query tool, manual scripts in `database/scripts/`.
+6. **Data Strategy**: SQL Server, EF Core as mapper/query tool, versioned scripts in `database/<modulo>/` applied by `tools/Neros.Database.Deploy` (ADR-0004).
 7. **Security**: Identity, roles, resource permissions, tenant/sucursal scoping, audit, secrets.
 8. **Realtime/Jobs**: SignalR hubs, groups, background jobs, retry and idempotency concerns.
 9. **Frontend**: Blazor Web App, Tailwind CSS, operational ERP UX, accessibility, no Bootstrap/jQuery.

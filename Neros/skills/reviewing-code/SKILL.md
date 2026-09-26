@@ -37,7 +37,7 @@ Review like a senior engineer. Findings first, ordered by severity.
 | Missing tenant/resource scope | Queries and use case inputs include company/sucursal/resource |
 | UI-only permission check | API/Application enforces the same rule |
 | SignalR broadcasts too much | Payload contains full entity/secret or ignores groups |
-| Schema change lacks script | `database/scripts/` has matching manual SQL |
+| Schema change lacks script | New `database/<modulo>/migrations/V<NNNN>__*.sql` with header and validation; EF drift test green |
 | CSS relies on Bootstrap class | New UI class names and dependencies |
 
 ## Review Procedure

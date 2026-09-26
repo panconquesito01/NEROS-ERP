@@ -30,4 +30,18 @@
   <data name="ActividadNota" xml:space="preserve"><value>Não reconhece alguma entrada? Avise o administrador da sua empresa para que revise sua conta.</value></data>
   <data name="Accion.Entrada a empresa" xml:space="preserve"><value>Entrada na empresa</value></data>
   <data name="ModulosTitulo" xml:space="preserve"><value>Módulos do ERP</value></data>
+  <data name="Cargando" xml:space="preserve"><value>Carregando seu espaço de trabalho…</value></data>
+  <data name="CuentaTitulo" xml:space="preserve"><value>Conta e segurança</value></data>
+  <data name="CuentaClaveTemporal" xml:space="preserve"><value>Você deve alterar a senha temporária antes de operações sensíveis.</value></data>
+  <data name="CuentaUltimoAcceso" xml:space="preserve"><value>Último acesso a esta empresa</value></data>
+  <data name="CuentaSinAcceso" xml:space="preserve"><value>Ainda não há entradas registradas</value></data>
+  <data name="CuentaSesiones" xml:space="preserve"><value>Sessões abertas</value></data>
+  <data name="CuentaSesionesUna" xml:space="preserve"><value>1 sessão ativa</value></data>
+  <data name="CuentaSesionesVarias" xml:space="preserve"><value>{0} sessões ativas</value></data>
+  <data name="CuentaVerSesiones" xml:space="preserve"><value>Ver sessões</value></data>
+  <data name="CuentaCambiarClave" xml:space="preserve"><value>Alterar senha</value></data>
+  <data name="AdminTitulo" xml:space="preserve"><value>Administração da plataforma</value></data>
+  <data name="AdminResumen" xml:space="preserve"><value>Ferramentas reservadas ao administrador global.</value></data>
+  <data name="AdminUsuarios" xml:space="preserve"><value>Usuários</value></data>
+  <data name="AdminUsuariosDetalle" xml:space="preserve"><value>Consulte contas, desbloqueie acessos e redefina senhas</value></data>
 </root>

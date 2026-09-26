@@ -1,0 +1,66 @@
+@page "/cookies"
+@attribute [AllowAnonymous]
+@layout AuthLayout
+@inject ClienteNeros Cliente
+@inject IStringLocalizer<TextosPrivacidad> T
+@inject IStringLocalizer<TextosComunes> C
+
+<PageTitle>@T["Cookies.Titulo"]</PageTitle>
+
+<section class="n-page n-enter n-cookies" aria-labelledby="cookies-titulo">
+    <header class="n-page-heading">
+        <div>
+            <h1 id="cookies-titulo">@T["Cookies.Encabezado"]</h1>
+            <p>@T["Cookies.Subtitulo"]</p>
+        </div>
+        <a class="n-button n-secondary" href="/login"><Icono Nombre="arrow-left" /><span>@C["Sesion.Terminada.Volver"]</span></a>
+    </header>
+    @if (definiciones.Count == 0)
+    {
+        <Aviso>@T["Cookies.Vacio"]</Aviso>
+    }
+    else
+    {
+        <div class="n-table-container">
+            <table class="n-table">
+                <caption class="sr-only">@T["Cookies.Encabezado"]</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">@T["Cookies.Columna.Nombre"]</th>
+                        <th scope="col">@T["Cookies.Columna.Almacenamiento"]</th>
+                        <th scope="col">@T["Cookies.Columna.Proveedor"]</th>
+                        <th scope="col">@T["Cookies.Columna.Categoria"]</th>
+                        <th scope="col">@T["Cookies.Columna.Finalidad"]</th>
+                        <th scope="col">@T["Cookies.Columna.Duracion"]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var cookie in definiciones)
+                    {
+                        <tr>
+                            <td>
+                                <strong>@cookie.Nombre</strong>
+                                <small>@(cookie.Esencial ? T["Cookies.Esencial"] : T["Cookies.Opcional"])</small>
+                            </td>
+                            <td>@cookie.Almacenamiento</td>
+                            <td>@cookie.Proveedor</td>
+                            <td>@cookie.Categoria</td>
+                            <td>@cookie.Finalidad</td>
+                            <td>@cookie.Duracion</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <p class="n-table-note"><Icono Nombre="info" /><span>@T["Cookies.Nota"]</span></p>
+    }
+</section>
+
+@code {
+    private IReadOnlyList<DefinicionCookiePublica> definiciones = [];
+
+    protected override async Task OnInitializedAsync()
+    {
+        definiciones = await Cliente.CookiesAsync(CancellationToken.None);
+    }
+}

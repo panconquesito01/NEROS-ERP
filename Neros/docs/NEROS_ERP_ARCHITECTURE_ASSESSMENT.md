@@ -116,7 +116,7 @@ Hay registro de interactividad Server y ReconnectModal, pero las paginas de nego
 
 ## 4. Base de datos
 
-[Contexto](../Neros.Persistence/NerosDbContext.cs), [modelo](../Neros.Persistence/Seguridad/ModeloSeguridad.cs) y [script inicial](../database/scripts/001_identity_empresas.sql) concuerdan en las ocho tablas observadas.
+[Contexto](../Neros.Persistence/NerosDbContext.cs), [modelo](../Neros.Persistence/Seguridad/ModeloSeguridad.cs) y [script inicial](../database/compatibilidad/migrations/V0001__identity_empresas.sql) concuerdan en las ocho tablas observadas.
 
 | Tabla | Clave / relacion | Indices y observaciones |
 | --- | --- | --- |
@@ -131,7 +131,7 @@ Hay registro de interactividad Server y ReconnectModal, pero las paginas de nego
 
 No hay tablas AspNetRoles/AspNetUserRoles: se usa IdentityUserContext, no IdentityDbContext con roles completos. No hay filtro global de empresa: el aislamiento actual depende de consultas explicitas del repositorio. No se encontro rowversion o control de concurrencia para Empresa/membresia. Tampoco tablas de migracion, historial de scripts, outbox o idempotencia.
 
-El script 000 crea la base si falta; 001 crea el esquema una sola vez, con transaccion y SET requeridos para indices filtrados. No ejecutar 001 en una base con datos. Las pruebas usan EnsureCreated/EnsureDeleted exclusivamente sobre NerosTests_GUID: verifican el modelo, no que un upgrade SQL manual conserve datos. Falta prueba separada de instalacion/actualizacion de scripts y registro de version/checksum.
+Actualizacion (ADR-0004, fase 1): el esquema se despliega con `tools/Neros.Database.Deploy`, que aplica `database/compatibilidad/migrations/V0001__identity_empresas.sql` en transaccion y registra version y checksum en `dbo.NerosSchemaVersion`. Las pruebas despliegan NerosTests_GUID con el runner, sin EnsureCreated, y una prueba de deriva compara el modelo EF con el esquema resultante. Las bases existentes se adoptan con baseline.
 
 La documentacion propone limpieza de sesiones vencidas mediante job administrado, pero no se encontro job desplegado. Los eventos no tienen politica de retencion implementada. Las FK restrict ayudan, pero no constituyen por si solas auditoria legal inmutable.
 

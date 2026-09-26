@@ -4,6 +4,7 @@
 @attribute [Microsoft.AspNetCore.Authorization.AllowAnonymous]
 @inject IStringLocalizer<TextosAcceso> T
 @inject IStringLocalizer<TextosComunes> C
+@inject IStringLocalizer<TextosPrivacidad> P
 
 <PageTitle>@T["Titulo"]</PageTitle>
 
@@ -59,7 +60,7 @@
         </div>
     </div>
     <CatalogoAcceso />
-    <footer class="n-login-footer"><span>Neros ERP</span><span>@T["Pie"]</span></footer>
+    <footer class="n-login-footer"><span>Neros ERP</span><span>@T["Pie"]</span><a href="/cookies">@P["Cookies.Enlace"]</a></footer>
 </div>
 
 @code {

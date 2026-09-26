@@ -17,7 +17,9 @@
   <data name="Layout.SesionDe" xml:space="preserve"><value>Signed in as {0}</value></data>
   <data name="Nav.Principal" xml:space="preserve"><value>Main navigation</value></data>
   <data name="Nav.EspacioTrabajo" xml:space="preserve"><value>Workspace</value></data>
+  <data name="Nav.Modulos" xml:space="preserve"><value>Modules</value></data>
   <data name="Nav.SinEmpresa" xml:space="preserve"><value>No active company</value></data>
+  <data name="Nav.ElegirEmpresaPrimero" xml:space="preserve"><value>Select a company under My companies to open Home and modules.</value></data>
   <data name="Nav.EmpresaActiva" xml:space="preserve"><value>Active company</value></data>
   <data name="Seccion.Inicio" xml:space="preserve"><value>Home</value></data>
   <data name="Seccion.Empresas" xml:space="preserve"><value>My companies</value></data>
@@ -68,4 +70,16 @@
   <data name="Js.PausarAnimacion" xml:space="preserve"><value>Pause animation</value></data>
   <data name="Js.ReanudarAnimacion" xml:space="preserve"><value>Resume animation</value></data>
   <data name="Js.MovimientoReducido" xml:space="preserve"><value>Reduced motion enabled</value></data>
+  <data name="Js.Copiado" xml:space="preserve"><value>Copied</value></data>
+  <data name="Js.CopiaNoDisponible" xml:space="preserve"><value>Select and copy</value></data>
+  <data name="Menu.Usuario" xml:space="preserve"><value>User menu</value></data>
+  <data name="Menu.CambiarClave" xml:space="preserve"><value>Change password</value></data>
+  <data name="Menu.Sesiones" xml:space="preserve"><value>My sessions</value></data>
+  <data name="Menu.Usuarios" xml:space="preserve"><value>Manage users</value></data>
+  <data name="Nav.Administracion" xml:space="preserve"><value>Administration</value></data>
+  <data name="Seccion.CambioClave" xml:space="preserve"><value>Change password</value></data>
+  <data name="Seccion.Sesiones" xml:space="preserve"><value>My sessions</value></data>
+  <data name="Seccion.Usuarios" xml:space="preserve"><value>Users</value></data>
+  <data name="Seccion.Cookies" xml:space="preserve"><value>Cookie policy</value></data>
+  <data name="Seccion.Legal" xml:space="preserve"><value>Legal documents</value></data>
 </root>

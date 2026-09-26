@@ -1,13 +1,10 @@
-﻿@inject IStringLocalizer<TextosComunes> C
+﻿@using Neros.Blazor.Components.Features.Sistema
 
 <Router AppAssembly="typeof(Program).Assembly" NotFoundPage="typeof(Features.Sistema.PaginaNoEncontrada)">
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)">
             <NotAuthorized>
-                <EstadoVacio NombreIcono="lock-keyhole" Titulo="@C["Sesion.Terminada.Titulo"]">
-                    <ChildContent>@C["Sesion.Terminada.Detalle"]</ChildContent>
-                    <Acciones><a class="n-button n-primary" href="/login"><Icono Nombre="log-in" />@C["Sesion.Terminada.Volver"]</a></Acciones>
-                </EstadoVacio>
+                <VistaAccesoDenegado />
             </NotAuthorized>
         </AuthorizeRouteView>
         <FocusOnNavigate RouteData="routeData" Selector="h1" />

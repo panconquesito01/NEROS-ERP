@@ -1,0 +1,57 @@
+@inject IStringLocalizer<TextosAdministracion> T
+@inject IStringLocalizer<TextosComunes> C
+
+<div class="n-access-block">
+    <div class="n-form-grid n-access-rol">
+        <div class="n-field n-modal-field">
+            <label for="rol-empresa">@T["Empresa.Usuarios.Rol"]</label>
+            <select id="rol-empresa" @bind="Rol" @bind:after="NotificarRolAsync">
+                <option>Administrador</option>
+                <option>Operador</option>
+                <option>Consulta</option>
+            </select>
+        </div>
+        <div class="n-field n-modal-field n-field-span">
+            <p class="n-field-hint n-field-hint-inline">@T["Usuarios.Formulario.RolDetalle"]</p>
+        </div>
+    </div>
+    <p class="n-field-label">@T["Perfil.AccesoModulos"]</p>
+    <p class="n-field-hint n-field-hint-tight">@T["Perfil.AccesoModulosDetalle"]</p>
+    <div class="n-module-picker n-module-picker-grid">
+        @foreach (var modulo in CatalogoModulos.Todos)
+        {
+            var clave = modulo.Clave;
+            var seleccionado = ModulosSeleccionados.Contains(clave, StringComparer.OrdinalIgnoreCase);
+            <label class="n-module-picker-item @(modulo.Disponible ? "" : "n-module-picker-soon")">
+                <input type="checkbox" checked="@seleccionado" disabled="@(!modulo.Disponible)"
+                       @onchange="e => Alternar(clave, e.Value is true)" />
+                <span>
+                    <strong>@C[modulo.ClaveNombre]</strong>
+                    <small>@(modulo.Disponible ? C["Modulo.Disponible"] : C["Modulo.EnPreparacion"])</small>
+                </span>
+            </label>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Rol { get; set; } = "Operador";
+    [Parameter] public EventCallback<string> RolChanged { get; set; }
+    [Parameter] public HashSet<string> ModulosSeleccionados { get; set; } = new(StringComparer.OrdinalIgnoreCase);
+    [Parameter] public EventCallback<HashSet<string>> ModulosSeleccionadosChanged { get; set; }
+
+    protected override void OnInitialized()
+    {
+        if (ModulosSeleccionados.Count == 0)
+            ModulosSeleccionados.Add("Multiempresa");
+    }
+
+    private async Task Alternar(string clave, bool activo)
+    {
+        if (activo) ModulosSeleccionados.Add(clave);
+        else ModulosSeleccionados.Remove(clave);
+        await ModulosSeleccionadosChanged.InvokeAsync(ModulosSeleccionados);
+    }
+
+    private Task NotificarRolAsync() => RolChanged.InvokeAsync(Rol);
+}

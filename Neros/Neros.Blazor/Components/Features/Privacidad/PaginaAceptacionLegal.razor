@@ -1,0 +1,82 @@
+@page "/legal/aceptar"
+@attribute [Authorize]
+@inject ClienteNeros Cliente
+@inject IHttpContextAccessor ContextAccessor
+@inject IStringLocalizer<TextosPrivacidad> T
+@inject IStringLocalizer<TextosComunes> C
+
+<PageTitle>@T["Legal.Titulo"]</PageTitle>
+
+<section class="n-page n-enter n-narrow" aria-labelledby="legal-titulo">
+    <header class="n-page-heading">
+        <div>
+            <h1 id="legal-titulo">@T["Legal.Encabezado"]</h1>
+            <p>@T["Legal.Subtitulo"]</p>
+        </div>
+    </header>
+    @if (Error is not null)
+    {
+        <Aviso>@Error</Aviso>
+    }
+    @if (cargando)
+    {
+        <Aviso Tipo="TipoAviso.Informacion">@T["Legal.Aceptando"]</Aviso>
+    }
+    else if (pendientes.Count > 0)
+    {
+        @foreach (var documento in documentos)
+        {
+            <article class="n-legal-doc" aria-labelledby="@($"doc-{documento.Codigo}")">
+                <h2 id="@($"doc-{documento.Codigo}")">@documento.Nombre <small>v@documento.Version</small></h2>
+                <div class="n-legal-body">@((MarkupString)MarkdownSeguro(documento.Contenido))</div>
+            </article>
+        }
+        <form class="n-form-card" method="post" action="/sesion/legal/aceptar" data-busy-form data-enhance="false">
+            <AntiforgeryToken />
+            @foreach (var pendiente in pendientes)
+            {
+                <label class="n-checkbox n-legal-check">
+                    <input type="checkbox" required data-legal-check="@pendiente.Codigo" />
+                    <span>@T["Legal.Checkbox", pendiente.Nombre, pendiente.Version]</span>
+                </label>
+            }
+            <button class="n-button n-primary" type="submit">
+                <Icono Nombre="file-check" />
+                <span data-idle-label>@T["Legal.Aceptar"]</span>
+                <span data-busy-label hidden>@T["Legal.Aceptando"]</span>
+            </button>
+        </form>
+        <p class="n-table-note"><Icono Nombre="cookie" /><a href="/cookies">@T["Cookies.Enlace"]</a></p>
+    }
+    else if (Error is null)
+    {
+        <Aviso>@T["Legal.Error.error"]</Aviso>
+    }
+</section>
+
+@code {
+    private static readonly HashSet<string> Errores = ["error", "servicio"];
+
+    [SupplyParameterFromQuery(Name = "estado")] public string? Estado { get; set; }
+
+    private string? Token => ContextAccessor.HttpContext?.User.FindFirstValue(EndpointsSesion.TokenClaim);
+    private string? Error => Estado is not null && Errores.Contains(Estado) ? T[$"Legal.Error.{Estado}"].Value : null;
+    private List<DocumentoLegalPendiente> pendientes = [];
+    private List<DocumentoLegalPublicado> documentos = [];
+    private bool cargando = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (Token is null) { cargando = false; return; }
+        pendientes = [.. await Cliente.PendientesLegalesAsync(Token, CancellationToken.None)];
+        foreach (var pendiente in pendientes)
+        {
+            var publicado = await Cliente.DocumentoLegalAsync(Token, pendiente.Codigo, CancellationToken.None);
+            if (publicado is not null) documentos.Add(publicado);
+        }
+        cargando = false;
+    }
+
+    private static string MarkdownSeguro(string contenido) =>
+        System.Net.WebUtility.HtmlEncode(contenido).Replace("\n", "<br />", StringComparison.Ordinal);
+}

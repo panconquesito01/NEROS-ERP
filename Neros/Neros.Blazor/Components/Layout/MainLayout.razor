@@ -6,7 +6,7 @@
 <a class="n-skip" href="#contenido">@C["Comun.IrAlContenido"]</a>
 <div class="n-shell">
     <aside class="n-sidebar">
-        <NavMenu />
+        <NavMenu @rendermode="InteractiveServer" />
     </aside>
     <div class="n-main">
         <header class="n-topbar">
@@ -21,10 +21,7 @@
             </nav>
             <div class="n-topbar-actions">
                 <Preferencias />
-                <form method="post" action="/sesion/salir" data-busy-form data-enhance="false">
-                    <AntiforgeryToken />
-                    <button class="n-button n-ghost n-logout" type="submit" title="@C["Layout.CerrarSesion"]" aria-label="@C["Layout.CerrarSesion"]"><Icono Nombre="log-out" /><span>@C["Layout.Salir"]</span></button>
-                </form>
+                <MenuUsuario @rendermode="InteractiveServer" />
             </div>
         </header>
         <main class="n-content" id="contenido">
@@ -33,6 +30,7 @@
         <footer class="n-workspace-footer"><span>Neros ERP</span><span>@C["Layout.SesionDe", Usuario.Identity?.Name ?? string.Empty]</span></footer>
     </div>
 </div>
+<HostModales @rendermode="InteractiveServer" />
 <div id="blazor-error-ui" data-nosnippet>
     @C["Comun.ErrorActualizar"]
     <a href="." class="reload">@C["Comun.Recargar"]</a>

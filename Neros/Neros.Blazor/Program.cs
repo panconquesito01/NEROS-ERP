@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Neros.Blazor.Components;
 using Neros.Blazor.Localizacion;
 using Neros.Blazor.Servicios;
+using Neros.Contracts.Seguridad;
 using Neros.ServiceDefaults;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,8 +15,10 @@ builder.AddNerosTelemetry("Neros.Web.Bff");
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<ServicioUiModales>();
 builder.Services.AgregarLocalizacionNeros();
 builder.Services.AddCascadingAuthenticationState();
+builder.Services.AddTransient<CabecerasClienteHandler>();
 builder.Services.AddHttpClient<ClienteNeros>(http =>
 {
     var direccion = builder.Configuration["Gateway:BaseUrl"] ?? builder.Configuration["Api:BaseUrl"] ?? "http://localhost:5067/";
@@ -25,7 +28,7 @@ builder.Services.AddHttpClient<ClienteNeros>(http =>
     }
     http.BaseAddress = new Uri(direccion);
     http.Timeout = TimeSpan.FromSeconds(12);
-}).AddNerosResilience();
+}).AddHttpMessageHandler<CabecerasClienteHandler>().AddNerosResilience();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
 {
     options.LoginPath = "/login";
@@ -45,8 +48,12 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         }
         try
         {
-            await context.HttpContext.RequestServices.GetRequiredService<ClienteNeros>()
+            var usuario = await context.HttpContext.RequestServices.GetRequiredService<ClienteNeros>()
                 .ConsultarUsuarioAsync(token, context.HttpContext.RequestAborted);
+            if (usuario is not null)
+            {
+                context.ReplacePrincipal(EndpointsSesion.ActualizarPrincipal(context.Principal!, usuario));
+            }
         }
         catch (HttpRequestException error) when (error.StatusCode == HttpStatusCode.Unauthorized)
         {
@@ -63,7 +70,11 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         }
     };
 });
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(options =>
+{
+    foreach (var permiso in Neros.Application.Seguridad.Permisos.Todos)
+        options.AddPolicy(permiso, policy => policy.RequireAuthenticatedUser().RequireClaim(CodigosPermiso.Claim, permiso));
+});
 builder.Services.AddRateLimiter(options =>
 {
     options.OnRejected = async (context, _) =>
@@ -98,6 +109,8 @@ app.Use(async (context, next) =>
 app.UseRateLimiter();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseCambioClaveObligatorio();
+app.UseDocumentosLegalesObligatorios();
 app.UseAntiforgery();
 app.MapearSesion();
 app.MapearIdioma();

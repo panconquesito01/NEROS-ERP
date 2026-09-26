@@ -30,4 +30,18 @@
   <data name="ActividadNota" xml:space="preserve"><value>Don&apos;t recognize an entry? Let your company administrator know so they can review your account.</value></data>
   <data name="Accion.Entrada a empresa" xml:space="preserve"><value>Company entry</value></data>
   <data name="ModulosTitulo" xml:space="preserve"><value>ERP modules</value></data>
+  <data name="Cargando" xml:space="preserve"><value>Loading your workspace…</value></data>
+  <data name="CuentaTitulo" xml:space="preserve"><value>Account and security</value></data>
+  <data name="CuentaClaveTemporal" xml:space="preserve"><value>You must change your temporary password before sensitive operations.</value></data>
+  <data name="CuentaUltimoAcceso" xml:space="preserve"><value>Last access to this company</value></data>
+  <data name="CuentaSinAcceso" xml:space="preserve"><value>No entries recorded yet</value></data>
+  <data name="CuentaSesiones" xml:space="preserve"><value>Open sessions</value></data>
+  <data name="CuentaSesionesUna" xml:space="preserve"><value>1 active session</value></data>
+  <data name="CuentaSesionesVarias" xml:space="preserve"><value>{0} active sessions</value></data>
+  <data name="CuentaVerSesiones" xml:space="preserve"><value>View sessions</value></data>
+  <data name="CuentaCambiarClave" xml:space="preserve"><value>Change password</value></data>
+  <data name="AdminTitulo" xml:space="preserve"><value>Platform administration</value></data>
+  <data name="AdminResumen" xml:space="preserve"><value>Tools reserved for the global administrator.</value></data>
+  <data name="AdminUsuarios" xml:space="preserve"><value>Users</value></data>
+  <data name="AdminUsuariosDetalle" xml:space="preserve"><value>Review accounts, unlock access, and reset passwords</value></data>
 </root>

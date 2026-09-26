@@ -26,7 +26,7 @@ Future Infrastructure/Persistence -> Application ports
 - Blazor no accede a datos ni DbContext.
 - API delega en Application.
 - Domain permanece puro.
-- SQL Server evoluciona con scripts manuales en `database/scripts/`.
+- SQL Server evoluciona solo con scripts versionados en `database/<modulo>/` y `tools/Neros.Database.Deploy`; sin EF Migrations ni `EnsureCreated()` (ADR-0004).
 - No guardar secretos ni imprimirlos en logs/salidas.
 
 ## Seleccion De Skill

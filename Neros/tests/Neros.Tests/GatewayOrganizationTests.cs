@@ -32,9 +32,15 @@ public sealed class GatewayOrganizationTests
     [Fact]
     public async Task OrganizationReal_ExigeContextoFirmadoYSinHeadersDeIdentidad()
     {
+        var conexionOrganizacion = BaseDatosPruebas.NuevaConexion();
+        await BaseDatosPruebas.DesplegarAsync(conexionOrganizacion, "organizacion");
         using var rsa = RSA.Create(2048);
         var signing = new RsaSecurityKey(rsa) { KeyId = "organization-test" };
         var builder = CrearBuilder();
+        builder.Configuration.AddInMemoryCollection(new Dictionary<string, string?>
+        {
+            ["ConnectionStrings:Organization"] = conexionOrganizacion
+        });
         ConfigurarFirma(builder, signing);
         await using var app = OrganizationHost.Crear(builder);
         await app.StartAsync();
@@ -55,15 +61,22 @@ public sealed class GatewayOrganizationTests
         using var rejected = await client.SendAsync(forged);
         Assert.Equal(HttpStatusCode.BadRequest, rejected.StatusCode);
         await app.StopAsync();
+        await BaseDatosPruebas.EliminarAsync(conexionOrganizacion);
     }
 
     [Fact]
     public async Task GatewayReal_ConservaTokenYCorrelacionSinConfiarEnHeaders()
     {
+        var conexionOrganizacion = BaseDatosPruebas.NuevaConexion();
+        await BaseDatosPruebas.DesplegarAsync(conexionOrganizacion, "organizacion");
         var spans = new ConcurrentBag<FoundationTelemetryTests.SpanEvidence>();
         using var rsa = RSA.Create(2048);
         var signing = new RsaSecurityKey(rsa) { KeyId = "gateway-test" };
         var organizationBuilder = CrearBuilder();
+        organizationBuilder.Configuration.AddInMemoryCollection(new Dictionary<string, string?>
+        {
+            ["ConnectionStrings:Organization"] = conexionOrganizacion
+        });
         ConfigurarFirma(organizationBuilder, signing);
         organizationBuilder.Services.AddOpenTelemetry().WithTracing(tracing => tracing.AddProcessor(
             new SimpleActivityExportProcessor(new FoundationTelemetryTests.EvidenceExporter(spans))));
@@ -85,7 +98,8 @@ public sealed class GatewayOrganizationTests
         gatewayBuilder.Configuration.AddInMemoryCollection(new Dictionary<string, string?>
         {
             ["Services:Organization"] = Direccion(organization).ToString(),
-            ["Services:Compatibility"] = Direccion(legacy).ToString()
+            ["Services:Compatibility"] = Direccion(legacy).ToString(),
+            ["Services:Terceros"] = "http://127.0.0.1:1/"
         });
         await using var gateway = GatewayHost.Crear(gatewayBuilder);
         await gateway.StartAsync();
@@ -144,6 +158,7 @@ public sealed class GatewayOrganizationTests
             .GroupBy(span => span.TraceId).FirstOrDefault(group => group.Select(span => span.SpanId).Distinct().Count() >= 2);
         Assert.NotNull(linked);
         Assert.Contains(spans, span => span.TraceId == linked.Key && span.Kind == ActivityKind.Client);
+        await BaseDatosPruebas.EliminarAsync(conexionOrganizacion);
     }
 
     [Fact]
@@ -225,7 +240,9 @@ public sealed class GatewayOrganizationTests
         builder.Configuration.AddInMemoryCollection(new Dictionary<string, string?>
         {
             ["Services:Compatibility"] = legacy.ToString(),
-            ["Services:Organization"] = "http://127.0.0.1:1/"
+            ["Services:Organization"] = "http://127.0.0.1:1/",
+            ["Services:Terceros"] = "http://127.0.0.1:1/",
+            ["Services:Search"] = "http://127.0.0.1:1/"
         });
 
     internal static WebApplicationBuilder CrearBuilder()

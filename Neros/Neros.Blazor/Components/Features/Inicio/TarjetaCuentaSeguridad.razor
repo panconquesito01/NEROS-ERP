@@ -1,0 +1,46 @@
+@inject IStringLocalizer<TextosInicio> T
+@inject ServicioUiModales UiModales
+
+<section class="n-account-card" aria-labelledby="cuenta-seguridad-titulo">
+    <header class="n-section-heading">
+        <h2 id="cuenta-seguridad-titulo">@T["CuentaTitulo"]</h2>
+    </header>
+    <div class="n-account-card-body">
+        @if (DebeCambiarClave)
+        {
+            <div class="n-notice n-warn" role="status">
+                <Icono Nombre="triangle-alert" />
+                <p>@T["CuentaClaveTemporal"]</p>
+            </div>
+        }
+        <dl class="n-account-metrics">
+            <div>
+                <dt>@T["CuentaUltimoAcceso"]</dt>
+                <dd>
+                    @if (UltimoAccesoUtc is { } acceso)
+                    {
+                        <time datetime="@Presentacion.FechaIso(acceso)" data-local-date="relative">@Presentacion.FechaUtc(acceso)</time>
+                    }
+                    else
+                    {
+                        @T["CuentaSinAcceso"]
+                    }
+                </dd>
+            </div>
+            <div>
+                <dt>@T["CuentaSesiones"]</dt>
+                <dd>@T[SesionesAbiertas == 1 ? "CuentaSesionesUna" : "CuentaSesionesVarias", SesionesAbiertas]</dd>
+            </div>
+        </dl>
+        <div class="n-account-actions">
+            <a class="n-button n-secondary" href="/cuenta/sesiones"><Icono Nombre="monitor-smartphone" /><span>@T["CuentaVerSesiones"]</span></a>
+            <button type="button" class="n-button n-ghost" @onclick="UiModales.AbrirClave"><Icono Nombre="key-round" /><span>@T["CuentaCambiarClave"]</span></button>
+        </div>
+    </div>
+</section>
+
+@code {
+    [Parameter] public bool DebeCambiarClave { get; set; }
+    [Parameter] public DateTime? UltimoAccesoUtc { get; set; }
+    [Parameter] public int SesionesAbiertas { get; set; }
+}

@@ -1,0 +1,30 @@
+@inject IStringLocalizer<TextosInicio> T
+@inject IStringLocalizer<TextosComunes> C
+
+<header class="n-dashboard-hero">
+    <div class="n-dashboard-hero-copy">
+        <p class="n-dashboard-eyebrow">@T["ContextoEtiqueta"]</p>
+        <h1>@T["Saludo", Presentacion.PrimerNombre(NombreUsuario)]</h1>
+        <p class="n-dashboard-lead">@T["Listo"]</p>
+        @if (Empresa is not null)
+        {
+            <div class="n-dashboard-hero-meta">
+                <span class="n-company-monogram n-company-monogram-sm">@Presentacion.Monograma(Empresa.Codigo)</span>
+                <div>
+                    <strong>@Empresa.Nombre</strong>
+                    <small>@T["ContextoRol"]: @Empresa.Rol · @Empresa.Codigo</small>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="n-dashboard-hero-actions">
+        <button type="button" class="n-button" @onclick="AbrirModulos"><Icono Nombre="grid-2x2" /><span>@C["Nav.VerModulos"]</span></button>
+        <a class="n-button n-secondary" href="/empresas"><Icono Nombre="arrow-left-right" />@T["ContextoCambiar"]</a>
+    </div>
+</header>
+
+@code {
+    [Parameter] public string? NombreUsuario { get; set; }
+    [Parameter] public EmpresaDisponible? Empresa { get; set; }
+    [Parameter] public EventCallback AbrirModulos { get; set; }
+}

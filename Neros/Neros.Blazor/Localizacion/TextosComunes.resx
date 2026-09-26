@@ -17,7 +17,14 @@
   <data name="Layout.SesionDe" xml:space="preserve"><value>Sesión de {0}</value></data>
   <data name="Nav.Principal" xml:space="preserve"><value>Navegación principal</value></data>
   <data name="Nav.EspacioTrabajo" xml:space="preserve"><value>Espacio de trabajo</value></data>
+  <data name="Nav.Modulos" xml:space="preserve"><value>Módulos</value></data>
+  <data name="Nav.VerModulos" xml:space="preserve"><value>Explorar módulos</value></data>
+  <data name="Nav.ExplorarModulos" xml:space="preserve"><value>Módulos del ERP</value></data>
+  <data name="Nav.MenuMas" xml:space="preserve"><value>Más opciones</value></data>
+  <data name="Nav.AccesosCuenta" xml:space="preserve"><value>Tu cuenta</value></data>
+  <data name="Modal.Cerrar" xml:space="preserve"><value>Cerrar</value></data>
   <data name="Nav.SinEmpresa" xml:space="preserve"><value>Sin empresa activa</value></data>
+  <data name="Nav.ElegirEmpresaPrimero" xml:space="preserve"><value>Elige una empresa en «Mis empresas» para ver inicio y módulos.</value></data>
   <data name="Nav.EmpresaActiva" xml:space="preserve"><value>Empresa activa</value></data>
   <data name="Seccion.Inicio" xml:space="preserve"><value>Inicio</value></data>
   <data name="Seccion.Empresas" xml:space="preserve"><value>Mis empresas</value></data>
@@ -68,4 +75,22 @@
   <data name="Js.PausarAnimacion" xml:space="preserve"><value>Pausar animación</value></data>
   <data name="Js.ReanudarAnimacion" xml:space="preserve"><value>Reanudar animación</value></data>
   <data name="Js.MovimientoReducido" xml:space="preserve"><value>Movimiento reducido activado</value></data>
+  <data name="Js.Copiado" xml:space="preserve"><value>Copiado</value></data>
+  <data name="Js.CopiaNoDisponible" xml:space="preserve"><value>Selecciona y copia</value></data>
+  <data name="Menu.Usuario" xml:space="preserve"><value>Menú de usuario</value></data>
+  <data name="Menu.CambiarClave" xml:space="preserve"><value>Cambiar contraseña</value></data>
+  <data name="Menu.Sesiones" xml:space="preserve"><value>Mis sesiones</value></data>
+  <data name="Menu.Usuarios" xml:space="preserve"><value>Administrar usuarios</value></data>
+  <data name="Nav.Administracion" xml:space="preserve"><value>Administración</value></data>
+  <data name="Nav.AdministracionPlataforma" xml:space="preserve"><value>Plataforma</value></data>
+  <data name="Nav.AdministracionEmpresa" xml:space="preserve"><value>Empresa</value></data>
+  <data name="Seccion.EmpresasPlataforma" xml:space="preserve"><value>Empresas</value></data>
+  <data name="Seccion.UsuariosPlataforma" xml:space="preserve"><value>Usuarios global</value></data>
+  <data name="Seccion.UsuariosEmpresa" xml:space="preserve"><value>Usuarios</value></data>
+  <data name="Seccion.ConfiguracionEmpresa" xml:space="preserve"><value>Regional y TRM</value></data>
+  <data name="Seccion.CambioClave" xml:space="preserve"><value>Cambiar contraseña</value></data>
+  <data name="Seccion.Sesiones" xml:space="preserve"><value>Mis sesiones</value></data>
+  <data name="Seccion.Usuarios" xml:space="preserve"><value>Usuarios</value></data>
+  <data name="Seccion.Cookies" xml:space="preserve"><value>Política de cookies</value></data>
+  <data name="Seccion.Legal" xml:space="preserve"><value>Documentos legales</value></data>
 </root>

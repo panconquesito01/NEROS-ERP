@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Usuarios.Titulo" xml:space="preserve"><value>Usuarios | Neros ERP</value></data>
+  <data name="Usuarios.Encabezado" xml:space="preserve"><value>Usuarios</value></data>
+  <data name="Usuarios.Subtitulo" xml:space="preserve"><value>Consulta las cuentas de la plataforma, desbloquéalas o restablece su contraseña.</value></data>
+  <data name="Usuarios.SubtituloExtendido" xml:space="preserve"><value>Consulta cuentas, edita perfiles, habilita o deshabilita accesos, restablece contraseñas o elimina usuarios de forma permanente.</value></data>
+  <data name="Usuarios.Total" xml:space="preserve"><value>{0} usuarios</value></data>
+  <data name="Usuarios.TotalUno" xml:space="preserve"><value>1 usuario</value></data>
+  <data name="Usuarios.Buscar" xml:space="preserve"><value>Buscar usuarios</value></data>
+  <data name="Usuarios.BuscarEjemplo" xml:space="preserve"><value>Nombre o correo</value></data>
+  <data name="Usuarios.BuscarAccion" xml:space="preserve"><value>Buscar</value></data>
+  <data name="Usuarios.Nombre" xml:space="preserve"><value>Usuario</value></data>
+  <data name="Usuarios.Estado" xml:space="preserve"><value>Estado</value></data>
+  <data name="Usuarios.UltimoAcceso" xml:space="preserve"><value>Último acceso</value></data>
+  <data name="Usuarios.Acciones" xml:space="preserve"><value>Acciones</value></data>
+  <data name="Usuarios.Activo" xml:space="preserve"><value>Activo</value></data>
+  <data name="Usuarios.Inactivo" xml:space="preserve"><value>Inactivo</value></data>
+  <data name="Usuarios.Bloqueado" xml:space="preserve"><value>Bloqueado</value></data>
+  <data name="Usuarios.ClaveTemporal" xml:space="preserve"><value>Clave temporal</value></data>
+  <data name="Usuarios.Admin" xml:space="preserve"><value>Administrador global</value></data>
+  <data name="Usuarios.Nunca" xml:space="preserve"><value>Sin accesos</value></data>
+  <data name="Usuarios.Restablecer" xml:space="preserve"><value>Restablecer contraseña</value></data>
+  <data name="Usuarios.RestablecerEtiqueta" xml:space="preserve"><value>Restablecer la contraseña de {0}</value></data>
+  <data name="Usuarios.ConfirmarRestablecer" xml:space="preserve"><value>Se generará una contraseña temporal para {0} y se cerrarán todas sus sesiones. ¿Continuar?</value></data>
+  <data name="Usuarios.Desbloquear" xml:space="preserve"><value>Desbloquear</value></data>
+  <data name="Usuarios.DesbloquearEtiqueta" xml:space="preserve"><value>Desbloquear a {0}</value></data>
+  <data name="Usuarios.Desbloqueado" xml:space="preserve"><value>{0} ya puede volver a entrar.</value></data>
+  <data name="Usuarios.ClaveGenerada.Titulo" xml:space="preserve"><value>Contraseña temporal de {0}</value></data>
+  <data name="Usuarios.ClaveGenerada.Detalle" xml:space="preserve"><value>Compártela por un canal seguro. Solo se muestra esta vez y deberá cambiarla al entrar.</value></data>
+  <data name="Usuarios.Copiar" xml:space="preserve"><value>Copiar</value></data>
+  <data name="Usuarios.Error.no_encontrado" xml:space="preserve"><value>El usuario ya no existe.</value></data>
+  <data name="Usuarios.Error.propia_cuenta" xml:space="preserve"><value>No puedes restablecer tu propia contraseña aquí. Usa Cambiar contraseña.</value></data>
+  <data name="Usuarios.Error.permiso" xml:space="preserve"><value>No tienes permiso para esta acción.</value></data>
+  <data name="Usuarios.Error.datos" xml:space="preserve"><value>La solicitud no es válida.</value></data>
+  <data name="Usuarios.Error.servicio" xml:space="preserve"><value>No pudimos completar la operación. Inténtalo de nuevo.</value></data>
+  <data name="Usuarios.ErrorCarga" xml:space="preserve"><value>No pudimos cargar los usuarios.</value></data>
+  <data name="Usuarios.Vacio" xml:space="preserve"><value>No hay usuarios que coincidan con la búsqueda.</value></data>
+  <data name="Usuarios.Paginacion" xml:space="preserve"><value>Paginación de usuarios</value></data>
+  <data name="Usuarios.Anterior" xml:space="preserve"><value>Anterior</value></data>
+  <data name="Usuarios.Siguiente" xml:space="preserve"><value>Siguiente</value></data>
+  <data name="Usuarios.Pagina" xml:space="preserve"><value>Página {0} de {1}</value></data>
+  <data name="Usuarios.Cargando" xml:space="preserve"><value>Cargando usuarios…</value></data>
+  <data name="Usuarios.Tabla" xml:space="preserve"><value>Listado paginado de usuarios</value></data>
+  <data name="Usuarios.Correo" xml:space="preserve"><value>Correo</value></data>
+  <data name="Plataforma.Empresas.Titulo" xml:space="preserve"><value>Empresas | Neros ERP</value></data>
+  <data name="Plataforma.Empresas.Encabezado" xml:space="preserve"><value>Empresas de la plataforma</value></data>
+  <data name="Plataforma.Empresas.Subtitulo" xml:space="preserve"><value>Crea empresas, identificación fiscal y logo.</value></data>
+  <data name="Plataforma.Empresas.Crear" xml:space="preserve"><value>Nueva empresa</value></data>
+  <data name="Plataforma.Empresas.Codigo" xml:space="preserve"><value>Código</value></data>
+  <data name="Plataforma.Empresas.Nombre" xml:space="preserve"><value>Razón social</value></data>
+  <data name="Plataforma.Empresas.Identificacion" xml:space="preserve"><value>Identificación fiscal</value></data>
+  <data name="Plataforma.Empresas.CrearAccion" xml:space="preserve"><value>Crear empresa</value></data>
+  <data name="Plataforma.Empresas.Error.duplicada" xml:space="preserve"><value>Ya existe una empresa con ese código.</value></data>
+  <data name="Plataforma.Empresas.Creada" xml:space="preserve"><value>Empresa {0} creada.</value></data>
+  <data name="Plataforma.Empresas.LogoOk" xml:space="preserve"><value>Logo actualizado.</value></data>
+  <data name="Empresa.Usuarios.Titulo" xml:space="preserve"><value>Usuarios de la empresa | Neros ERP</value></data>
+  <data name="Empresa.Usuarios.Encabezado" xml:space="preserve"><value>Usuarios de la empresa</value></data>
+  <data name="Empresa.Usuarios.Subtitulo" xml:space="preserve"><value>Administra cuentas de {0} según tu rol.</value></data>
+  <data name="Empresa.Usuarios.Invitar" xml:space="preserve"><value>Invitar usuario</value></data>
+  <data name="Empresa.Usuarios.Rol" xml:space="preserve"><value>Rol</value></data>
+  <data name="Empresa.Usuarios.Crear" xml:space="preserve"><value>Crear acceso</value></data>
+  <data name="Usuarios.Crear" xml:space="preserve"><value>Nuevo usuario global</value></data>
+  <data name="Usuarios.CrearAccion" xml:space="preserve"><value>Crear usuario</value></data>
+  <data name="Usuarios.MembresiaOpcional" xml:space="preserve"><value>Asignar a empresa (opcional)</value></data>
+  <data name="Usuarios.SinEmpresa" xml:space="preserve"><value>Sin asignar</value></data>
+  <data name="Usuarios.Creado" xml:space="preserve"><value>Usuario {0} creado.</value></data>
+  <data name="Usuarios.Error.correo_duplicado" xml:space="preserve"><value>Ya existe una cuenta con ese correo.</value></data>
+  <data name="Usuarios.Error.rol_invalido" xml:space="preserve"><value>Rol o empresa inválidos.</value></data>
+  <data name="Usuarios.Error.membresia_duplicada" xml:space="preserve"><value>Ese usuario ya pertenece a la empresa.</value></data>
+  <data name="Usuarios.Cancelar" xml:space="preserve"><value>Cancelar</value></data>
+  <data name="Usuarios.Editar" xml:space="preserve"><value>Editar</value></data>
+  <data name="Usuarios.EditarEtiqueta" xml:space="preserve"><value>Editar perfil de {0}</value></data>
+  <data name="Usuarios.EditarTitulo" xml:space="preserve"><value>Editar usuario</value></data>
+  <data name="Usuarios.Guardar" xml:space="preserve"><value>Guardar cambios</value></data>
+  <data name="Usuarios.Actualizado" xml:space="preserve"><value>Perfil de {0} actualizado.</value></data>
+  <data name="Usuarios.Desactivar" xml:space="preserve"><value>Deshabilitar</value></data>
+  <data name="Usuarios.Activar" xml:space="preserve"><value>Habilitar</value></data>
+  <data name="Usuarios.DesactivarEtiqueta" xml:space="preserve"><value>Deshabilitar a {0}</value></data>
+  <data name="Usuarios.ActivarEtiqueta" xml:space="preserve"><value>Habilitar a {0}</value></data>
+  <data name="Usuarios.ConfirmarDesactivar" xml:space="preserve"><value>{0} no podrá entrar hasta que lo habilites de nuevo. ¿Continuar?</value></data>
+  <data name="Usuarios.ConfirmarActivar" xml:space="preserve"><value>¿Volver a habilitar el acceso de {0}?</value></data>
+  <data name="Usuarios.Desactivado" xml:space="preserve"><value>{0} quedó deshabilitado.</value></data>
+  <data name="Usuarios.Activado" xml:space="preserve"><value>{0} ya puede volver a entrar.</value></data>
+  <data name="Usuarios.Eliminar" xml:space="preserve"><value>Eliminar</value></data>
+  <data name="Usuarios.EliminarEtiqueta" xml:space="preserve"><value>Eliminar permanentemente a {0}</value></data>
+  <data name="Usuarios.ConfirmarEliminar" xml:space="preserve"><value>Se borrará la cuenta de {0}, sus membresías y sesiones. Esta acción no se puede deshacer. ¿Continuar?</value></data>
+  <data name="Usuarios.Eliminado" xml:space="preserve"><value>La cuenta de {0} fue eliminada.</value></data>
+  <data name="Empresa.Usuarios.Vacio" xml:space="preserve"><value>Aún no hay usuarios en esta empresa.</value></data>
+  <data name="Empresa.Usuarios.VacioDetalle" xml:space="preserve"><value>Invita a tu equipo con perfil completo, rol y módulos.</value></data>
+  <data name="Empresa.Usuarios.Creado" xml:space="preserve"><value>Usuario invitado correctamente.</value></data>
+  <data name="Usuarios.Formulario.CorreoFijo" xml:space="preserve"><value>Cuenta:</value></data>
+  <data name="Usuarios.Formulario.Plataforma" xml:space="preserve"><value>Acceso a la plataforma</value></data>
+  <data name="Usuarios.Formulario.PlataformaDetalle" xml:space="preserve"><value>Permisos globales para administrar empresas y usuarios de todo el ERP.</value></data>
+  <data name="Usuarios.Formulario.AdminGlobalDetalle" xml:space="preserve"><value>Puede crear empresas, administrar cualquier usuario y acceder a todos los módulos operativos.</value></data>
+  <data name="Usuarios.Formulario.AccesoEmpresa" xml:space="preserve"><value>Acceso por empresa</value></data>
+  <data name="Usuarios.Formulario.AccesoEmpresaDetalle" xml:space="preserve"><value>Asigna rol y módulos por empresa. Al editar, cambia la empresa del listado para configurar otra membresía.</value></data>
+  <data name="Usuarios.Formulario.MembresiasActivas" xml:space="preserve"><value>Membresías guardadas:</value></data>
+  <data name="Usuarios.Formulario.RolDetalle" xml:space="preserve"><value>Administrador gestiona usuarios y configuración; Operador registra operaciones; Consulta solo consulta.</value></data>
+  <data name="Usuarios.Error.fuera_empresa" xml:space="preserve"><value>La empresa seleccionada no existe o está inactiva.</value></data>
+  <data name="Perfil.Identidad" xml:space="preserve"><value>Identidad</value></data>
+  <data name="Perfil.PrimerNombre" xml:space="preserve"><value>Primer nombre</value></data>
+  <data name="Perfil.SegundoNombre" xml:space="preserve"><value>Segundo nombre</value></data>
+  <data name="Perfil.PrimerApellido" xml:space="preserve"><value>Primer apellido</value></data>
+  <data name="Perfil.SegundoApellido" xml:space="preserve"><value>Segundo apellido</value></data>
+  <data name="Perfil.Documento" xml:space="preserve"><value>Documento de identidad</value></data>
+  <data name="Perfil.TipoDocumento" xml:space="preserve"><value>Tipo de documento</value></data>
+  <data name="Perfil.NumeroDocumento" xml:space="preserve"><value>Número de documento</value></data>
+  <data name="Perfil.Contacto" xml:space="preserve"><value>Contacto y ubicación</value></data>
+  <data name="Perfil.Ciudad" xml:space="preserve"><value>Ciudad</value></data>
+  <data name="Perfil.Direccion" xml:space="preserve"><value>Dirección</value></data>
+  <data name="Perfil.AccesoModulos" xml:space="preserve"><value>Módulos y rol</value></data>
+  <data name="Perfil.AccesoModulosDetalle" xml:space="preserve"><value>Marca los módulos que podrá usar cuando estén disponibles. El rol define permisos dentro de la empresa.</value></data>
+</root>

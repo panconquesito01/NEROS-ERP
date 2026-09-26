@@ -1,0 +1,58 @@
+@inject IStringLocalizer<TextosEmpresas> T
+
+@if (error is not null)
+{
+    <Aviso>@error</Aviso>
+}
+else if (cargando)
+{
+    <EstadoCargando>@T["Cargando"]</EstadoCargando>
+}
+else if (empresas.Count > 0)
+{
+    @if (empresas.Count >= 6)
+    {
+        <label class="n-input-icon n-search n-modal-search">
+            <Icono Nombre="search" />
+            <input type="search" placeholder="@T["BuscarEjemplo"]" @bind="filtro" @bind:event="oninput" autocomplete="off" />
+        </label>
+    }
+    <ul class="n-company-list n-company-list-modal" role="list">
+        @foreach (var empresa in Filtradas)
+        {
+            <FilaEmpresaModal Empresa="empresa" Activa="@(empresa.Id == EmpresaActivaId)" Volver="@Volver" />
+        }
+    </ul>
+    @if (!Filtradas.Any())
+    {
+        <p class="n-field-hint">@T["SinCoincidencias"]</p>
+    }
+}
+else
+{
+    <EstadoVacio NombreIcono="building-2" Titulo="@T["VacioTitulo"]">
+        <ChildContent>@T["VacioDetalle"]</ChildContent>
+    </EstadoVacio>
+}
+
+@code {
+    [Parameter] public IReadOnlyList<EmpresaDisponible> empresas { get; set; } = [];
+    [Parameter] public Guid? EmpresaActivaId { get; set; }
+    [Parameter] public bool cargando { get; set; }
+    [Parameter] public string? error { get; set; }
+    [Parameter] public string? Volver { get; set; }
+
+    private string filtro = string.Empty;
+    private IEnumerable<EmpresaDisponible> Filtradas =>
+        string.IsNullOrWhiteSpace(filtro)
+            ? empresas
+            : empresas.Where(e => Coincide(e, filtro));
+
+    private static bool Coincide(EmpresaDisponible empresa, string texto)
+    {
+        var t = texto.Trim();
+        return empresa.Nombre.Contains(t, StringComparison.OrdinalIgnoreCase)
+            || empresa.Codigo.Contains(t, StringComparison.OrdinalIgnoreCase)
+            || empresa.Identificacion.Contains(t, StringComparison.OrdinalIgnoreCase);
+    }
+}

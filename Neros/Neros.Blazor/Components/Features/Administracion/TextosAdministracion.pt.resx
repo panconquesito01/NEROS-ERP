@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Usuarios.Titulo" xml:space="preserve"><value>Usuários | Neros ERP</value></data>
+  <data name="Usuarios.Encabezado" xml:space="preserve"><value>Usuários</value></data>
+  <data name="Usuarios.Subtitulo" xml:space="preserve"><value>Consulte as contas da plataforma, desbloqueie-as ou redefina a senha.</value></data>
+  <data name="Usuarios.Total" xml:space="preserve"><value>{0} usuários</value></data>
+  <data name="Usuarios.TotalUno" xml:space="preserve"><value>1 usuário</value></data>
+  <data name="Usuarios.Buscar" xml:space="preserve"><value>Buscar usuários</value></data>
+  <data name="Usuarios.BuscarEjemplo" xml:space="preserve"><value>Nome ou e-mail</value></data>
+  <data name="Usuarios.BuscarAccion" xml:space="preserve"><value>Buscar</value></data>
+  <data name="Usuarios.Nombre" xml:space="preserve"><value>Usuário</value></data>
+  <data name="Usuarios.Estado" xml:space="preserve"><value>Status</value></data>
+  <data name="Usuarios.UltimoAcceso" xml:space="preserve"><value>Último acesso</value></data>
+  <data name="Usuarios.Acciones" xml:space="preserve"><value>Ações</value></data>
+  <data name="Usuarios.Activo" xml:space="preserve"><value>Ativo</value></data>
+  <data name="Usuarios.Inactivo" xml:space="preserve"><value>Inativo</value></data>
+  <data name="Usuarios.Bloqueado" xml:space="preserve"><value>Bloqueado</value></data>
+  <data name="Usuarios.ClaveTemporal" xml:space="preserve"><value>Senha temporária</value></data>
+  <data name="Usuarios.Admin" xml:space="preserve"><value>Administrador global</value></data>
+  <data name="Usuarios.Nunca" xml:space="preserve"><value>Sem acessos</value></data>
+  <data name="Usuarios.Restablecer" xml:space="preserve"><value>Redefinir senha</value></data>
+  <data name="Usuarios.RestablecerEtiqueta" xml:space="preserve"><value>Redefinir a senha de {0}</value></data>
+  <data name="Usuarios.ConfirmarRestablecer" xml:space="preserve"><value>Será gerada uma senha temporária para {0} e todas as suas sessões serão encerradas. Continuar?</value></data>
+  <data name="Usuarios.Desbloquear" xml:space="preserve"><value>Desbloquear</value></data>
+  <data name="Usuarios.DesbloquearEtiqueta" xml:space="preserve"><value>Desbloquear {0}</value></data>
+  <data name="Usuarios.Desbloqueado" xml:space="preserve"><value>{0} já pode entrar novamente.</value></data>
+  <data name="Usuarios.ClaveGenerada.Titulo" xml:space="preserve"><value>Senha temporária de {0}</value></data>
+  <data name="Usuarios.ClaveGenerada.Detalle" xml:space="preserve"><value>Compartilhe por um canal seguro. Ela é exibida apenas desta vez e deverá ser alterada ao entrar.</value></data>
+  <data name="Usuarios.Copiar" xml:space="preserve"><value>Copiar</value></data>
+  <data name="Usuarios.Error.no_encontrado" xml:space="preserve"><value>O usuário não existe mais.</value></data>
+  <data name="Usuarios.Error.propia_cuenta" xml:space="preserve"><value>Você não pode redefinir sua própria senha aqui. Use Alterar senha.</value></data>
+  <data name="Usuarios.Error.permiso" xml:space="preserve"><value>Você não tem permissão para esta ação.</value></data>
+  <data name="Usuarios.Error.datos" xml:space="preserve"><value>A solicitação não é válida.</value></data>
+  <data name="Usuarios.Error.servicio" xml:space="preserve"><value>Não foi possível concluir a operação. Tente novamente.</value></data>
+  <data name="Usuarios.ErrorCarga" xml:space="preserve"><value>Não foi possível carregar os usuários.</value></data>
+  <data name="Usuarios.Vacio" xml:space="preserve"><value>Nenhum usuário corresponde à busca.</value></data>
+  <data name="Usuarios.Paginacion" xml:space="preserve"><value>Paginação de usuários</value></data>
+  <data name="Usuarios.Anterior" xml:space="preserve"><value>Anterior</value></data>
+  <data name="Usuarios.Siguiente" xml:space="preserve"><value>Próxima</value></data>
+  <data name="Usuarios.Pagina" xml:space="preserve"><value>Página {0} de {1}</value></data>
+  <data name="Usuarios.Cargando" xml:space="preserve"><value>Carregando usuários…</value></data>
+  <data name="Usuarios.Tabla" xml:space="preserve"><value>Listagem paginada de usuários</value></data>
+</root>

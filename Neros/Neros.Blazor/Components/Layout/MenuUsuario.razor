@@ -1,0 +1,52 @@
+@inject IHttpContextAccessor ContextAccessor
+@inject IStringLocalizer<TextosComunes> C
+@inject ServicioUiModales UiModales
+
+<details class="n-user-menu" data-menu>
+    <summary aria-label="@C["Menu.Usuario"]" title="@C["Menu.Usuario"]">
+        <span class="n-avatar" aria-hidden="true">@Presentacion.Iniciales(Usuario.Identity?.Name)</span>
+        <span class="n-user-menu-name">@Presentacion.PrimerNombre(Usuario.Identity?.Name)</span>
+        <Icono Nombre="chevron-down" />
+    </summary>
+    <div class="n-user-menu-panel">
+        <div class="n-user-menu-head">
+            <strong>@Usuario.Identity?.Name</strong>
+            <small>@Usuario.FindFirstValue(ClaimTypes.Email)</small>
+            @if (NombreEmpresa is not null)
+            {
+                <small class="n-user-menu-company"><Icono Nombre="building-2" />@NombreEmpresa</small>
+            }
+        </div>
+        @if (!RestringirAcceso)
+        {
+            <button type="button" @onclick="AbrirEmpresasAsync"><Icono Nombre="arrow-left-right" /><span>@C["Layout.CambiarEmpresa"]</span></button>
+        }
+        <button type="button" @onclick="UiModales.AbrirClave"><Icono Nombre="key-round" /><span>@C["Menu.CambiarClave"]</span></button>
+        @if (!RestringirAcceso)
+        {
+            <a href="/cuenta/sesiones"><Icono Nombre="monitor-smartphone" /><span>@C["Menu.Sesiones"]</span></a>
+            @if (Usuario.HasClaim(CodigosPermiso.Claim, CodigosPermiso.UsuarioConsultar))
+            {
+                <a href="/administracion/usuarios"><Icono Nombre="users-round" /><span>@C["Menu.Usuarios"]</span></a>
+            }
+        }
+        <form method="post" action="/sesion/salir" data-busy-form data-enhance="false">
+            <AntiforgeryToken />
+            <button type="submit"><Icono Nombre="log-out" /><span>@C["Layout.CerrarSesion"]</span></button>
+        </form>
+    </div>
+</details>
+
+@code {
+    private ClaimsPrincipal Usuario => ContextAccessor.HttpContext?.User ?? new ClaimsPrincipal();
+    private string? NombreEmpresa => Usuario.FindFirstValue(EndpointsSesion.NombreEmpresaClaim);
+    private bool RestringirAcceso =>
+        Usuario.HasClaim(EndpointsSesion.DebeCambiarClaveClaim, "true")
+        || Usuario.HasClaim(EndpointsSesion.LegalPendienteClaim, "true");
+
+    private Task AbrirEmpresasAsync()
+    {
+        UiModales.AbrirEmpresas();
+        return Task.CompletedTask;
+    }
+}

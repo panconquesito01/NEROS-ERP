@@ -11,6 +11,7 @@
     <ProjectReference Include="..\src\BuildingBlocks\Neros.ServiceDefaults\Neros.ServiceDefaults.csproj" />
     <ProjectReference Include="..\Neros.Application\Neros.Application.csproj" />
     <ProjectReference Include="..\Neros.Persistence\Neros.Persistence.csproj" />
+    <ProjectReference Include="..\src\Services\Organization\Neros.Organization.Persistence\Neros.Organization.Persistence.csproj" />
     <ProjectReference Include="..\Neros.Contracts\Neros.Contracts.csproj" />
     <ProjectReference Include="..\Neros.Shared\Neros.Shared.csproj" />
   </ItemGroup>

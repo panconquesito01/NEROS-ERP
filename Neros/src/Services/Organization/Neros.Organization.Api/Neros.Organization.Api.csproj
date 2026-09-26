@@ -6,5 +6,6 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\BuildingBlocks\Neros.ServiceDefaults\Neros.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\Neros.Organization.Persistence\Neros.Organization.Persistence.csproj" />
   </ItemGroup>
 </Project>

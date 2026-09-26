@@ -345,7 +345,7 @@ src/
   AppHost/Neros.AppHost/             # solo desarrollo, candidato Aspire
 tests/{Servicio}.{UnitTests,IntegrationTests,ContractTests}/
 tests/Platform.EndToEndTests/
-database/scripts/{servicio}/         # scripts manuales y registro por base
+database/{modulo}/                   # migrations, repeatable, seed, validation; registro por base (ADR-0004)
 deploy/{servicio}/                   # imagen/config/plantilla por servicio
 ```
 

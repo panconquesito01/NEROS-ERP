@@ -1,0 +1,87 @@
+@page "/administracion/plataforma/empresas"
+@rendermode InteractiveServer
+@attribute [Authorize(Policy = CodigosPermiso.PlataformaEmpresaConsultar)]
+@inject ClienteNeros Cliente
+@inject IHttpContextAccessor ContextAccessor
+@inject IStringLocalizer<TextosAdministracion> T
+
+<PageTitle>@T["Plataforma.Empresas.Titulo"]</PageTitle>
+
+<section class="n-page n-enter">
+    <header class="n-page-heading">
+        <div>
+            <h1>@T["Plataforma.Empresas.Encabezado"]</h1>
+            <p>@T["Plataforma.Empresas.Subtitulo"]</p>
+        </div>
+    </header>
+
+    @if (aviso is not null) { <Aviso Tipo="tipoAviso">@aviso</Aviso> }
+
+    @if (PuedeCrear)
+    {
+        <form class="n-form-card" method="post" @formname="crear-empresa" @onsubmit="CrearAsync">
+            <AntiforgeryToken />
+            <h2>@T["Plataforma.Empresas.Crear"]</h2>
+            <label>@T["Plataforma.Empresas.Codigo"]<input name="Codigo" @bind="nueva.Codigo" maxlength="20" required /></label>
+            <label>@T["Plataforma.Empresas.Nombre"]<input name="Nombre" @bind="nueva.Nombre" maxlength="160" required /></label>
+            <label>@T["Plataforma.Empresas.Identificacion"]<input name="Identificacion" @bind="nueva.Identificacion" maxlength="30" required /></label>
+            <button class="n-button" type="submit">@T["Plataforma.Empresas.CrearAccion"]</button>
+        </form>
+    }
+
+    @if (pagina is not null)
+    {
+        <ul class="n-list-cards">
+            @foreach (var empresa in pagina.Empresas)
+            {
+                <li class="n-list-card">
+                    <MarcaEmpresa EmpresaId="@empresa.Id" Monograma="@Presentacion.Monograma(empresa.Codigo)" TieneLogo="@empresa.TieneLogo"
+                                  ClaseImagen="n-company-logo n-company-logo-sm" ClaseMonograma="n-company-monogram n-company-monogram-sm" />
+                    <div>
+                        <strong>@empresa.Nombre</strong>
+                        <small>@empresa.Codigo · @empresa.Identificacion</small>
+                    </div>
+                    @if (PuedeModificar)
+                    {
+                        <InputFile OnChange="e => SubirLogoAsync(empresa.Id, e)" accept="image/png,image/jpeg,image/webp" />
+                    }
+                </li>
+            }
+        </ul>
+    }
+</section>
+
+@code {
+    private Neros.Contracts.Administracion.PaginaEmpresas? pagina;
+    private SolicitudCrearEmpresa nueva = new();
+    private string? aviso;
+    private TipoAviso tipoAviso = TipoAviso.Error;
+    private string Token => ContextAccessor.HttpContext!.User.FindFirstValue(EndpointsSesion.TokenClaim)!;
+    private bool PuedeCrear => ContextAccessor.HttpContext!.User.HasClaim(CodigosPermiso.Claim, CodigosPermiso.PlataformaEmpresaCrear);
+    private bool PuedeModificar => ContextAccessor.HttpContext!.User.HasClaim(CodigosPermiso.Claim, CodigosPermiso.PlataformaEmpresaModificar);
+
+    protected override async Task OnInitializedAsync() =>
+        pagina = await Cliente.EmpresasPlataformaAsync(Token, null, 1, 50, ContextAccessor.HttpContext!.RequestAborted);
+
+    private async Task CrearAsync()
+    {
+        var (empresa, error) = await Cliente.CrearEmpresaPlataformaAsync(Token, nueva, ContextAccessor.HttpContext!.RequestAborted);
+        if (error is not null) { aviso = T["Plataforma.Empresas.Error.duplicada"]; tipoAviso = TipoAviso.Error; return; }
+        nueva = new();
+        pagina = await Cliente.EmpresasPlataformaAsync(Token, null, 1, 50, ContextAccessor.HttpContext!.RequestAborted);
+        aviso = T["Plataforma.Empresas.Creada", empresa!.Nombre];
+        tipoAviso = TipoAviso.Exito;
+    }
+
+    private async Task SubirLogoAsync(Guid id, InputFileChangeEventArgs args)
+    {
+        if (args.File is null) return;
+        await using var stream = args.File.OpenReadStream(512 * 1024);
+        if (await Cliente.SubirLogoEmpresaAsync(Token, id, stream, args.File.ContentType, ContextAccessor.HttpContext!.RequestAborted))
+        {
+            pagina = await Cliente.EmpresasPlataformaAsync(Token, null, 1, 50, ContextAccessor.HttpContext!.RequestAborted);
+            aviso = T["Plataforma.Empresas.LogoOk"];
+            tipoAviso = TipoAviso.Exito;
+        }
+    }
+}
